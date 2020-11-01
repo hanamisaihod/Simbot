@@ -4,73 +4,51 @@ using UnityEngine;
 
 public class RobotMovementTest : MonoBehaviour
 {
-    public bool isOnIce = false;
-    public bool setMove = false;
-    public bool setTurn = false;
     public float speed;
-    public float initialIceSpeed;
-    public float iceCounter;
-    public float iceSpeed;
-    public float turnSpeed;
-    public float iceTurnSpeed;
-    private Rigidbody rigidBody;
+    public float torque;
+    public float delay;
+    public float currentDelay;
+    public bool isOnIce = false;
+    private Rigidbody rbd;
 
-    void Start()
+    private void Start()
     {
-        rigidBody = gameObject.GetComponent<Rigidbody>();
+        rbd = GetComponent<Rigidbody>();
     }
-    void Update()
-    {
-        Vector3 forwardPosition = transform.position + transform.forward;
-        Vector3 backwardPosition = transform.position - transform.forward;
-        if (isOnIce)
+    void FixedUpdate()
+    {        
+        if (delay > 0.01999961)
         {
-            initialIceSpeed = speed;
-            if (iceCounter < 50)
+            if (speed != 0)
             {
-                iceCounter += 3 * Time.deltaTime;
-            }
-            if (iceSpeed == 0)
-            {
-                iceSpeed = initialIceSpeed;
-            }
-            iceSpeed += (iceCounter / 100) * speed * Time.deltaTime;
-            setMove = true;
-            setTurn = true;
-            if (setMove)
-            {
-                if (speed > 0)
-                    transform.position = Vector3.Lerp(transform.position, forwardPosition, Time.deltaTime * iceSpeed);
+                if (isOnIce)
+                {
+                    rbd.AddForce(transform.forward * 2 * speed);
+                }
                 else
-                    transform.position = Vector3.Lerp(transform.position, backwardPosition, Time.deltaTime * -iceSpeed);
+                {
+                    rbd.velocity = transform.forward * speed / 0.99f;
+                }
             }
-            else
+            if (torque != 0)
             {
-
+                if (isOnIce)
+                {
+                    rbd.AddTorque(transform.up * 2 * torque / 57.273f);
+                }
+                else
+                {
+                    rbd.angularVelocity = transform.up * torque/ 57.273f / 0.99f;
+                }
             }
-            if (setTurn)
-            {
-                transform.Rotate(0, Time.deltaTime * turnSpeed, 0);
-            }
-            else
-            {
-
-            }
+            delay -= Time.fixedDeltaTime;
         }
         else
         {
-            initialIceSpeed = 0;
-            iceCounter = 0;
-            if (setMove)
+            if (!isOnIce)
             {
-                if (speed > 0)
-                    transform.position = Vector3.Lerp(transform.position, forwardPosition, Time.deltaTime * speed);
-                else
-                    transform.position = Vector3.Lerp(transform.position, backwardPosition, Time.deltaTime * -speed);
-            }
-            if (setTurn)
-            {
-                transform.Rotate(0, Time.deltaTime * turnSpeed, 0);
+                rbd.velocity = new Vector3(0, 0, 0);
+                rbd.angularVelocity = new Vector3(0, 0, 0);
             }
         }
     }
