@@ -17,6 +17,6 @@ public class InstantiateNewInterpreter : MonoBehaviour
 			Destroy(tempInterpreter);
 			tempInterpreter = Instantiate(myInterpreter);
 		}
-		tempInterpreter.GetComponent<BlockInterpreter>().StartReading();
+		//tempInterpreter.GetComponent<BlockInterpreter>().StartReading();
 	}
 }
