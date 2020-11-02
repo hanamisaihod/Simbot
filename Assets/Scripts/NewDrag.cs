@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
+
 
 public class NewDrag : MonoBehaviour
 {
@@ -12,10 +14,10 @@ public class NewDrag : MonoBehaviour
     {
         ObjToMove = gameObject.transform;
         ObjToPlace = gameObject;
-        Debug.Log("CHECKKKKKKKKKKK");
-        Debug.Log("RaycastBuilder.blockPos.x" + RaycastBuilder.blockPos.x);
-        Debug.Log("RaycastBuilder.blockPos.y" + RaycastBuilder.blockPos.y);
-        Debug.Log("RaycastBuilder.blockPos.z" + RaycastBuilder.blockPos.z);
+        //Debug.Log("CHECKKKKKKKKKKK");
+        //Debug.Log("RaycastBuilder.blockPos.x" + RaycastBuilder.blockPos.x);
+        //Debug.Log("RaycastBuilder.blockPos.y" + RaycastBuilder.blockPos.y);
+        //Debug.Log("RaycastBuilder.blockPos.z" + RaycastBuilder.blockPos.z);
         if(RaycastBuilder.blockPos.x != RaycastBuilder.LastPosX || RaycastBuilder.blockPos.y != RaycastBuilder.LastPosY || RaycastBuilder.blockPos.z != RaycastBuilder.LastPosZ )
         {
             //Debug.Log("CHECKKKKKKKKKKK");
@@ -30,9 +32,9 @@ public class NewDrag : MonoBehaviour
 
     void Update()
     {
-        if(ObjToPlace != null)
+        if(ObjToPlace != null && ConfirmPlace.confirmPlace == true)
             {
-                if(IsLegalPosition() && ConfirmPlace.confirmPlace == true)
+                if(IsLegalPosition())
                 {
                     //Debug.Log("LastPosX: " + LastPosX + " & LastPosZ: " + LastPosZ);
                     spawnObject = Instantiate(ObjToPlace,ObjToMove.position,ObjToMove.transform.rotation) as GameObject;
@@ -58,6 +60,7 @@ public class NewDrag : MonoBehaviour
                     //Destroy(gameObject);
                     call.StoreSpawnPosition();
                     ConfirmPlace.confirmPlace = false;
+                    ObjToMove.transform.position = new Vector3(ObjToMove.transform.position.x + 1, ObjToMove.transform.position.y, ObjToMove.transform.position.z);
                 }
             }
     }
@@ -66,6 +69,7 @@ public class NewDrag : MonoBehaviour
     {
         if(ComparePosition.SearchForPosition(ObjToMove))
         {
+            Debug.Log("CompareValue: " + ComparePosition.SearchForPosition(ObjToMove));
             return false;
         }
         return true;
