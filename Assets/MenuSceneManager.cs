@@ -18,4 +18,8 @@ public class MenuSceneManager : MonoBehaviour
         isMainMission = false;
         SceneManager.LoadScene("SelectRobot"); //The scene SelectRobot doesn't exist yet.
     }
+    public void OpenSettings()
+    {
+
+    }
 }

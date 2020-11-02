@@ -17,7 +17,7 @@ public class ChangeScene : MonoBehaviour
 	public void ClickChangeSceneBlock()
 	{
 		inputBlock = txt_Input.text;
-		BlockSaveSystem.newBlockProgram = true;
+		//BlockSaveSystem.newBlockProgram = true;
 		SceneManager.LoadScene("BlockProgramming");
 	}
 }
