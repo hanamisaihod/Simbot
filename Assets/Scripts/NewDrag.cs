@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
+using System;
 
 
 public class NewDrag : MonoBehaviour
 {
-    public Transform ObjToMove;
-    public GameObject ObjToPlace;
+    public static Transform ObjToMove;
+    public static GameObject ObjToPlace;
     public static GameObject spawnObject;
-    public DetectEnvironment call;
+
     void OnMouseDrag()
     {
         ObjToMove = gameObject.transform;
@@ -25,12 +26,12 @@ public class NewDrag : MonoBehaviour
             RaycastBuilder.LastPosX = RaycastBuilder.blockPos.x;
             RaycastBuilder.LastPosY = RaycastBuilder.blockPos.y;
             RaycastBuilder.LastPosZ = RaycastBuilder.blockPos.z;
-            ObjToMove.position = new Vector3(RaycastBuilder.blockPos.x, RaycastBuilder.blockPos.y ,RaycastBuilder.blockPos.z);      
+            ObjToMove.position = new Vector3(RaycastBuilder.blockPos.x, 0 ,RaycastBuilder.blockPos.z);      
         }
 
     }
 
-    void Update()
+    public static void TriggerOnConfirmation()
     {
         if(ObjToPlace != null && ConfirmPlace.confirmPlace == true)
             {
@@ -58,14 +59,14 @@ public class NewDrag : MonoBehaviour
                     //ObjToMove = null;
                     //ObjToPlace = null;
                     //Destroy(gameObject);
-                    call.StoreSpawnPosition();
+                    DetectEnvironment.StoreSpawnPosition();
                     ConfirmPlace.confirmPlace = false;
                     ObjToMove.transform.position = new Vector3(ObjToMove.transform.position.x + 1, ObjToMove.transform.position.y, ObjToMove.transform.position.z);
                 }
             }
     }
 
-    bool IsLegalPosition()
+    public static bool IsLegalPosition()
     {
         if(ComparePosition.SearchForPosition(ObjToMove))
         {

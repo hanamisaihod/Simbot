@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5336222136233718052}
   - component: {fileID: 1950780194058085727}
   m_Layer: 19
-  m_Name: Box-2-Wall-Half
+  m_Name: Box-Wall-Half
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ PrefabInstance:
     - target: {fileID: 888137168815110463, guid: 73ac167df7e3eb34b8e0961bd47c103a,
         type: 3}
       propertyPath: m_Layer
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 888137168815110463, guid: 73ac167df7e3eb34b8e0961bd47c103a,
         type: 3}

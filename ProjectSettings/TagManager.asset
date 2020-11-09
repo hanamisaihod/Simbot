@@ -18,6 +18,7 @@ TagManager:
   - Palette
   - Building
   - Wall
+  - IceFloor
   layers:
   - Default
   - TransparentFX
@@ -40,7 +41,7 @@ TagManager:
   - 
   - NormalBuild
   - FloorBuild
-  - 
+  - Place
   - 
   - 
   - 

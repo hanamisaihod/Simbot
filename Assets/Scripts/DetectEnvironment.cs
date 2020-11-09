@@ -8,7 +8,7 @@ public class DetectEnvironment : MonoBehaviour
     public static List<GameObject> keepPosition = new List<GameObject>();
     public static Vector3 playerPos;
     public static GameObject attachModel;
-    public void StoreSpawnPosition()
+    public static void StoreSpawnPosition()
     {
         int count = 1;
         if(NewDrag.spawnObject != null)
