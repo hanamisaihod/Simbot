@@ -25,7 +25,7 @@ public class BuildingHandler : MonoBehaviour
 	public int blockNum;
     public int ifChoice, compareDegreeChoice, compareLeftChoice, compareRightChoice, colorLeftChoice, colorRightChoice, repeatChoice, timesChoice;
     public float speedChoice, torqueChoice, delayChoice, degreeChoice, distanceChoice;
-	public int[] dropActives = new int[13];
+    public int[] dropActives;
 
 	void Start()
 	{
@@ -38,6 +38,7 @@ public class BuildingHandler : MonoBehaviour
 			}
 		}
 		UpdateHeight();
+        dropActives = new int[13];
 
 	}
 

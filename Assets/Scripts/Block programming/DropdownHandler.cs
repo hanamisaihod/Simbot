@@ -12,7 +12,7 @@ public class DropdownHandler : MonoBehaviour
     private BuildingHandler parentHandlerScript;
 	public GameObject centerExtendPart, tailExtendPart;
 	public List<GameObject> tempList;
-    void Awake()
+    void Start()
 	{
 		parentHandlerScript = transform.parent.GetComponent<BuildingHandler>();
 		tempList = new List<GameObject>();

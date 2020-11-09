@@ -1098,7 +1098,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2372020123127935925}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.67, y: -0.749, z: 0}
+  m_LocalPosition: {x: 10.11, y: -0.749, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 363541816877320723}
@@ -3285,7 +3285,7 @@ GameObject:
   - component: {fileID: 2101092378278193282}
   - component: {fileID: 6347357712020924125}
   m_Layer: 0
-  m_Name: colorRightDrop
+  m_Name: compareRightDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3306,7 +3306,7 @@ RectTransform:
   - {fileID: 8793265800159722316}
   - {fileID: 7262903917224487573}
   m_Father: {fileID: 8831344769208853416}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3395,7 +3395,7 @@ MonoBehaviour:
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 4284954744712980365}
   m_ItemImage: {fileID: 0}
-  m_Value: 1
+  m_Value: 0
   m_Options:
     m_Options:
     - m_Text: =
@@ -3406,7 +3406,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8455998458655600179}
-        m_MethodName: HandleColorRightDropDown
+        m_MethodName: HandleCompareRightDropDown
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3957,8 +3957,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5364808355417631402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.105, y: -0.749, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalPosition: {x: 5.353, y: -0.749, z: 0}
+  m_LocalScale: {x: 0.3530722, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 363541816877320723}
   m_RootOrder: 5
@@ -4215,7 +4215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '!='
+  m_text: =
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 988ddcde741b2d44f8090eafbc951b38, type: 2}
   m_sharedMaterial: {fileID: 8455433654262985617, guid: 988ddcde741b2d44f8090eafbc951b38,
@@ -4285,7 +4285,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5353722168812067783}
-    characterCount: 2
+    characterCount: 1
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -4589,7 +4589,7 @@ MonoBehaviour:
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 1162601867057988046}
   m_ItemImage: {fileID: 0}
-  m_Value: 1
+  m_Value: 0
   m_Options:
     m_Options:
     - m_Text: =
@@ -5600,7 +5600,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6258198481416832456}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -7050,7 +7050,7 @@ GameObject:
   - component: {fileID: 5814828555871602078}
   - component: {fileID: 5207267256661433345}
   m_Layer: 0
-  m_Name: compareRightDrop
+  m_Name: colorRightDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7071,7 +7071,7 @@ RectTransform:
   - {fileID: 4414614859773907086}
   - {fileID: 3873085443189930410}
   m_Father: {fileID: 8831344769208853416}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7171,7 +7171,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8455998458655600179}
-        m_MethodName: HandleCompareRightDropDown
+        m_MethodName: HandleColorRightDropDown
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7219,8 +7219,8 @@ RectTransform:
   - {fileID: 1565084665502117441}
   - {fileID: 6916434757373279965}
   - {fileID: 3967602981370823717}
-  - {fileID: 4761712503614168829}
   - {fileID: 7342627921140772957}
+  - {fileID: 4761712503614168829}
   m_Father: {fileID: 363541816877320723}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7304,6 +7304,7 @@ MonoBehaviour:
   prevIf: 0
   prevRepeat: 0
   prevTimes: 0
+  prevDistance: 0
   speedDrop: {fileID: 0}
   torqueDrop: {fileID: 0}
   delayDrop: {fileID: 0}
@@ -7312,9 +7313,9 @@ MonoBehaviour:
   compareDegreeDrop: {fileID: 2833654912611960962}
   distanceDrop: {fileID: 3650192237386617368}
   compareLeftDrop: {fileID: 5721527735885184906}
-  compareRightDrop: {fileID: 7600798111058754243}
+  compareRightDrop: {fileID: 4295602277954402534}
   colorLeftDrop: {fileID: 3559342847326019645}
-  colorRightDrop: {fileID: 4295602277954402534}
+  colorRightDrop: {fileID: 7600798111058754243}
   repeatDrop: {fileID: 0}
   timesDrop: {fileID: 0}
   centerExtendPart: {fileID: 0}
@@ -8162,7 +8163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7499988048886168957
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8786,7 +8787,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '!='
+  m_text: =
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 988ddcde741b2d44f8090eafbc951b38, type: 2}
   m_sharedMaterial: {fileID: 8455433654262985617, guid: 988ddcde741b2d44f8090eafbc951b38,
@@ -8856,7 +8857,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1620006202355782784}
-    characterCount: 2
+    characterCount: 1
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
