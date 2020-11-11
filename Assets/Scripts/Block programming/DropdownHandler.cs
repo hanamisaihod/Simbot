@@ -188,7 +188,14 @@ public class DropdownHandler : MonoBehaviour
             }
             else
             {
-                parentHandlerScript.delayChoice = float.Parse(val);
+                if (float.Parse(val) == 9999)
+                {
+                    parentHandlerScript.delayChoice = Mathf.Infinity;
+                }
+                else
+                {
+                    parentHandlerScript.delayChoice = float.Parse(val);
+                }
             }
             UpdateActiveOptions();
         }

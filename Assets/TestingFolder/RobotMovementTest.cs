@@ -8,17 +8,21 @@ public class RobotMovementTest : MonoBehaviour
     public float torque;
     public float delay;
     public float currentDelay;
+    public float degree;
+    public float distance;
+    public float distanceFromHit;
     public bool isOnIce = false;
     public bool startedReading;
     private Rigidbody rbd;
+    public GameObject distanceSensor;
 
     private void Start()
     {
         rbd = GetComponent<Rigidbody>();
     }
     void FixedUpdate()
-    {   
-        if (delay > 0.01999961)
+    {
+        if (delay == Mathf.Infinity)
         {
             if (speed != 0)
             {
@@ -31,6 +35,59 @@ public class RobotMovementTest : MonoBehaviour
                     rbd.velocity = transform.forward * speed / 0.99f;
                 }
             }
+            else
+            {
+                if (!isOnIce)
+                {
+                    rbd.velocity = new Vector3(0, 0, 0);
+                }
+            }
+            if (torque != 0)
+            {
+                if (isOnIce)
+                {
+                    rbd.AddTorque(transform.up * torque / 4.0f / 57.273f);
+                }
+                else
+                {
+                    rbd.angularVelocity = transform.up * torque / 57.273f / 0.99f;
+                }
+            }
+            else
+            {
+                if (!isOnIce)
+                {
+                    rbd.angularVelocity = new Vector3(0, 0, 0);
+                }
+            }
+            if (startedReading)
+            {
+                if (nextBlock)
+                {
+                    ReadBlock(nextBlock);
+                }
+            }
+        }
+        else if (delay > 0.01999961)
+        {
+            if (speed != 0)
+            {
+                if (isOnIce)
+                {
+                    rbd.AddForce(transform.forward * 2 * speed);
+                }
+                else
+                {
+                    rbd.velocity = transform.forward * speed / 0.99f;
+                }
+            }
+            else
+            {
+                if (!isOnIce)
+                {
+                    rbd.velocity = new Vector3(0, 0, 0);
+                }
+            }
             if (torque != 0)
             {
                 if (isOnIce)
@@ -40,6 +97,13 @@ public class RobotMovementTest : MonoBehaviour
                 else
                 {
                     rbd.angularVelocity = transform.up * torque/ 57.273f / 0.99f;
+                }
+            }
+            else
+            {
+                if (!isOnIce)
+                {
+                    rbd.angularVelocity = new Vector3(0, 0, 0);
                 }
             }
             delay -= Time.fixedDeltaTime;
@@ -59,7 +123,6 @@ public class RobotMovementTest : MonoBehaviour
                 }
             }
         }
-
     }
 
     public void StartReading()
@@ -83,10 +146,9 @@ public class RobotMovementTest : MonoBehaviour
     public int currentTimes = 0;
     private GameObject nextBlock; // set this as the next block of read next block
 
-    public void ReadBlock(GameObject block)
+    private void ReadBlock(GameObject block)
     {
         currentTimes = 0;
-        Debug.Log(block.name);
         if (block.tag == "DoBlock")
         {
             speed = block.GetComponent<BuildingHandler>().speedChoice;
@@ -111,13 +173,21 @@ public class RobotMovementTest : MonoBehaviour
         }
         else if (block.tag == "IfBlock")
         {
-            if (CheckIf())
+            degree = block.GetComponent<BuildingHandler>().degreeChoice;
+            distance = block.GetComponent<BuildingHandler>().distanceChoice;
+            if (CheckIf(block))
+            {
+
+            }
+            else
             {
 
             }
         }
         else if (block.tag == "RepeatBlock")
         {
+            degree = block.GetComponent<BuildingHandler>().degreeChoice;
+            distance = block.GetComponent<BuildingHandler>().distanceChoice;
             if (CheckRepeat(block))
             {
                 if (!repeats.Contains(block))
@@ -161,7 +231,7 @@ public class RobotMovementTest : MonoBehaviour
         }
     }
 
-    public bool CheckRepeat(GameObject block)
+    private bool CheckRepeat(GameObject block)
     {
         if (block.GetComponent<BuildingHandler>().repeatChoice == 0) // Forever
         {
@@ -184,23 +254,94 @@ public class RobotMovementTest : MonoBehaviour
                 return false;
             }
         }
-        else
+        else if (block.GetComponent<BuildingHandler>().repeatChoice == 2) // Distance
         {
-            if (CheckIf())
+            if (CheckDistanceSensor(block))
             {
-
+                return true;
             }
             else
             {
-
+                repeats.Remove(block);
+                return false;
             }
+        }
+        else // Color
+        {
+
         }
         return true; //remove
     }
 
-    public bool CheckIf()
+    private bool CheckIf(GameObject block)
     {
         //Check if conditions (have to work on sensors first)
-        return true;
+        if (block.GetComponent<BuildingHandler>().ifChoice == 0)
+        {
+            if (CheckDistanceSensor(block))
+            {
+                return true;
+            }
+        }
+        else
+        {
+
+        }
+        return false;
+    }
+
+    private bool CheckDistanceSensor(GameObject block)
+    {
+        RaycastHit hit;
+        Vector3 sensorForward = distanceSensor.transform.forward;
+        Quaternion spreadAngle = Quaternion.AngleAxis(degree, new Vector3(0, 1, 0));
+        Vector3 sensorAngle = spreadAngle * sensorForward;
+        Physics.Raycast(distanceSensor.transform.position, sensorAngle, out hit);
+        //distanceFromHit = Vector3.Distance(distanceSensor.transform.position, hit.point);
+        distanceFromHit = hit.distance;
+        if (distanceFromHit == 0)
+        {
+            distanceFromHit = Mathf.Infinity;
+        }
+        switch (block.GetComponent<BuildingHandler>().compareDegreeChoice)
+        {
+            case 0:
+                if (distanceFromHit == distance)
+                {
+                    return true;
+                }
+                break;
+            case 1:
+                if (distanceFromHit != distance)
+                {
+                    return true;
+                }
+                break;
+            case 2:
+                if (distanceFromHit < distance)
+                {
+                    return true;
+                }
+                break;
+            case 3:
+                if (distanceFromHit <= distance)
+                {
+                    return true;
+                }
+                break;
+            case 4:
+                if (distanceFromHit > distance)
+                {
+                    return true;
+                }
+                break;
+            case 5:
+                if (distanceFromHit >= distance)
+                {
+                    return true;
+                }
+                break;
+        }
+        return false;
     }
 }
