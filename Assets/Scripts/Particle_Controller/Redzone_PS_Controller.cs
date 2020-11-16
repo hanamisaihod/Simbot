@@ -8,7 +8,8 @@ public class Redzone_PS_Controller : MonoBehaviour
     public Material floorMat_warning;
     private Renderer ren;
     public GameObject lightPoint;
-    public bool redZoneTrigger;
+    //public bool redZoneTrigger;
+    private bool redZoneTrigger = true; // For show
     private bool showing;
     public float delayWarning;
     public float delayB4Boom;
@@ -40,9 +41,7 @@ public class Redzone_PS_Controller : MonoBehaviour
             redZoneTrigger = false;
         }
         else
-        {
             redZoneTrigger = false;
-        }
     }
 
     IEnumerator Show()
@@ -61,5 +60,8 @@ public class Redzone_PS_Controller : MonoBehaviour
         pre_lava.Stop();
         ren.sharedMaterial = floorMat_default;
         showing = false;
+
+        yield return new WaitForSeconds(1f); // For show
+        redZoneTrigger = true; // For show
     }
 }
