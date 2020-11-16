@@ -23953,7 +23953,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3966251637728379058}
-  m_Mesh: {fileID: 6812965727148888272, guid: c8681e1370d8a0c4f9a30659fcb33f0c, type: 3}
+  m_Mesh: {fileID: 6812965727148888272, guid: f6c8fd64ac7305c429e5839d6edfbe39, type: 3}
 --- !u!23 &3173358411562819943
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24014,6 +24014,6 @@ MonoBehaviour:
   PS_C1: {fileID: 3050242840626844819}
   PS_C2: {fileID: 3050242840151473077}
   PS_C3: {fileID: 3050242839852718667}
-  PS_C4: {fileID: 3050242839852718667}
+  PS_C4: {fileID: 3050242839412343563}
   PS_Center: {fileID: 3050242840691434426}
   lightPoint: {fileID: 3050242840169391910}
