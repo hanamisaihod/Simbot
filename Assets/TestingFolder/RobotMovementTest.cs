@@ -15,6 +15,8 @@ public class RobotMovementTest : MonoBehaviour
     public bool startedReading;
     private Rigidbody rbd;
     public GameObject distanceSensor;
+    public GameObject leftColorSensor;
+    public GameObject rightColorSensor;
 
     private void Start()
     {
@@ -141,10 +143,11 @@ public class RobotMovementTest : MonoBehaviour
             startedReading = true;
         }
     }
+
     public List<GameObject> repeats;
     public GameObject player;
     public int currentTimes = 0;
-    private GameObject nextBlock; // set this as the next block of read next block
+    private GameObject nextBlock;
 
     private void ReadBlock(GameObject block)
     {
@@ -177,11 +180,39 @@ public class RobotMovementTest : MonoBehaviour
             distance = block.GetComponent<BuildingHandler>().distanceChoice;
             if (CheckIf(block))
             {
-
+                if (block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().attachedBy)
+                {
+                    nextBlock = (block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.gameObject);
+                }
+                else
+                {
+                    if (repeats.Count > 0)
+                    {
+                        nextBlock = repeats[repeats.Count - 1];
+                    }
+                    else
+                    {
+                        nextBlock = null;
+                    }
+                }
             }
             else
             {
-
+                if (block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy)
+                {
+                    nextBlock = block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.gameObject;
+                }
+                else
+                {
+                    if (repeats.Count > 0)
+                    {
+                        nextBlock = repeats[repeats.Count - 1];
+                    }
+                    else
+                    {
+                        nextBlock = null;
+                    }
+                }
             }
         }
         else if (block.tag == "RepeatBlock")
@@ -268,14 +299,22 @@ public class RobotMovementTest : MonoBehaviour
         }
         else // Color
         {
-
+            if (CheckColorSensor(block))
+            {
+                return true;
+            }
+            else
+            {
+                repeats.Remove(block);
+                return false;
+            }
         }
         return true; //remove
     }
 
     private bool CheckIf(GameObject block)
     {
-        //Check if conditions (have to work on sensors first)
+        Debug.Log("Enter if:" + block.name);
         if (block.GetComponent<BuildingHandler>().ifChoice == 0)
         {
             if (CheckDistanceSensor(block))
@@ -285,7 +324,10 @@ public class RobotMovementTest : MonoBehaviour
         }
         else
         {
-
+            if (CheckColorSensor(block))
+            {
+                return true;
+            }
         }
         return false;
     }
@@ -344,4 +386,107 @@ public class RobotMovementTest : MonoBehaviour
         }
         return false;
     }
+
+    private bool CheckColorSensor(GameObject block)
+    {
+        RaycastHit leftHit;
+        RaycastHit rightHit;
+        Physics.Raycast(leftColorSensor.transform.position, -leftColorSensor.transform.up, out leftHit);
+        Physics.Raycast(rightColorSensor.transform.position, -rightColorSensor.transform.up, out rightHit);
+        Color leftColor = Color.white;
+        if (leftHit.transform.gameObject.GetComponent<SpriteRenderer>())
+        {
+            leftColor = leftHit.transform.gameObject.GetComponent<SpriteRenderer>().color;
+        }
+        Color rightColor = Color.white;
+        if (rightHit.transform.gameObject.GetComponent<SpriteRenderer>())
+        {
+            rightColor = rightHit.transform.gameObject.GetComponent<SpriteRenderer>().color;
+        }
+        //Debug.Log(leftColor + "\t" + rightColor);
+        if (CheckSensors(block, leftColor, rightColor) == 2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private int CheckSensors(GameObject block, Color leftColor, Color rightColor)
+    {
+        int correctCount = 0;
+
+        if (block.GetComponent<BuildingHandler>().colorLeftChoice == 0)
+        {
+            if (block.GetComponent<BuildingHandler>().compareLeftChoice == 0)
+            {
+                if (leftColor == Color.black)
+                {
+                    correctCount++;
+                }
+            }
+            else
+            {
+                if (leftColor != Color.black)
+                {
+                    correctCount++;
+                }
+            }
+        }
+        else
+        {
+            if (block.GetComponent<BuildingHandler>().compareRightChoice == 1)
+            {
+                if (leftColor == Color.red)
+                {
+                    correctCount++;
+                }
+            }
+            else
+            {
+                if (leftColor != Color.red)
+                {
+                    correctCount++;
+                }
+            }
+        }
+        if (block.GetComponent<BuildingHandler>().colorRightChoice == 0)
+        {
+            if (block.GetComponent<BuildingHandler>().compareRightChoice == 0)
+            {
+                if (rightColor == Color.black)
+                {
+                    correctCount++;
+                }
+            }
+            else
+            {
+                if (rightColor != Color.black)
+                {
+                    correctCount++;
+                }
+            }
+        }
+        else
+        {
+            if (block.GetComponent<BuildingHandler>().compareRightChoice == 1)
+            {
+                if (rightColor == Color.red)
+                {
+                    correctCount++;
+                }
+            }
+            else
+            {
+                if (rightColor != Color.red)
+                {
+                    correctCount++;
+                }
+            }
+        }
+        return correctCount;
+    }
+    
 }
