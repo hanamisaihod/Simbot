@@ -19,6 +19,7 @@ TagManager:
   - Building
   - Wall
   - IceFloor
+  - RedZoneFloor
   layers:
   - Default
   - TransparentFX

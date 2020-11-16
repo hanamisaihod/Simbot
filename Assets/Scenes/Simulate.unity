@@ -5002,15 +5002,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1ce44571e04874490e6ec62aafc5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPrefab: {fileID: 8641958648996881970, guid: fe66b9bc8433f304b867156022c6b5cd,
-    type: 3}
-  doPrefab: {fileID: 4268292269040110976, guid: 464d42ada39a983458e8d707245e2d79,
-    type: 3}
-  ifPrefab: {fileID: 4569972201353174900, guid: d8ea896d71b63f14c9cf53030770a068,
-    type: 3}
-  repeatPrefab: {fileID: 1952541985619196896, guid: 6f309fd507f75474eb35d4aa8fdfc657,
-    type: 3}
-  mainCamera: {fileID: 1648041026}
 --- !u!4 &472566941
 Transform:
   m_ObjectHideFlags: 0
@@ -5343,6 +5334,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c53c8a1c9c09fdb40b4f802b1ae26a35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &722157098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722157094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ae46f734bce094ca8dccea66e7fbe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &998439006
@@ -10317,9 +10320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3bad13abb17494dba2683d946be4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  repeats: []
-  player: {fileID: 722157094}
-  currentTimes: 0
 --- !u!4 &1212364081
 Transform:
   m_ObjectHideFlags: 0
@@ -10486,6 +10486,36 @@ PrefabInstance:
       propertyPath: failBackFX
       value: 
       objectReference: {fileID: 1184307173}
+    - target: {fileID: 8661427021762335492, guid: e04f7c50f637a814a96624e1b482d86c,
+        type: 3}
+      propertyPath: clearSceneTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661427021762335492, guid: e04f7c50f637a814a96624e1b482d86c,
+        type: 3}
+      propertyPath: failTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661427021762335492, guid: e04f7c50f637a814a96624e1b482d86c,
+        type: 3}
+      propertyPath: FXshowing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661427021762335492, guid: e04f7c50f637a814a96624e1b482d86c,
+        type: 3}
+      propertyPath: soundWin1
+      value: 
+      objectReference: {fileID: 8300000, guid: ea725a4aa0fd5df4bbd4d0dd86c29fa4, type: 3}
+    - target: {fileID: 8661427021762335492, guid: e04f7c50f637a814a96624e1b482d86c,
+        type: 3}
+      propertyPath: soundWin2
+      value: 
+      objectReference: {fileID: 8300000, guid: 9421267daf503ff4cbd291c51dd8578c, type: 3}
+    - target: {fileID: 8661427021762335492, guid: e04f7c50f637a814a96624e1b482d86c,
+        type: 3}
+      propertyPath: soundLose
+      value: 
+      objectReference: {fileID: 8300000, guid: 8ee97d352e6fe3f46a71ca3352123228, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e04f7c50f637a814a96624e1b482d86c, type: 3}
 --- !u!1001 &1235352992

@@ -61,7 +61,7 @@ public class NewDrag : MonoBehaviour
                     //Destroy(gameObject);
                     DetectEnvironment.StoreSpawnPosition();
                     ConfirmPlace.confirmPlace = false;
-                    ObjToMove.transform.position = new Vector3(ObjToMove.transform.position.x + 1, ObjToMove.transform.position.y, ObjToMove.transform.position.z);
+                    ObjToMove.transform.position = new Vector3(ObjToMove.transform.position.x, ObjToMove.transform.position.y, ObjToMove.transform.position.z);
                 }
             }
     }
