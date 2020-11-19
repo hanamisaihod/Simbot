@@ -31,7 +31,7 @@ public class LoadScreen : MonoBehaviour
         }
 
         saveFiles = Directory.GetFiles(Application.persistentDataPath + "/saves/");
-        Debug.Log(saveFiles);
+        Debug.Log(Application.persistentDataPath);
     }
 
     public void ShowLoadScreen()
@@ -40,7 +40,7 @@ public class LoadScreen : MonoBehaviour
 
         for (int i = 0; i < saveFiles.Length; i++)
         {
-            GameObject buttonObject = Instantiate(Resources.Load("Prefabs/ButtonPrefab", typeof(GameObject))) as GameObject;
+            GameObject buttonObject = Instantiate(Resources.Load("ButtonPrefab", typeof(GameObject))) as GameObject;
             buttonObject.GetComponentInChildren<Text>().text = saveFiles[i];
             string[] savePath = buttonObject.GetComponentInChildren<Text>().text.Split("/"[0]);
             for (int j = 0; j < savePath.Length; j++)
