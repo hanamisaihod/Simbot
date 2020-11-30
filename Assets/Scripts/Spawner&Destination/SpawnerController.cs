@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpawnerController : MonoBehaviour
 {
-    public Material floorMat_default;
-    public Material floorMat_taken;
+    public Material BaseMat_default;
+    public Material BaseMat_taken;
 
     public GameObject Base;
     private Renderer BaseRen;
@@ -16,6 +16,8 @@ public class SpawnerController : MonoBehaviour
 
     void Start()
     {
+        BaseRen = Base.GetComponent<Renderer>();
+        BaseRen.sharedMaterial = BaseMat_default;
         Core.SetActive(true);
         AuraFX.Play();
     }
@@ -27,6 +29,7 @@ public class SpawnerController : MonoBehaviour
         {
             AuraFX.Stop();
             Core.SetActive(false); // Hide the cube
+            BaseRen.sharedMaterial = BaseMat_taken;
             ObjectTaken = false;
         }
       

@@ -14377,7 +14377,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 2100000, guid: e5c6bc7a57a7f2b43be5e094c15dcf53, type: 2}
+  - {fileID: 2100000, guid: 07fa1f8ae251c4e4b8ec2322bc5dd896, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19287,7 +19287,6 @@ MonoBehaviour:
   floorMat_default: {fileID: 2100000, guid: 3670ba65a5be2af498283c972472b40e, type: 2}
   floorMat_warning: {fileID: 2100000, guid: 270add3f14ad1bd42a5b81b9565eebe8, type: 2}
   lightPoint: {fileID: 4075991601673464512}
-  redZoneTrigger: 0
   delayWarning: 2
   delayB4Boom: 3
   smokeSmall: {fileID: 4075991601882409459}
