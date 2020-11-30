@@ -10,7 +10,7 @@ public class ChangeToSimulate : MonoBehaviour
     public static bool simulate = false;
     public void ClickChangeScene()
     {
-        if(LoadScreen.waitForSelectSlot == true)
+        if(LoadConfirm.waitForSelectSlot == true)
         {
             simulate = true;
         }

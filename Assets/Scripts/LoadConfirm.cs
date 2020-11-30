@@ -5,9 +5,10 @@ using UnityEngine;
 public class LoadConfirm : MonoBehaviour
 {
     public static bool clickToLoad = false;
+    public static bool waitForSelectSlot = false;
     public void confirmLoadSlot()
     {
-        if(LoadScreen.waitForSelectSlot == true)
+        if(waitForSelectSlot == true)
         {
             clickToLoad = true;
         }

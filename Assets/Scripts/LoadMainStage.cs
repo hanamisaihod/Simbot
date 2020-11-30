@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class LoadMainStage : MonoBehaviour
 {
     public string savePrefabKeyword;
+    public static string mainStageKey;
     public void Start()
     {
         Debug.Log("Start");
@@ -22,7 +23,7 @@ public class LoadMainStage : MonoBehaviour
         {
             Debug.Log("Error");
         }
-        savePrefab = Directory.GetFiles(Application.dataPath + "/Prefabs/Map","*.prefab");
+        savePrefab = Directory.GetFiles(Application.dataPath + "/Resources/Map","*.prefab");
         Debug.Log(savePrefab);
     }
 
@@ -52,8 +53,17 @@ public class LoadMainStage : MonoBehaviour
             buttonPrefabs.transform.SetParent(Container.transform,false);
             buttonPrefabs.transform.localPosition = Vector3.zero;
             buttonPrefabs.transform.localScale = Vector3.one;
-            int buttonIndex = i;
-            //buttonObject.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(OnButtonClick(buttonIndex)));
+            int index = i;
+            
+            buttonPrefabs.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(mainStageClick(index)));
         }
+    }
+
+    public IEnumerator mainStageClick(int mainIndex)
+    {
+        LoadConfirm.waitForSelectSlot = true;
+        yield return new WaitUntil(() => LoadConfirm.clickToLoad == true || DeleteSave.clickToDelete == true || ChangeToSimulate.simulate == true);
+        mainStageKey = savePrefabKeyword;
+        SceneManager.LoadScene("MapBuilding");
     }
 }
