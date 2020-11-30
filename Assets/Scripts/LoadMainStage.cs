@@ -64,6 +64,8 @@ public class LoadMainStage : MonoBehaviour
         LoadConfirm.waitForSelectSlot = true;
         yield return new WaitUntil(() => LoadConfirm.clickToLoad == true || DeleteSave.clickToDelete == true || ChangeToSimulate.simulate == true);
         mainStageKey = savePrefabKeyword;
+        LoadConfirm.clickToLoad = false;
+        LoadConfirm.waitForSelectSlot = false;
         SceneManager.LoadScene("MapBuilding");
     }
 }
