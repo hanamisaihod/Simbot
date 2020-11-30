@@ -16,7 +16,7 @@ public class LoadScreen : MonoBehaviour
     public static int countMaxValue;
     public string saveKeyword;
     public string fileKeyword;
-    public static bool waitForSelectSlot = false;
+    
     public void Start()
     {
         ShowLoadScreen();
@@ -65,7 +65,7 @@ public class LoadScreen : MonoBehaviour
 
     public IEnumerator OnButtonClick(int index)
 	{
-		waitForSelectSlot = true;
+		LoadConfirm.waitForSelectSlot = true;
         yield return new WaitUntil(() => LoadConfirm.clickToLoad == true || DeleteSave.clickToDelete == true || ChangeToSimulate.simulate == true);
         string file = saveFiles[index];
         string[] filePath = file.Split("/"[0]);
@@ -121,13 +121,13 @@ public class LoadScreen : MonoBehaviour
             }
 
             LoadConfirm.clickToLoad = false;
-            waitForSelectSlot = false;
+            LoadConfirm.waitForSelectSlot = false;
             SceneManager.LoadScene("MapBuilding");
         }
         else if(DeleteSave.clickToDelete == true)
         {
             SaveLoad.DeleteSaveFiles(file);
-            waitForSelectSlot = false;
+            LoadConfirm.waitForSelectSlot = false;
             DeleteSave.clickToDelete = false;
             SceneManager.LoadScene("LoadMap");
         }
@@ -172,7 +172,7 @@ public class LoadScreen : MonoBehaviour
                 }
             }
             ChangeToSimulate.simulate = false;
-            waitForSelectSlot = false;
+            LoadConfirm.waitForSelectSlot = false;
             SceneManager.LoadScene("LoadBlock");
         }
     }

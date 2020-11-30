@@ -43,7 +43,7 @@ public class AwakeNewSceneSpawn : MonoBehaviour
 
             for (int a = 0; a < length; a++)
             {
-                LoadObject = Instantiate(Resources.Load("Prefabs/"+ name[a], typeof(GameObject)),vector3[a],rotation[a]) as GameObject;
+                LoadObject = Instantiate(Resources.Load(name[a], typeof(GameObject)),vector3[a],rotation[a]) as GameObject;
                 LoadObject.tag = "Untagged";
                 for (int z = 0; z < LoadObject.transform.childCount; z++)
                 {

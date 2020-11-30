@@ -5536,7 +5536,7 @@ GameObject:
   - component: {fileID: 360286854}
   - component: {fileID: 360286853}
   m_Layer: 5
-  m_Name: Slide
+  m_Name: SlideFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15679,6 +15679,8 @@ GameObject:
   m_Component:
   - component: {fileID: 525028650}
   - component: {fileID: 525028651}
+  - component: {fileID: 525028652}
+  - component: {fileID: 525028653}
   m_Layer: 8
   m_Name: Scene
   m_TagString: Untagged
@@ -15717,6 +15719,37 @@ MonoBehaviour:
   name: []
   vector3: []
   rotation: []
+--- !u!114 &525028652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525028649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 395012828eb4f444e899e0d6daab2765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainStageLoadObj: {fileID: 0}
+  trigger: {fileID: 525028653}
+--- !u!114 &525028653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525028649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2422848d50f6ec45992ff4689364e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slideFrame: {fileID: 360286851}
+  confirm: {fileID: 1348438063}
+  delete: {fileID: 979537741}
+  rotate: {fileID: 751342927}
+  save: {fileID: 1426618314}
 --- !u!1 &652330142
 GameObject:
   m_ObjectHideFlags: 0

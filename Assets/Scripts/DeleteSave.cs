@@ -7,7 +7,7 @@ public class DeleteSave : MonoBehaviour
     public static bool clickToDelete = false;
     public void confirmDeleteSlot()
     {
-        if(LoadScreen.waitForSelectSlot == true)
+        if(LoadConfirm.waitForSelectSlot == true)
         {
             clickToDelete = true;
         }
