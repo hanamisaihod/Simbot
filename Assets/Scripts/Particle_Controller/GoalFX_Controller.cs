@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class GoalFX_Controller : MonoBehaviour
 {
-    //public bool goalTrigger;
-    private bool goalTrigger = true; //For show
+    public bool goalTrigger;
     public bool clearTrigger;
     private bool showing;
     public ParticleSystem PS_C1;

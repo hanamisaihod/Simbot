@@ -8,8 +8,8 @@ public class Redzone_PS_Controller : MonoBehaviour
     public Material floorMat_warning;
     private Renderer ren;
     public GameObject lightPoint;
-    //public bool redZoneTrigger;
-    private bool redZoneTrigger = true; // For show
+    public bool redZoneTrigger;
+    
     private bool showing;
     public float delayWarning;
     public float delayB4Boom;
@@ -61,7 +61,7 @@ public class Redzone_PS_Controller : MonoBehaviour
         ren.sharedMaterial = floorMat_default;
         showing = false;
 
-        yield return new WaitForSeconds(1f); // For show
-        redZoneTrigger = true; // For show
+        //yield return new WaitForSeconds(1f); // For show
+        //redZoneTrigger = true; // For show
     }
 }

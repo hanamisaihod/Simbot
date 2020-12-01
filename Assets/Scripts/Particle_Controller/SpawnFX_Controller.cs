@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SpawnFX_Controller : MonoBehaviour
 {
-    //public bool spawnTrigger;
-    private bool spawnTrigger = true; // For show
+    public bool spawnTrigger;
     public bool clearBot; // Remove this
     public GameObject blueLightCube;
     public GameObject whiteLightCube;
@@ -96,12 +95,7 @@ public class SpawnFX_Controller : MonoBehaviour
     {
         LeanTween.scale(blueLightCube, blueInitial, 0.1f);
         LeanTween.scale(whiteLightCube, blueInitial, 0.1f);
-        //yield return new WaitForSeconds(0.1f);
-
-        yield return new WaitForSeconds(4f); //For show
-        clearBot = true; //For show
-        yield return new WaitForSeconds(1f); //For show
-        spawnTrigger = true; // For show
+        yield return new WaitForSeconds(0.1f);
 
     }
 }
