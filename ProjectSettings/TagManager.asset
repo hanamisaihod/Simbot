@@ -19,7 +19,11 @@ TagManager:
   - Building
   - Wall
   - IceFloor
+  - Turbine
+  - BlackLine
   - RedZoneFloor
+  - RedWarning
+  - Lava
   layers:
   - Default
   - TransparentFX

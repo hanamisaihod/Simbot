@@ -4847,6 +4847,7 @@ GameObject:
   - component: {fileID: 4152508767151061084}
   - component: {fileID: 2007259145982252982}
   - component: {fileID: 7367630464652020478}
+  - component: {fileID: 1731609972762023633}
   m_Layer: 0
   m_Name: Yellow_Destination
   m_TagString: Untagged
@@ -4937,3 +4938,16 @@ MonoBehaviour:
   AuraFX: {fileID: 5770646424079792142}
   Base: {fileID: 4401994434050196166}
   Received: 0
+--- !u!65 &1731609972762023633
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367630464652020479}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.020000005, z: 0.022000007}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -23919,6 +23919,7 @@ GameObject:
   - component: {fileID: 859905918159279533}
   - component: {fileID: 3173358411562819943}
   - component: {fileID: 3966251637728379053}
+  - component: {fileID: -4945380578056478673}
   m_Layer: 0
   m_Name: GoalV2
   m_TagString: Untagged
@@ -24017,3 +24018,16 @@ MonoBehaviour:
   PS_C4: {fileID: 3050242839412343563}
   PS_Center: {fileID: 3050242840691434426}
   lightPoint: {fileID: 3050242840169391910}
+--- !u!65 &-4945380578056478673
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3966251637728379058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.020000005, z: 0.024513783}
+  m_Center: {x: 0, y: -1.1163398e-18, z: 0.0012568873}

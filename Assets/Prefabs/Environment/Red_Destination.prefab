@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 848417451232979524}
   - component: {fileID: 3007758153022244270}
   - component: {fileID: 6078055520502946022}
+  - component: {fileID: 4013229241228791928}
   m_Layer: 0
   m_Name: Red_Destination
   m_TagString: Untagged
@@ -183,6 +184,19 @@ MonoBehaviour:
   AuraFX: {fileID: 7094286300008114710}
   Base: {fileID: 1112816857604100318}
   Received: 0
+--- !u!65 &4013229241228791928
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6078055520502946023}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.020000005, z: 0.022000007}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7094286300008114708
 GameObject:
   m_ObjectHideFlags: 0
