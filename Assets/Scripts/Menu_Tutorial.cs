@@ -20,10 +20,10 @@ public class Menu_Tutorial : MonoBehaviour
     public GameObject ClickIcon5;
     public GameObject textZone1;
     public GameObject textZone2;
-    public GameObject buttonSim;
-    public GameObject buttonRobot;
-    public GameObject buttonMission;
+    public GameObject buttonPlay;
+    public GameObject buttonCreate;
     public GameObject buttonSetting;
+    public GameObject buttonExit;
     public GameObject buttonInfo;
 
     private bool textDone;
@@ -50,20 +50,20 @@ public class Menu_Tutorial : MonoBehaviour
         ClickIcon3.GetComponent<Image>().enabled = false;
         ClickIcon4.GetComponent<Image>().enabled = false;
         ClickIcon5.GetComponent<Image>().enabled = false;
-        StartCoroutine(ShowButton(buttonSim));
-        StartCoroutine(ShowButton(buttonRobot));
-        StartCoroutine(ShowButton(buttonMission));
+        StartCoroutine(ShowButton(buttonPlay));
+        StartCoroutine(ShowButton(buttonCreate));
         StartCoroutine(ShowButton(buttonSetting));
+        StartCoroutine(ShowButton(buttonExit));
         StartCoroutine(ShowButton(buttonInfo));
         fullText[0] = "Welcome to SIMBOT !!!";
-        fullText[1] = "My name is Nyanko.\nI gonna guide you to play this game.";
-        fullText[2] = "This game, you can create robots from various robot parts, program it to do the mission, and also can create your own map.";
-        fullText[3] = "When you want simulate your robot to do mission in AR mode.\nYou can click here.";
+        fullText[1] = "My name is Neko.\nI gonna guide you to play this game.";
+        fullText[2] = "In this game, you can control robots by creating a block-based program to complete missions and you also can create your mission.";
+        fullText[3] = "When you want to play.\nJust click here.";
         fullText[4] = "";
         fullText[5] = "";
-        fullText[6] = "If you want to edit your robot or code, you would click here.";
-        fullText[7] = "If you want to create or edit your mission, you would click here.";
-        fullText[8] = "You can click here whenever you want to change sound volume or camera controlling.";
+        fullText[6] = "If you want to create or edit your mission, you would click here.";
+        fullText[7] = "You can click here whenever you want to change sound volume or camera controlling.";
+        fullText[8] = "If you want to take some rest, you would click here.\nI hope to see you again.\nWe have a job to do";
         fullText[9] = "If you want to listen me again, you would click sign like this.";
         fullText[10] = "";
         fullText[11] = "";
@@ -136,16 +136,16 @@ public class Menu_Tutorial : MonoBehaviour
             ClickIcon4.GetComponent<Image>().enabled = false;
             ClickIcon5.GetComponent<Image>().enabled = false;
 
-            buttonSim.GetComponent<Image>().enabled = true;
-            buttonRobot.GetComponent<Image>().enabled = false;
-            buttonMission.GetComponent<Image>().enabled = false;
+            buttonPlay.GetComponent<Image>().enabled = true;
+            buttonCreate.GetComponent<Image>().enabled = false;
             buttonSetting.GetComponent<Image>().enabled = false;
+            buttonExit.GetComponent<Image>().enabled = false;
             buttonInfo.GetComponent<Image>().enabled = false;
 
-            buttonSim.transform.SetAsLastSibling();
-            buttonRobot.transform.SetAsFirstSibling();
-            buttonMission.transform.SetAsFirstSibling();
+            buttonPlay.transform.SetAsLastSibling();
+            buttonCreate.transform.SetAsFirstSibling();
             buttonSetting.transform.SetAsFirstSibling();
+            buttonExit.transform.SetAsFirstSibling();
             buttonInfo.transform.SetAsFirstSibling();
         }
         else if (stage == 7)
@@ -156,16 +156,16 @@ public class Menu_Tutorial : MonoBehaviour
             ClickIcon4.GetComponent<Image>().enabled = false;
             ClickIcon5.GetComponent<Image>().enabled = false;
 
-            buttonSim.GetComponent<Image>().enabled = false;
-            buttonRobot.GetComponent<Image>().enabled = true;
-            buttonMission.GetComponent<Image>().enabled = false;
+            buttonPlay.GetComponent<Image>().enabled = false;
+            buttonCreate.GetComponent<Image>().enabled = true;
             buttonSetting.GetComponent<Image>().enabled = false;
+            buttonExit.GetComponent<Image>().enabled = false;
             buttonInfo.GetComponent<Image>().enabled = false;
 
-            buttonSim.transform.SetAsFirstSibling();
-            buttonRobot.transform.SetAsLastSibling();
-            buttonMission.transform.SetAsFirstSibling();
+            buttonPlay.transform.SetAsFirstSibling();
+            buttonCreate.transform.SetAsLastSibling();
             buttonSetting.transform.SetAsFirstSibling();
+            buttonExit.transform.SetAsFirstSibling();
             buttonInfo.transform.SetAsFirstSibling();
         }
         else if (stage == 8)
@@ -176,16 +176,16 @@ public class Menu_Tutorial : MonoBehaviour
             ClickIcon4.GetComponent<Image>().enabled = false;
             ClickIcon5.GetComponent<Image>().enabled = false;
 
-            buttonSim.GetComponent<Image>().enabled = false;
-            buttonRobot.GetComponent<Image>().enabled = false;
-            buttonMission.GetComponent<Image>().enabled = true;
-            buttonSetting.GetComponent<Image>().enabled = false;
+            buttonPlay.GetComponent<Image>().enabled = false;
+            buttonCreate.GetComponent<Image>().enabled = false;
+            buttonSetting.GetComponent<Image>().enabled = true;
+            buttonExit.GetComponent<Image>().enabled = false;
             buttonInfo.GetComponent<Image>().enabled = false;
 
-            buttonSim.transform.SetAsFirstSibling();
-            buttonRobot.transform.SetAsFirstSibling();
-            buttonMission.transform.SetAsLastSibling();
-            buttonSetting.transform.SetAsFirstSibling();
+            buttonPlay.transform.SetAsFirstSibling();
+            buttonCreate.transform.SetAsFirstSibling();
+            buttonSetting.transform.SetAsLastSibling();
+            buttonExit.transform.SetAsFirstSibling();
             buttonInfo.transform.SetAsFirstSibling();
         }
         else if (stage == 9)
@@ -196,16 +196,16 @@ public class Menu_Tutorial : MonoBehaviour
             ClickIcon4.GetComponent<Image>().enabled = true;
             ClickIcon5.GetComponent<Image>().enabled = false;
 
-            buttonSim.GetComponent<Image>().enabled = false;
-            buttonRobot.GetComponent<Image>().enabled = false;
-            buttonMission.GetComponent<Image>().enabled = false;
-            buttonSetting.GetComponent<Image>().enabled = true;
+            buttonPlay.GetComponent<Image>().enabled = false;
+            buttonCreate.GetComponent<Image>().enabled = false;
+            buttonSetting.GetComponent<Image>().enabled = false;
+            buttonExit.GetComponent<Image>().enabled = true;
             buttonInfo.GetComponent<Image>().enabled = false;
 
-            buttonSim.transform.SetAsFirstSibling();
-            buttonRobot.transform.SetAsFirstSibling();
-            buttonMission.transform.SetAsFirstSibling();
-            buttonSetting.transform.SetAsLastSibling();
+            buttonPlay.transform.SetAsFirstSibling();
+            buttonCreate.transform.SetAsFirstSibling();
+            buttonSetting.transform.SetAsFirstSibling();
+            buttonExit.transform.SetAsLastSibling();
             buttonInfo.transform.SetAsFirstSibling();
         }
         else if (stage == 10)
@@ -216,16 +216,16 @@ public class Menu_Tutorial : MonoBehaviour
             ClickIcon4.GetComponent<Image>().enabled = false;
             ClickIcon5.GetComponent<Image>().enabled = true;
 
-            buttonSim.GetComponent<Image>().enabled = false;
-            buttonRobot.GetComponent<Image>().enabled = false;
-            buttonMission.GetComponent<Image>().enabled = false;
+            buttonPlay.GetComponent<Image>().enabled = false;
+            buttonCreate.GetComponent<Image>().enabled = false;
             buttonSetting.GetComponent<Image>().enabled = false;
+            buttonExit.GetComponent<Image>().enabled = false;
             buttonInfo.GetComponent<Image>().enabled = true;
 
-            buttonSim.transform.SetAsFirstSibling();
-            buttonRobot.transform.SetAsFirstSibling();
-            buttonMission.transform.SetAsFirstSibling();
+            buttonPlay.transform.SetAsFirstSibling();
+            buttonCreate.transform.SetAsFirstSibling();
             buttonSetting.transform.SetAsFirstSibling();
+            buttonExit.transform.SetAsFirstSibling();
             buttonInfo.transform.SetAsLastSibling();
         }
         else
@@ -236,16 +236,16 @@ public class Menu_Tutorial : MonoBehaviour
             ClickIcon4.GetComponent<Image>().enabled = false;
             ClickIcon5.GetComponent<Image>().enabled = false;
 
-            buttonSim.GetComponent<Image>().enabled = false;
-            buttonRobot.GetComponent<Image>().enabled = false;
-            buttonMission.GetComponent<Image>().enabled = false;
+            buttonPlay.GetComponent<Image>().enabled = false;
+            buttonCreate.GetComponent<Image>().enabled = false;
             buttonSetting.GetComponent<Image>().enabled = false;
+            buttonExit.GetComponent<Image>().enabled = false;
             buttonInfo.GetComponent<Image>().enabled = true;
 
-            buttonSim.transform.SetAsFirstSibling();
-            buttonRobot.transform.SetAsFirstSibling();
-            buttonMission.transform.SetAsFirstSibling();
+            buttonPlay.transform.SetAsFirstSibling();
+            buttonCreate.transform.SetAsFirstSibling();
             buttonSetting.transform.SetAsFirstSibling();
+            buttonExit.transform.SetAsFirstSibling();
             buttonInfo.transform.SetAsFirstSibling();
         }
 
