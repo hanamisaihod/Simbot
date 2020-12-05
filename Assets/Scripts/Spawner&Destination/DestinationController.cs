@@ -8,7 +8,6 @@ public class DestinationController : MonoBehaviour
     public Material BaseMat_active;
     public ParticleSystem AuraFX;
     public GameObject Base;
-	public GameObject ReceivedProduct;
     private Renderer BaseRen; 
     public bool Received = false;
 
@@ -24,6 +23,5 @@ public class DestinationController : MonoBehaviour
 		AuraFX.Play();
 		BaseRen.sharedMaterial = BaseMat_active;
 		Received = true;
-		ReceivedProduct.SetActive(true);
 	}
 }

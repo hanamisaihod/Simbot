@@ -9,7 +9,7 @@ public class MouseDrag : MonoBehaviour
 	private Camera mainCamera;
 	public bool isLock = false;
 	private GameObject parentObject;
-	private BuildingHandler parentHandlerScript;
+	public BuildingHandler parentHandlerScript;
 	private GameObject closest;
 	public float height;
 	public Vector3 position;
@@ -31,7 +31,7 @@ public class MouseDrag : MonoBehaviour
 	public GameObject attachedTo;
 	public GameObject attachedBy;
 
-	public void Start()
+	public void Awake()
 	{
 		changed = false;
 		height = GetComponent<SpriteRenderer>().bounds.size.y;
@@ -50,6 +50,8 @@ public class MouseDrag : MonoBehaviour
 			trashCanWorldPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, trashCan.GetComponent<RectTransform>().transform.position);
 		}
 		deleteDistance = 400;
+		parentHandlerScript = parentObject.GetComponent<BuildingHandler>();
+		parentHandlerScript.totalHeight = parentHandlerScript.UpdateHeight();
 	}
 
 	void Update()
@@ -59,8 +61,6 @@ public class MouseDrag : MonoBehaviour
 
 	public void OnMouseDown()
 	{
-		parentHandlerScript = parentObject.GetComponent<BuildingHandler>();
-
 		dragPlane = new Plane(mainCamera.transform.forward, transform.position);
 		Ray camRay = mainCamera.ScreenPointToRay(Input.mousePosition);
 		float planeDist;
@@ -161,77 +161,12 @@ public class MouseDrag : MonoBehaviour
 				}
 				parentHandlerScript.isBeingHeld = false;
 				closest = parentHandlerScript.bestTarget;
-				AssignConnection(closest, parentObject);
-				/*if (closest)
-				{
-					if (parentObject.tag == "DoBlock")
-					{
-						if (closest.gameObject.tag == "StartConnector")
-						{
-							parentObject.transform.position = (closest.GetComponent<MouseDrag>().position) + new Vector3(-0.414f, -1.076f, 0f)
-										   + (parentObject.transform.position - doConnectorChild.GetComponent<MouseDrag>().position);
-						}
-						else if (closest.gameObject.tag == "DoConnector")
-						{
-							if (closest.transform.parent.tag == "IfBlock" || closest.transform.parent.tag == "RepeatBlock")
-							{
-								parentObject.transform.position = (closest.GetComponent<MouseDrag>().position) + new Vector3(-0.275f, -0.8276f, 0f)
-										+ (parentObject.transform.position - doConnectorChild.GetComponent<MouseDrag>().position);
-							}
-							else if (closest.transform.parent.tag == "DoBlock")
-							{
-								parentObject.transform.position = (closest.GetComponent<MouseDrag>().position) + new Vector3(0f, -0.828f, 0f)
-									+ (parentObject.transform.position - doConnectorChild.GetComponent<MouseDrag>().position);
-							}
-						}
-						else if (closest.gameObject.tag == "IfConnector")
-						{
-							parentObject.transform.position = (closest.GetComponent<MouseDrag>().position) + new Vector3(0.29f, -0.828f, 0f)
-									   + (parentObject.transform.position - doConnectorChild.GetComponent<MouseDrag>().position);
-						}
-						closest.GetComponent<MouseDrag>().attachedBy = gameObject;
-						doConnectorChild.GetComponent<MouseDrag>().attachedTo = closest;
-						closest.transform.parent.GetComponent<BuildingHandler>().ExtendMid(parentHandlerScript.totalHeight, false, closest, doConnectorChild);
-					}
-					else if (parentObject.tag == "IfBlock" || parentObject.tag == "RepeatBlock")
-					{
-						if (closest.gameObject.tag == "StartConnector")
-						{
-							parentObject.transform.position = (closest.GetComponent<MouseDrag>().position) + new Vector3(-0.12f, -1.0761f, 0f)
-										  + (parentObject.transform.position - ifConnectorChild.GetComponent<MouseDrag>().position);
-						}
-						else if (closest.gameObject.tag == "DoConnector")
-						{
-							if (closest.transform.parent.tag == "IfBlock" || closest.transform.parent.tag == "RepeatBlock")
-							{
-								parentObject.transform.position = (closest.GetComponent<MouseDrag>().position) + new Vector3(0f, -0.8265f, 0f)
-											 + (parentObject.transform.position - ifConnectorChild.GetComponent<MouseDrag>().position);
-							}
-							else if (closest.transform.parent.tag == "DoBlock")
-							{
-								parentObject.transform.position = (closest.GetComponent<MouseDrag>().position) + new Vector3(0.2916f, -0.827f, 0f)
-											 + (parentObject.transform.position - ifConnectorChild.GetComponent<MouseDrag>().position);
-							}
-						}
-						else if (closest.gameObject.tag == "IfConnector")
-						{
-							parentObject.transform.position = (closest.GetComponent<MouseDrag>().position) + new Vector3(0.58f, -0.827f, 0f)
-											 + (parentObject.transform.position - ifConnectorChild.GetComponent<MouseDrag>().position);
-						}
-						closest.GetComponent<MouseDrag>().attachedBy = gameObject;
-						ifConnectorChild.GetComponent<MouseDrag>().attachedTo = closest;
-						closest.transform.parent.GetComponent<BuildingHandler>().ExtendMid(parentHandlerScript.totalHeight, false, closest, ifConnectorChild);
-					}
-					parentObject.transform.parent = closest.transform.parent;
-					closest.GetComponent<MouseDrag>().isLock = true;
-					parentHandlerScript.DeHighlightCloseBlock();
-					parentHandlerScript.ChangeChildrenLayer(parentHandlerScript.layerLevel, true, false, 0);
-				}*/
+				AssignConnection(closest, parentObject, false);
 			}
 		}
 	}
 
-	public void AssignConnection(GameObject connectTarget, GameObject objectToConnect)
+	public void AssignConnection(GameObject connectTarget, GameObject objectToConnect, bool fromPalette)
 	{
 		if (connectTarget)
 		{
@@ -239,25 +174,25 @@ public class MouseDrag : MonoBehaviour
 			{
 				if (connectTarget.gameObject.tag == "StartConnector")
 				{
-					objectToConnect.transform.position = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(-0.414f, -1.076f, 0f)
+					objectToConnect.transform.localPosition = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(-0.414f, -1.076f, 0f)
 								   + (objectToConnect.transform.position - doConnectorChild.GetComponent<MouseDrag>().position);
 				}
 				else if (connectTarget.gameObject.tag == "DoConnector")
 				{
 					if (connectTarget.transform.parent.tag == "IfBlock" || connectTarget.transform.parent.tag == "RepeatBlock")
 					{
-						objectToConnect.transform.position = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(-0.275f, -0.8276f, 0f)
+						objectToConnect.transform.localPosition = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(-0.275f, -0.8276f, 0f)
 								+ (objectToConnect.transform.position - doConnectorChild.GetComponent<MouseDrag>().position);
 					}
 					else if (connectTarget.transform.parent.tag == "DoBlock")
 					{
-						objectToConnect.transform.position = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(0f, -0.828f, 0f)
-							+ (objectToConnect.transform.position - doConnectorChild.GetComponent<MouseDrag>().position);
+						objectToConnect.transform.localPosition = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(0f, -0.828f, 0f)
+							+ (objectToConnect.transform.localPosition - doConnectorChild.GetComponent<MouseDrag>().position);
 					}
 				}
 				else if (connectTarget.gameObject.tag == "IfConnector")
 				{
-					objectToConnect.transform.position = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(0.29f, -0.828f, 0f)
+					objectToConnect.transform.localPosition = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(0.29f, -0.828f, 0f)
 							   + (objectToConnect.transform.position - doConnectorChild.GetComponent<MouseDrag>().position);
 				}
 				connectTarget.GetComponent<MouseDrag>().attachedBy = doConnectorChild;
@@ -268,26 +203,30 @@ public class MouseDrag : MonoBehaviour
 			{
 				if (connectTarget.gameObject.tag == "StartConnector")
 				{
-					objectToConnect.transform.position = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(-0.12f, -1.0761f, 0f)
+					objectToConnect.transform.localPosition = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(-0.12f, -1.0761f, 0f)
 								  + (objectToConnect.transform.position - ifConnectorChild.GetComponent<MouseDrag>().position);
 				}
 				else if (connectTarget.gameObject.tag == "DoConnector")
 				{
 					if (connectTarget.transform.parent.tag == "IfBlock" || connectTarget.transform.parent.tag == "RepeatBlock")
 					{
-						objectToConnect.transform.position = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(0f, -0.8265f, 0f)
+						objectToConnect.transform.localPosition = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(0f, -0.8265f, 0f)
 									 + (objectToConnect.transform.position - ifConnectorChild.GetComponent<MouseDrag>().position);
 					}
 					else if (connectTarget.transform.parent.tag == "DoBlock")
 					{
-						objectToConnect.transform.position = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(0.2916f, -0.827f, 0f)
+						objectToConnect.transform.localPosition = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(0.2916f, -0.827f, 0f)
 									 + (objectToConnect.transform.position - ifConnectorChild.GetComponent<MouseDrag>().position);
 					}
 				}
 				else if (connectTarget.gameObject.tag == "IfConnector")
 				{
-					objectToConnect.transform.position = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(0.58f, -0.827f, 0f)
+					objectToConnect.transform.localPosition = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(0.58f, -0.827f, 0f)
 									 + (objectToConnect.transform.position - ifConnectorChild.GetComponent<MouseDrag>().position);
+				}
+				if (fromPalette)
+				{
+					objectToConnect.transform.localPosition = objectToConnect.transform.localPosition + new Vector3(0, -0.833f, 0);
 				}
 				connectTarget.GetComponent<MouseDrag>().attachedBy = ifConnectorChild;
 				ifConnectorChild.GetComponent<MouseDrag>().attachedTo = connectTarget;
@@ -295,6 +234,7 @@ public class MouseDrag : MonoBehaviour
 			}
 			objectToConnect.transform.parent = connectTarget.transform.parent;
 			connectTarget.GetComponent<MouseDrag>().isLock = true;
+			parentHandlerScript.FindAvailableBlocks();
 			parentHandlerScript.DeHighlightCloseBlock();
 			parentHandlerScript.ChangeChildrenLayer(parentHandlerScript.layerLevel, true, false, 0);
 			parentHandlerScript.totalHeight = parentHandlerScript.UpdateHeight();
