@@ -12,7 +12,7 @@ public class SpawnerController : MonoBehaviour
     public GameObject Core;
     private Renderer CoreRen;
     public ParticleSystem AuraFX;
-    public bool ObjectTaken = false;
+	public bool Taken = false;
 
     void Start()
     {
@@ -22,16 +22,11 @@ public class SpawnerController : MonoBehaviour
         AuraFX.Play();
     }
 
-    
-    void Update()
-    {
-        if (ObjectTaken)
-        {
-            AuraFX.Stop();
-            Core.SetActive(false); // Hide the cube
-            BaseRen.sharedMaterial = BaseMat_taken;
-            ObjectTaken = false;
-        }
-      
-    }
+	public void ObjectTaken()
+	{
+		AuraFX.Stop();
+		Core.SetActive(false); // Hide the cube
+		BaseRen.sharedMaterial = BaseMat_taken;
+		Taken = true;
+	}
 }

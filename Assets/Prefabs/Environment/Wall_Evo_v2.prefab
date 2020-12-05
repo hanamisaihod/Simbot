@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1919053309357398798}
   m_Layer: 0
   m_Name: Wall_Evo_v2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

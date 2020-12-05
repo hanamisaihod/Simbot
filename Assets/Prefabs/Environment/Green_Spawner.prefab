@@ -9712,9 +9712,10 @@ GameObject:
   - component: {fileID: 6604871054007551464}
   - component: {fileID: 2806359968724189150}
   - component: {fileID: 8488925682588812071}
+  - component: {fileID: 6206687756755550217}
   m_Layer: 0
   m_Name: Green_Cube
-  m_TagString: Untagged
+  m_TagString: ProductPickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9783,6 +9784,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6206687756755550217
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7922516612227774459}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.065333344, y: 0.06533334, z: 0.0392}
+  m_Center: {x: -0.000000007450581, y: -0.000000013038516, z: -2.220446e-16}
 --- !u!1 &8371444018752307946
 GameObject:
   m_ObjectHideFlags: 0

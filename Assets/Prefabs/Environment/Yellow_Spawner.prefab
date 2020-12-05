@@ -174,9 +174,10 @@ GameObject:
   - component: {fileID: 4678579052170810308}
   - component: {fileID: 4446918029354641906}
   - component: {fileID: 7965224006372381963}
+  - component: {fileID: 2758131299018429876}
   m_Layer: 0
   m_Name: Yellow_Cube
-  m_TagString: Untagged
+  m_TagString: ProductPickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,6 +246,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2758131299018429876
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8554304939003699671}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.065333344, y: 0.06533334, z: 0.0392}
+  m_Center: {x: -0.000000007450581, y: -0.000000013038516, z: -2.220446e-16}
 --- !u!1 &8654449607576301917
 GameObject:
   m_ObjectHideFlags: 0
@@ -9806,7 +9820,7 @@ MonoBehaviour:
   Base: {fileID: 8280544270559887428}
   Core: {fileID: 8654449608440770345}
   AuraFX: {fileID: 8654449607658809483}
-  ObjectTaken: 0
+  Taken: 0
 --- !u!65 &317211717700150487
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9815,7 +9829,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8654449608301230704}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 0.1, z: 1}

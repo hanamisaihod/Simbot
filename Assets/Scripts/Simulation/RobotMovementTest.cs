@@ -12,13 +12,22 @@ public class RobotMovementTest : MonoBehaviour
     public float distance;
     public float distanceFromHit;
 	public int isOnIceCount = 0;
-    public bool startedReading;
+	public int isAtWallCount = 0;
+	public int colorHoldingObject = 0; // 1 = Green, 2 = Purple, 3 = Red, 4 = Yellow
+	public float wallDamageCounter = 0;
+	public bool startedReading = false;
+	public bool isHoldingObject = false;
 	public List<Collider> turbineList = new List<Collider>();
     private Rigidbody rbd;
     public GameObject distanceSensor;
     public GameObject leftColorSensor;
 	public GameObject rightColorSensor;
 	private RobotStatus robotStatScript;
+
+	public GameObject greenProduct;
+	public GameObject purpleProduct;
+	public GameObject redProduct;
+	public GameObject yellowProduct;
 
 	private void Start()
     {
@@ -156,6 +165,17 @@ public class RobotMovementTest : MonoBehaviour
 			else
 			{
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, turbineList[x].transform.parent.eulerAngles.y, 0), 0.00006f * Time.time);
+			}
+		}
+		if (isAtWallCount > 0)
+		{
+			wallDamageCounter += Time.fixedDeltaTime;
+			if (wallDamageCounter > 1)
+			{
+				if (rbd.velocity.magnitude > 0.1f)
+				{
+					robotStatScript.playerHealth -= rbd.velocity.magnitude * 10.0f;
+				}
 			}
 		}
     }
@@ -367,6 +387,10 @@ public class RobotMovementTest : MonoBehaviour
 
     private bool CheckDistanceSensor(GameObject block)
     {
+		if (distanceSensor == null)
+		{
+			return false;
+		}
         RaycastHit hit;
         Vector3 sensorForward = distanceSensor.transform.forward;
         Quaternion spreadAngle = Quaternion.AngleAxis(degree, new Vector3(0, 1, 0));
@@ -422,6 +446,10 @@ public class RobotMovementTest : MonoBehaviour
 
 	private bool CheckColorSensor(GameObject block)
 	{
+		if (leftColorSensor == null)
+		{
+			return false;
+		}
 		RaycastHit leftHit;
 		RaycastHit rightHit;
 		int correctCount = 0;
@@ -636,13 +664,91 @@ public class RobotMovementTest : MonoBehaviour
 		}
 		if (other.transform.tag == "Lava")
 		{
-			robotStatScript.playerHealth = -100;
+			robotStatScript.playerHealth -= 100;
+		}
+		if (other.transform.tag == "ProductPickup")
+		{
+			if (leftColorSensor != null) // If this is stovebot
+			{
+				if (!isHoldingObject)
+				{
+					if (other.transform.name == "Green_Cube") // If picked up green
+					{
+						colorHoldingObject = 1;
+						greenProduct.SetActive(true);
+					}
+					else if (other.transform.name == "Purple_Cube") // If picked up purple
+					{
+						colorHoldingObject = 2;
+						purpleProduct.SetActive(true);
+					}
+					if (other.transform.name == "Red_Cube") // If picked up red
+					{
+						colorHoldingObject = 3;
+						redProduct.SetActive(true);
+					}
+					if (other.transform.name == "Yellow_Cube") // If picked up yellow
+					{
+						colorHoldingObject = 4;
+						yellowProduct.SetActive(true);
+					}
+					other.transform.parent.parent.GetComponent<SpawnerController>().ObjectTaken();
+					isHoldingObject = true;
+					Debug.Log("Pickup!");
+				}
+			}
+		}
+		if (other.transform.tag == "ProductDeliver")
+		{
+			if (isHoldingObject)
+			{
+				if (other.transform.parent.name == "Green_Destination")
+				{
+					if (colorHoldingObject == 1) // If holding green
+					{
+						greenProduct.SetActive(false);
+						colorHoldingObject = 0;
+						isHoldingObject = false;
+						other.transform.parent.GetComponent<DestinationController>().ObjectReceived();
+						Debug.Log("Deliver!");
+					}
+				}
+				if (other.transform.parent.name == "Purple_Destination")
+				{
+					if (colorHoldingObject == 2) // If holding purple
+					{
+						purpleProduct.SetActive(false);
+						colorHoldingObject = 0;
+						isHoldingObject = false;
+						other.transform.parent.GetComponent<DestinationController>().ObjectReceived();
+						Debug.Log("Deliver!");
+					}
+				}
+				if (other.transform.parent.name == "Red_Destination")
+				{
+					if (colorHoldingObject == 3) // If holding red
+					{
+						redProduct.SetActive(false);
+						colorHoldingObject = 0;
+						isHoldingObject = false;
+						other.transform.parent.GetComponent<DestinationController>().ObjectReceived();
+						Debug.Log("Deliver!");
+					}
+				}
+				if (other.transform.parent.name == "Yellow_Destination")
+				{
+					if (colorHoldingObject == 4) // If holding yellow
+					{
+						yellowProduct.SetActive(false);
+						colorHoldingObject = 0;
+						isHoldingObject = false;
+						other.transform.parent.GetComponent<DestinationController>().ObjectReceived();
+						Debug.Log("Deliver!");
+					}
+				}
+			}
 		}
 	}
-	/*private void OntriggerStay(Collider other)
-	{
-		Debug.Log("stay" + other.transform.name);
-	}*/
 	private void OnTriggerExit(Collider other)
 	{
 		if (other.transform.tag == "IceFloor")
@@ -652,6 +758,26 @@ public class RobotMovementTest : MonoBehaviour
 		if (other.transform.tag == "Turbine")
 		{
 			turbineList.Remove(other);
+		}
+	}
+	private void OnCollisionEnter(Collision other)
+	{
+		if (other.transform.tag == "Wall")
+		{
+			Debug.Log("HIT!");
+			isAtWallCount++;
+			if (rbd.velocity.magnitude > 0.1f)
+			{
+				robotStatScript.playerHealth -= rbd.velocity.magnitude * 10.0f;
+			}
+		}
+	}
+	private void OnCollisionExit(Collision other)
+	{
+		if (other.transform.tag == "Wall")
+		{
+			Debug.Log("EXIT!");
+			isAtWallCount--;
 		}
 	}
 }

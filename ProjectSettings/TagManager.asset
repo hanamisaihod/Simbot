@@ -24,6 +24,11 @@ TagManager:
   - RedZoneFloor
   - RedWarning
   - Lava
+  - ProductDeliver
+  - ProductPickup
+  - Dragable
+  - ConnectorSlot
+  - Available
   layers:
   - Default
   - TransparentFX

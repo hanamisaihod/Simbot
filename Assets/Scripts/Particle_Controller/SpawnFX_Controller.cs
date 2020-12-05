@@ -31,8 +31,6 @@ public class SpawnFX_Controller : MonoBehaviour
         blueInitial = blueLightCube.transform.localScale;
         whiteInitial = whiteLightCube.transform.localScale;
 
-        bot.SetActive(false);   // Dont Forget Remove This
-
     }
 
      void Update()
@@ -86,7 +84,7 @@ public class SpawnFX_Controller : MonoBehaviour
         whiteLightCube.GetComponent<MeshRenderer>().enabled = false;
         lightPoint.GetComponent<Light>().enabled = false;
 
-        bot.SetActive(true);    // Spawn robot here
+        //bot.SetActive(true);    // Spawn robot here
 
         yield return new WaitForSeconds(0.1f);
     }
