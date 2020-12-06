@@ -6,32 +6,47 @@ using UnityEngine.SceneManagement;
 
 public class CanvasFX_Controller : MonoBehaviour
 {
-    public static bool clearTrigger;
+    public bool clearTrigger;
     public bool failTrigger;
-    public bool FXshowing;                  // Please check this before trigger both clearTrigger and failTrigger
+    private bool startShow;                  // Please check this before trigger both clearTrigger and failTrigger
     public bool clearSceneTrigger;
+    private bool FXshowing;
+    public bool pass1;
+    public bool pass2;
+    public bool pass3;
     public GameObject textClear;
     public GameObject textFail;
     public GameObject whiteFlash;
     public GameObject darkTheme;
-    public GameObject tryButton;
-    public GameObject nextButton;
+    public GameObject retryButton;
+    public GameObject doneButton;
 
     public GameObject clearBackFX;
     public GameObject clearLeftFX;
     public GameObject clearRightFX;
     public GameObject failBackFX;
+    public GameObject starTable;
+    public GameObject star1;
+    public GameObject star2;
+    public GameObject star3;
+    public GameObject emptyStar1;
+    public GameObject emptyStar2;
+    public GameObject emptyStar3;
+    public GameObject textCon1;
+    public GameObject textCon2;
+    public GameObject textCon3;
 
     private float clearDuration = 5.1f;
     private float failDuration = 3.6f;
     private float waitUntil;
     private Vector3 clearInitial;
     private Vector3 failInitial;
-    private Vector3 tryInitial;
-    private Vector3 nextInitial;
+    private Vector3 retryInitial;
+    private Vector3 doneInitial;
     Coroutine usingCor;
     Coroutine loopCor1;
     Coroutine loopCor2;
+    Coroutine tableCor;
     AudioSource audioClearBack;
     AudioSource audioFailBack;
     AudioSource audioLeft;
@@ -50,62 +65,94 @@ public class CanvasFX_Controller : MonoBehaviour
         audioRight = clearRightFX.GetComponent<AudioSource>();
         audioLeft.volume = volume;
         audioRight.volume = volume;
+        whiteFlash.SetActive(true);
+        darkTheme.SetActive(true);
         textClear.GetComponent<Image>().enabled = false;
         textFail.GetComponent<Image>().enabled = false;
         whiteFlash.GetComponent<Image>().enabled = false;
         darkTheme.GetComponent<Image>().enabled = false;
-        tryButton.GetComponent<Image>().enabled = false;
-        nextButton.GetComponent<Image>().enabled = false;
-        gameObject.GetComponent<Canvas>().enabled = false;
+        retryButton.GetComponent<Image>().enabled = false;
+        doneButton.GetComponent<Image>().enabled = false;
+
+        starTable.GetComponent<Image>().enabled = false;
+        star1.GetComponent<Image>().enabled = false;
+        star2.GetComponent<Image>().enabled = false;
+        star3.GetComponent<Image>().enabled = false;
+        emptyStar1.GetComponent<Image>().enabled = false;
+        emptyStar2.GetComponent<Image>().enabled = false;
+        emptyStar3.GetComponent<Image>().enabled = false;
+        textCon1.GetComponent<Text>().enabled = false;
+        textCon2.GetComponent<Text>().enabled = false;
+        textCon3.GetComponent<Text>().enabled = false;
+
         clearBackFX.SetActive(false);
         clearLeftFX.SetActive(false);
         clearRightFX.SetActive(false);
         failBackFX.SetActive(false);
         clearInitial = textClear.transform.localScale;
-        failInitial = textFail.transform.localPosition;
-        tryInitial = tryButton.transform.localScale;
-        nextInitial = nextButton.transform.localScale;
+        failInitial = textFail.transform.localScale;
+        retryInitial = retryButton.transform.localScale;
+        doneInitial = doneButton.transform.localScale;
 
-        tryButton.GetComponent<Button>().onClick.AddListener(ClearScene); // Please come back to edit this
+        retryButton.GetComponent<Button>().onClick.AddListener(ClearScene); // Please come back to edit this
     }
 
     void Update()
     {
-        if (clearTrigger && Time.time > waitUntil && !FXshowing)
+        if (clearTrigger && !startShow && !FXshowing)
         {
-            gameObject.GetComponent<Canvas>().enabled = true;
-            FXshowing = true;
-            if(usingCor != null)
+            if (usingCor != null)
             {
                 StopCoroutine(usingCor);
             }
             usingCor = StartCoroutine(ClearShow());
-            clearTrigger = false;
-            waitUntil = Time.time + clearDuration;
-        }
-
-        if (failTrigger && Time.time > waitUntil && !FXshowing)
-        {
-            gameObject.GetComponent<Canvas>().enabled = true;
+            if(tableCor != null)
+            {
+                StopCoroutine(tableCor);
+            }
+            tableCor = StartCoroutine(tableShow());
+            startShow = true;
             FXshowing = true;
+        }
+        else
+            clearTrigger = false;
+
+        if (failTrigger && !startShow && !FXshowing)
+        {
             if (usingCor != null)
             {
                 StopCoroutine(usingCor);
             }
             usingCor = StartCoroutine(FailShow());
-            failTrigger = false;
-            waitUntil = Time.time + failDuration;
+            if (tableCor != null)
+            {
+                StopCoroutine(tableCor);
+            }
+            tableCor = StartCoroutine(tableShow());
+            startShow = true;
+            FXshowing = true;
         }
+        else
+            failTrigger = false;
 
-        if(clearSceneTrigger && Time.time > waitUntil)
+        if (clearSceneTrigger && !startShow && FXshowing)
         {
-            gameObject.GetComponent<Canvas>().enabled = false;
             textClear.GetComponent<Image>().enabled = false;
             textFail.GetComponent<Image>().enabled = false;
             whiteFlash.GetComponent<Image>().enabled = false;
             darkTheme.GetComponent<Image>().enabled = false;
-            tryButton.GetComponent<Image>().enabled = false;
-            nextButton.GetComponent<Image>().enabled = false;
+            retryButton.GetComponent<Image>().enabled = false;
+            doneButton.GetComponent<Image>().enabled = false;
+            starTable.GetComponent<Image>().enabled = false;
+            star1.GetComponent<Image>().enabled = false;
+            star2.GetComponent<Image>().enabled = false;
+            star3.GetComponent<Image>().enabled = false;
+            emptyStar1.GetComponent<Image>().enabled = false;
+            emptyStar2.GetComponent<Image>().enabled = false;
+            emptyStar3.GetComponent<Image>().enabled = false;
+            textCon1.GetComponent<Text>().enabled = false;
+            textCon2.GetComponent<Text>().enabled = false;
+            textCon3.GetComponent<Text>().enabled = false;
             StopCoroutine(loopCor1);
             StopCoroutine(loopCor2);
             clearBackFX.SetActive(false);
@@ -113,18 +160,19 @@ public class CanvasFX_Controller : MonoBehaviour
             clearRightFX.SetActive(false);
             failBackFX.SetActive(false);
             clearSceneTrigger = false;
-            if(usingCor != null)
+            if (usingCor != null)
             {
                 StopCoroutine(usingCor);
             }
+            if (tableCor != null)
+            {
+                StopCoroutine(tableCor);
+            }
             usingCor = StartCoroutine(Clear());
+            startShow = true;
         }
-
-        if(FXshowing)
-        {
-            clearTrigger = false;
-            failTrigger = false;
-        }
+        else
+            clearSceneTrigger = false;
 
     }
 
@@ -139,13 +187,13 @@ public class CanvasFX_Controller : MonoBehaviour
     {
         var Rect = textClear.GetComponent<RectTransform>();
         var whiteRect = whiteFlash.GetComponent<RectTransform>();
-        var tryRect = tryButton.GetComponent<RectTransform>();
-        var nextRect = nextButton.GetComponent<RectTransform>();
-
+        
         clearBackFX.SetActive(false);
         clearLeftFX.SetActive(false);
         clearRightFX.SetActive(false);
 
+        LeanTween.scale(Rect, Rect.localScale / 10.5f, 0.1f);
+        yield return new WaitForSeconds(0.1f);
         textClear.GetComponent<Image>().enabled = true;
         LeanTween.scale(Rect, Rect.localScale * 6f, 1f).setDelay(0.1f).setEaseInOutBack();
         LeanTween.rotateZ(textClear, 3600, 1f);
@@ -156,59 +204,107 @@ public class CanvasFX_Controller : MonoBehaviour
         whiteFlash.GetComponent<Image>().enabled = true;
         audioClearBack.PlayOneShot(soundWin1, volume);
         LeanTween.alpha(whiteRect, 0f, 1f).setDelay(0.1f);
-        LeanTween.scale(Rect, Rect.localScale * 1.75f, 0.25f).setEaseInOutBack();
+        LeanTween.scale(Rect, clearInitial, 0.25f).setEaseInOutBack();
 
         yield return new WaitForSeconds(0.25f);
 
         clearLeftFX.SetActive(true);
         loopCor1 = StartCoroutine(LoopSound(audioLeft));
-        LeanTween.moveY(Rect, 15f, 1f).setLoopPingPong();
+        LeanTween.moveLocalY(textClear, textClear.transform.localPosition.y + 8f, 0.75f).setLoopPingPong();
 
         yield return new WaitForSeconds(1f);
 
+        whiteFlash.GetComponent<Image>().enabled = false;
+        LeanTween.alpha(whiteRect, 1f, 0.1f);
         clearRightFX.SetActive(true);
         loopCor2 = StartCoroutine(LoopSound(audioRight));
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.7f);
 
-        tryButton.GetComponent<Image>().enabled = true;
-        LeanTween.scale(tryRect, tryRect.localScale * 8f, 0.75f).setDelay(0.1f).setEaseInOutBack();
-
-        nextButton.GetComponent<Image>().enabled = true;
-        LeanTween.scale(nextRect, nextRect.localScale * 8f, 0.75f).setDelay(0.1f).setEaseInOutBack();
-
-        yield return new WaitForSeconds(0.75f);
+        startShow = false;
     }
 
     IEnumerator FailShow()
     {
         var Rect = textFail.GetComponent<RectTransform>();
         var darkRect = darkTheme.GetComponent<RectTransform>();
-        var tryRect = tryButton.GetComponent<RectTransform>();
-        var nextRect = nextButton.GetComponent<RectTransform>();
 
         LeanTween.alpha(darkRect, 0f, 0.1f);
+        LeanTween.scale(Rect, Rect.localScale / 10.5f, 0.1f);
         failBackFX.SetActive(false);
-
+        
         yield return new WaitForSeconds(0.1f);
 
         textFail.GetComponent<Image>().enabled = true;
         darkTheme.GetComponent<Image>().enabled = true;
         failBackFX.SetActive(true);
+        LeanTween.scale(Rect, failInitial, 0.75f).setEaseInOutBack();
 
         yield return new WaitForSeconds(0.75f);
 
         audioFailBack.PlayOneShot(soundLose, volume);
         LeanTween.alpha(darkRect, 0.9f, 0.1f);
-        LeanTween.moveY(Rect, 0f, 0.75f).setEaseOutElastic();
-        LeanTween.moveY(Rect, 10f, 1f).setDelay(0.75f).setLoopPingPong();
+        
+        LeanTween.moveLocalY(textFail, textFail.transform.localPosition.y + 8f, 0.75f).setDelay(0.75f).setLoopPingPong();
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3.3f);
 
-        tryButton.GetComponent<Image>().enabled = true;
-        LeanTween.scale(tryRect, tryRect.localScale * 8f, 0.75f).setEaseInOutBack();
-        nextButton.GetComponent<Image>().enabled = true;
-        LeanTween.scale(nextRect, nextRect.localScale * 8f, 0.75f).setDelay(0.2f).setEaseInOutBack();
+        startShow = false;
+    }
+
+    IEnumerator tableShow()
+    {
+        var tableRect = starTable.GetComponent<RectTransform>();
+        var retryRect = retryButton.GetComponent<RectTransform>();
+        var doneRect = doneButton.GetComponent<RectTransform>();
+        var starRect1 = star1.GetComponent<RectTransform>();
+        var starRect2 = star2.GetComponent<RectTransform>();
+        var starRect3 = star3.GetComponent<RectTransform>();
+
+        LeanTween.scale(tableRect, tableRect.localScale / 10.5f, 0.1f);
+        LeanTween.scale(retryRect, retryRect.localScale / 8f, 0.1f);
+        LeanTween.scale(doneRect, doneRect.localScale / 8f, 0.1f);
+        yield return new WaitForSeconds(0.1f);
+        starTable.GetComponent<Image>().enabled = true;
+        emptyStar1.GetComponent<Image>().enabled = true;
+        emptyStar2.GetComponent<Image>().enabled = true;
+        emptyStar3.GetComponent<Image>().enabled = true;
+        textCon1.GetComponent<Text>().enabled = true;
+        textCon2.GetComponent<Text>().enabled = true;
+        textCon3.GetComponent<Text>().enabled = true;
+        LeanTween.scale(tableRect, tableRect.localScale * 10.5f, 0.75f).setEaseInOutBack();
+
+        yield return new WaitForSeconds(0.75f);
+
+        if(pass1)
+        {
+            LeanTween.scale(starRect1, starRect1.localScale / 10.5f, 0.1f);
+            yield return new WaitForSeconds(0.1f);
+            star1.GetComponent<Image>().enabled = true;
+            LeanTween.scale(starRect1, starRect1.localScale * 10.5f, 0.75f).setEaseInOutBack();
+            yield return new WaitForSeconds(0.75f);
+        }
+        if (pass2)
+        {
+            LeanTween.scale(starRect2, starRect2.localScale / 10.5f, 0.1f);
+            yield return new WaitForSeconds(0.1f);
+            star2.GetComponent<Image>().enabled = true;
+            LeanTween.scale(starRect2, starRect2.localScale * 10.5f, 0.75f).setEaseInOutBack();
+            yield return new WaitForSeconds(0.75f);
+        }
+        if (pass3)
+        {
+            LeanTween.scale(starRect3, starRect3.localScale / 10.5f, 0.1f);
+            yield return new WaitForSeconds(0.1f);
+            star3.GetComponent<Image>().enabled = true;
+            LeanTween.scale(starRect3, starRect3.localScale * 10.5f, 0.75f).setEaseInOutBack();
+            yield return new WaitForSeconds(0.75f);
+        }
+
+        retryButton.GetComponent<Image>().enabled = true;
+        LeanTween.scale(retryRect, retryRect.localScale * 8f, 0.75f).setDelay(0.1f).setEaseInOutBack();
+        doneButton.GetComponent<Image>().enabled = true;
+        LeanTween.scale(doneRect, doneRect.localScale * 8f, 0.75f).setDelay(0.1f).setEaseInOutBack();
 
         yield return new WaitForSeconds(0.75f);
     }
@@ -217,13 +313,14 @@ public class CanvasFX_Controller : MonoBehaviour
     {
         LeanTween.cancel(textClear);
         LeanTween.cancel(textFail);
-        LeanTween.cancel(tryButton);
-        LeanTween.cancel(nextButton);
+        LeanTween.cancel(retryButton);
+        LeanTween.cancel(doneButton);
         LeanTween.scale(textClear, clearInitial, 0.1f);
-        LeanTween.moveLocal(textFail, failInitial, 0.1f);
-        LeanTween.scale(tryButton, tryInitial, 0.1f);
-        LeanTween.scale(nextButton, nextInitial, 0.1f);
+        LeanTween.scale(textFail, failInitial, 0.1f);
+        LeanTween.scale(retryButton, retryInitial, 0.1f);
+        LeanTween.scale(doneButton, doneInitial, 0.1f);
         yield return new WaitForSeconds(0.1f);
+        startShow = false;
         FXshowing = false;
     }
 

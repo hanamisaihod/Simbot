@@ -18,7 +18,7 @@ public class atGoal : MonoBehaviour
                 //Debug.Log("Player at: "+ roundPos + "Goal at: " + gameObject.transform.position);
                 if(roundPos == gameObject.transform.position)
                 {
-                    CanvasFX_Controller.clearTrigger = true;
+                    //CanvasFX_Controller.clearTrigger = true;
                 }
             }
         }
