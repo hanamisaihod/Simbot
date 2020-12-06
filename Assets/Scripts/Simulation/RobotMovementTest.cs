@@ -169,12 +169,14 @@ public class RobotMovementTest : MonoBehaviour
 		}
 		if (isAtWallCount > 0)
 		{
-			wallDamageCounter += Time.fixedDeltaTime;
-			if (wallDamageCounter > 1)
+			if (rbd.velocity.magnitude > 0.1f)
 			{
-				if (rbd.velocity.magnitude > 0.1f)
+				if (wallDamageCounter > 1)
 				{
-					robotStatScript.playerHealth -= rbd.velocity.magnitude * 10.0f;
+					wallDamageCounter += Time.fixedDeltaTime;
+					//robotStatScript.playerHealth -= rbd.velocity.magnitude * 10.0f;
+					robotStatScript.DamagePlayer(rbd.velocity.magnitude * 10.0f);
+					wallDamageCounter = 0;
 				}
 			}
 		}
@@ -664,7 +666,8 @@ public class RobotMovementTest : MonoBehaviour
 		}
 		if (other.transform.tag == "Lava")
 		{
-			robotStatScript.playerHealth -= 100;
+			//robotStatScript.playerHealth -= 100;
+			robotStatScript.DamagePlayer(100);
 		}
 		if (other.transform.tag == "ProductPickup")
 		{
@@ -694,7 +697,6 @@ public class RobotMovementTest : MonoBehaviour
 					}
 					other.transform.parent.parent.GetComponent<SpawnerController>().ObjectTaken();
 					isHoldingObject = true;
-					Debug.Log("Pickup!");
 				}
 			}
 		}
@@ -710,7 +712,6 @@ public class RobotMovementTest : MonoBehaviour
 						colorHoldingObject = 0;
 						isHoldingObject = false;
 						other.transform.parent.GetComponent<DestinationController>().ObjectReceived();
-						Debug.Log("Deliver!");
 					}
 				}
 				if (other.transform.parent.name == "Purple_Destination")
@@ -721,7 +722,6 @@ public class RobotMovementTest : MonoBehaviour
 						colorHoldingObject = 0;
 						isHoldingObject = false;
 						other.transform.parent.GetComponent<DestinationController>().ObjectReceived();
-						Debug.Log("Deliver!");
 					}
 				}
 				if (other.transform.parent.name == "Red_Destination")
@@ -732,7 +732,6 @@ public class RobotMovementTest : MonoBehaviour
 						colorHoldingObject = 0;
 						isHoldingObject = false;
 						other.transform.parent.GetComponent<DestinationController>().ObjectReceived();
-						Debug.Log("Deliver!");
 					}
 				}
 				if (other.transform.parent.name == "Yellow_Destination")
@@ -743,7 +742,6 @@ public class RobotMovementTest : MonoBehaviour
 						colorHoldingObject = 0;
 						isHoldingObject = false;
 						other.transform.parent.GetComponent<DestinationController>().ObjectReceived();
-						Debug.Log("Deliver!");
 					}
 				}
 			}
@@ -764,11 +762,12 @@ public class RobotMovementTest : MonoBehaviour
 	{
 		if (other.transform.tag == "Wall")
 		{
-			Debug.Log("HIT!");
+			float relativeVec = other.relativeVelocity.magnitude;
+			Debug.Log("Velocity magnitude at collision: "+ relativeVec);
 			isAtWallCount++;
-			if (rbd.velocity.magnitude > 0.1f)
+			if (relativeVec > 0.1f)
 			{
-				robotStatScript.playerHealth -= rbd.velocity.magnitude * 10.0f;
+				robotStatScript.DamagePlayer(relativeVec * 10.0f);
 			}
 		}
 	}
@@ -776,7 +775,7 @@ public class RobotMovementTest : MonoBehaviour
 	{
 		if (other.transform.tag == "Wall")
 		{
-			Debug.Log("EXIT!");
+			wallDamageCounter = 0;
 			isAtWallCount--;
 		}
 	}
