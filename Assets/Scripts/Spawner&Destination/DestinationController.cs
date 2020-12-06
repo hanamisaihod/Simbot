@@ -23,5 +23,6 @@ public class DestinationController : MonoBehaviour
 		AuraFX.Play();
 		BaseRen.sharedMaterial = BaseMat_active;
 		Received = true;
+		GameObject.FindGameObjectWithTag("LevelController").GetComponent<LevelController>().UnlockGoal();
 	}
 }
