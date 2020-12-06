@@ -92,7 +92,7 @@ public class SpawnFX_Controller : MonoBehaviour
     IEnumerator Clear()
     {
         LeanTween.scale(blueLightCube, blueInitial, 0.1f);
-        LeanTween.scale(whiteLightCube, blueInitial, 0.1f);
+        LeanTween.scale(whiteLightCube, whiteInitial, 0.1f);
         yield return new WaitForSeconds(0.1f);
 
     }
