@@ -23,6 +23,7 @@ public class RobotMovementTest : MonoBehaviour
     public GameObject leftColorSensor;
 	public GameObject rightColorSensor;
 	private RobotStatus robotStatScript;
+	private GameObject levelController;
 
 	public GameObject greenProduct;
 	public GameObject purpleProduct;
@@ -33,6 +34,7 @@ public class RobotMovementTest : MonoBehaviour
     {
         rbd = GetComponent<Rigidbody>();
 		robotStatScript = GetComponent<RobotStatus>();
+		levelController = GameObject.FindGameObjectWithTag("LevelController");
     }
     void FixedUpdate()
     {
@@ -745,6 +747,10 @@ public class RobotMovementTest : MonoBehaviour
 					}
 				}
 			}
+		}
+		if (other.transform.tag == "GoalFinishZone")
+		{
+			levelController.GetComponent<LevelController>().FinishMission();
 		}
 	}
 	private void OnTriggerExit(Collider other)

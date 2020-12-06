@@ -45,33 +45,33 @@ public class SpawnFX_Controller : MonoBehaviour
 
     }
 
-     void Update()
-    {
+ //    void Update()
+ //   {
 
-		//if (spawnTrigger && !showing)
-		//{
-		//    if (usingCor != null)
-		//    {
-		//        StopCoroutine(usingCor);
-		//    }
-		//    usingCor = StartCoroutine(Show());
-		//    spawnTrigger = false;
-		//    showing = true;
-		//    waitUntil = Time.time + 1f;
-		//}
-		//else
-		//    spawnTrigger = false;
+	//	if (spawnTrigger && !showing)
+	//	{
+	//		if (usingCor != null)
+	//		{
+	//			StopCoroutine(usingCor);
+	//		}
+	//		usingCor = StartCoroutine(Show());
+	//		spawnTrigger = false;
+	//		showing = true;
+	//		waitUntil = Time.time + 1f;
+	//	}
+	//	else
+	//		spawnTrigger = false;
 
-		//if(showing && Time.time > waitUntil)
-		//{
-		//    if (usingCor != null)
-		//    {
-		//        StopCoroutine(usingCor);
-		//    }
-		//    usingCor = StartCoroutine(Clear());
-		//    showing = false;
-		//}
-	}
+	//	if (showing && Time.time > waitUntil)
+	//	{
+	//		if (usingCor != null)
+	//		{
+	//			StopCoroutine(usingCor);
+	//		}
+	//		usingCor = StartCoroutine(Clear());
+	//		showing = false;
+	//	}
+	//}
 
 	public void StartShowing()
 	{

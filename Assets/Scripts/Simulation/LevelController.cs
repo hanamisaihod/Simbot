@@ -1,17 +1,42 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
+	private List<GameObject> productList;
+	private int deliveryLeft;
+	private GameObject goal;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+		goal = GameObject.FindGameObjectWithTag("Goal");
+        if (GameObject.Find("Green_Destination"))
+		{
+			deliveryLeft++;
+		}
+		if (GameObject.Find("Purple_Destination"))
+		{
+			deliveryLeft++;
+		}
+		if (GameObject.Find("Red_Destination"))
+		{
+			deliveryLeft++;
+		}
+		if (GameObject.Find("Yellow_Destination"))
+		{
+			deliveryLeft++;
+		}
+		if (deliveryLeft > 0)
+		{
+			Debug.Log(deliveryLeft);
+			LockGoal();
+		}
+	}
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
     {
         
     }
@@ -19,5 +44,30 @@ public class LevelController : MonoBehaviour
 	public void FindRobotAndStartReading()
 	{
 		GameObject.FindGameObjectWithTag("Player").GetComponent<RobotMovementTest>().StartReading();
+	}
+
+	public void LockGoal()
+	{
+		//Lock
+		goal.GetComponent<GoalFX_Controller>().StartLockGoal();
+	}
+
+	public void UnlockGoal()
+	{
+		deliveryLeft--;
+		if (deliveryLeft == 0)
+		{
+			Debug.Log("Unlock");
+			//Unlock Goal
+			goal.GetComponent<GoalFX_Controller>().StartUnlockGoal();
+		}
+	}
+
+	public void FinishMission()
+	{
+		goal.GetComponent<GoalFX_Controller>().StartTrigger();
+		//Star calculation
+		//show complete ui
+		//save progress
 	}
 }
