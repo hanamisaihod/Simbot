@@ -8,6 +8,7 @@ public class LevelController : MonoBehaviour
 	private List<GameObject> productList;
 	private int deliveryLeft;
 	private GameObject goal;
+	public GameObject canvasFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,8 +67,26 @@ public class LevelController : MonoBehaviour
 	public void FinishMission()
 	{
 		goal.GetComponent<GoalFX_Controller>().StartTrigger();
+		CheckStar();
+		SaveMissionProgress();
+		canvasFX.GetComponent<CanvasFX_Controller>().clearTrigger = true;
 		//Star calculation
 		//show complete ui
 		//save progress
+	}
+
+	public void FailMission()
+	{
+		canvasFX.GetComponent<CanvasFX_Controller>().failTrigger = true;
+	}
+
+	public void CheckStar()
+	{
+
+	}
+
+	public void SaveMissionProgress()
+	{
+
 	}
 }

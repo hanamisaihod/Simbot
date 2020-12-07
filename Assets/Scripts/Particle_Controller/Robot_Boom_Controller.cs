@@ -13,13 +13,16 @@ public class Robot_Boom_Controller : MonoBehaviour
     public bool level2Trigger;
     public bool boomTrigger;
 
-    void Start()
+	private GameObject levelController;
+
+	void Start()
     {
         smokeSmall.Stop();
         smokeMedium.Stop();
         smokeBig.Stop();
         lightPoint.GetComponent<Light>().enabled = false;
-    }
+		levelController = GameObject.FindGameObjectWithTag("LevelController");
+	}
 
     
     //void Update()
@@ -65,6 +68,7 @@ public class Robot_Boom_Controller : MonoBehaviour
 			smokeBig.Play();
 			fragment.Play();
 			lightPoint.GetComponent<Light>().enabled = true;
+			levelController.GetComponent<LevelController>().FailMission();
 		}
 	}
 }
