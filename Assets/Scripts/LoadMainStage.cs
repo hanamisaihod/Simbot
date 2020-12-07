@@ -8,10 +8,13 @@ using UnityEngine.SceneManagement;
 
 public class LoadMainStage : MonoBehaviour
 {
-    public string savePrefabKeyword;
+    public static string savePrefabKeyword;
     public static string mainStageKey;
+    public StarRating starRating;
+    public GameObject enableFrame;
     public void Start()
     {
+        enableFrame.transform.localScale = new Vector3(0,0,0);
         Debug.Log("Start");
         ShowLoadMainStage();
     }
@@ -61,11 +64,14 @@ public class LoadMainStage : MonoBehaviour
 
     public IEnumerator mainStageClick(int mainIndex)
     {
+        LeanTween.scale(enableFrame,new Vector3(1,1,1),0.5f);
+        starRating.GetComponent<StarRating>().setCondition();
         LoadConfirm.waitForSelectSlot = true;
         yield return new WaitUntil(() => LoadConfirm.clickToLoad == true || DeleteSave.clickToDelete == true || ChangeToSimulate.simulate == true);
         mainStageKey = savePrefabKeyword;
         LoadConfirm.clickToLoad = false;
         LoadConfirm.waitForSelectSlot = false;
+        LeanTween.scale(enableFrame,new Vector3(0,0,0),0.5f);
         SceneManager.LoadScene("MapBuilding");
     }
 }

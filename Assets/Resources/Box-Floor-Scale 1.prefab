@@ -138,9 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a722ebc436d374d4fa0d35ce7d745a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjToMove: {fileID: 0}
-  ObjToPlace: {fileID: 0}
-  call: {fileID: 1867856635030673678}
 --- !u!114 &1867856635030673678
 MonoBehaviour:
   m_ObjectHideFlags: 0
