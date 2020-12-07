@@ -8,8 +8,10 @@ public class Redzone_PS_Controller : MonoBehaviour
     public Material floorMat_warning;
     private Renderer ren;
     public GameObject lightPoint;
-    //public bool redZoneTrigger;
-    private bool redZoneTrigger = true; // For show
+    public bool redZoneTrigger;
+	public GameObject red1; // Sprite for checking
+	public GameObject lavaCollider; // Collider for damage calculation
+
     private bool showing;
     public float delayWarning;
     public float delayB4Boom;
@@ -26,6 +28,8 @@ public class Redzone_PS_Controller : MonoBehaviour
         ren.sharedMaterial = floorMat_default;
         lightPoint.GetComponent<Light>().enabled = false;
         smokeSmall.Play();
+		red1.SetActive(false);
+		lavaCollider.SetActive(false);
     }
 
     void Update()
@@ -47,21 +51,24 @@ public class Redzone_PS_Controller : MonoBehaviour
     IEnumerator Show()
     {
         ren.sharedMaterial = floorMat_warning;
+		red1.SetActive(true);
         yield return new WaitForSeconds(delayWarning);
         lightPoint.GetComponent<Light>().enabled = true;
         pre_lava.Play();
         yield return new WaitForSeconds(delayB4Boom);
         lava.Play();
-        smokeBig.Play();
+		lavaCollider.SetActive(true);
+		smokeBig.Play();
         yield return new WaitForSeconds(1f);
         lava.Stop();
-        yield return new WaitForSeconds(0.3f);
+		lavaCollider.SetActive(false);
+		yield return new WaitForSeconds(0.3f);
         lightPoint.GetComponent<Light>().enabled = false;
         pre_lava.Stop();
         ren.sharedMaterial = floorMat_default;
         showing = false;
-
-        yield return new WaitForSeconds(1f); // For show
-        redZoneTrigger = true; // For show
+		red1.SetActive(false);
+        //yield return new WaitForSeconds(1f); // For show
+        //redZoneTrigger = true; // For show
     }
 }

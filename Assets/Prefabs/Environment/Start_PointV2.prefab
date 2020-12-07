@@ -5110,4 +5110,7 @@ MonoBehaviour:
   whiteLightCube: {fileID: 7599679960772534054}
   lightPoint: {fileID: 7599679959916499208}
   StartFX: {fileID: 7599679960762868821}
-  bot: {fileID: 0}
+  turtlePrefab: {fileID: 6106402775447490072, guid: f241d364e75142141a45305995bd3e2e,
+    type: 3}
+  stovePrefab: {fileID: 1049934262172938741, guid: 96f33132163fb2842ac039b5b7a4d5ca,
+    type: 3}

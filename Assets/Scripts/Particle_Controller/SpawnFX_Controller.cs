@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SpawnFX_Controller : MonoBehaviour
 {
-    //public bool spawnTrigger;
-    private bool spawnTrigger = true; // For show
+    public bool spawnTrigger;
     public bool clearBot; // Remove this
     public GameObject blueLightCube;
     public GameObject whiteLightCube;
@@ -18,9 +17,10 @@ public class SpawnFX_Controller : MonoBehaviour
     private float waitUntil;
     Coroutine usingCor;
 
-    public GameObject bot;
-    
-    void Start()
+    public GameObject turtlePrefab;
+	public GameObject stovePrefab;
+
+	void Start()
     {
         blueLightCube.SetActive(true);
         whiteLightCube.SetActive(true);
@@ -31,45 +31,52 @@ public class SpawnFX_Controller : MonoBehaviour
 
         blueInitial = blueLightCube.transform.localScale;
         whiteInitial = whiteLightCube.transform.localScale;
+		StartShowing();
+		if (true) // check static variable for corresponding robot of current stage
+		{
+			GameObject tempBot = Instantiate(stovePrefab);
+			tempBot.transform.position = transform.position + new Vector3(0, 0.17f, 0);
+			tempBot.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+		}
+		else
+		{
 
-        bot.SetActive(false);   // Dont Forget Remove This
+		}
 
     }
 
-     void Update()
-    {
+ //    void Update()
+ //   {
 
-        if (spawnTrigger && !showing)
-        {
-            if (usingCor != null)
-            {
-                StopCoroutine(usingCor);
-            }
-            usingCor = StartCoroutine(Show());
-            spawnTrigger = false;
-            showing = true;
-            waitUntil = Time.time + 1f;
-        }
-        else
-            spawnTrigger = false;
+	//	if (spawnTrigger && !showing)
+	//	{
+	//		if (usingCor != null)
+	//		{
+	//			StopCoroutine(usingCor);
+	//		}
+	//		usingCor = StartCoroutine(Show());
+	//		spawnTrigger = false;
+	//		showing = true;
+	//		waitUntil = Time.time + 1f;
+	//	}
+	//	else
+	//		spawnTrigger = false;
 
-        if(showing && Time.time > waitUntil)
-        {
-            if (usingCor != null)
-            {
-                StopCoroutine(usingCor);
-            }
-            usingCor = StartCoroutine(Clear());
-            showing = false;
-        }
+	//	if (showing && Time.time > waitUntil)
+	//	{
+	//		if (usingCor != null)
+	//		{
+	//			StopCoroutine(usingCor);
+	//		}
+	//		usingCor = StartCoroutine(Clear());
+	//		showing = false;
+	//	}
+	//}
 
-        if (clearBot)   // Dont Forget Remove This
-        {
-            bot.SetActive(false);
-            clearBot = false;
-        }
-        
-    }
+	public void StartShowing()
+	{
+		StartCoroutine(Show());
+	}
 
     IEnumerator Show()
     {
@@ -87,21 +94,22 @@ public class SpawnFX_Controller : MonoBehaviour
         whiteLightCube.GetComponent<MeshRenderer>().enabled = false;
         lightPoint.GetComponent<Light>().enabled = false;
 
-        bot.SetActive(true);    // Spawn robot here
+        //bot.SetActive(true);    // Spawn robot here
 
         yield return new WaitForSeconds(0.1f);
+		StartCoroutine(WaitBeforeClear(1.0f));
     }
 
     IEnumerator Clear()
     {
         LeanTween.scale(blueLightCube, blueInitial, 0.1f);
-        LeanTween.scale(whiteLightCube, blueInitial, 0.1f);
-        //yield return new WaitForSeconds(0.1f);
-
-        yield return new WaitForSeconds(4f); //For show
-        clearBot = true; //For show
-        yield return new WaitForSeconds(1f); //For show
-        spawnTrigger = true; // For show
-
+        LeanTween.scale(whiteLightCube, whiteInitial, 0.1f);
+        yield return new WaitForSeconds(0.1f);
     }
+
+	IEnumerator WaitBeforeClear(float delay)
+	{
+		yield return new WaitForSeconds(delay);
+		StartCoroutine(Clear());
+	}
 }

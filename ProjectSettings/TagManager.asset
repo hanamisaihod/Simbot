@@ -19,7 +19,19 @@ TagManager:
   - Building
   - Wall
   - IceFloor
+  - Turbine
+  - BlackLine
   - RedZoneFloor
+  - RedWarning
+  - Lava
+  - ProductDeliver
+  - ProductPickup
+  - Dragable
+  - ConnectorSlot
+  - Available
+  - LevelController
+  - Goal
+  - GoalFinishZone
   layers:
   - Default
   - TransparentFX
@@ -29,7 +41,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - PaletteBlock
   - 
   - 
   - 

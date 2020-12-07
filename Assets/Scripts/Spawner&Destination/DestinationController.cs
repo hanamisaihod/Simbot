@@ -18,13 +18,11 @@ public class DestinationController : MonoBehaviour
         AuraFX.Stop();
     }
 
-    void Update()
-    {
-        if(Received)
-        {
-            AuraFX.Play();
-            BaseRen.sharedMaterial = BaseMat_active;
-            Received = false;
-        }
-    }
+	public void ObjectReceived()
+	{
+		AuraFX.Play();
+		BaseRen.sharedMaterial = BaseMat_active;
+		Received = true;
+		GameObject.FindGameObjectWithTag("LevelController").GetComponent<LevelController>().UnlockGoal();
+	}
 }
