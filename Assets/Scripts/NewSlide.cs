@@ -16,11 +16,11 @@ public class NewSlide : MonoBehaviour
             moving = true;
             if(!isOpen)
             {
-                LeanTween.moveLocalY(gameObject,gameObject.transform.localPosition.y + 400,1).setEaseOutCubic();
+                LeanTween.moveLocalY(gameObject,gameObject.transform.localPosition.y + 176,1).setEaseOutCubic();
             }
             else
             {
-                LeanTween.moveLocalY(gameObject,gameObject.transform.localPosition.y - 400,1).setEaseOutCubic();
+                LeanTween.moveLocalY(gameObject,gameObject.transform.localPosition.y - 176,1).setEaseOutCubic();
             }
             StartCoroutine(WaitOpenCoroutine());
         }   
