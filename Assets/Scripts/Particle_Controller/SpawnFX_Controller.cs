@@ -32,16 +32,6 @@ public class SpawnFX_Controller : MonoBehaviour
         blueInitial = blueLightCube.transform.localScale;
         whiteInitial = whiteLightCube.transform.localScale;
 		StartShowing();
-		if (true) // check static variable for corresponding robot of current stage
-		{
-			GameObject tempBot = Instantiate(stovePrefab);
-			tempBot.transform.position = transform.position + new Vector3(0, 0.17f, 0);
-			tempBot.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-		}
-		else
-		{
-
-		}
 
     }
 
@@ -112,4 +102,18 @@ public class SpawnFX_Controller : MonoBehaviour
 		yield return new WaitForSeconds(delay);
 		StartCoroutine(Clear());
 	}
+
+    public void SpawnRobot()
+    {
+        if (true) // check static variable for corresponding robot of current stage
+        {
+            GameObject tempBot = Instantiate(stovePrefab);
+            tempBot.transform.position = transform.position + new Vector3(0, 0.17f, 0);
+            tempBot.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        }
+        else
+        {
+
+        }
+    }
 }

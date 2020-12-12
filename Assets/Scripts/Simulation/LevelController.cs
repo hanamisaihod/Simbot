@@ -8,12 +8,18 @@ public class LevelController : MonoBehaviour
 	private List<GameObject> productList;
     public List<GameObject> redzoneList;
 	private int deliveryLeft;
-	private GameObject goal;
+    private GameObject start;
+    private GameObject goal;
 	public GameObject canvasFX;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        start = GameObject.FindGameObjectWithTag("Start");
+        goal = GameObject.FindGameObjectWithTag("Goal");
+    }
     void Start()
     {
-		goal = GameObject.FindGameObjectWithTag("Goal");
+        start.GetComponent<SpawnFX_Controller>().SpawnRobot();
         if (GameObject.Find("Green_Destination"))
 		{
 			deliveryLeft++;
