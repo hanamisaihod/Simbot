@@ -19386,7 +19386,7 @@ GameObject:
   - component: {fileID: 4246911473530376338}
   m_Layer: 0
   m_Name: Floor_Redzone
-  m_TagString: Untagged
+  m_TagString: RedZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19478,7 +19478,8 @@ MonoBehaviour:
   floorMat_warning: {fileID: 2100000, guid: 270add3f14ad1bd42a5b81b9565eebe8, type: 2}
   lightPoint: {fileID: 4075991601673464512}
   redZoneTrigger: 0
-  red1: {fileID: 0}
+  red1: {fileID: 3714670549103044799}
+  lavaCollider: {fileID: 2023831363000482350}
   delayWarning: 2
   delayB4Boom: 3
   smokeSmall: {fileID: 4075991601882409459}

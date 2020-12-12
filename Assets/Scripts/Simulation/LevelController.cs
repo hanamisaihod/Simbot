@@ -6,6 +6,7 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
 	private List<GameObject> productList;
+    public List<GameObject> redzoneList;
 	private int deliveryLeft;
 	private GameObject goal;
 	public GameObject canvasFX;
@@ -34,7 +35,24 @@ public class LevelController : MonoBehaviour
 			Debug.Log(deliveryLeft);
 			LockGoal();
 		}
+        redzoneList.AddRange(GameObject.FindGameObjectsWithTag("RedZone"));
+        ActivateRedZone();
 	}
+
+    public void ActivateRedZone()
+    {
+        StartCoroutine(WaitRedZoneTime());
+    }
+
+    IEnumerator WaitRedZoneTime()
+    {
+        yield return new WaitForSeconds(6.0f);
+        foreach (GameObject redzone in redzoneList)
+        {
+            redzone.GetComponent<Redzone_PS_Controller>().redZoneTrigger = true;
+        }
+        ActivateRedZone();
+    }
 
 	// Update is called once per frame
 	void Update()
