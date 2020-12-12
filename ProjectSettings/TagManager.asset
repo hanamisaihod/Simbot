@@ -32,6 +32,8 @@ TagManager:
   - LevelController
   - Goal
   - GoalFinishZone
+  - RedZone
+  - Start
   layers:
   - Default
   - TransparentFX
