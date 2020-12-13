@@ -22,8 +22,8 @@ public class JoyStickMoveCamera : MonoBehaviour
     {
 		Vector3 Vforward;
 		Vector3 Vright;
-		Vforward = transform.forward * moveJoyStick.Vertical * 1.5f;
-		Vright = transform.right * moveJoyStick.Horizontal * 1.5f;
+		Vforward = transform.forward * moveJoyStick.Vertical * 1f;
+		Vright = transform.right * moveJoyStick.Horizontal * 1f;
 		rigidBody.velocity += Vector3.ClampMagnitude(Vforward, 4f);
 		rigidBody.velocity += Vector3.ClampMagnitude(Vright, 4f);
 		rotY += panJoyStick.Horizontal * 0.3f;

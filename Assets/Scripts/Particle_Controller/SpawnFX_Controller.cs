@@ -103,9 +103,15 @@ public class SpawnFX_Controller : MonoBehaviour
 		StartCoroutine(Clear());
 	}
 
-    public void SpawnRobot()
+    public void SpawnRobot(int botType)
     {
-        if (true) // check static variable for corresponding robot of current stage
+        if (botType == 0)
+        {
+            GameObject tempBot = Instantiate(turtlePrefab);
+            tempBot.transform.position = transform.position + new Vector3(0, 0.3f, 0);
+            tempBot.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        }
+        else if (botType == 1) // check static variable for corresponding robot of current stage
         {
             GameObject tempBot = Instantiate(stovePrefab);
             tempBot.transform.position = transform.position + new Vector3(0, 0.17f, 0);

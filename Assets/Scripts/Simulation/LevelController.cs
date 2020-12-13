@@ -11,6 +11,7 @@ public class LevelController : MonoBehaviour
     private GameObject start;
     private GameObject goal;
 	public GameObject canvasFX;
+    public int robotType;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -19,7 +20,7 @@ public class LevelController : MonoBehaviour
     }
     void Start()
     {
-        start.GetComponent<SpawnFX_Controller>().SpawnRobot();
+        start.GetComponent<SpawnFX_Controller>().SpawnRobot(robotType);
         if (GameObject.Find("Green_Destination"))
 		{
 			deliveryLeft++;
