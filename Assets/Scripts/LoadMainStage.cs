@@ -68,7 +68,18 @@ public class LoadMainStage : MonoBehaviour
         starRating.GetComponent<StarRating>().setCondition();
         LoadConfirm.waitForSelectSlot = true;
         yield return new WaitUntil(() => LoadConfirm.clickToLoad == true || DeleteSave.clickToDelete == true || ChangeToSimulate.simulate == true);
-        mainStageKey = savePrefabKeyword;
+
+        string mainWord = savePrefab[mainIndex];
+        mainWord = mainWord.Replace(@"\","/");
+        string[] mainWordSpit = mainWord.Split("/"[0]);
+        for (int i = 0; i < mainWordSpit.Length; i++)
+        {
+            if(i == mainWordSpit.Length - 1)
+                {
+                    mainStageKey = mainWordSpit[i];
+                }
+        }
+        mainStageKey = mainStageKey.Replace(".prefab","");
         LoadConfirm.clickToLoad = false;
         LoadConfirm.waitForSelectSlot = false;
         LeanTween.scale(enableFrame,new Vector3(0,0,0),0.5f);
