@@ -201,6 +201,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 3966251637728379058, guid: 2874217719b1ade428393da1e6817c24,
+        type: 3}
+      propertyPath: m_TagString
+      value: Goal
+      objectReference: {fileID: 0}
     - target: {fileID: 4341791601466333704, guid: 2874217719b1ade428393da1e6817c24,
         type: 3}
       propertyPath: m_LocalPosition.x

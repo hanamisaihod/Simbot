@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 7403988940324250377}
   - component: {fileID: 4952793564135574755}
   - component: {fileID: 128825151138685529}
-  - component: {fileID: 3596769586557264054}
+  - component: {fileID: 4216463675510082853}
   m_Layer: 20
   m_Name: Ice_Floor
   m_TagString: IceFloor
@@ -222,8 +222,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &3596769586557264054
-MeshCollider:
+--- !u!65 &4216463675510082853
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -232,10 +232,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -629719859055844128, guid: 43ce53f226fd58743a247b40b3a2cea2, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.020000005, z: 0.022000007}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8676363149106515028
 GameObject:
   m_ObjectHideFlags: 0
