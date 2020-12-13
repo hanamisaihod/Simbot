@@ -38,10 +38,6 @@ public class RobotMovementTest : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Vector3 sensorForward = distanceSensor.transform.forward;
-        Quaternion spreadAngle = Quaternion.AngleAxis(20, new Vector3(0, 1, 0));
-        Vector3 sensorAngle = spreadAngle * sensorForward;
-        Debug.DrawRay(distanceSensor.transform.position, sensorAngle, Color.green);
         if (delay == Mathf.Infinity)
         {
             if (speed != 0)
@@ -153,11 +149,11 @@ public class RobotMovementTest : MonoBehaviour
 			}
 			else if (posChance < 0.6)
 			{
-				transform.position += Angle * 0.0003f;
+				transform.position += Angle * 0.0002f;
 			}
 			else
 			{
-				transform.position += Angle * 0.0006f;
+				transform.position += Angle * 0.0005f;
 			}
 			float rotChance = Random.value;
 			if (posChance < 0.2) // No push
@@ -166,11 +162,11 @@ public class RobotMovementTest : MonoBehaviour
 			}
 			else if (posChance < 0.6)
 			{
-				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, turbineList[x].transform.parent.eulerAngles.y, 0), 0.00003f * Time.time);
+				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, turbineList[x].transform.parent.eulerAngles.y, 0), 0.00002f * Time.time);
 			}
 			else
 			{
-				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, turbineList[x].transform.parent.eulerAngles.y, 0), 0.00006f * Time.time);
+				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, turbineList[x].transform.parent.eulerAngles.y, 0), 0.00005f * Time.time);
 			}
 		}
 		if (isAtWallCount > 0)
@@ -406,7 +402,7 @@ public class RobotMovementTest : MonoBehaviour
         Physics.Raycast(distanceSensor.transform.position, sensorAngle, out hit);
         //distanceFromHit = Vector3.Distance(distanceSensor.transform.position, hit.point);
         distanceFromHit = hit.distance;
-        Debug.Log("Hit distance: " + distanceFromHit);
+        Debug.Log("Hit distance: " + distanceFromHit + "Degree: " + degree);
         if (distanceFromHit == 0)
         {
             distanceFromHit = Mathf.Infinity;
