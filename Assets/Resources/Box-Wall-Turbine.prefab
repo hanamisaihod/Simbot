@@ -31,7 +31,7 @@ GameObject:
   - component: {fileID: 7246106106465583817}
   - component: {fileID: 3860665281253856946}
   m_Layer: 20
-  m_Name: Box-Floor-Turbine
+  m_Name: Box-Wall-Turbine
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
