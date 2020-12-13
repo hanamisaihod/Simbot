@@ -108,9 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a722ebc436d374d4fa0d35ce7d745a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjToMove: {fileID: 0}
-  ObjToPlace: {fileID: 0}
-  call: {fileID: 1950780194058085727}
 --- !u!114 &1950780194058085727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +227,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2232278168582266736, guid: 73ac167df7e3eb34b8e0961bd47c103a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 73ac167df7e3eb34b8e0961bd47c103a, type: 3}
 --- !u!1 &5972235061749042552 stripped
 GameObject:

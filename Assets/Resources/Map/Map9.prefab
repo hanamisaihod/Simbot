@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 1286547318450614737}
   - component: {fileID: 8799965177788986802}
   - component: {fileID: 4443368435500912145}
-  - component: {fileID: 5774009734495854097}
   m_Layer: 21
   m_Name: Wall_Evo_v2
   m_TagString: Wall
@@ -234,20 +233,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &5774009734495854097
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 349151329405879698}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8733429697405204941, guid: 6cbcb899e7d769741812785ccb0c56fe, type: 3}
 --- !u!1 &355574303441909425
 GameObject:
   m_ObjectHideFlags: 0
@@ -5559,7 +5544,6 @@ GameObject:
   - component: {fileID: 4807158548770303748}
   - component: {fileID: 1387722281722334568}
   - component: {fileID: 6997184112045750600}
-  - component: {fileID: 1211177726483064773}
   m_Layer: 21
   m_Name: Floor_Evo_v2
   m_TagString: Untagged
@@ -5660,20 +5644,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &1211177726483064773
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550322907441162897}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -629719859055844128, guid: 43ce53f226fd58743a247b40b3a2cea2, type: 3}
 --- !u!1 &1588384581179449180
 GameObject:
   m_ObjectHideFlags: 0
@@ -5687,7 +5657,6 @@ GameObject:
   - component: {fileID: 7277988219901031658}
   - component: {fileID: 5827565825509553983}
   - component: {fileID: 8615239865607818236}
-  - component: {fileID: 668060052414167308}
   m_Layer: 21
   m_Name: Wall_Evo_v2
   m_TagString: Wall
@@ -5788,20 +5757,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &668060052414167308
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588384581179449180}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8733429697405204941, guid: 6cbcb899e7d769741812785ccb0c56fe, type: 3}
 --- !u!1 &2128762514488361228
 GameObject:
   m_ObjectHideFlags: 0
@@ -10568,7 +10523,7 @@ GameObject:
   - component: {fileID: 4784692654018221620}
   - component: {fileID: 8863238671098030578}
   - component: {fileID: 5906659964639562508}
-  - component: {fileID: 1605479218711295956}
+  - component: {fileID: 6604207609832089140}
   m_Layer: 21
   m_Name: Ice_Floor
   m_TagString: IceFloor
@@ -10658,8 +10613,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &1605479218711295956
-MeshCollider:
+--- !u!65 &6604207609832089140
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10668,10 +10623,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -629719859055844128, guid: 43ce53f226fd58743a247b40b3a2cea2, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.020000005, z: 0.022000007}
+  m_Center: {x: -0.0000000037252903, y: 0.0000000018626451, z: -0.000000007450581}
 --- !u!1 &2279435153477074002
 GameObject:
   m_ObjectHideFlags: 0
@@ -20731,7 +20685,6 @@ GameObject:
   - component: {fileID: 503073068204086328}
   - component: {fileID: 4935488638867204894}
   - component: {fileID: 6066952701004862716}
-  - component: {fileID: 6031130204158172804}
   m_Layer: 21
   m_Name: Wall_Evo_v2
   m_TagString: Wall
@@ -20832,20 +20785,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &6031130204158172804
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3564062506376867631}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8733429697405204941, guid: 6cbcb899e7d769741812785ccb0c56fe, type: 3}
 --- !u!1 &3571889312844253660
 GameObject:
   m_ObjectHideFlags: 0
@@ -20859,7 +20798,6 @@ GameObject:
   - component: {fileID: 3305809175265722187}
   - component: {fileID: 8108023999929065140}
   - component: {fileID: 246488508476575295}
-  - component: {fileID: 5714685243632708624}
   m_Layer: 21
   m_Name: Floor_Evo_v2
   m_TagString: Untagged
@@ -20960,20 +20898,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &5714685243632708624
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3571889312844253660}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -629719859055844128, guid: 43ce53f226fd58743a247b40b3a2cea2, type: 3}
 --- !u!1 &3933033341594143797
 GameObject:
   m_ObjectHideFlags: 0
@@ -21322,7 +21246,7 @@ GameObject:
   - component: {fileID: 3937818193202884893}
   - component: {fileID: 6972703057111296672}
   - component: {fileID: 5970823904100849323}
-  - component: {fileID: 9002839386298614957}
+  - component: {fileID: 4115668900201573725}
   m_Layer: 21
   m_Name: Ice_Floor
   m_TagString: IceFloor
@@ -21412,8 +21336,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &9002839386298614957
-MeshCollider:
+--- !u!65 &4115668900201573725
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -21422,10 +21346,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -629719859055844128, guid: 43ce53f226fd58743a247b40b3a2cea2, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.020000005, z: 0.022000007}
+  m_Center: {x: -0.0000000037252903, y: 0.0000000018626451, z: -0.000000007450581}
 --- !u!1 &5313518273880837671
 GameObject:
   m_ObjectHideFlags: 0
@@ -21520,7 +21443,6 @@ GameObject:
   - component: {fileID: 497713785385583895}
   - component: {fileID: 7514209180521688359}
   - component: {fileID: 5419572944553510189}
-  - component: {fileID: 6112717601262236589}
   m_Layer: 21
   m_Name: Wall_Evo_v2
   m_TagString: Wall
@@ -21621,20 +21543,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &6112717601262236589
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5500196544646445913}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8733429697405204941, guid: 6cbcb899e7d769741812785ccb0c56fe, type: 3}
 --- !u!1 &5589588044312349735
 GameObject:
   m_ObjectHideFlags: 0
@@ -21768,7 +21676,7 @@ GameObject:
   - component: {fileID: 2408481973642226793}
   - component: {fileID: 2834686049366591643}
   - component: {fileID: 3081694347874456251}
-  - component: {fileID: 2214172317948499489}
+  - component: {fileID: 4300829333646742121}
   m_Layer: 21
   m_Name: Start_PointV2
   m_TagString: Start
@@ -21883,8 +21791,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &2214172317948499489
-MeshCollider:
+--- !u!65 &4300829333646742121
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -21893,10 +21801,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -442904368606401766, guid: 94c460895b89c6b439d65cd07e13f472, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.020000005, y: 0.020000009, z: 0.024745861}
+  m_Center: {x: 0.0000000037252903, y: -0.000000007450581, z: 0.0013729185}
 --- !u!1 &6038845591351423457
 GameObject:
   m_ObjectHideFlags: 0
@@ -22046,7 +21953,7 @@ GameObject:
   - component: {fileID: 3907651638585880646}
   m_Layer: 21
   m_Name: GoalV2
-  m_TagString: Untagged
+  m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32022,7 +31929,6 @@ GameObject:
   - component: {fileID: 4031768336950028552}
   - component: {fileID: 232600644269665019}
   - component: {fileID: 1323502195024816081}
-  - component: {fileID: 2370193943111419776}
   m_Layer: 21
   m_Name: Wall_Evo_v2
   m_TagString: Wall
@@ -32123,20 +32029,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &2370193943111419776
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7700636428870155319}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8733429697405204941, guid: 6cbcb899e7d769741812785ccb0c56fe, type: 3}
 --- !u!1 &7970942953446936800
 GameObject:
   m_ObjectHideFlags: 0
@@ -32270,7 +32162,6 @@ GameObject:
   - component: {fileID: 7291400569445071657}
   - component: {fileID: 6294360503694261995}
   - component: {fileID: 1240718749269035484}
-  - component: {fileID: 8896869752631703749}
   m_Layer: 21
   m_Name: Wall_Evo_v2
   m_TagString: Wall
@@ -32371,20 +32262,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &8896869752631703749
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8184207219506955643}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8733429697405204941, guid: 6cbcb899e7d769741812785ccb0c56fe, type: 3}
 --- !u!1 &8284595656949155098
 GameObject:
   m_ObjectHideFlags: 0
@@ -37161,7 +37038,6 @@ GameObject:
   - component: {fileID: 6559680317931315249}
   - component: {fileID: 5518780682860367058}
   - component: {fileID: 966901262509477223}
-  - component: {fileID: 3819133576594299694}
   m_Layer: 21
   m_Name: Floor_Evo_v2
   m_TagString: Untagged
@@ -37262,20 +37138,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &3819133576594299694
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8317489169134477965}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -629719859055844128, guid: 43ce53f226fd58743a247b40b3a2cea2, type: 3}
 --- !u!1 &8847422442082300267
 GameObject:
   m_ObjectHideFlags: 0
