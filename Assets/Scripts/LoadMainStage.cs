@@ -5,6 +5,7 @@ using System.IO;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using System;
 
 public class LoadMainStage : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class LoadMainStage : MonoBehaviour
             Debug.Log("Error");
         }
         savePrefab = Directory.GetFiles(Application.dataPath + "/Resources/Map","*.prefab");
+        Array.Sort(savePrefab, new AlphanumComparatorFast());
         Debug.Log(savePrefab);
     }
 
@@ -42,7 +44,7 @@ public class LoadMainStage : MonoBehaviour
             string[] savePrefabPath = buttonPrefabs.GetComponentInChildren<Text>().text.Split("/"[0]);
             for (int j = 0; j < savePrefabPath.Length; j++)
             {
-                Debug.Log(savePrefabPath[j]);
+                Debug.Log(savePrefabPath[j] + "ORDERRRRRRRRRRR");
                 if(j == savePrefabPath.Length - 1)
                 {
                     savePrefabKeyword = savePrefabPath[j];
