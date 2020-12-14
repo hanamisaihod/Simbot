@@ -12,6 +12,7 @@ public class LevelController : MonoBehaviour
     private GameObject goal;
 	public GameObject canvasFX;
     public int robotType;
+    public bool stopRobot = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -95,6 +96,7 @@ public class LevelController : MonoBehaviour
 		CheckStar();
 		SaveMissionProgress();
 		canvasFX.GetComponent<CanvasFX_Controller>().clearTrigger = true;
+        stopRobot = true;
 		//Star calculation
 		//show complete ui
 		//save progress

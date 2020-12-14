@@ -38,6 +38,10 @@ public class RobotMovementTest : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (levelController.GetComponent<LevelController>().stopRobot)
+        {
+            delay = 0;
+        }
         if (delay == Mathf.Infinity)
         {
             if (speed != 0)
@@ -170,18 +174,28 @@ public class RobotMovementTest : MonoBehaviour
 			}
 		}
 		if (isAtWallCount > 0)
-		{
-			if (rbd.velocity.magnitude > 0.1f)
-			{
-				if (wallDamageCounter > 1)
-				{
-					wallDamageCounter += Time.fixedDeltaTime;
-					//robotStatScript.playerHealth -= rbd.velocity.magnitude * 10.0f;
-					robotStatScript.DamagePlayer(rbd.velocity.magnitude * 10.0f);
-					wallDamageCounter = 0;
-				}
-			}
-		}
+        {
+            //if (rbd.velocity.magnitude > 0.1f)
+            //{
+            //    if (wallDamageCounter > 1)
+            //    {
+            //        wallDamageCounter += Time.fixedDeltaTime;
+            //        //robotStatScript.playerHealth -= rbd.velocity.magnitude * 10.0f;
+            //        robotStatScript.DamagePlayer(rbd.velocity.magnitude * 10.0f);
+            //        wallDamageCounter = 0;
+            //    }
+            //}
+            if (wallDamageCounter > 1)
+            {
+                //robotStatScript.playerHealth -= rbd.velocity.magnitude * 10.0f;
+                robotStatScript.DamagePlayer(rbd.velocity.magnitude * 12f);
+                wallDamageCounter = 0;
+            }
+            if (rbd.velocity.magnitude > 0)
+            {
+                wallDamageCounter += Time.fixedDeltaTime * 5;
+            }
+        }
     }
 
     public void StartReading()

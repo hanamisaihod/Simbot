@@ -10,10 +10,12 @@ public class RobotStatus : MonoBehaviour
 	public bool falling;
 	public RectTransform healthRect;
 	public GameObject boomController;
+    private GameObject levelController;
 
     void Start()
     {
 		healthRect = GameObject.Find("HP_Blood").GetComponent<RectTransform>();
+        levelController = GameObject.FindGameObjectWithTag("LevelController");
     }
 
     // Update is called once per frame
@@ -28,5 +30,9 @@ public class RobotStatus : MonoBehaviour
 		playerHealth -= damage;
 		healthRect.sizeDelta = new Vector2(healthRect.sizeDelta.x - (damage*3.5f), healthRect.sizeDelta.y);
 		boomController.GetComponent<Robot_Boom_Controller>().UpdateBoomEffect(playerHealth, maxHealth);
+        if (playerHealth <= 0)
+        {
+            levelController.GetComponent<LevelController>().stopRobot = true;
+        }
 	}
 }
