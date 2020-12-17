@@ -34,7 +34,7 @@ public class Redzone_PS_Controller : MonoBehaviour
 
     void Update()
     {
-        if(redZoneTrigger && !showing)
+        if (redZoneTrigger && !showing)
         {
             if (usingCor != null)
             {
