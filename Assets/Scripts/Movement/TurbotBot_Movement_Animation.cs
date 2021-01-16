@@ -8,62 +8,71 @@ public class TurbotBot_Movement_Animation : MonoBehaviour
     public GameObject wheel_left;
     public GameObject wheel_right;
     public GameObject head;
-    public float wheel_L_speed;
-    public float wheel_R_speed;
-    public float delay;
-    public bool headUpdate;
-    public float headDegreeTarget;
+    public GameObject battery1;
+    public GameObject battery2;
+    public GameObject battery3;
+    private bool moving;
+    private bool showing;
+    private float speed;
+    private float torque;
+    private float delay;
+    private float headTargetDegree;
     private float headCurrentDegree;
-    Coroutine headCor;
-    Coroutine wheelCor;
-
-    void Start()
-    {
-        //LeanTween.rotateAround(head, Vector3.up, 720, 1f).setLoopClamp();     // Infinite Head rotating
-        //LeanTween.rotateAround(wheel_left, Vector3.right, 360, 2f).setLoopClamp(); // For test
-        //LeanTween.rotateAround(wheel_right, Vector3.right, 360, 2f).setLoopClamp(); // For test
-    }
+    Coroutine batCor;
 
     void Update()
     {
-        delay = RobotMovementTest.delayAnim;
-        wheel_L_speed = RobotMovementTest.speedAnim;
-        wheel_R_speed = RobotMovementTest.speedAnim;
+        delay = gameObject.GetComponent<RobotMovementTest>().delay;
+        speed = gameObject.GetComponent<RobotMovementTest>().speed;
+        torque = gameObject.GetComponent<RobotMovementTest>().torque;
+        headTargetDegree = gameObject.GetComponent<RobotMovementTest>().degree;
     }
     void FixedUpdate()
     {
-        if(delay > 0.01999961)
+        if (delay > 0.01999961)
         {
-            if (wheelCor != null)
-            {
-                StopCoroutine(wheelCor);
-            }
-            wheelCor = StartCoroutine(WheelRotating(wheel_L_speed, wheel_R_speed, delay));
+            wheel_left.transform.Rotate(Vector3.down * Time.deltaTime * 300 * (speed + 0.00347f * torque), Space.Self);
+            wheel_right.transform.Rotate(Vector3.down * Time.deltaTime * 300 * (speed - 0.00347f * torque), Space.Self);
+            moving = true;
         }
-        if (headUpdate)
+        else
+            moving = false;
+
+        if(headCurrentDegree < headTargetDegree - 5)
         {
-            if (headCor != null)
+            head.transform.Rotate(Vector3.forward * Time.deltaTime * 300, Space.Self);
+            headCurrentDegree = headCurrentDegree + Time.deltaTime * 300;
+        }
+        else if (headCurrentDegree > headTargetDegree + 5)
+        {
+            head.transform.Rotate(Vector3.back * Time.deltaTime * 300, Space.Self);
+            headCurrentDegree = headCurrentDegree - Time.deltaTime * 300;
+        }
+        else
+            head.transform.Rotate(0,0,0, Space.Self);
+
+        if(moving && !showing)
+        {
+            if(batCor != null)
             {
-                StopCoroutine(headCor);
+                StopCoroutine(batCor);
             }
-            headCor = StartCoroutine(HeadRotating(headDegreeTarget));
-            headUpdate = false;
+            batCor = StartCoroutine(batteryMoving());
+            showing = true;
+        }
+
+        if(!moving && showing)
+        {
+            if (batCor != null)
+            {
+                StopCoroutine(batCor);
+            }
+            showing = false;
         }
     }
 
-    // Index May be changed later
-    IEnumerator WheelRotating(float L_speed, float R_speed,float rotatingDelay)
+    IEnumerator batteryMoving()
     {
-        LeanTween.rotateAround(wheel_left, Vector3.right, 360 * L_speed * rotatingDelay, rotatingDelay);
-        LeanTween.rotateAround(wheel_right, Vector3.right, 360 * R_speed * rotatingDelay, rotatingDelay);
-        yield return new WaitForSeconds(rotatingDelay);
-    }
-
-    // This too
-    IEnumerator HeadRotating(float degreeTarget)
-    {
-        LeanTween.rotateAround(head, Vector3.up, degreeTarget - headCurrentDegree, 1f);
-        headCurrentDegree = degreeTarget;
         yield return new WaitForSeconds(1);
     }
 }

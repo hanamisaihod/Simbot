@@ -7,36 +7,23 @@ public class StoveBot_Movement_Animation : MonoBehaviour
 {
     public GameObject wheel_left;
     public GameObject wheel_right;
-    public bool wheelUpdate;
-    public float wheel_L_speed;
-    public float wheel_R_speed;
-    public float delay;
-    Coroutine wheelCor;
+    private float speed;
+    private float torque;
+    private float delay;
 
-    void Start()
-    {
-        
-    }
-
-    /*
     void Update()
     {
-        if (wheelUpdate)
-        {
-            if (wheelCor != null)
-            {
-                StopCoroutine(wheelCor);
-            }
-            wheelCor = StartCoroutine(WheelRotating(wheel_L_speed, wheel_R_speed, delay));
-            wheelUpdate = false;
-        }
-    }*/
+        delay = gameObject.GetComponent<RobotMovementTest>().delay;
+        speed = gameObject.GetComponent<RobotMovementTest>().speed;
+        torque = gameObject.GetComponent<RobotMovementTest>().torque;
+    }
 
-    // Index May be changed later
-    IEnumerator WheelRotating(float L_speed, float R_speed, float rotatingDelay)
+    void FixedUpdate()
     {
-        LeanTween.rotateAround(wheel_left, Vector3.right, 720 * L_speed * rotatingDelay, rotatingDelay);
-        LeanTween.rotateAround(wheel_right, Vector3.right, 720 * R_speed * rotatingDelay, rotatingDelay);
-        yield return new WaitForSeconds(rotatingDelay);
+        if (delay > 0.01999961)
+        {
+            wheel_left.transform.Rotate(Vector3.down * Time.deltaTime * 600 * (speed + 0.00347f * torque), Space.Self);
+            wheel_right.transform.Rotate(Vector3.down * Time.deltaTime * 600 * (speed - 0.00347f * torque), Space.Self);
+        }
     }
 }

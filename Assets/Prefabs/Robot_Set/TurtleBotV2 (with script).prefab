@@ -543,12 +543,9 @@ MonoBehaviour:
   wheel_left: {fileID: 336694748633988456}
   wheel_right: {fileID: 8812294287372910943}
   head: {fileID: 2601745347898443621}
-  wheelUpdate: 0
-  wheel_L_speed: 0
-  wheel_R_speed: 0
-  delay: 0
-  headUpdate: 0
-  headDegreeTarget: 0
+  battery1: {fileID: 3006132720748270996}
+  battery2: {fileID: 6021444875192435678}
+  battery3: {fileID: 6103835766700093409}
 --- !u!54 &6106402775447490078
 Rigidbody:
   m_ObjectHideFlags: 0
