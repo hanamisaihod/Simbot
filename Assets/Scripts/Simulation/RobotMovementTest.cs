@@ -5,6 +5,8 @@ using UnityEngine;
 public class RobotMovementTest : MonoBehaviour
 {
     public float speed;
+    public static float speedAnim; // Inserted by Rompruk
+    public static float delayAnim; // Inserted by Rompruk
     public float torque;
     public float delay;
     public float currentDelay;
@@ -42,6 +44,9 @@ public class RobotMovementTest : MonoBehaviour
         {
             delay = 0;
         }
+        delayAnim = delay;     // Inserted by Rompruk
+        speedAnim = speed;     // Inserted by Rompruk
+        Debug.Log("speed = " + speed);
         if (delay == Mathf.Infinity)
         {
             if (speed != 0)

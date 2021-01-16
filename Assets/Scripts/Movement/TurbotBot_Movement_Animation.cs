@@ -8,7 +8,6 @@ public class TurbotBot_Movement_Animation : MonoBehaviour
     public GameObject wheel_left;
     public GameObject wheel_right;
     public GameObject head;
-    public bool wheelUpdate;
     public float wheel_L_speed;
     public float wheel_R_speed;
     public float delay;
@@ -27,23 +26,28 @@ public class TurbotBot_Movement_Animation : MonoBehaviour
 
     void Update()
     {
-        if(headUpdate)
-        {
-            if(headCor != null)
-            {
-                StopCoroutine(headCor);
-            }
-            headCor = StartCoroutine(HeadRotating(headDegreeTarget));
-            headUpdate = false;
-        }
-        if(wheelUpdate)
+        delay = RobotMovementTest.delayAnim;
+        wheel_L_speed = RobotMovementTest.speedAnim;
+        wheel_R_speed = RobotMovementTest.speedAnim;
+    }
+    void FixedUpdate()
+    {
+        if(delay > 0.01999961)
         {
             if (wheelCor != null)
             {
                 StopCoroutine(wheelCor);
             }
-            wheelCor = StartCoroutine(WheelRotating(wheel_L_speed,wheel_R_speed,delay));
-            wheelUpdate = false;
+            wheelCor = StartCoroutine(WheelRotating(wheel_L_speed, wheel_R_speed, delay));
+        }
+        if (headUpdate)
+        {
+            if (headCor != null)
+            {
+                StopCoroutine(headCor);
+            }
+            headCor = StartCoroutine(HeadRotating(headDegreeTarget));
+            headUpdate = false;
         }
     }
 

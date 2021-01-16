@@ -18,7 +18,7 @@ public class StoveBot_Movement_Animation : MonoBehaviour
         
     }
 
-    
+    /*
     void Update()
     {
         if (wheelUpdate)
@@ -30,7 +30,7 @@ public class StoveBot_Movement_Animation : MonoBehaviour
             wheelCor = StartCoroutine(WheelRotating(wheel_L_speed, wheel_R_speed, delay));
             wheelUpdate = false;
         }
-    }
+    }*/
 
     // Index May be changed later
     IEnumerator WheelRotating(float L_speed, float R_speed, float rotatingDelay)
