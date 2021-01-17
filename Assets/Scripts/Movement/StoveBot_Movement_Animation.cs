@@ -22,8 +22,8 @@ public class StoveBot_Movement_Animation : MonoBehaviour
     {
         if (delay > 0.01999961)
         {
-            wheel_left.transform.Rotate(Vector3.down * Time.deltaTime * 600 * (speed + 0.00347f * torque), Space.Self);
-            wheel_right.transform.Rotate(Vector3.down * Time.deltaTime * 600 * (speed - 0.00347f * torque), Space.Self);
+            wheel_left.transform.Rotate(Vector3.down * Time.fixedDeltaTime * 600 * (speed + 0.00347f * torque), Space.Self);
+            wheel_right.transform.Rotate(Vector3.down * Time.fixedDeltaTime * 600 * (speed - 0.00347f * torque), Space.Self);
         }
     }
 }

@@ -31,8 +31,8 @@ public class TurbotBot_Movement_Animation : MonoBehaviour
     {
         if (delay > 0.01999961)
         {
-            wheel_left.transform.Rotate(Vector3.down * Time.deltaTime * 300 * (speed + 0.00347f * torque), Space.Self);
-            wheel_right.transform.Rotate(Vector3.down * Time.deltaTime * 300 * (speed - 0.00347f * torque), Space.Self);
+            wheel_left.transform.Rotate(Vector3.down * Time.fixedDeltaTime * 300 * (speed + 0.00347f * torque), Space.Self);
+            wheel_right.transform.Rotate(Vector3.down * Time.fixedDeltaTime * 300 * (speed - 0.00347f * torque), Space.Self);
             moving = true;
         }
         else
@@ -40,13 +40,13 @@ public class TurbotBot_Movement_Animation : MonoBehaviour
 
         if(headCurrentDegree < headTargetDegree - 5)
         {
-            head.transform.Rotate(Vector3.forward * Time.deltaTime * 300, Space.Self);
-            headCurrentDegree = headCurrentDegree + Time.deltaTime * 300;
+            head.transform.Rotate(Vector3.forward * Time.fixedDeltaTime * 300, Space.Self);
+            headCurrentDegree = headCurrentDegree + Time.fixedDeltaTime * 300;
         }
         else if (headCurrentDegree > headTargetDegree + 5)
         {
-            head.transform.Rotate(Vector3.back * Time.deltaTime * 300, Space.Self);
-            headCurrentDegree = headCurrentDegree - Time.deltaTime * 300;
+            head.transform.Rotate(Vector3.back * Time.fixedDeltaTime * 300, Space.Self);
+            headCurrentDegree = headCurrentDegree - Time.fixedDeltaTime * 300;
         }
         else
             head.transform.Rotate(0,0,0, Space.Self);
