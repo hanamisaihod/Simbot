@@ -18,37 +18,31 @@ public class TurbotBot_Movement_Animation : MonoBehaviour
     private float headTargetDegree;
     private float headCurrentDegree;
     private bool moving;
-    public float volume;
     public AudioClip soundMove;
 
     void Start()
     {
         moveAudio = gameObject.GetComponent<AudioSource>();
-        //moveAudio.Stop();
     }
-    void Update()
+  
+    void FixedUpdate()
     {
         delay = gameObject.GetComponent<RobotMovementTest>().delay;
         speed = gameObject.GetComponent<RobotMovementTest>().speed;
         torque = gameObject.GetComponent<RobotMovementTest>().torque;
         headTargetDegree = gameObject.GetComponent<RobotMovementTest>().degree;
-        if (moving & !moveAudio.isPlaying)
-            moveAudio.Play();
-        /*else
-            moveAudio.Stop();*/
-    }
-    void FixedUpdate()
-    {
+
         if (delay > 0.01999961)
         {
-            moving = true;
             wheel_left.transform.Rotate(Vector3.down * Time.fixedDeltaTime * 300 * (speed + 0.00347f * torque), Space.Self);
             wheel_right.transform.Rotate(Vector3.down * Time.fixedDeltaTime * 300 * (speed - 0.00347f * torque), Space.Self);
+            if (!moveAudio.isPlaying)
+                moveAudio.Play();
         }
         else
-            moving = false;
+            moveAudio.Stop();
 
-        if(headCurrentDegree < headTargetDegree - 5)
+        if (headCurrentDegree < headTargetDegree - 5)
         {
             head.transform.Rotate(Vector3.forward * Time.fixedDeltaTime * 300, Space.Self);
             headCurrentDegree = headCurrentDegree + Time.fixedDeltaTime * 300;
