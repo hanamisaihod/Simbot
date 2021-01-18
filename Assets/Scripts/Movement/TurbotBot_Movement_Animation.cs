@@ -11,29 +11,39 @@ public class TurbotBot_Movement_Animation : MonoBehaviour
     public GameObject battery1;
     public GameObject battery2;
     public GameObject battery3;
-    private bool moving;
-    private bool showing;
+    AudioSource moveAudio;
     private float speed;
     private float torque;
     private float delay;
     private float headTargetDegree;
     private float headCurrentDegree;
-    Coroutine batCor;
+    private bool moving;
+    public float volume;
+    public AudioClip soundMove;
 
+    void Start()
+    {
+        moveAudio = gameObject.GetComponent<AudioSource>();
+        //moveAudio.Stop();
+    }
     void Update()
     {
         delay = gameObject.GetComponent<RobotMovementTest>().delay;
         speed = gameObject.GetComponent<RobotMovementTest>().speed;
         torque = gameObject.GetComponent<RobotMovementTest>().torque;
         headTargetDegree = gameObject.GetComponent<RobotMovementTest>().degree;
+        if (moving)
+            moveAudio.Play();
+        /*else
+            moveAudio.Stop();*/
     }
     void FixedUpdate()
     {
         if (delay > 0.01999961)
         {
+            moving = true;
             wheel_left.transform.Rotate(Vector3.down * Time.fixedDeltaTime * 300 * (speed + 0.00347f * torque), Space.Self);
             wheel_right.transform.Rotate(Vector3.down * Time.fixedDeltaTime * 300 * (speed - 0.00347f * torque), Space.Self);
-            moving = true;
         }
         else
             moving = false;
@@ -50,29 +60,5 @@ public class TurbotBot_Movement_Animation : MonoBehaviour
         }
         else
             head.transform.Rotate(0,0,0, Space.Self);
-
-        if(moving && !showing)
-        {
-            if(batCor != null)
-            {
-                StopCoroutine(batCor);
-            }
-            batCor = StartCoroutine(batteryMoving());
-            showing = true;
-        }
-
-        if(!moving && showing)
-        {
-            if (batCor != null)
-            {
-                StopCoroutine(batCor);
-            }
-            showing = false;
-        }
-    }
-
-    IEnumerator batteryMoving()
-    {
-        yield return new WaitForSeconds(1);
     }
 }
