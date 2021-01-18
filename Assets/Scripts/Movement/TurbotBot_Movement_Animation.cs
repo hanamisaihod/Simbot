@@ -32,7 +32,7 @@ public class TurbotBot_Movement_Animation : MonoBehaviour
         speed = gameObject.GetComponent<RobotMovementTest>().speed;
         torque = gameObject.GetComponent<RobotMovementTest>().torque;
         headTargetDegree = gameObject.GetComponent<RobotMovementTest>().degree;
-        if (moving)
+        if (moving & !moveAudio.isPlaying)
             moveAudio.Play();
         /*else
             moveAudio.Stop();*/

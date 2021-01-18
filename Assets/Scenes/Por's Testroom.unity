@@ -1982,12 +1982,17 @@ PrefabInstance:
     - target: {fileID: 2728641744087580633, guid: f241d364e75142141a45305995bd3e2e,
         type: 3}
       propertyPath: Loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2728641744087580633, guid: f241d364e75142141a45305995bd3e2e,
         type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728641744087580633, guid: f241d364e75142141a45305995bd3e2e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6106402775447490072, guid: f241d364e75142141a45305995bd3e2e,
         type: 3}
