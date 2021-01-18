@@ -16,6 +16,5 @@ public class LoadConfirm : MonoBehaviour
 		{
 			clickToLoad = true;
 		}
-
 	}
 }

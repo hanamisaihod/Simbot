@@ -12,7 +12,7 @@ public class ChangeScene : MonoBehaviour
     public void ClickChangeScene()
     {
         inputMap = txt_Input.text;
-        SceneManager.LoadScene("LoadMap");
+        SceneManager.LoadScene("MapBuilding");
     }
 	public void ClickChangeSceneBlock()
 	{
