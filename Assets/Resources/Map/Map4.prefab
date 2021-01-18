@@ -24014,7 +24014,7 @@ GameObject:
   - component: {fileID: 8044256314848095973}
   m_Layer: 0
   m_Name: Map4
-  m_TagString: Untagged
+  m_TagString: StageObjects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -95494,7 +95494,7 @@ GameObject:
   - component: {fileID: 3612765720270347458}
   m_Layer: 0
   m_Name: Map18
-  m_TagString: Untagged
+  m_TagString: StageObjects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -34,6 +34,7 @@ TagManager:
   - GoalFinishZone
   - RedZone
   - Start
+  - StageObjects
   layers:
   - Default
   - TransparentFX

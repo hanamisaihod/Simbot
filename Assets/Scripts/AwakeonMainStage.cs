@@ -15,7 +15,7 @@ public class AwakeonMainStage : MonoBehaviour
             trigger.disableOnMain();
             Debug.Log("Key: " + LoadMainStage.mainStageKey);
             mainStageLoadObj = Instantiate(Resources.Load("Map/" + LoadMainStage.mainStageKey, typeof(GameObject))) as GameObject;
-            mainStageLoadObj.tag = "Untagged";
+            mainStageLoadObj.tag = "StageObjects";
             int childCount = mainStageLoadObj.transform.childCount;
             for (int i = 0; i < childCount; i++)
             {

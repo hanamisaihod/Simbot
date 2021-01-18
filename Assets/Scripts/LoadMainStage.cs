@@ -81,7 +81,7 @@ public class LoadMainStage : MonoBehaviour
                     mainStageKey = mainWordSpit[i];
                 }
         }
-        mainStageKey = mainStageKey.Replace(".prefab","");
+        mainStageKey = mainStageKey.Replace(".prefab",""); // mainStageKey is the confirmed main stage name
         LoadConfirm.clickToLoad = false;
         LoadConfirm.waitForSelectSlot = false;
         LeanTween.scale(enableFrame,new Vector3(0,0,0),0.5f);

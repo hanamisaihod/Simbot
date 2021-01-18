@@ -39,7 +39,7 @@ public class NewDrag : MonoBehaviour
                 {
                     //Debug.Log("LastPosX: " + LastPosX + " & LastPosZ: " + LastPosZ);
                     spawnObject = Instantiate(ObjToPlace,ObjToMove.position,ObjToMove.transform.rotation) as GameObject;
-                    spawnObject.tag = "Untagged";
+                    spawnObject.tag = "StageObjects";
                     for (int i = 0; i < spawnObject.transform.childCount; i++)
                     {
                         GameObject child = spawnObject.transform.GetChild(i).gameObject;
