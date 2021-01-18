@@ -1981,8 +1981,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2728641744087580633, guid: f241d364e75142141a45305995bd3e2e,
         type: 3}
+<<<<<<< HEAD
+=======
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728641744087580633, guid: f241d364e75142141a45305995bd3e2e,
+        type: 3}
+>>>>>>> f7127949c9d4d4e25a49b6ffc5ff77857a7b3718
       propertyPath: m_PlayOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728641744087580633, guid: f241d364e75142141a45305995bd3e2e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6106402775447490072, guid: f241d364e75142141a45305995bd3e2e,
         type: 3}
