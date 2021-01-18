@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
 	public static bool viewBlock;
-    public void GoCodeSelect()
+    public void GoCode()
 	{
 		viewBlock = true;
-		SceneManager.LoadScene("LoadBlock");
+		SceneManager.LoadScene("BlockProgramming");
 	}
-
+    public void GoMap()
+    {
+        SceneManager.LoadScene("MapBuilding");
+    }
 	public void GoMissionSelect()
 	{
 		viewBlock = false;

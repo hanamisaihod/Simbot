@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SimulateSceneTest.unity
     guid: 4b5ebbc3edbe71e40b50875bf22c231e
+  - enabled: 1
+    path: Assets/Scenes/MapBuilding.unity
+    guid: 1b6cd22697e342443ac386235ae4c328
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
@@ -29,4 +32,11 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/LoadMap.unity
+    guid: e9a3107b93eb5a74988e4c81eb7c8094
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  m_configObjects: {com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 588a63fda99041c4891b96b2265389e5,
+      type: 2}}
