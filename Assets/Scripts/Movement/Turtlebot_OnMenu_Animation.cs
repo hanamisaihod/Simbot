@@ -8,6 +8,7 @@ public class Turtlebot_OnMenu_Animation : MonoBehaviour
     private float speed;
     private float torque;
     private float delay;
+    private Animation anim;
     public GameObject wheel_left;
     public GameObject wheel_right;
     public GameObject head;
@@ -29,6 +30,7 @@ public class Turtlebot_OnMenu_Animation : MonoBehaviour
         rbd = GetComponent<Rigidbody>();
         levelController = GameObject.FindGameObjectWithTag("LevelController");
         moveAudio = gameObject.GetComponent<AudioSource>();
+        anim = GetComponent<Animation>();
     }
 
 
@@ -84,7 +86,7 @@ public class Turtlebot_OnMenu_Animation : MonoBehaviour
 
         if(!showing)
         {
-            if(usingCor != null)
+            if (usingCor != null)
             {
                 StopCoroutine(usingCor);
             }
@@ -95,12 +97,9 @@ public class Turtlebot_OnMenu_Animation : MonoBehaviour
 
     IEnumerator OnMenuShow()
     {
-        yield return new WaitForSeconds(3);
-        headTargetDegree = 30;
-        yield return new WaitForSeconds(1);
-        headTargetDegree = -60;
-        yield return new WaitForSeconds(1);
-        headTargetDegree = -15;
+        Debug.Log("read");
+        anim.Play("Turtle_OnMenu");
+        Debug.Log("play");
         yield return new WaitForSeconds(5);
         showing = false;
     }
