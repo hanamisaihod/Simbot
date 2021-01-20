@@ -2,7 +2,8 @@
 
 public class CarriedVariables : MonoBehaviour
 {
-    public static string currentMapName;    
+    public string currentMapName;
+    public bool newMap = false;
     private void Awake()
     {
         DontDestroyOnLoad(this);

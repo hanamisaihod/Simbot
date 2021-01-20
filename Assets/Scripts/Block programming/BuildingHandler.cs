@@ -20,14 +20,15 @@ public class BuildingHandler : MonoBehaviour
 	public int currentRepeatTimes = 0;
     public GameObject speedDrop, torqueDrop, delayDrop, ifDrop, degreeDrop, compareDegreeDrop, distanceDrop, compareLeftDrop, compareRightDrop, colorLeftDrop, colorRightDrop, repeatDrop, timesDrop;
 	public GameObject canvas;
+    public Vector3 pos;
 
-	//Variables to be saved
-	public int blockNum;
+    //Variables to be saved
+    public int blockNum;
     public int ifChoice, compareDegreeChoice, compareLeftChoice, compareRightChoice, colorLeftChoice, colorRightChoice, repeatChoice, timesChoice;
     public float speedChoice, torqueChoice, delayChoice, degreeChoice, distanceChoice;
     public int[] dropActives;
 
-	void Start()
+	void Awake()
 	{
 		layerLevel = 0;
 		foreach(Transform child in transform)

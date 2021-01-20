@@ -86,7 +86,11 @@ public class LoadScreen : MonoBehaviour
             //file = file.Replace("C:/Users/asus/AppData/LocalLow/DefaultCompany/MyFirstGame/saves/", "");
             //file = file.Replace(".txt", "");
             ChangeScene.inputMap = file;
-            
+            if (GameObject.FindGameObjectWithTag("VariableCarrier"))
+            {
+                GameObject.FindGameObjectWithTag("VariableCarrier").GetComponent<CarriedVariables>().currentMapName = file;
+            }
+
             ItemEnv = SaveLoad.Load<List<EnvironmentData>>(file);
             Debug.Log(ItemEnv.Count);
             foreach (EnvironmentData item in ItemEnv)

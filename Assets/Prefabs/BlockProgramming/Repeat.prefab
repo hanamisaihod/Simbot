@@ -1357,6 +1357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLock: 0
+  parentHandlerScript: {fileID: 0}
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
@@ -1889,6 +1890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLock: 0
+  parentHandlerScript: {fileID: 0}
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
@@ -2286,6 +2288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLock: 0
+  parentHandlerScript: {fileID: 0}
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
@@ -3160,6 +3163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLock: 0
+  parentHandlerScript: {fileID: 0}
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
@@ -3860,6 +3864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLock: 0
+  parentHandlerScript: {fileID: 0}
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
@@ -6645,6 +6650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLock: 0
+  parentHandlerScript: {fileID: 0}
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
@@ -8133,7 +8139,7 @@ MonoBehaviour:
   m_CaretColor: {r: 1, g: 1, b: 1, a: 0}
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 
+  m_Text: 0
   m_CaretBlinkRate: 0
   m_CaretWidth: 0
   m_ReadOnly: 0
@@ -8462,6 +8468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLock: 0
+  parentHandlerScript: {fileID: 0}
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
@@ -8692,7 +8699,7 @@ MonoBehaviour:
   m_CaretColor: {r: 1, g: 1, b: 1, a: 0}
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 
+  m_Text: 0
   m_CaretBlinkRate: 0
   m_CaretWidth: 0
   m_ReadOnly: 0
@@ -9193,7 +9200,7 @@ MonoBehaviour:
   m_CaretColor: {r: 1, g: 1, b: 1, a: 0}
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 
+  m_Text: 0
   m_CaretBlinkRate: 0
   m_CaretWidth: 0
   m_ReadOnly: 0

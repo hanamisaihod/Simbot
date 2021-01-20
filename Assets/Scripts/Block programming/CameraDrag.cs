@@ -12,9 +12,18 @@ public class CameraDrag : MonoBehaviour
 	public bool dragging = false;
 	public float findStartDistanceShow;
 	void Start()
-	{
-		mainCamera = Camera.main;
-	}
+    {
+        if (GameObject.Find("ModeSwitcher"))
+        {
+            foreach (GameObject obj in GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockProgrammingObjects)
+            {
+                if (obj.tag == "SubCamera")
+                {
+                    mainCamera = obj.GetComponent<Camera>();
+                }
+            }
+        }
+    }
 	private void Update()
 	{
 		if (Input.touchCount > 0)
@@ -47,7 +56,7 @@ public class CameraDrag : MonoBehaviour
 			if (dragging)
 			{
 				dragging = false;
-				CheckDistanceStart();
+				//CheckDistanceStart();
 			}
 		}
 	}
