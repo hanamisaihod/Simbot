@@ -513,6 +513,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LineFollowerBotV2 (with script)
       objectReference: {fileID: 0}
+    - target: {fileID: 1049934262172938741, guid: 96f33132163fb2842ac039b5b7a4d5ca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96f33132163fb2842ac039b5b7a4d5ca, type: 3}
 --- !u!1 &380216467
