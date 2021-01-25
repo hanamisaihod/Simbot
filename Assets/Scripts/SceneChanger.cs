@@ -36,4 +36,8 @@ public class SceneChanger : MonoBehaviour
 			SceneManager.LoadScene("LoadMap");
 		}
 	}
+    public void GoToSimulate() //Update this when AR is implemented
+    {
+        SceneManager.LoadScene("TestRobotMovementScene");
+    }
 }

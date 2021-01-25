@@ -25,6 +25,7 @@ public class BlockSaveAndLoad : MonoBehaviour
         if (startBlock[0])
         {
             startBlock[0].SetActive(false);
+            Debug.Log("There is no start block!");
             if (GameObject.Find("ModeSwitcher"))
             {
                 GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockProgrammingObjects.Add(startBlock[0]);
