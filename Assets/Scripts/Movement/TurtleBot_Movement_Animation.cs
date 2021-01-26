@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Created by Rompruk
-public class TurbotBot_Movement_Animation : MonoBehaviour
+public class TurtleBot_Movement_Animation : MonoBehaviour
 {
     public GameObject wheel_left;
     public GameObject wheel_right;

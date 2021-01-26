@@ -16,9 +16,8 @@ public class MouseDrag : MonoBehaviour
 	private int tempLayer = 0;
 	private bool changed;
 	public Vector2 mousePosition;
-	private GameObject trashCan;
+	public GameObject trashCan;
 	private Vector3 trashCanWorldPosition;
-	private Vector3 worldPosition;
 	private float distanceToTrash;
 	private float deleteDistance;
 	public GameObject doConnectorChild = null;
@@ -35,8 +34,28 @@ public class MouseDrag : MonoBehaviour
 	{
 		changed = false;
 		height = GetComponent<SpriteRenderer>().bounds.size.y;
-		mainCamera = Camera.main;
-		parentObject = transform.parent.gameObject;
+        if (GameObject.Find("ModeSwitcher"))
+        {
+            foreach (GameObject obj in GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockProgrammingObjects)
+            {
+                if (obj.tag == "SubCamera")
+                {
+                    Debug.Log("FoundSubCamera");
+                    mainCamera = obj.GetComponent<Camera>();
+                }
+            }
+            if (GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockTrashCan)
+            {
+                Debug.Log("FoundTrashCan");
+                trashCan = GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockTrashCan;
+            }
+        }
+        if (trashCan)
+        {
+            trashCanWorldPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, trashCan.GetComponent<RectTransform>().transform.position);
+        }
+        //mainCamera = GameObject.FindGameObjectWithTag("SubCamera").GetComponent<Camera>();
+        parentObject = transform.parent.gameObject;
 		/*foreach (Transform child in parentObject.transform)
 		{
 			if (child.tag == "DoConnector")
@@ -44,11 +63,6 @@ public class MouseDrag : MonoBehaviour
 			if (child.tag == "IfConnector")
 				ifConnectorChild = child.gameObject;
 		}*/
-		trashCan = GameObject.FindGameObjectWithTag("TrashCan");
-		if (trashCan)
-		{
-			trashCanWorldPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, trashCan.GetComponent<RectTransform>().transform.position);
-		}
 		deleteDistance = 400;
 		parentHandlerScript = parentObject.GetComponent<BuildingHandler>();
 		parentHandlerScript.totalHeight = parentHandlerScript.UpdateHeight();
@@ -71,7 +85,7 @@ public class MouseDrag : MonoBehaviour
 		//parentHandlerScript.totalHeight = 0f;
 		parentHandlerScript.totalHeight = parentHandlerScript.UpdateHeight();
 
-		Camera.main.GetComponent<CameraDrag>().available = false;
+		mainCamera.GetComponent<CameraDrag>().available = false;
 	}
 
 	public void OnMouseDrag()
@@ -126,11 +140,12 @@ public class MouseDrag : MonoBehaviour
 						parentObject.transform.parent = null;
 					}
 				}
-				worldPosition = Camera.main.WorldToScreenPoint(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 10));
-				distanceToTrash = Vector2.Distance(new Vector2(worldPosition.x, worldPosition.y), new Vector2(trashCanWorldPosition.x, trashCanWorldPosition.y));
-				if (distanceToTrash <= deleteDistance)
-				{
-					trashCan.GetComponent<TrashCan>().ShowDeleteEffect();
+                distanceToTrash = Vector2.Distance(new Vector2(trashCanWorldPosition.x, trashCanWorldPosition.y), new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+                Debug.Log("outside" + distanceToTrash);
+                if (distanceToTrash <= deleteDistance)
+                {
+                    Debug.Log("inside" + distanceToTrash);
+                    trashCan.GetComponent<TrashCan>().ShowDeleteEffect();
 				}
 				else
 				{
@@ -144,10 +159,9 @@ public class MouseDrag : MonoBehaviour
 	}
 
 	private void OnMouseUp()
-	{
-		worldPosition = Camera.main.WorldToScreenPoint(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 10));
-		parentHandlerScript.timer = 0;
-		Camera.main.GetComponent<CameraDrag>().available = true;
+    {
+        parentHandlerScript.timer = 0;
+        mainCamera.GetComponent<CameraDrag>().available = true;
 		if (parentHandlerScript.isBeingHeld)
 		{
 			changed = false;

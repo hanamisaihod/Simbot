@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CarriedVariables : MonoBehaviour
 {
-    
-    private void Start()
+    public string currentMapName;
+    public bool newMap = false;
+    private void Awake()
     {
         DontDestroyOnLoad(this);
     }

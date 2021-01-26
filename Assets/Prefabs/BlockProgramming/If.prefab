@@ -601,7 +601,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398439854319887362}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -1193,6 +1193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLock: 0
+  parentHandlerScript: {fileID: 0}
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
@@ -1341,7 +1342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u200B"
+  m_text: "0\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de9db501d7c54a64cbd7e834b0190d2d, type: 2}
   m_sharedMaterial: {fileID: -4890379045982232333, guid: de9db501d7c54a64cbd7e834b0190d2d,
@@ -1411,7 +1412,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2338479676595038450}
-    characterCount: 1
+    characterCount: 2
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -2388,6 +2389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLock: 0
+  parentHandlerScript: {fileID: 0}
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
@@ -2880,7 +2882,7 @@ MonoBehaviour:
   m_CaretColor: {r: 1, g: 1, b: 1, a: 0}
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 
+  m_Text: 0
   m_CaretBlinkRate: 0
   m_CaretWidth: 0
   m_ReadOnly: 0
@@ -3680,7 +3682,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u200B"
+  m_text: "0\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de9db501d7c54a64cbd7e834b0190d2d, type: 2}
   m_sharedMaterial: {fileID: -4890379045982232333, guid: de9db501d7c54a64cbd7e834b0190d2d,
@@ -3750,7 +3752,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 4618930057193264039}
-    characterCount: 1
+    characterCount: 2
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -4052,6 +4054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLock: 0
+  parentHandlerScript: {fileID: 0}
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
@@ -5206,7 +5209,7 @@ MonoBehaviour:
   m_CaretColor: {r: 1, g: 1, b: 1, a: 0}
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 
+  m_Text: 0
   m_CaretBlinkRate: 0
   m_CaretWidth: 0
   m_ReadOnly: 0
@@ -5502,6 +5505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLock: 0
+  parentHandlerScript: {fileID: 0}
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
@@ -5900,6 +5904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLock: 0
+  parentHandlerScript: {fileID: 0}
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
@@ -6745,6 +6750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLock: 0
+  parentHandlerScript: {fileID: 0}
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
@@ -7820,7 +7826,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8287202933434982231}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -8639,6 +8645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLock: 0
+  parentHandlerScript: {fileID: 0}
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}

@@ -35,6 +35,8 @@ TagManager:
   - RedZone
   - Start
   - StageObjects
+  - VariableCarrier
+  - SubCamera
   layers:
   - Default
   - TransparentFX

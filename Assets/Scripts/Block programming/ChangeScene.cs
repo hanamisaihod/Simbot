@@ -12,12 +12,10 @@ public class ChangeScene : MonoBehaviour
     public void ClickChangeScene()
     {
         inputMap = txt_Input.text;
+        if (GameObject.FindGameObjectWithTag("VariableCarrier"))
+        {
+            GameObject.FindGameObjectWithTag("VariableCarrier").GetComponent<CarriedVariables>().currentMapName = inputMap;
+        }
         SceneManager.LoadScene("MapBuilding");
     }
-	public void ClickChangeSceneBlock()
-	{
-		inputBlock = txt_Input.text;
-		//BlockSaveSystem.newBlockProgram = true;
-		SceneManager.LoadScene("BlockProgramming");
-	}
 }

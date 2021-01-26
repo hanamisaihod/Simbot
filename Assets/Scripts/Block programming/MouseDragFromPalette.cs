@@ -16,24 +16,54 @@ public class MouseDragFromPalette : MonoBehaviour, IBeginDragHandler, IDragHandl
 	public GameObject bestTarget;
 	public GameObject spawnPrefab;
 	private Vector3 initPosition;
-	static int blockNum = 1;
+	private int blockNum = 2;
 
-	public void OnBeginDrag(PointerEventData data)
+    public void Start()
+    {
+        if (GameObject.Find("ModeSwitcher"))
+        {
+            foreach (GameObject obj in GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockProgrammingObjects)
+            {
+                if (obj.tag == "SubCamera")
+                {
+                    mainCamera = obj.GetComponent<Camera>();
+                }
+            }
+        }
+    }
+
+    public GameObject[] FindBlock()
+    {
+        startConnectorBlock = GameObject.FindGameObjectsWithTag("StartConnector");
+        doConnectorBlocks = GameObject.FindGameObjectsWithTag("DoConnector");
+        ifConnectorBlocks = GameObject.FindGameObjectsWithTag("IfConnector");
+        conBlocks = startConnectorBlock.Concat(doConnectorBlocks).Concat(ifConnectorBlocks).ToArray();
+        return conBlocks;
+    }
+
+    public void OnBeginDrag(PointerEventData data)
 	{
-		Camera.main.GetComponent<CameraDrag>().available = false;
+        mainCamera.GetComponent<CameraDrag>().available = false;
 		initPosition = transform.position;
 	}
 
 	public void OnDrag(PointerEventData eventData)
 	{
-		Camera.main.GetComponent<CameraDrag>().available = false;
+        mainCamera.GetComponent<CameraDrag>().available = false;
 		transform.position = Input.mousePosition + new Vector3(0,0,10.0f);
 		FindAvailableBlocks();
 		FindClosestBlock(connecter);
 	}
 	public void OnEndDrag(PointerEventData eventData)
-	{
-		Camera.main.GetComponent<CameraDrag>().available = true;
+    {
+        foreach (GameObject obj in FindBlock())
+        {
+            if (obj.transform.parent.GetComponent<BuildingHandler>().blockNum >= blockNum)
+            {
+                blockNum = obj.transform.parent.GetComponent<BuildingHandler>().blockNum + 1;
+            }
+        }
+        mainCamera.GetComponent<CameraDrag>().available = true;
 		if (bestTarget != null)
 		{
 			GameObject tempPrefab;
@@ -68,22 +98,22 @@ public class MouseDragFromPalette : MonoBehaviour, IBeginDragHandler, IDragHandl
 		float closestDistanceSqr = Mathf.Infinity;
 		Vector3 currentPosition;
 		RectTransformUtility.ScreenPointToWorldPointInRectangle(connector.GetComponent<RectTransform>(), 
-			new Vector2(connector.GetComponent<RectTransform>().transform.position.x, connector.GetComponent<RectTransform>().transform.position.y), Camera.main, out currentPosition);
+			new Vector2(connector.GetComponent<RectTransform>().transform.position.x, connector.GetComponent<RectTransform>().transform.position.y), mainCamera, out currentPosition);
 		bestTarget = null;
 		foreach (GameObject block in conBlocks)
-		{
-			if (block.transform.parent.gameObject != transform.gameObject)
+        {
+            if (block.transform.parent.gameObject != transform.gameObject)
 			{
 				Vector3 directionToTarget = block.transform.position - currentPosition;
 				float dSqrToTarget = directionToTarget.sqrMagnitude;
 				if (dSqrToTarget < closestDistanceSqr)
-				{
-					closestDistanceSqr = dSqrToTarget;
+                {
+                    closestDistanceSqr = dSqrToTarget;
 					if (!block.GetComponent<MouseDrag>().isLock && !block.transform.parent.GetComponent<BuildingHandler>().isBeingHeld)
-					{
-						if (closestDistanceSqr < 3f)
-						{
-							bestTarget = block;
+                    {
+                        if (closestDistanceSqr < 3f)
+                        {
+                            bestTarget = block;
 						}
 					}
 				}

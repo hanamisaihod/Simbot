@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLock: 0
+  parentHandlerScript: {fileID: 0}
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
@@ -186,13 +187,33 @@ MonoBehaviour:
   ifConnector: {fileID: 0}
   doConnector: {fileID: 0}
   currentRepeatTimes: 0
-  blockNum: 0
-  actionChoice: 0
-  rotationChoice: 0
-  directionChoice: 0
-  isChoice: 0
-  colorChoice: 0
+  speedDrop: {fileID: 0}
+  torqueDrop: {fileID: 0}
+  delayDrop: {fileID: 0}
+  ifDrop: {fileID: 0}
+  degreeDrop: {fileID: 0}
+  compareDegreeDrop: {fileID: 0}
+  distanceDrop: {fileID: 0}
+  compareLeftDrop: {fileID: 0}
+  compareRightDrop: {fileID: 0}
+  colorLeftDrop: {fileID: 0}
+  colorRightDrop: {fileID: 0}
+  repeatDrop: {fileID: 0}
+  timesDrop: {fileID: 0}
+  canvas: {fileID: 0}
+  pos: {x: 0, y: 0, z: 0}
+  blockNum: 1
+  ifChoice: 0
+  compareDegreeChoice: 0
+  compareLeftChoice: 0
+  compareRightChoice: 0
+  colorLeftChoice: 0
+  colorRightChoice: 0
   repeatChoice: 0
   timesChoice: 0
+  speedChoice: 0
+  torqueChoice: 0
+  delayChoice: 0
+  degreeChoice: 0
+  distanceChoice: 0
   dropActives: 00000000000000000000000000000000000000000000000000000000
-  pos: {x: 0, y: 0, z: 0}

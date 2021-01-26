@@ -82,6 +82,10 @@ public class LoadMainStage : MonoBehaviour
                 }
         }
         mainStageKey = mainStageKey.Replace(".prefab",""); // mainStageKey is the confirmed main stage name
+        if (GameObject.FindGameObjectWithTag("VariableCarrier"))
+        {
+            GameObject.FindGameObjectWithTag("VariableCarrier").GetComponent<CarriedVariables>().currentMapName = mainStageKey;
+        }
         LoadConfirm.clickToLoad = false;
         LoadConfirm.waitForSelectSlot = false;
         LeanTween.scale(enableFrame,new Vector3(0,0,0),0.5f);

@@ -13,6 +13,7 @@ public class SceneChanger : MonoBehaviour
 	}
     public void GoMap()
     {
+        Debug.Log("Go to map building scene . . .  ");
         SceneManager.LoadScene("MapBuilding");
     }
 	public void GoMissionSelect()
@@ -36,4 +37,8 @@ public class SceneChanger : MonoBehaviour
 			SceneManager.LoadScene("LoadMap");
 		}
 	}
+    public void GoToSimulate() //Update this when AR is implemented
+    {
+        SceneManager.LoadScene("TestRobotMovementScene");
+    }
 }

@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class Menu_Controller : MonoBehaviour
 {
+    public GameObject NekoV1;
+    public GameObject TurtleBot;
+    public GameObject StoveBot;
+    public bool ActiveNeko;
+    public bool ActiveTurtle;
+    public bool ActiveStove;
     public GameObject tutorialCanvas;
     public GameObject cloud1;
     public GameObject cloud2;
@@ -21,6 +27,21 @@ public class Menu_Controller : MonoBehaviour
 
     void Update()
     {
+        if (ActiveNeko)
+            NekoV1.SetActive(true);
+        else
+            NekoV1.SetActive(false);
+
+        if (ActiveTurtle)
+            TurtleBot.SetActive(true);
+        else
+            TurtleBot.SetActive(false);
+
+        if (ActiveStove)
+            StoveBot.SetActive(true);
+        else
+            StoveBot.SetActive(false);
+
         if (startTutorial && Menu_Tutorial.startText == false)
         {
             startTutorial = false;

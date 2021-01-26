@@ -12,7 +12,7 @@ public class DropdownHandler : MonoBehaviour
     private BuildingHandler parentHandlerScript;
 	public GameObject centerExtendPart, tailExtendPart;
 	public List<GameObject> tempList;
-    void Start()
+    void Awake()
 	{
 		parentHandlerScript = transform.parent.GetComponent<BuildingHandler>();
 		tempList = new List<GameObject>();
@@ -23,7 +23,20 @@ public class DropdownHandler : MonoBehaviour
 
         UpdateActiveOptions();
 	}
-
+    private void Start()
+    {
+        if (GameObject.Find("ModeSwitcher"))
+        {
+            foreach (GameObject obj in GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockProgrammingObjects)
+            {
+                if (obj.tag == "SubCamera")
+                {
+                    Debug.Log("FoundSubCamera");
+                    this.GetComponent<Canvas>().worldCamera = obj.GetComponent<Camera>();
+                }
+            }
+        }
+    }
     /*public void HandleActionDropdown(int val)
 	{
 		if (actionDrop != null)

@@ -8,6 +8,7 @@ public class ModeSwitcher : MonoBehaviour
     public List<GameObject> blockProgrammingObjects;
     public GameObject pallete;
     public GameObject slideFrame;
+    public GameObject blockTrashCan;
 
     public void SwtichToCode()
     {
