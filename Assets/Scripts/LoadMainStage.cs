@@ -89,6 +89,7 @@ public class LoadMainStage : MonoBehaviour
         LoadConfirm.clickToLoad = false;
         LoadConfirm.waitForSelectSlot = false;
         LeanTween.scale(enableFrame,new Vector3(0,0,0),0.5f);
+        EnviSim.Mode = "Main";
         SceneManager.LoadScene("MapBuilding");
     }
 }

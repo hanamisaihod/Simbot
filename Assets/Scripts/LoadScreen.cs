@@ -79,6 +79,7 @@ public class LoadScreen : MonoBehaviour
         fileKeyword = fileKeyword.Replace(".txt", "");
         file = fileKeyword;
         Debug.Log(file);
+        EnviSim.Mode = "Creative";
         if(LoadConfirm.clickToLoad == true)
         {
             countMaxValue = 0;

@@ -5,10 +5,11 @@ using UnityEngine;
 public class AwakeNewSceneSpawn : MonoBehaviour
 {
     public GameObject LoadObject;
-    public bool once = true;
-    public string[] name;
-    public Vector3[] vector3;
-    public Quaternion[] rotation;
+    //public bool once = true;
+    public static string[] name;
+    public static Vector3[] vector3;
+    public static Quaternion[] rotation;
+    public static int MAX;
     public void Start()
     {
         name = new string[LoadScreen.countMaxValue];
@@ -16,8 +17,9 @@ public class AwakeNewSceneSpawn : MonoBehaviour
         rotation = new Quaternion[LoadScreen.countMaxValue];
         Debug.Log("LoadScreen.countMaxValue: "+LoadScreen.countMaxValue);
         Debug.Log("name.legth: "+name.Length);
-        if(LoadScreen.spawnFromLoadName != null && LoadScreen.spawnFromLoadVector3 != null && LoadScreen.spawnFromLoadQuaternion != null && once == true)
+        if(LoadScreen.spawnFromLoadName != null && LoadScreen.spawnFromLoadVector3 != null && LoadScreen.spawnFromLoadQuaternion != null && EnviSim.Mode == "Creative")
         {
+            
             int length = 0;
             int i = 0;
             foreach (string itemWord in LoadScreen.spawnFromLoadName)
@@ -40,7 +42,7 @@ public class AwakeNewSceneSpawn : MonoBehaviour
                 rotation[k] = itemRotation;
                 k++;
             }
-
+            MAX = length;
             for (int a = 0; a < length; a++)
             {
                 LoadObject = Instantiate(Resources.Load(name[a], typeof(GameObject)),vector3[a],rotation[a]) as GameObject;
@@ -58,6 +60,6 @@ public class AwakeNewSceneSpawn : MonoBehaviour
         }
 
     Debug.Log("Count all Object in Keep: "+DetectEnvironment.keepPosition.Count);   
-    once = false;
+    //once = false;
     }
 }

@@ -9,7 +9,8 @@ public class AwakeonMainStage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(LoadMainStage.mainStageKey != null)
+        
+        if(LoadMainStage.mainStageKey != null && EnviSim.Mode == "Main")
         {
             trigger.GetComponent<DisableOnMainStage>();
             trigger.disableOnMain();
