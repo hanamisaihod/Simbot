@@ -13,6 +13,7 @@ public class SceneChanger : MonoBehaviour
 	}
     public void GoMap()
     {
+        Debug.Log("Go to map building scene . . .  ");
         SceneManager.LoadScene("MapBuilding");
     }
 	public void GoMissionSelect()
