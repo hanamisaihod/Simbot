@@ -12,7 +12,7 @@ public class SaveLoadSR : MonoBehaviour
     public static void SaveSR<T>(T objectToSaveSR ,string key)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        using (FileStream fileStream = new FileStream(Application.dataPath + "/Resources/" + LoadMainStage.savePrefabKeyword + "StarRating/" + LoadMainStage.savePrefabKeyword + ".txt",FileMode.Create))
+        using (FileStream fileStream = new FileStream(Application.dataPath + "/Resources/" + LoadMainStage.currentKeyword + "StarRating/" + LoadMainStage.currentKeyword + ".txt",FileMode.Create))
         {
             formatter.Serialize(fileStream, objectToSaveSR);
             Debug.Log("Save");
@@ -23,7 +23,7 @@ public class SaveLoadSR : MonoBehaviour
     {
         BinaryFormatter formatter = new BinaryFormatter();
         T returnValue = default(T);
-        using (FileStream fileStream = new FileStream(Application.dataPath + "/Resources/" + LoadMainStage.savePrefabKeyword + "StarRating/" + LoadMainStage.savePrefabKeyword + ".txt",FileMode.Open))
+        using (FileStream fileStream = new FileStream(Application.dataPath + "/Resources/" + LoadMainStage.currentKeyword + "StarRating/" + LoadMainStage.currentKeyword + ".txt",FileMode.Open))
         {
             returnValue = (T)formatter.Deserialize(fileStream);
         }

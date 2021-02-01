@@ -15,32 +15,36 @@ public class StarRating : MonoBehaviour
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
+    public GameObject star1Appear;
+    public GameObject star2Appear;
+    public GameObject star3Appear;
     public string[] mapRating;
     public StarRatingData SRData;
     public List<StarRatingData> SREnv = new List<StarRatingData>();
     public static List<StarRatingData> staticSREnv = new List<StarRatingData>();
     public void setCondition()
     {
-        if(!Directory.Exists(Application.dataPath + "/Resources/" + LoadMainStage.savePrefabKeyword + "StarRating"))
+        if(!Directory.Exists(Application.dataPath + "/Resources/" + LoadMainStage.currentKeyword + "StarRating"))
         {
-            Directory.CreateDirectory(Application.dataPath + "/Resources/" + LoadMainStage.savePrefabKeyword + "StarRating");
-            condition1.GetComponent<Text>().text = "Condition 1";
-            condition2.GetComponent<Text>().text = "Condition 2";
-            condition3.GetComponent<Text>().text = "Condition 3";
+            Debug.Log(LoadMainStage.currentKeyword);
+            Directory.CreateDirectory(Application.dataPath + "/Resources/" + LoadMainStage.currentKeyword + "StarRating");
+            condition1.GetComponent<Text>().text = "Goal";
+            condition2.GetComponent<Text>().text = "Minimum line of code";
+            condition3.GetComponent<Text>().text = "Robot HP";
 
             SRData.mapCondition1.Add(condition1.GetComponent<Text>().text);
             SRData.mapCondition2.Add(condition2.GetComponent<Text>().text);
             SRData.mapCondition3.Add(condition3.GetComponent<Text>().text);
 
             SREnv.Add(SRData);
-            SaveLoadSR.SaveSR<List<StarRatingData>>(SREnv,LoadMainStage.savePrefabKeyword);
+            SaveLoadSR.SaveSR<List<StarRatingData>>(SREnv,LoadMainStage.currentKeyword);
             
         }
         else
         {
             Debug.Log("BUG");
             //mapRating = Directory.GetFiles(Application.dataPath + "/Resources/" + LoadMainStage.savePrefabKeyword + "StarRating/" + LoadMainStage.savePrefabKeyword + ".txt");
-            SREnv = SaveLoadSR.LoadSR<List<StarRatingData>>(LoadMainStage.savePrefabKeyword);
+            SREnv = SaveLoadSR.LoadSR<List<StarRatingData>>(LoadMainStage.currentKeyword);
             staticSREnv = SREnv;
             foreach (StarRatingData item in staticSREnv)
             {

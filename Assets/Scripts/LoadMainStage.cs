@@ -13,6 +13,7 @@ public class LoadMainStage : MonoBehaviour
     public static string mainStageKey;
     public StarRating starRating;
     public GameObject enableFrame;
+    public static string currentKeyword;
     public void Start()
     {
         enableFrame.transform.localScale = new Vector3(0,0,0);
@@ -38,13 +39,13 @@ public class LoadMainStage : MonoBehaviour
         for (int i = 0; i < savePrefab.Length; i++)
         {
             GameObject buttonPrefabs = Instantiate(Resources.Load("ButtonPrefab", typeof(GameObject))) as GameObject;
-            Debug.Log(savePrefab[i]);
+            //Debug.Log(savePrefab[i]);
             buttonPrefabs.GetComponentInChildren<Text>().text = savePrefab[i];
             buttonPrefabs.GetComponentInChildren<Text>().text = buttonPrefabs.GetComponentInChildren<Text>().text.Replace(@"\","/");
             string[] savePrefabPath = buttonPrefabs.GetComponentInChildren<Text>().text.Split("/"[0]);
             for (int j = 0; j < savePrefabPath.Length; j++)
             {
-                Debug.Log(savePrefabPath[j] + "ORDERRRRRRRRRRR");
+                //Debug.Log(savePrefabPath[j] + "ORDERRRRRRRRRRR");
                 if(j == savePrefabPath.Length - 1)
                 {
                     savePrefabKeyword = savePrefabPath[j];
@@ -66,9 +67,26 @@ public class LoadMainStage : MonoBehaviour
 
     public IEnumerator mainStageClick(int mainIndex)
     {
-        LeanTween.scale(enableFrame,new Vector3(1,1,1),0.5f);
+        Debug.Log("CLICKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK" + mainIndex);
+        LeanTween.scale(enableFrame,new Vector3(1,1,1),0.5f);        
+        string currentPreWord = savePrefab[mainIndex];
+        currentPreWord = currentPreWord.Replace(@"\","/");
+        string[] currentWordSpit = currentPreWord.Split("/"[0]);
+        for (int i = 0; i < currentWordSpit.Length; i++)
+        {
+            if(i == currentWordSpit.Length - 1)
+                {
+                    currentKeyword = currentWordSpit[i];
+                }
+        }
+        currentKeyword = currentKeyword.Replace(".prefab","");
+        Debug.Log(currentKeyword);
         starRating.GetComponent<StarRating>().setCondition();
+        
+
         LoadConfirm.waitForSelectSlot = true;
+        
+
         yield return new WaitUntil(() => LoadConfirm.clickToLoad == true || DeleteSave.clickToDelete == true || ChangeToSimulate.simulate == true);
 
         string mainWord = savePrefab[mainIndex];
