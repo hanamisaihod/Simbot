@@ -1197,6 +1197,8 @@ MonoBehaviour:
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 6457699672051442638}
   ifConnectorChild: {fileID: 7226918033304212064}
   abName: 
@@ -2393,6 +2395,8 @@ MonoBehaviour:
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 6457699672051442638}
   ifConnectorChild: {fileID: 7226918033304212064}
   abName: 
@@ -3567,6 +3571,7 @@ MonoBehaviour:
   repeatDrop: {fileID: 0}
   timesDrop: {fileID: 0}
   canvas: {fileID: 7606122312613624329}
+  pos: {x: 0, y: 0, z: 0}
   blockNum: 0
   ifChoice: 0
   compareDegreeChoice: 0
@@ -4058,6 +4063,8 @@ MonoBehaviour:
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 6457699672051442638}
   ifConnectorChild: {fileID: 7226918033304212064}
   abName: 
@@ -5509,6 +5516,8 @@ MonoBehaviour:
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 6457699672051442638}
   ifConnectorChild: {fileID: 7226918033304212064}
   abName: 
@@ -5908,6 +5917,8 @@ MonoBehaviour:
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 6457699672051442638}
   ifConnectorChild: {fileID: 7226918033304212064}
   abName: 
@@ -6754,6 +6765,8 @@ MonoBehaviour:
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 6457699672051442638}
   ifConnectorChild: {fileID: 7226918033304212064}
   abName: 
@@ -8649,6 +8662,8 @@ MonoBehaviour:
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 6457699672051442638}
   ifConnectorChild: {fileID: 7226918033304212064}
   abName: 
