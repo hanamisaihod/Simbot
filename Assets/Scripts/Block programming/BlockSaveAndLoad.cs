@@ -187,7 +187,6 @@ public class BlockSaveAndLoad : MonoBehaviour
         {
             GameObject tempBlock;
             tempBlock = Instantiate(startPrefab);
-            Debug.Log("Hey, a start block has been instantiated, bitch!");
         }
         else
         {

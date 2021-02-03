@@ -13,6 +13,10 @@ public class LevelController : MonoBehaviour
 	public GameObject canvasFX;
     public int robotType;
     public bool stopRobot = false;
+
+    public bool completionStar = false;
+    public bool robotHealthStar = false;
+    public bool codeAmountStar = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -64,12 +68,6 @@ public class LevelController : MonoBehaviour
         ActivateRedZone();
     }
 
-	// Update is called once per frame
-	void Update()
-    {
-        
-    }
-
 	public void FindRobotAndStartReading()
 	{
 		GameObject.FindGameObjectWithTag("Player").GetComponent<RobotMovementTest>().StartReading();
@@ -111,11 +109,23 @@ public class LevelController : MonoBehaviour
 
 	public void CheckStar()
 	{
-
+        completionStar = true;
+        codeAmountStar = GetCodeAmountStar();
+        robotHealthStar = GetRobotHeathStar();
 	}
 
 	public void SaveMissionProgress()
 	{
 
 	}
+
+    public bool GetCodeAmountStar()
+    {
+        return true; //DELETE
+    }
+
+    public bool GetRobotHeathStar()
+    {
+        return true;
+    }
 }
