@@ -10,7 +10,7 @@ public class BlockSaveAndLoad : MonoBehaviour
     private int currentObj = 0;
     public GameObject startPrefab, doPrefab, ifPrefab, repeatPrefab;
     private List<GameObject> tempBlocks = new List<GameObject>();
-    private GameObject[] conBlocks, startBlock, doBlocks, ifBlocks, repeatBlocks;
+    public GameObject[] conBlocks, startBlock, doBlocks, ifBlocks, repeatBlocks;
     public GameObject mainCamera;
     public bool newBlockProgram = false;
 
@@ -25,7 +25,6 @@ public class BlockSaveAndLoad : MonoBehaviour
         if (startBlock[0])
         {
             startBlock[0].SetActive(false);
-            Debug.Log("There is no start block!");
             if (GameObject.Find("ModeSwitcher"))
             {
                 GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockProgrammingObjects.Add(startBlock[0]);
@@ -88,6 +87,7 @@ public class BlockSaveAndLoad : MonoBehaviour
             PlayerPrefs.SetInt(name + currentObj.ToString() + "clch", block.GetComponent<BuildingHandler>().colorLeftChoice);
             PlayerPrefs.SetInt(name + currentObj.ToString() + "crch", block.GetComponent<BuildingHandler>().colorRightChoice);
             PlayerPrefs.SetInt(name + currentObj.ToString() + "rch", block.GetComponent<BuildingHandler>().repeatChoice);
+            PlayerPrefs.SetInt(name + currentObj.ToString() + "tich", block.GetComponent<BuildingHandler>().timesChoice);
             PlayerPrefs.SetFloat(name + currentObj.ToString() + "sch", block.GetComponent<BuildingHandler>().speedChoice);
             PlayerPrefs.SetFloat(name + currentObj.ToString() + "tch", block.GetComponent<BuildingHandler>().torqueChoice);
             PlayerPrefs.SetFloat(name + currentObj.ToString() + "dch", block.GetComponent<BuildingHandler>().delayChoice);
@@ -292,16 +292,17 @@ public class BlockSaveAndLoad : MonoBehaviour
             tempBlock.GetComponent<BuildingHandler>().colorLeftChoice = PlayerPrefs.GetInt(name + current.ToString() + "clch");
             tempBlock.GetComponent<BuildingHandler>().colorRightChoice = PlayerPrefs.GetInt(name + current.ToString() + "crch");
             tempBlock.GetComponent<BuildingHandler>().repeatChoice = PlayerPrefs.GetInt(name + current.ToString() + "rch");
+            tempBlock.GetComponent<BuildingHandler>().timesChoice = PlayerPrefs.GetInt(name + current.ToString() + "tich");
             tempBlock.GetComponent<BuildingHandler>().speedChoice = PlayerPrefs.GetFloat(name + current.ToString() + "sch");
             tempBlock.GetComponent<BuildingHandler>().torqueChoice = PlayerPrefs.GetFloat(name + current.ToString() + "tch");
             tempBlock.GetComponent<BuildingHandler>().delayChoice = PlayerPrefs.GetFloat(name + current.ToString() + "dch");
             tempBlock.GetComponent<BuildingHandler>().degreeChoice = PlayerPrefs.GetFloat(name + current.ToString() + "dgch");
             tempBlock.GetComponent<BuildingHandler>().distanceChoice = PlayerPrefs.GetFloat(name + current.ToString() + "dich");
 
-            tempBlock.GetComponent<BuildingHandler>().canvas.GetComponent<DropdownHandler>().prevIf = PlayerPrefs.GetInt(name + current.ToString() + "pi");
-            tempBlock.GetComponent<BuildingHandler>().canvas.GetComponent<DropdownHandler>().prevRepeat = PlayerPrefs.GetInt(name + current.ToString() + "pr");
-            tempBlock.GetComponent<BuildingHandler>().canvas.GetComponent<DropdownHandler>().prevTimes = PlayerPrefs.GetInt(name + current.ToString() + "pt");
-            tempBlock.GetComponent<BuildingHandler>().canvas.GetComponent<DropdownHandler>().prevDistance = PlayerPrefs.GetInt(name + current.ToString() + "pd");
+            //tempBlock.GetComponent<BuildingHandler>().canvas.GetComponent<DropdownHandler>().prevIf = PlayerPrefs.GetInt(name + current.ToString() + "pi");
+            //tempBlock.GetComponent<BuildingHandler>().canvas.GetComponent<DropdownHandler>().prevRepeat = PlayerPrefs.GetInt(name + current.ToString() + "pr");
+            //tempBlock.GetComponent<BuildingHandler>().canvas.GetComponent<DropdownHandler>().prevTimes = PlayerPrefs.GetInt(name + current.ToString() + "pt");
+            //tempBlock.GetComponent<BuildingHandler>().canvas.GetComponent<DropdownHandler>().prevDistance = PlayerPrefs.GetInt(name + current.ToString() + "pd");
 
             tempBlock.GetComponent<BuildingHandler>().dropActives[0] = PlayerPrefs.GetInt(name + current.ToString() + "da0");
             tempBlock.GetComponent<BuildingHandler>().dropActives[1] = PlayerPrefs.GetInt(name + current.ToString() + "da1");
@@ -519,6 +520,7 @@ public class BlockSaveAndLoad : MonoBehaviour
         {
             block.GetComponent<BuildingHandler>().speedDrop.GetComponent<TMP_InputField>().text = block.GetComponent<BuildingHandler>().speedChoice.ToString();
             block.GetComponent<BuildingHandler>().torqueDrop.GetComponent<TMP_InputField>().text = block.GetComponent<BuildingHandler>().torqueChoice.ToString();
+            block.GetComponent<BuildingHandler>().delayDrop.GetComponent<TMP_InputField>().text = block.GetComponent<BuildingHandler>().delayChoice.ToString();
         }
         else if (block.tag == "IfBlock")
         {
@@ -557,41 +559,41 @@ public class BlockSaveAndLoad : MonoBehaviour
         }
         else if (block.tag == "RepeatBlock")
         {
-            if (block.GetComponent<BuildingHandler>().dropActives[11] == 1)
+            if (block.GetComponent<BuildingHandler>().dropActives[11] == 1) //repeatrop
             {
+                block.GetComponent<BuildingHandler>().repeatDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().repeatChoice;
                 if (block.GetComponent<BuildingHandler>().dropActives[12] == 1) //timesDrop
                 {
                     block.GetComponent<BuildingHandler>().timesDrop.GetComponent<TMP_InputField>().text = block.GetComponent<BuildingHandler>().timesChoice.ToString();
                 }
-
-            }
-            if (block.GetComponent<BuildingHandler>().dropActives[4] == 1) //degreeDrop
-            {
-                block.GetComponent<BuildingHandler>().degreeDrop.GetComponent<TMP_InputField>().text = block.GetComponent<BuildingHandler>().degreeChoice.ToString();
-            }
-            if (block.GetComponent<BuildingHandler>().dropActives[5] == 1) //compareDegreeDrop
-            {
-                block.GetComponent<BuildingHandler>().compareDegreeDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().compareDegreeChoice;
-            }
-            if (block.GetComponent<BuildingHandler>().dropActives[6] == 1) //distanceDrop
-            {
-                block.GetComponent<BuildingHandler>().distanceDrop.GetComponent<TMP_InputField>().text = block.GetComponent<BuildingHandler>().distanceChoice.ToString();
-            }
-            if (block.GetComponent<BuildingHandler>().dropActives[7] == 1) //compareLeftDrop
-            {
-                block.GetComponent<BuildingHandler>().compareLeftDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().compareLeftChoice;
-            }
-            if (block.GetComponent<BuildingHandler>().dropActives[8] == 1) //compareRightDrop
-            {
-                block.GetComponent<BuildingHandler>().compareRightDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().compareRightChoice;
-            }
-            if (block.GetComponent<BuildingHandler>().dropActives[9] == 1) //colorLeftDrop
-            {
-                block.GetComponent<BuildingHandler>().colorLeftDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().colorLeftChoice;
-            }
-            if (block.GetComponent<BuildingHandler>().dropActives[10] == 1) //colorRightDrop
-            {
-                block.GetComponent<BuildingHandler>().colorRightDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().colorRightChoice;
+                if (block.GetComponent<BuildingHandler>().dropActives[4] == 1) //degreeDrop
+                {
+                    block.GetComponent<BuildingHandler>().degreeDrop.GetComponent<TMP_InputField>().text = block.GetComponent<BuildingHandler>().degreeChoice.ToString();
+                }
+                if (block.GetComponent<BuildingHandler>().dropActives[5] == 1) //compareDegreeDrop
+                {
+                    block.GetComponent<BuildingHandler>().compareDegreeDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().compareDegreeChoice;
+                }
+                if (block.GetComponent<BuildingHandler>().dropActives[6] == 1) //distanceDrop
+                {
+                    block.GetComponent<BuildingHandler>().distanceDrop.GetComponent<TMP_InputField>().text = block.GetComponent<BuildingHandler>().distanceChoice.ToString();
+                }
+                if (block.GetComponent<BuildingHandler>().dropActives[7] == 1) //compareLeftDrop
+                {
+                    block.GetComponent<BuildingHandler>().compareLeftDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().compareLeftChoice;
+                }
+                if (block.GetComponent<BuildingHandler>().dropActives[8] == 1) //compareRightDrop
+                {
+                    block.GetComponent<BuildingHandler>().compareRightDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().compareRightChoice;
+                }
+                if (block.GetComponent<BuildingHandler>().dropActives[9] == 1) //colorLeftDrop
+                {
+                    block.GetComponent<BuildingHandler>().colorLeftDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().colorLeftChoice;
+                }
+                if (block.GetComponent<BuildingHandler>().dropActives[10] == 1) //colorRightDrop
+                {
+                    block.GetComponent<BuildingHandler>().colorRightDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().colorRightChoice;
+                }
             }
         }
     }

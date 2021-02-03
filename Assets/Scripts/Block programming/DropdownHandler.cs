@@ -215,6 +215,7 @@ public class DropdownHandler : MonoBehaviour
     }
     public void HandleIfDropdown(int val)
     {
+        Debug.Log("Handling If Dropdown");
         parentHandlerScript.ifChoice = val;
         if (prevIf != 0 && val == 0)
         {
@@ -263,7 +264,7 @@ public class DropdownHandler : MonoBehaviour
             else
             {
                 prevDistance = parentHandlerScript.distanceChoice;
-                if (int.Parse(val) > 0)
+                if (float.Parse(val) > 0)
                 {
                     parentHandlerScript.distanceChoice = float.Parse(val);
                 }

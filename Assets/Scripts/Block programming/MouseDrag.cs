@@ -17,7 +17,7 @@ public class MouseDrag : MonoBehaviour
 	private bool changed;
 	public Vector2 mousePosition;
 	public GameObject trashCan;
-	private Vector3 trashCanWorldPosition;
+	public Vector3 trashCanWorldPosition;
 	private float distanceToTrash;
 	private float deleteDistance;
 	public GameObject doConnectorChild = null;
@@ -52,7 +52,8 @@ public class MouseDrag : MonoBehaviour
         }
         if (trashCan)
         {
-            trashCanWorldPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, trashCan.GetComponent<RectTransform>().transform.position);
+            //trashCanWorldPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, trashCan.GetComponent<RectTransform>().transform.position);
+            trashCanWorldPosition = new Vector2(1998f, 918f);
         }
         //mainCamera = GameObject.FindGameObjectWithTag("SubCamera").GetComponent<Camera>();
         parentObject = transform.parent.gameObject;

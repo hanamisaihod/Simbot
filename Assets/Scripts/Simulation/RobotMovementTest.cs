@@ -202,7 +202,12 @@ public class RobotMovementTest : MonoBehaviour
     {
         currentTimes = 0;
         repeats = new List<GameObject>();
-        GameObject startBlock = GameObject.FindGameObjectWithTag("StartBlock");
+
+
+        //GameObject startBlock = GameObject.FindGameObjectWithTag("StartBlock"); //Find startblock when want to read (change?)
+
+        GameObject startBlock = GameObject.Find("BlockSaveManager").GetComponent<BlockSaveAndLoad>().startBlock[0];
+
         if (!startBlock.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().attachedBy)
         {
             Debug.LogError("There is nothing connected to the start block!");
