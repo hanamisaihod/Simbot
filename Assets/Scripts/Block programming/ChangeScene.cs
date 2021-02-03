@@ -9,6 +9,7 @@ public class ChangeScene : MonoBehaviour
     public static string inputMap;
 	public static string inputBlock;
 	public InputField txt_Input;
+    public static string subMode;
     public void ClickChangeScene()
     {
         inputMap = txt_Input.text;
@@ -16,6 +17,7 @@ public class ChangeScene : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("VariableCarrier").GetComponent<CarriedVariables>().currentMapName = inputMap;
         }
+        Debug.Log("Sim MODEEEEEEEEEEEEEEEEEEEEEEE = " + EnviSim.Mode);
         SceneManager.LoadScene("MapBuilding");
     }
 }
