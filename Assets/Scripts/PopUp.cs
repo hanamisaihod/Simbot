@@ -6,6 +6,7 @@ public class PopUp : MonoBehaviour
 {
     void Start()
     {
+        ChangeScene.subMode = "CreateNew";
         transform.localScale = new Vector3(0,0,0);
     }
     public void popOut()

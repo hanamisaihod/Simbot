@@ -37,7 +37,7 @@ public class LoadScreen : MonoBehaviour
     public void ShowLoadScreen()
     {
         GetLoadSave();
-
+        EnviSim.Mode = "Creative";
         for (int i = 0; i < saveFiles.Length; i++)
         {
             GameObject buttonObject = Instantiate(Resources.Load("ButtonPrefab", typeof(GameObject))) as GameObject;
@@ -65,6 +65,7 @@ public class LoadScreen : MonoBehaviour
 
     public IEnumerator OnButtonClick(int index)
 	{
+        ChangeScene.subMode = "CreatedScene";
 		LoadConfirm.waitForSelectSlot = true;
         yield return new WaitUntil(() => LoadConfirm.clickToLoad == true || DeleteSave.clickToDelete == true || ChangeToSimulate.simulate == true);
         string file = saveFiles[index];
@@ -79,7 +80,7 @@ public class LoadScreen : MonoBehaviour
         fileKeyword = fileKeyword.Replace(".txt", "");
         file = fileKeyword;
         Debug.Log(file);
-        EnviSim.Mode = "Creative";
+        
         if(LoadConfirm.clickToLoad == true)
         {
             countMaxValue = 0;

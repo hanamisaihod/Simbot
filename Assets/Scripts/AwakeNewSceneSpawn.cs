@@ -17,9 +17,8 @@ public class AwakeNewSceneSpawn : MonoBehaviour
         rotation = new Quaternion[LoadScreen.countMaxValue];
         Debug.Log("LoadScreen.countMaxValue: "+LoadScreen.countMaxValue);
         Debug.Log("name.legth: "+name.Length);
-        if(LoadScreen.spawnFromLoadName != null && LoadScreen.spawnFromLoadVector3 != null && LoadScreen.spawnFromLoadQuaternion != null && EnviSim.Mode == "Creative")
+        if(LoadScreen.spawnFromLoadName != null && LoadScreen.spawnFromLoadVector3 != null && LoadScreen.spawnFromLoadQuaternion != null && EnviSim.Mode == "Creative" && ChangeScene.subMode == "CreatedScene")
         {
-            
             int length = 0;
             int i = 0;
             foreach (string itemWord in LoadScreen.spawnFromLoadName)
