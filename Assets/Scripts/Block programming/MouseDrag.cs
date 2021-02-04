@@ -44,16 +44,6 @@ public class MouseDrag : MonoBehaviour
                     mainCamera = obj.GetComponent<Camera>();
                 }
             }
-            if (GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockTrashCan)
-            {
-                Debug.Log("FoundTrashCan");
-                trashCan = GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockTrashCan;
-            }
-        }
-        if (trashCan)
-        {
-            //trashCanWorldPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, trashCan.GetComponent<RectTransform>().transform.position);
-            trashCanWorldPosition = new Vector2(1998f, 918f);
         }
         //mainCamera = GameObject.FindGameObjectWithTag("SubCamera").GetComponent<Camera>();
         parentObject = transform.parent.gameObject;
@@ -69,9 +59,25 @@ public class MouseDrag : MonoBehaviour
 		parentHandlerScript.totalHeight = parentHandlerScript.UpdateHeight();
 	}
 
-	void Update()
-	{
-		position = transform.TransformPoint(Vector3.zero);
+    private void Start()
+    {
+        if (GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockTrashCan)
+        {
+            Debug.Log("FoundTrashCan");
+            trashCan = GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockTrashCan;
+        }
+        if (trashCan)
+        {
+            //trashCanWorldPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, trashCan.GetComponent<RectTransform>().transform.position);
+            //trashCanWorldPosition = new Vector2(1998f, 918f);
+            //trashCanWorldPosition = trashCan.GetComponent<TrashCan>().screenPos;
+            //Debug.Log("Trash screen position" + trashCanWorldPosition);
+        }
+    }
+
+    void Update()
+    {
+        position = transform.TransformPoint(Vector3.zero);
 	}
 
 	public void OnMouseDown()
@@ -141,11 +147,10 @@ public class MouseDrag : MonoBehaviour
 						parentObject.transform.parent = null;
 					}
 				}
-                distanceToTrash = Vector2.Distance(new Vector2(trashCanWorldPosition.x, trashCanWorldPosition.y), new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-                Debug.Log("outside" + distanceToTrash);
+                //distanceToTrash = Vector2.Distance(new Vector2(trashCanWorldPosition.x, trashCanWorldPosition.y), new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+                distanceToTrash = Vector2.Distance(new Vector2(Screen.width - 75f*(Screen.width/2160), Screen.height - 59f*(Screen.height / 1080)), new Vector2(Input.mousePosition.x, Input.mousePosition.y));
                 if (distanceToTrash <= deleteDistance)
                 {
-                    Debug.Log("inside" + distanceToTrash);
                     trashCan.GetComponent<TrashCan>().ShowDeleteEffect();
 				}
 				else

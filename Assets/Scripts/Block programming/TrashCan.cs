@@ -8,8 +8,7 @@ public class TrashCan : MonoBehaviour
 	public bool deleteEffect = false;
 	public GameObject effect;
 	public float effectTime;
-
-	public void ShowDeleteEffect()
+    public void ShowDeleteEffect()
 	{
 		if (!deleteEffect)
 		{

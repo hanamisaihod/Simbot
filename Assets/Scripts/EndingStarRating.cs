@@ -18,7 +18,7 @@ public class EndingStarRating : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(StarRating.staticSREnv != null)
+        if (StarRating.staticSREnv != null)
         {
             foreach (StarRatingData item in StarRating.staticSREnv)
             {
@@ -36,7 +36,5 @@ public class EndingStarRating : MonoBehaviour
                 }
             }
         }
-        
     }
-
 }
