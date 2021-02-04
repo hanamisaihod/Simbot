@@ -143,10 +143,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3159061798198051934}
     m_Modifications:
+    - target: {fileID: 5958708952017107362, guid: b7bacaa04e3a9a64095bc82691077fab,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5958708953524136798, guid: b7bacaa04e3a9a64095bc82691077fab,
         type: 3}
       propertyPath: m_Name
       value: Purple_Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958708953524136798, guid: b7bacaa04e3a9a64095bc82691077fab,
+        type: 3}
+      propertyPath: m_Layer
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5958708953524136799, guid: b7bacaa04e3a9a64095bc82691077fab,
         type: 3}

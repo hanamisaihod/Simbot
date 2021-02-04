@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 630473826129438684}
   - component: {fileID: 7246106106465583817}
   - component: {fileID: 3860665281253856946}
-  m_Layer: 20
+  m_Layer: 19
   m_Name: Box-Wall-Turbine
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -198,6 +198,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3818512375567935541, guid: 14be1d1923b62084cb520c6649c0bcdc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 49.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818512375567935541, guid: 14be1d1923b62084cb520c6649c0bcdc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 49.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4590791357648908943, guid: 14be1d1923b62084cb520c6649c0bcdc,
         type: 3}
       propertyPath: m_Name
@@ -206,7 +216,7 @@ PrefabInstance:
     - target: {fileID: 4590791357648908943, guid: 14be1d1923b62084cb520c6649c0bcdc,
         type: 3}
       propertyPath: m_Layer
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 6304196319238421353, guid: 14be1d1923b62084cb520c6649c0bcdc,
         type: 3}

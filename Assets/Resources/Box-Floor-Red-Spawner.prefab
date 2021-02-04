@@ -148,6 +148,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red_Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 8849314438376574904, guid: 3befecc34d04aff4f828f0adea088d42,
+        type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8849314438376574905, guid: 3befecc34d04aff4f828f0adea088d42,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -201,6 +206,11 @@ PrefabInstance:
     - target: {fileID: 8849314438376574905, guid: 3befecc34d04aff4f828f0adea088d42,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849314439355063620, guid: 3befecc34d04aff4f828f0adea088d42,
+        type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

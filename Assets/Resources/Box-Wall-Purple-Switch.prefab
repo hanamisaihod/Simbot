@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 4358810347842461586}
   - component: {fileID: 5786326642833603207}
   - component: {fileID: 95042808263732988}
-  m_Layer: 19
+  m_Layer: 20
   m_Name: Box-Wall-Purple-Switch
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -143,6 +143,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9173914891728787874}
     m_Modifications:
+    - target: {fileID: 699930225701381190, guid: 9d966b90db211cb47968138e98bcd2fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2802208218044938528, guid: 9d966b90db211cb47968138e98bcd2fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -204,6 +209,11 @@ PrefabInstance:
       value: Purple_Destination
       objectReference: {fileID: 0}
     - target: {fileID: 4583756578531055285, guid: 9d966b90db211cb47968138e98bcd2fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255275822135184161, guid: 9d966b90db211cb47968138e98bcd2fd,
         type: 3}
       propertyPath: m_Layer
       value: 20

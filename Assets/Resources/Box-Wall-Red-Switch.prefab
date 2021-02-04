@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 1944594181023235940}
   - component: {fileID: 8560258346591296113}
   - component: {fileID: 2868973412252896778}
-  m_Layer: 19
+  m_Layer: 20
   m_Name: Box-Wall-Red-Switch
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -143,6 +143,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6472031161617299796}
     m_Modifications:
+    - target: {fileID: 977040528960668378, guid: 2633aa5874c4ca34c8be9eefc22b762c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5559166655288162162, guid: 2633aa5874c4ca34c8be9eefc22b762c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -207,6 +212,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7094286300008114708, guid: 2633aa5874c4ca34c8be9eefc22b762c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2633aa5874c4ca34c8be9eefc22b762c, type: 3}
