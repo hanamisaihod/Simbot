@@ -13,24 +13,29 @@ public class LoadMainStage : MonoBehaviour
     public static string mainStageKey;
     public StarRating starRating;
     public GameObject enableFrame;
-    public static string currentKeyword;
+    public static string currentKeyword; 
+    public string[] savePrefab;
+    public object[] presavePrefab;
     public void Start()
     {
         enableFrame.transform.localScale = new Vector3(0,0,0);
         Debug.Log("Start");
         ShowLoadMainStage();
     }
-    public string[] savePrefab;
+   
 
     public void GetSavePrefab()
     {
-        if(!Directory.Exists(Application.dataPath+"/Prefabs/Map"))
+        presavePrefab = Resources.LoadAll("Map");
+        savePrefab = new string[presavePrefab.Length];
+        for (int a = 0; a < presavePrefab.Length; a++)
         {
-            Debug.Log("Error");
+            string storeWord = presavePrefab[a].ToString().Replace(@" (UnityEngine.GameObject)","");
+            Debug.Log(storeWord);
+            savePrefab[a] = storeWord;
         }
-        savePrefab = Directory.GetFiles(Application.dataPath + "/Resources/Map","*.prefab");
         Array.Sort(savePrefab, new AlphanumComparatorFast());
-        Debug.Log(savePrefab);
+        
     }
 
     public void ShowLoadMainStage()
@@ -41,8 +46,9 @@ public class LoadMainStage : MonoBehaviour
         {
             GameObject buttonPrefabs = Instantiate(Resources.Load("ButtonPrefab", typeof(GameObject))) as GameObject;
             //Debug.Log(savePrefab[i]);
-            buttonPrefabs.GetComponentInChildren<Text>().text = savePrefab[i];
+            buttonPrefabs.GetComponentInChildren<Text>().text = savePrefab[i].ToString();
             buttonPrefabs.GetComponentInChildren<Text>().text = buttonPrefabs.GetComponentInChildren<Text>().text.Replace(@"\","/");
+            buttonPrefabs.GetComponentInChildren<Text>().text = buttonPrefabs.GetComponentInChildren<Text>().text.Replace(@" (UnityEngine.GameObject)","");
             string[] savePrefabPath = buttonPrefabs.GetComponentInChildren<Text>().text.Split("/"[0]);
             for (int j = 0; j < savePrefabPath.Length; j++)
             {
@@ -70,7 +76,7 @@ public class LoadMainStage : MonoBehaviour
     {
         Debug.Log("CLICKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK" + mainIndex);
         LeanTween.scale(enableFrame,new Vector3(1,1,1),0.5f);        
-        string currentPreWord = savePrefab[mainIndex];
+        string currentPreWord = savePrefab[mainIndex].ToString();
         currentPreWord = currentPreWord.Replace(@"\","/");
         string[] currentWordSpit = currentPreWord.Split("/"[0]);
         for (int i = 0; i < currentWordSpit.Length; i++)
@@ -90,7 +96,7 @@ public class LoadMainStage : MonoBehaviour
 
         yield return new WaitUntil(() => LoadConfirm.clickToLoad == true || DeleteSave.clickToDelete == true || ChangeToSimulate.simulate == true);
 
-        string mainWord = savePrefab[mainIndex];
+        string mainWord = savePrefab[mainIndex].ToString();
         mainWord = mainWord.Replace(@"\","/");
         string[] mainWordSpit = mainWord.Split("/"[0]);
         for (int i = 0; i < mainWordSpit.Length; i++)
