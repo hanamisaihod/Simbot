@@ -30793,24 +30793,6 @@ Transform:
   m_Father: {fileID: 5329823485846449020}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6537913503076337464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6537913503076337468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8f56116d9c19ea4fa27f0e85bf4d27f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraDragSpeed: 40
-  available: 1
-  startBlock: {fileID: 0}
-  findButton: {fileID: 0}
-  dragging: 0
-  findStartDistanceShow: 50
 --- !u!4 &6537913503076337465
 Transform:
   m_ObjectHideFlags: 0
@@ -30836,7 +30818,7 @@ GameObject:
   - component: {fileID: 6537913503076337465}
   - component: {fileID: 6537913503076337470}
   - component: {fileID: 6537913503076337471}
-  - component: {fileID: 6537913503076337464}
+  - component: {fileID: 6537913503076337469}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: SubCamera
@@ -30844,6 +30826,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &6537913503076337469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6537913503076337468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: affceb48ebb081144bbaa55640978480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  available: 1
 --- !u!20 &6537913503076337470
 Camera:
   m_ObjectHideFlags: 0
