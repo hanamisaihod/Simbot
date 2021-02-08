@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: a84e30f2ac03d8d4eb676bc3e6a64ae8
   - enabled: 1
+    path: Assets/Scenes/ARTest.unity
+    guid: 6d3e508794311be469f8054543db7844
+  - enabled: 1
+    path: Assets/Scenes/SimulateSceneTest.unity
+    guid: 4b5ebbc3edbe71e40b50875bf22c231e
+  - enabled: 1
     path: Assets/Scenes/MapBuilding.unity
     guid: 1b6cd22697e342443ac386235ae4c328
   - enabled: 0
@@ -23,12 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Simulate.unity
     guid: 2ced66314a61c614da15735b56e40370
-  - enabled: 1
-    path: Assets/Scenes/SimulateSceneTest.unity
-    guid: 4b5ebbc3edbe71e40b50875bf22c231e
-  - enabled: 1
-    path: Assets/Scenes/ARTest.unity
-    guid: 6d3e508794311be469f8054543db7844
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000

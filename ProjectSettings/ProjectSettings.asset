@@ -122,8 +122,8 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.1
-  preloadedAssets:
-  - {fileID: -7232547866098890158, guid: 588a63fda99041c4891b96b2265389e5, type: 2}
+  preloadedAssets: [{fileID: -7232547866098890158, guid: 588a63fda99041c4891b96b2265389e5,
+      type: 2}]
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -169,7 +169,7 @@ PlayerSettings:
     Android: com.Simbot.Simbot
   buildNumber: {}
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 26
+  AndroidMinSdkVersion: 24
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
