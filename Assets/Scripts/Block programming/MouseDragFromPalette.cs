@@ -43,14 +43,16 @@ public class MouseDragFromPalette : MonoBehaviour, IBeginDragHandler, IDragHandl
 
     public void OnBeginDrag(PointerEventData data)
 	{
-        mainCamera.GetComponent<CameraDrag>().available = false;
-		initPosition = transform.position;
+        //mainCamera.GetComponent<CameraDrag>().available = false;
+        mainCamera.GetComponent<CameraHandler>().available = false;
+        initPosition = transform.position;
 	}
 
 	public void OnDrag(PointerEventData eventData)
 	{
-        mainCamera.GetComponent<CameraDrag>().available = false;
-		transform.position = Input.mousePosition + new Vector3(0,0,10.0f);
+        //mainCamera.GetComponent<CameraDrag>().available = false;
+        mainCamera.GetComponent<CameraHandler>().available = false;
+        transform.position = Input.mousePosition + new Vector3(0,0,10.0f);
 		FindAvailableBlocks();
 		FindClosestBlock(connecter);
 	}
@@ -63,8 +65,9 @@ public class MouseDragFromPalette : MonoBehaviour, IBeginDragHandler, IDragHandl
                 blockNum = obj.transform.parent.GetComponent<BuildingHandler>().blockNum + 1;
             }
         }
-        mainCamera.GetComponent<CameraDrag>().available = true;
-		if (bestTarget != null)
+        //mainCamera.GetComponent<CameraDrag>().available = true;
+        mainCamera.GetComponent<CameraHandler>().available = true;
+        if (bestTarget != null)
 		{
 			GameObject tempPrefab;
 			tempPrefab = Instantiate(spawnPrefab, new Vector3(0,0,9999), new Quaternion(0,0,0,0));

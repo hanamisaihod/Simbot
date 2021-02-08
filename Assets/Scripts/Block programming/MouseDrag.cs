@@ -92,8 +92,9 @@ public class MouseDrag : MonoBehaviour
 		//parentHandlerScript.totalHeight = 0f;
 		parentHandlerScript.totalHeight = parentHandlerScript.UpdateHeight();
 
-		mainCamera.GetComponent<CameraDrag>().available = false;
-	}
+		//mainCamera.GetComponent<CameraDrag>().available = false;
+        mainCamera.GetComponent<CameraHandler>().available = false;
+    }
 
 	public void OnMouseDrag()
 	{
@@ -167,8 +168,9 @@ public class MouseDrag : MonoBehaviour
 	private void OnMouseUp()
     {
         parentHandlerScript.timer = 0;
-        mainCamera.GetComponent<CameraDrag>().available = true;
-		if (parentHandlerScript.isBeingHeld)
+        //mainCamera.GetComponent<CameraDrag>().available = true;
+        mainCamera.GetComponent<CameraHandler>().available = true;
+        if (parentHandlerScript.isBeingHeld)
 		{
 			changed = false;
 			parentHandlerScript.ChangeChildrenLayer(tempLayer, false, false, 0);
