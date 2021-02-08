@@ -88,7 +88,7 @@ public class LoadMainStage : MonoBehaviour
         }
         currentKeyword = currentKeyword.Replace(".prefab","");
         Debug.Log(currentKeyword);
-        starRating.GetComponent<StarRating>().setCondition();
+        //starRating.GetComponent<StarRating>().setCondition();
         
 
         LoadConfirm.waitForSelectSlot = true;
@@ -114,6 +114,7 @@ public class LoadMainStage : MonoBehaviour
         LoadConfirm.clickToLoad = false;
         LoadConfirm.waitForSelectSlot = false;
         LeanTween.scale(enableFrame,new Vector3(0,0,0),0.5f);
+        Debug.Log("GO GO GO GO GO");
         SceneManager.LoadScene("MapBuilding");
     }
 }
