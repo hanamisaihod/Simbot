@@ -40,7 +40,6 @@ public class MouseDrag : MonoBehaviour
             {
                 if (obj.tag == "SubCamera")
                 {
-                    Debug.Log("FoundSubCamera");
                     mainCamera = obj.GetComponent<Camera>();
                 }
             }
@@ -63,7 +62,6 @@ public class MouseDrag : MonoBehaviour
     {
         if (GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockTrashCan)
         {
-            Debug.Log("FoundTrashCan");
             trashCan = GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockTrashCan;
         }
         if (trashCan)

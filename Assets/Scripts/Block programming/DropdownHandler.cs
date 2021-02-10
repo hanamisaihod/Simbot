@@ -31,7 +31,6 @@ public class DropdownHandler : MonoBehaviour
             {
                 if (obj.tag == "SubCamera")
                 {
-                    Debug.Log("FoundSubCamera");
                     this.GetComponent<Canvas>().worldCamera = obj.GetComponent<Camera>();
                 }
             }

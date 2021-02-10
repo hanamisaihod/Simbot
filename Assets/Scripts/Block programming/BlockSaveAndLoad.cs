@@ -198,7 +198,6 @@ public class BlockSaveAndLoad : MonoBehaviour
             {
                 LoadInitialBlock(saveName, i);
             }
-            Debug.Log(tempBlocks.Count);
             foreach (GameObject block in tempBlocks)
             {
                 AssignAllBlocks(block);
@@ -387,7 +386,6 @@ public class BlockSaveAndLoad : MonoBehaviour
     //FIX
     public void AssignConnection(GameObject connectTarget, GameObject objectToConnect)
     {
-        Debug.Log(connectTarget.name+" <- "+objectToConnect.name);
         BuildingHandler parentHandlerScript = objectToConnect.GetComponent<BuildingHandler>();
         objectToConnect.transform.parent = connectTarget.transform.parent;
         connectTarget.transform.parent.GetComponent<BuildingHandler>().totalHeight = parentHandlerScript.UpdateHeight();
