@@ -88,7 +88,7 @@ public class LoadMainStage : MonoBehaviour
         }
         currentKeyword = currentKeyword.Replace(".prefab","");
         Debug.Log(currentKeyword);
-        //starRating.GetComponent<StarRating>().setCondition();
+        starRating.GetComponent<StarRating>().setCondition();
         
 
         LoadConfirm.waitForSelectSlot = true;
