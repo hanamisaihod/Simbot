@@ -5828,11 +5828,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 738014475}
     m_Modifications:
+    - target: {fileID: 2866363760837897413, guid: 6e7bdf3a2bb0d004db0dfa2db9184013,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3965208696520520326, guid: 6e7bdf3a2bb0d004db0dfa2db9184013,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 392433252}
+    - target: {fileID: 3965208696957653948, guid: 6e7bdf3a2bb0d004db0dfa2db9184013,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 38.30603
+      objectReference: {fileID: 0}
     - target: {fileID: 3965208696957653949, guid: 6e7bdf3a2bb0d004db0dfa2db9184013,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -5975,6 +5985,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 398b84a0b2463aa4ab8fe952dbddd1dd,
         type: 3}
+    - target: {fileID: 3965208698473799811, guid: 6e7bdf3a2bb0d004db0dfa2db9184013,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 38.30603
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016242124871458467, guid: 6e7bdf3a2bb0d004db0dfa2db9184013,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e7bdf3a2bb0d004db0dfa2db9184013, type: 3}
 --- !u!1001 &5150687090344396854

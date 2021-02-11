@@ -39,6 +39,10 @@ public class SceneChanger : MonoBehaviour
 	}
     public void GoToSimulate() //Update this when AR is implemented
     {
+        if (GameObject.Find("BlockSaveManager"))
+        {
+            GameObject.Find("BlockSaveManager").GetComponent<BlockSaveAndLoad>().SaveBlockProgram();
+        }
         SceneManager.LoadScene("TestRobotMovementScene");
     }
 }

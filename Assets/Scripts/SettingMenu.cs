@@ -15,10 +15,11 @@ public class SettingMenu : MonoBehaviour
 	public Slider bgmSlider;
 	public Slider robotSlider;
 	public Slider sfxSlider;
+    public GameObject mainCamera;
+    public GameObject mixer;
 	public float[] initVolumes = {0,0,0};
-
-
-	public void ShowSetting()
+    
+    public void ShowSetting()
 	{
 		initVolumes[0] = bgmSlider.value;
 		initVolumes[1] = robotSlider.value;
@@ -26,8 +27,12 @@ public class SettingMenu : MonoBehaviour
 		if (palette)
 		{
 			if (!(palette.GetComponent<Palette>().moving))
-			{
-				blocks = null;
+            {
+                if (mainCamera)
+                {
+                    mainCamera.GetComponent<CameraHandler>().available = false;
+                }
+                blocks = null;
 				FindBlocks();
 				HideBlocks();
 				blockPanel.gameObject.SetActive(true);
@@ -41,8 +46,12 @@ public class SettingMenu : MonoBehaviour
 			}
 		}
 		else
-		{
-			blocks = null;
+        {
+            if (mainCamera)
+            {
+                mainCamera.GetComponent<CameraHandler>().available = true;
+            }
+            blocks = null;
 			FindBlocks();
 			HideBlocks();
 			blockPanel.gameObject.SetActive(true);
@@ -63,6 +72,10 @@ public class SettingMenu : MonoBehaviour
 			robotSlider.value = initVolumes[1];
 			sfxSlider.value = initVolumes[2];
 		}
+        else
+        {
+            mixer.GetComponent<MixerController>().SaveAudioSetting();
+        }
 		if (showing)
 		{
 			if (palette)

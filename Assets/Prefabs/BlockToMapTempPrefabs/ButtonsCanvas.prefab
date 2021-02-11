@@ -877,7 +877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageCom: {fileID: 219868813208875620}
   tempColor: {r: 0, g: 0, b: 0, a: 0}
-  delay: 0
+  delay: 0.25
 --- !u!1 &219868813383063085
 GameObject:
   m_ObjectHideFlags: 0
