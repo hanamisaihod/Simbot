@@ -24,7 +24,7 @@ public class StarRating : MonoBehaviour
     public static List<StarRatingData> staticSREnv = new List<StarRatingData>();
     public void setCondition()
     {
-        if(!Directory.Exists(Application.persistentDataPath + "/savesStage/"))
+        if(!Directory.Exists(Application.persistentDataPath + "/savesStage/" + LoadMainStage.currentKeyword + "StarRating"))
         {
             Debug.Log(LoadMainStage.currentKeyword);
             Directory.CreateDirectory(Application.persistentDataPath + "/savesStage/" + LoadMainStage.currentKeyword + "StarRating");

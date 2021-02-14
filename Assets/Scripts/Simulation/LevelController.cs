@@ -73,6 +73,7 @@ public class LevelController : MonoBehaviour
 
 	public void FindRobotAndStartReading()
 	{
+		Redzone_PS_Controller.startEruption = true;
 		GameObject.FindGameObjectWithTag("Player").GetComponent<RobotMovementTest>().StartReading();
 	}
 
