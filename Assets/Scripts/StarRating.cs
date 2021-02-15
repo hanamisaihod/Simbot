@@ -24,10 +24,10 @@ public class StarRating : MonoBehaviour
     public static List<StarRatingData> staticSREnv = new List<StarRatingData>();
     public void setCondition()
     {
-        if(!Directory.Exists(Application.dataPath + "/Resources/" + LoadMainStage.currentKeyword + "StarRating"))
+        if(!Directory.Exists(Application.persistentDataPath + "/savesStage/"))
         {
             Debug.Log(LoadMainStage.currentKeyword);
-            Directory.CreateDirectory(Application.dataPath + "/Resources/" + LoadMainStage.currentKeyword + "StarRating");
+            Directory.CreateDirectory(Application.persistentDataPath + "/savesStage/" + LoadMainStage.currentKeyword + "StarRating");
             condition1.GetComponent<Text>().text = "Goal";
             condition2.GetComponent<Text>().text = "Minimum line of code";
             condition3.GetComponent<Text>().text = "Robot HP";

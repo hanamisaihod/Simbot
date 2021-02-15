@@ -583,18 +583,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56580956}
   m_CullTransparentMesh: 0
---- !u!114 &58723992 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1144393474980887384, guid: 634c71e68de30cb4abdaf2703f570e7c,
-    type: 3}
-  m_PrefabInstance: {fileID: 758453311}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ff8e35273c492840825cb5d84400a1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &73602385
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,6 +658,18 @@ RectTransform:
   m_AnchoredPosition: {x: -48.79, y: 54.225}
   m_SizeDelta: {x: 4.9799995, y: 4.970001}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &58723992 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1144393474980887384, guid: 634c71e68de30cb4abdaf2703f570e7c,
+    type: 3}
+  m_PrefabInstance: {fileID: 758453311}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff8e35273c492840825cb5d84400a1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &86441154
 GameObject:
   m_ObjectHideFlags: 0
@@ -12730,6 +12730,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelController
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419644210357685122, guid: 8b0300269d94ef342b6694b2f997983d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5419644210357685124, guid: 8b0300269d94ef342b6694b2f997983d,
         type: 3}
