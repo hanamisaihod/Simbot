@@ -19,6 +19,8 @@ public class Redzone_PS_Controller : MonoBehaviour
     public ParticleSystem smokeBig;
     public ParticleSystem pre_lava;
     public ParticleSystem lava;
+    public static bool startEruption = false;
+    public AlertOnFire callAlert;
     Coroutine usingCor;
 
     void Start()
@@ -34,12 +36,14 @@ public class Redzone_PS_Controller : MonoBehaviour
 
     void Update()
     {
-        if (redZoneTrigger && !showing)
+        redZoneTrigger = true;
+        if (redZoneTrigger && !showing && startEruption == true)
         {
             if (usingCor != null)
             {
                 StopCoroutine(usingCor);
             }
+
             usingCor = StartCoroutine(Show());
             showing = true;
             redZoneTrigger = false;
@@ -50,6 +54,10 @@ public class Redzone_PS_Controller : MonoBehaviour
 
     IEnumerator Show()
     {
+
+        AlertOnFire.startAlert = true;
+        callAlert.callOnFire();
+
         ren.sharedMaterial = floorMat_warning;
 		red1.SetActive(true);
         yield return new WaitForSeconds(delayWarning);
@@ -66,8 +74,16 @@ public class Redzone_PS_Controller : MonoBehaviour
         lightPoint.GetComponent<Light>().enabled = false;
         pre_lava.Stop();
         ren.sharedMaterial = floorMat_default;
+
+        AlertOnFire.startAlert = false;
+        callAlert.callOnFire();
+        yield return new WaitForSeconds(7f);
         showing = false;
 		red1.SetActive(false);
+
+        
+        
+
         //yield return new WaitForSeconds(1f); // For show
         //redZoneTrigger = true; // For show
     }
