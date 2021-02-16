@@ -1361,6 +1361,8 @@ MonoBehaviour:
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 2815997839940605981}
   ifConnectorChild: {fileID: 1435274346181999085}
   abName: 
@@ -1894,6 +1896,8 @@ MonoBehaviour:
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 2815997839940605981}
   ifConnectorChild: {fileID: 1435274346181999085}
   abName: 
@@ -2292,6 +2296,8 @@ MonoBehaviour:
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 2815997839940605981}
   ifConnectorChild: {fileID: 1435274346181999085}
   abName: 
@@ -2687,6 +2693,7 @@ MonoBehaviour:
   repeatDrop: {fileID: 5586000687889209149}
   timesDrop: {fileID: 7859774422173784097}
   canvas: {fileID: 6821053932870940918}
+  pos: {x: 0, y: 0, z: 0}
   blockNum: 0
   ifChoice: 0
   compareDegreeChoice: 0
@@ -3167,6 +3174,8 @@ MonoBehaviour:
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 2815997839940605981}
   ifConnectorChild: {fileID: 1435274346181999085}
   abName: 
@@ -3868,6 +3877,8 @@ MonoBehaviour:
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 2815997839940605981}
   ifConnectorChild: {fileID: 1435274346181999085}
   abName: 
@@ -4087,7 +4098,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '!='
+  m_text: =
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 988ddcde741b2d44f8090eafbc951b38, type: 2}
   m_sharedMaterial: {fileID: 8455433654262985617, guid: 988ddcde741b2d44f8090eafbc951b38,
@@ -4157,7 +4168,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 4900507768315638324}
-    characterCount: 2
+    characterCount: 1
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -6654,6 +6665,8 @@ MonoBehaviour:
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 2815997839940605981}
   ifConnectorChild: {fileID: 1435274346181999085}
   abName: 
@@ -8472,6 +8485,8 @@ MonoBehaviour:
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 2815997839940605981}
   ifConnectorChild: {fileID: 1435274346181999085}
   abName: 
@@ -9558,7 +9573,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '!='
+  m_text: =
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 988ddcde741b2d44f8090eafbc951b38, type: 2}
   m_sharedMaterial: {fileID: 8455433654262985617, guid: 988ddcde741b2d44f8090eafbc951b38,
@@ -9628,7 +9643,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 8561484700210625297}
-    characterCount: 2
+    characterCount: 1
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
