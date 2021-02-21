@@ -1720,17 +1720,17 @@ MonoBehaviour:
   star1: {fileID: 2000770831}
   star2: {fileID: 1759895838}
   star3: {fileID: 1762423630}
-  star1Appear: {fileID: 0}
-  star2Appear: {fileID: 0}
-  star3Appear: {fileID: 0}
+  star1Appear: {fileID: 857161201}
+  star2Appear: {fileID: 111757340}
+  star3Appear: {fileID: 1487903672}
   mapRating: []
   SRData:
     mapCondition1: []
     mapCondition2: []
     mapCondition3: []
-    mapStar1: []
-    mapStar2: []
-    mapStar3: []
+    mapStar1: 0
+    mapStar2: 0
+    mapStar3: 0
   SREnv: []
 --- !u!1 &857161201
 GameObject:

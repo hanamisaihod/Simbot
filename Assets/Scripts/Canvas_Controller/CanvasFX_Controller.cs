@@ -55,6 +55,7 @@ public class CanvasFX_Controller : MonoBehaviour
     public AudioClip soundWin2;
     public AudioClip soundLose;
     public float volume = 0.5f;
+    public EndingStarRating callStarRating;
 
 
     void Start()
@@ -254,6 +255,7 @@ public class CanvasFX_Controller : MonoBehaviour
 
     IEnumerator tableShow()
     {
+        callStarRating.starRatingShow();
         var tableRect = starTable.GetComponent<RectTransform>();
         var retryRect = retryButton.GetComponent<RectTransform>();
         var doneRect = doneButton.GetComponent<RectTransform>();

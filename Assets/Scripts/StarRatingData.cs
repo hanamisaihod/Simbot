@@ -8,8 +8,8 @@ public class StarRatingData
     public List<string> mapCondition1;
     public List<string> mapCondition2;
     public List<string> mapCondition3;
-    public List<string> mapStar1;
-    public List<string> mapStar2;
-    public List<string> mapStar3;
+    public bool mapStar1;
+    public bool mapStar2;
+    public bool mapStar3;
 
 }

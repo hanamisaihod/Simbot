@@ -31,7 +31,7 @@ public class LoadMainStage : MonoBehaviour
         for (int a = 0; a < presavePrefab.Length; a++)
         {
             string storeWord = presavePrefab[a].ToString().Replace(@" (UnityEngine.GameObject)","");
-            Debug.Log(storeWord);
+            //Debug.Log(storeWord);
             savePrefab[a] = storeWord;
         }
         Array.Sort(savePrefab, new AlphanumComparatorFast());
