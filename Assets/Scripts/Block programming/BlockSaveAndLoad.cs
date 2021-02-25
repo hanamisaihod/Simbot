@@ -524,34 +524,34 @@ public class BlockSaveAndLoad : MonoBehaviour
             if (block.GetComponent<BuildingHandler>().dropActives[3] == 1) //ifDrop
             {
                 block.GetComponent<BuildingHandler>().ifDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().ifChoice;
-                if (block.GetComponent<BuildingHandler>().dropActives[4] == 1) //degreeDrop
-                {
-                    block.GetComponent<BuildingHandler>().degreeDrop.GetComponent<TMP_InputField>().text = block.GetComponent<BuildingHandler>().degreeChoice.ToString();
-                }
-                if (block.GetComponent<BuildingHandler>().dropActives[5] == 1) //compareDegreeDrop
-                {
-                    block.GetComponent<BuildingHandler>().compareDegreeDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().compareDegreeChoice;
-                }
-                if (block.GetComponent<BuildingHandler>().dropActives[6] == 1) //distanceDrop
-                {
-                    block.GetComponent<BuildingHandler>().distanceDrop.GetComponent<TMP_InputField>().text = block.GetComponent<BuildingHandler>().distanceChoice.ToString();
-                }
-                if (block.GetComponent<BuildingHandler>().dropActives[7] == 1) //compareLeftDrop
-                {
-                    block.GetComponent<BuildingHandler>().compareLeftDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().compareLeftChoice;
-                }
-                if (block.GetComponent<BuildingHandler>().dropActives[8] == 1) //compareRightDrop
-                {
-                    block.GetComponent<BuildingHandler>().compareRightDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().compareRightChoice;
-                }
-                if (block.GetComponent<BuildingHandler>().dropActives[9] == 1) //colorLeftDrop
-                {
-                    block.GetComponent<BuildingHandler>().colorLeftDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().colorLeftChoice;
-                }
-                if (block.GetComponent<BuildingHandler>().dropActives[10] == 1) //colorRightDrop
-                {
-                    block.GetComponent<BuildingHandler>().colorRightDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().colorRightChoice;
-                }
+            }
+            if (block.GetComponent<BuildingHandler>().dropActives[4] == 1) //degreeDrop
+            {
+                block.GetComponent<BuildingHandler>().degreeDrop.GetComponent<TMP_InputField>().text = block.GetComponent<BuildingHandler>().degreeChoice.ToString();
+            }
+            if (block.GetComponent<BuildingHandler>().dropActives[5] == 1) //compareDegreeDrop
+            {
+                block.GetComponent<BuildingHandler>().compareDegreeDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().compareDegreeChoice;
+            }
+            if (block.GetComponent<BuildingHandler>().dropActives[6] == 1) //distanceDrop
+            {
+                block.GetComponent<BuildingHandler>().distanceDrop.GetComponent<TMP_InputField>().text = block.GetComponent<BuildingHandler>().distanceChoice.ToString();
+            }
+            if (block.GetComponent<BuildingHandler>().dropActives[7] == 1) //compareLeftDrop
+            {
+                block.GetComponent<BuildingHandler>().compareLeftDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().compareLeftChoice;
+            }
+            if (block.GetComponent<BuildingHandler>().dropActives[8] == 1) //compareRightDrop
+            {
+                block.GetComponent<BuildingHandler>().compareRightDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().compareRightChoice;
+            }
+            if (block.GetComponent<BuildingHandler>().dropActives[9] == 1) //colorLeftDrop
+            {
+                block.GetComponent<BuildingHandler>().colorLeftDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().colorLeftChoice;
+            }
+            if (block.GetComponent<BuildingHandler>().dropActives[10] == 1) //colorRightDrop
+            {
+                block.GetComponent<BuildingHandler>().colorRightDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().colorRightChoice;
             }
         }
         else if (block.tag == "RepeatBlock")

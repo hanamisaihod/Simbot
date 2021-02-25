@@ -214,7 +214,6 @@ public class DropdownHandler : MonoBehaviour
     }
     public void HandleIfDropdown(int val)
     {
-        Debug.Log("Handling If Dropdown");
         parentHandlerScript.ifChoice = val;
         if (prevIf != 0 && val == 0)
         {
