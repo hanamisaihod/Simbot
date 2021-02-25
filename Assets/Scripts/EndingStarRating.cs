@@ -57,8 +57,33 @@ public class EndingStarRating : MonoBehaviour
                         if(blockCode <= 2)
                         {
                             //true
+                            Debug.Log("True");
                             item.mapStar2 = true;
                             endingStar2Appear.SetActive(true);
+                        }
+                        else
+                        {
+                            Debug.Log("False");
+                            item.mapStar2 = false;
+                            endingStar2Appear.SetActive(false);
+                            emptyStar2.SetActive(true);
+                        }
+                    }
+                    if (LoadMainStage.mainStageKey == "Map2")
+                    {
+                        if(blockCode <= 2)
+                        {
+                            //true
+                            Debug.Log("True");
+                            item.mapStar2 = true;
+                            endingStar2Appear.SetActive(true);
+                        }
+                        else
+                        {
+                            Debug.Log("False");
+                            item.mapStar2 = false;
+                            endingStar2Appear.SetActive(false);
+                            emptyStar2.SetActive(true);
                         }
                     }
                 }
@@ -76,6 +101,7 @@ public class EndingStarRating : MonoBehaviour
                     {
                         item.mapStar3 = false;
                         emptyStar3.SetActive(true);
+                        endingStar3Appear.SetActive(false);
                     }
 
                 }
