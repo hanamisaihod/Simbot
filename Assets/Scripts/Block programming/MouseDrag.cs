@@ -23,7 +23,7 @@ public class MouseDrag : MonoBehaviour
 	public GameObject doConnectorChild = null;
 	public GameObject ifConnectorChild = null;
 	public string abName = null;
-	public int abNum;
+	public int abNum = 0;
 	public int blockNum = -1;
 
 	//Variables to be saved
@@ -252,6 +252,7 @@ public class MouseDrag : MonoBehaviour
 				ifConnectorChild.GetComponent<MouseDrag>().attachedTo = connectTarget;
 				connectTarget.transform.parent.GetComponent<BuildingHandler>().ExtendMid(parentHandlerScript.totalHeight, false, connectTarget, ifConnectorChild);
 			}
+			connectTarget.GetComponent<MouseDrag>().abNum = parentHandlerScript.blockNum;
 			objectToConnect.transform.parent = connectTarget.transform.parent;
 			connectTarget.GetComponent<MouseDrag>().isLock = true;
 			parentHandlerScript.FindAvailableBlocks();
