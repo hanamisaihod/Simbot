@@ -13,6 +13,8 @@ public class BlockSaveAndLoad : MonoBehaviour
     public GameObject[] conBlocks, startBlock, doBlocks, ifBlocks, repeatBlocks;
     public GameObject mainCamera;
     public bool newBlockProgram = false;
+    public int debugButton = 0;
+    public bool allowManualAssigning = false;
 
     private void Start()
     {
@@ -20,7 +22,9 @@ public class BlockSaveAndLoad : MonoBehaviour
         {
             saveName = GameObject.FindGameObjectWithTag("VariableCarrier").GetComponent<CarriedVariables>().currentMapName;
         }
+        allowManualAssigning = false;
         LoadSave();
+        DebugButton();
         GatherAllBlocks();
         if (startBlock[0])
         {
@@ -30,6 +34,51 @@ public class BlockSaveAndLoad : MonoBehaviour
                 GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockProgrammingObjects.Add(startBlock[0]);
             }
         }
+    }
+
+    public void DeleteAllKeysOfSave(string savename)
+	{
+        PlayerPrefs.DeleteKey(savename + "count");
+        PlayerPrefs.DeleteKey(savename);
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "name");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "bn");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "lx");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "ly");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "lz");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "type");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "sc" + "ab");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "dc" + "ab");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "ic" + "ab");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "ich");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "cpdch");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "cplch");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "cprch");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "clch");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "crch");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "rch");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "tich");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "sch");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "tch");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "dch");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "dgch");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "dich");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "pi");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "pr");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "pt");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "pd");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da0");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da1");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da2");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da3");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da4");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da5");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da6");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da7");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da8");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da9");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da10");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da11");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da12");
     }
 
     public void GatherAllBlocks()
@@ -45,22 +94,17 @@ public class BlockSaveAndLoad : MonoBehaviour
     {
         GatherAllBlocks();
         currentObj = 0;
+        DeleteAllKeysOfSave(saveName);
         PlayerPrefs.SetInt(saveName + "count", conBlocks.Length); //Save block program size
+        Debug.Log("conblocks length: " + conBlocks.Length);
         PlayerPrefs.SetInt(saveName, 1); //Save name (if the name exist, this int key exist and will be 1)
         foreach (GameObject block in conBlocks)
         {
             SaveBlock(block, saveName);
         }
     }
-    /*
-     * currentObj = number of individual object
-     * bn = block number(to spawn blocks with separated names)
-     * lx,ly,lz = local poisiton coordinates
-     * type = specifies type of block (start, move, . . .)
-     * sc = start connecter
-     * ab = attached by
-     * 
-     * */
+
+
     public void SaveBlock(GameObject block, string name)
     {
         PlayerPrefs.SetString(name + currentObj.ToString() + "name", block.name);
@@ -74,8 +118,12 @@ public class BlockSaveAndLoad : MonoBehaviour
             if (block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().attachedBy != null)
             {
                 //PlayerPrefs.SetString(name + currentObj.ToString() + "sc" + "ab", block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().attachedBy.name);
+                //PlayerPrefs.SetInt(name + currentObj.ToString() + "sc" + "ab",
+                //    block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.GetComponent<BuildingHandler>().blockNum);
                 PlayerPrefs.SetInt(name + currentObj.ToString() + "sc" + "ab",
-                    block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.GetComponent<BuildingHandler>().blockNum);
+                    block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().abNum);
+                Debug.Log("Block name: " + block.name + "\n" +
+                    "sc abNum:" + block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().abNum);
             }
         }
         else
@@ -113,15 +161,19 @@ public class BlockSaveAndLoad : MonoBehaviour
             PlayerPrefs.SetInt(name + currentObj.ToString() + "da11", block.GetComponent<BuildingHandler>().dropActives[11]);
             PlayerPrefs.SetInt(name + currentObj.ToString() + "da12", block.GetComponent<BuildingHandler>().dropActives[12]);
 
-            if (block.tag == "DoBlock")
+            if (block.CompareTag("DoBlock"))
             {
                 PlayerPrefs.SetInt(name + currentObj.ToString() + "type", 1);
 
                 if (block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy != null)
                 {
                     //PlayerPrefs.SetString(name + currentObj.ToString() + "dc" + "ab", block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy.name);
+                    //PlayerPrefs.SetInt(name + currentObj.ToString() + "dc" + "ab",
+                    //    block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.GetComponent<BuildingHandler>().blockNum);
                     PlayerPrefs.SetInt(name + currentObj.ToString() + "dc" + "ab",
-                        block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.GetComponent<BuildingHandler>().blockNum);
+                            block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum);
+                    Debug.Log("Block name: " + block.name + "\n" +
+                        "dc abNum:" + block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum);
                 }
             }
             else
@@ -129,14 +181,22 @@ public class BlockSaveAndLoad : MonoBehaviour
                 if (block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy != null)
                 {
                     //PlayerPrefs.SetString(name + currentObj.ToString() + "dc" + "ab", block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy.name);
+                    //PlayerPrefs.SetInt(name + currentObj.ToString() + "dc" + "ab",
+                    //    block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.GetComponent<BuildingHandler>().blockNum);
                     PlayerPrefs.SetInt(name + currentObj.ToString() + "dc" + "ab",
-                        block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.GetComponent<BuildingHandler>().blockNum);
+                            block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum);
+                    Debug.Log("Block name: " + block.name + "\n" +
+                        "dc abNum:" + block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum);
                 }
                 if (block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().attachedBy != null)
                 {
                     //PlayerPrefs.SetString(name + currentObj.ToString() + "ic" + "ab", block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().attachedBy.name);
+                    //PlayerPrefs.SetInt(name + currentObj.ToString() + "ic" + "ab",
+                    //    block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.GetComponent<BuildingHandler>().blockNum);
                     PlayerPrefs.SetInt(name + currentObj.ToString() + "ic" + "ab",
-                        block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.GetComponent<BuildingHandler>().blockNum);
+                            block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().abNum);
+                    Debug.Log("Block name: " + block.name + "\n" +
+                        "ic abNum:" + block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().abNum);
                 }
                 if (block.tag == "IfBlock")
                 {
@@ -193,25 +253,24 @@ public class BlockSaveAndLoad : MonoBehaviour
             DeleteExist();
             currentObj = 0;
             tempBlocks.Clear();
-            int count = PlayerPrefs.GetInt(saveName + "count");
-            for (int i = 0; i < count; i++)
-            {
-                LoadInitialBlock(saveName, i);
-            }
-            foreach (GameObject block in tempBlocks)
-            {
-                AssignAllBlocks(block);
-            }
-            foreach (GameObject block in tempBlocks)
-            {
-                AssignPosition(block);
-            }
-            foreach (GameObject block in tempBlocks)
-            {
-                AssignDropdown(block);
-            }
-        }
-        newBlockProgram = false;
+   //         int count = PlayerPrefs.GetInt(saveName + "count");
+   //         for (int i = 0; i < count; i++)
+   //         {
+   //             LoadInitialBlock(saveName, i);
+   //         }
+			//foreach (GameObject block in tempBlocks)
+			//{
+			//	AssignAllBlocks(block);
+   //         }
+			//foreach (GameObject block in tempBlocks)
+   //         {
+   //             AssignPosition(block);
+			//}
+			//foreach (GameObject block in tempBlocks)
+   //         {
+   //             AssignDropdown(block);
+   //         }
+		}
     }
 
     public void LoadInitialBlock(string name, int current)
@@ -220,7 +279,6 @@ public class BlockSaveAndLoad : MonoBehaviour
         if (PlayerPrefs.GetInt(name + current.ToString() + "type") == 0) //If this block is StartBlock
         {
             tempBlock = Instantiate(startPrefab);
-            tempBlock.name = PlayerPrefs.GetString(name + current.ToString() + "name");
             //Comment this because initial poition doesn't really matter (for now)
             tempBlock.GetComponent<BuildingHandler>().pos = new Vector3(PlayerPrefs.GetFloat(name + current.ToString() + "lx")
                 , PlayerPrefs.GetFloat(name + current.ToString() + "ly")
@@ -276,7 +334,6 @@ public class BlockSaveAndLoad : MonoBehaviour
                         PlayerPrefs.GetInt(name + current.ToString() + "ic" + "ab");
                 }
             }
-            tempBlock.name = PlayerPrefs.GetString(name + current.ToString() + "name");
             tempBlock.GetComponent<BuildingHandler>().pos = new Vector3(PlayerPrefs.GetFloat(name + current.ToString() + "lx")
                 , PlayerPrefs.GetFloat(name + current.ToString() + "ly")
                 , PlayerPrefs.GetFloat(name + current.ToString() + "lz"));
@@ -316,6 +373,7 @@ public class BlockSaveAndLoad : MonoBehaviour
             tempBlock.GetComponent<BuildingHandler>().dropActives[11] = PlayerPrefs.GetInt(name + current.ToString() + "da11");
             tempBlock.GetComponent<BuildingHandler>().dropActives[12] = PlayerPrefs.GetInt(name + current.ToString() + "da12");
         }
+        tempBlock.name = PlayerPrefs.GetString(name + current.ToString() + "name");
         //Don't know what this does exactly?
         /*foreach (Transform child in tempBlock.transform)
         {
@@ -326,47 +384,75 @@ public class BlockSaveAndLoad : MonoBehaviour
             }
         }*/
         tempBlocks.Add(tempBlock);
-    }
+		//if (tempBlock.tag == "StartBlock")
+		//{
+		//	Debug.Log("tempBlock name: " + tempBlock.name + "\n" +
+		//		"sc abNum: " + tempBlock.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().abNum);
+		//}
+		//else if (tempBlock.tag == "DoBlock")
+		//{
+		//	Debug.Log("tempBlock name: " + tempBlock.name + "\n" +
+		//		"dc abNum: " + tempBlock.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum);
+		//}
+		//else if (tempBlock.tag == "IfBlock" || tempBlock.tag == "RepeatBlock")
+		//{
+		//	Debug.Log("tempBlock name: " + tempBlock.name + "\n" +
+		//		"dc abNum: " + tempBlock.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum + "\n" +
+		//		"ic abNum: " + tempBlock.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().abNum);
+		//}
+	}
 
     public void AssignAllBlocks(GameObject block)
     {
-        if (block.tag == "StartBlock")
+        if (block.CompareTag("StartBlock"))
         {
-            if //(block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().abNum != -1)
+            if (block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().abNum != 0)
+            {
+                if //(block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().abNum != -1)
                 (FindBlockWithNum(block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().abNum))
-            {
-                AssignConnection(block.GetComponent<BuildingHandler>().startConnector,
-                    FindBlockWithNum(block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().abNum));
-                //AssignConnection(block.GetComponent<BuildingHandler>().startConnector, GameObject.Find(block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().abName).transform.parent.gameObject);
+                {
+                    AssignConnection(block.GetComponent<BuildingHandler>().startConnector,
+                        FindBlockWithNum(block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().abNum));
+                    //AssignConnection(block.GetComponent<BuildingHandler>().startConnector, GameObject.Find(block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().abName).transform.parent.gameObject);
+                }
             }
         }
-        else if (block.tag == "DoBlock")
+        else if (block.CompareTag("DoBlock"))
         {
-            if //(block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum != -1)
-                (FindBlockWithNum(block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum))
+            if (block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum != 0)
             {
-                AssignConnection(block.GetComponent<BuildingHandler>().doConnector,
-                    FindBlockWithNum(block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum));
-                //AssignConnection(block.GetComponent<BuildingHandler>().doConnector, GameObject.Find(block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abName).transform.parent.gameObject);
+                if //(block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum != -1)
+                (FindBlockWithNum(block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum))
+                {
+                    AssignConnection(block.GetComponent<BuildingHandler>().doConnector,
+                        FindBlockWithNum(block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum));
+                    //AssignConnection(block.GetComponent<BuildingHandler>().doConnector, GameObject.Find(block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abName).transform.parent.gameObject);
+                }
             }
         }
-        else if (block.tag == "IfBlock" || block.tag == "RepeatBlock")
+        else if (block.CompareTag("IfBlock") || block.CompareTag("RepeatBlock"))
         {
-            if //(!(block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abName == null
-               //|| block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abName == ""))
-                (FindBlockWithNum(block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum))
+            if (block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum != 0)
             {
-                AssignConnection(block.GetComponent<BuildingHandler>().doConnector,
-                    FindBlockWithNum(block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum));
-                //AssignConnection(block.GetComponent<BuildingHandler>().doConnector, GameObject.Find(block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abName).transform.parent.gameObject);
+                if //(!(block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abName == null
+                   //|| block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abName == ""))
+                    (FindBlockWithNum(block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum))
+                {
+                    AssignConnection(block.GetComponent<BuildingHandler>().doConnector,
+                        FindBlockWithNum(block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum));
+                    //AssignConnection(block.GetComponent<BuildingHandler>().doConnector, GameObject.Find(block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abName).transform.parent.gameObject);
+                }
             }
-            if //(!(block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().abName == null
-               //|| block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().abName == ""))
-                (FindBlockWithNum(block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().abNum))
+            if (block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().abNum != 0)
             {
-                AssignConnection(block.GetComponent<BuildingHandler>().ifConnector,
-                    FindBlockWithNum(block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().abNum));
-                //AssignConnection(block.GetComponent<BuildingHandler>().ifConnector, GameObject.Find(block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().abName).transform.parent.gameObject);
+                if //(!(block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().abName == null
+                   //|| block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().abName == ""))
+                    (FindBlockWithNum(block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().abNum))
+                {
+                    AssignConnection(block.GetComponent<BuildingHandler>().ifConnector,
+                        FindBlockWithNum(block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().abNum));
+                    //AssignConnection(block.GetComponent<BuildingHandler>().ifConnector, GameObject.Find(block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().abName).transform.parent.gameObject);
+                }
             }
         }
     }
@@ -383,80 +469,35 @@ public class BlockSaveAndLoad : MonoBehaviour
         return null;
     }
 
-    //FIX
+    //FIX (connectTarget = me (connector), objectToConnect = attachedBy (block))
     public void AssignConnection(GameObject connectTarget, GameObject objectToConnect)
     {
+        Debug.Log("The connecting block is: " + objectToConnect.name);
+        Debug.Log("Connecting to me: " + connectTarget.name + " , child of: " + connectTarget.transform.parent.name);
         BuildingHandler parentHandlerScript = objectToConnect.GetComponent<BuildingHandler>();
         objectToConnect.transform.parent = connectTarget.transform.parent;
-        connectTarget.transform.parent.GetComponent<BuildingHandler>().totalHeight = parentHandlerScript.UpdateHeight();
-        if (objectToConnect.tag == "DoBlock")
+        connectTarget.GetComponent<MouseDrag>().isLock = true;
+        parentHandlerScript.ChangeChildrenLayer(parentHandlerScript.layerLevel, true, false, 0);
+        parentHandlerScript.totalHeight = parentHandlerScript.UpdateHeight();
+        if (objectToConnect.CompareTag("DoBlock"))
         {
             GameObject doConnector = objectToConnect.GetComponent<BuildingHandler>().doConnector;
-            /*if (connectTarget.gameObject.tag == "StartConnector")
-    		{
-    			objectToConnect.transform.position = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(-0.414f, -1.076f, 0f)
-    							+ (objectToConnect.transform.position - doConnector.GetComponent<MouseDrag>().position);
-    		}
-    		else if (connectTarget.gameObject.tag == "DoConnector")
-    		{
-    			if (connectTarget.transform.parent.tag == "IfBlock" || connectTarget.transform.parent.tag == "RepeatBlock")
-    			{
-    				objectToConnect.transform.position = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(-0.275f, -0.8276f, 0f)
-    						+ (objectToConnect.transform.position - doConnector.GetComponent<MouseDrag>().position);
-    			}
-    			else if (connectTarget.transform.parent.tag == "DoBlock")
-    			{
-    				objectToConnect.transform.position = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(0f, -0.828f, 0f)
-    					+ (objectToConnect.transform.position - doConnector.GetComponent<MouseDrag>().position);
-    			}
-    		}
-    		else if (connectTarget.gameObject.tag == "IfConnector")
-    		{
-    			objectToConnect.transform.position = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(0.29f, -0.828f, 0f)
-    						+ (objectToConnect.transform.position - doConnector.GetComponent<MouseDrag>().position);
-    		}*/
             connectTarget.GetComponent<MouseDrag>().attachedBy = doConnector;
-            connectTarget.GetComponent<MouseDrag>().isLock = true;
             doConnector.GetComponent<MouseDrag>().attachedTo = connectTarget;
             connectTarget.transform.parent.GetComponent<BuildingHandler>().ExtendMid(parentHandlerScript.totalHeight, false, connectTarget, doConnector);
         }
-        else if (objectToConnect.tag == "IfBlock" || objectToConnect.tag == "RepeatBlock")
+        else if (objectToConnect.CompareTag("IfBlock") || objectToConnect.CompareTag("RepeatBlock"))
         {
-            GameObject doConnector = objectToConnect.GetComponent<BuildingHandler>().doConnector;
             GameObject ifConnector = objectToConnect.GetComponent<BuildingHandler>().ifConnector;
-            /*if (connectTarget.gameObject.tag == "StartConnector")
-    		{
-    			objectToConnect.transform.position = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(-0.12f, -1.0761f, 0f)
-    							+ (objectToConnect.transform.position - ifConnector.GetComponent<MouseDrag>().position);
-    		}
-    		else if (connectTarget.gameObject.tag == "DoConnector")
-    		{
-    			if (connectTarget.transform.parent.tag == "IfBlock" || connectTarget.transform.parent.tag == "RepeatBlock")
-    			{
-    				objectToConnect.transform.position = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(0f, -0.8265f, 0f)
-    								+ (objectToConnect.transform.position - ifConnector.GetComponent<MouseDrag>().position);
-    			}
-    			else if (connectTarget.transform.parent.tag == "DoBlock")
-    			{
-    				objectToConnect.transform.position = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(0.2916f, -0.827f, 0f)
-    								+ (objectToConnect.transform.position - ifConnector.GetComponent<MouseDrag>().position);
-    			}
-    		}
-    		else if (connectTarget.gameObject.tag == "IfConnector")
-    		{
-    			objectToConnect.transform.position = (connectTarget.GetComponent<MouseDrag>().position) + new Vector3(0.58f, -0.827f, 0f)
-    								+ (objectToConnect.transform.position - ifConnector.GetComponent<MouseDrag>().position);
-    		}*/
             connectTarget.GetComponent<MouseDrag>().attachedBy = ifConnector;
-            connectTarget.GetComponent<MouseDrag>().isLock = true;
-            objectToConnect.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().attachedTo = connectTarget;
+            ifConnector.GetComponent<MouseDrag>().attachedTo = connectTarget;
             connectTarget.transform.parent.GetComponent<BuildingHandler>().ExtendMid(parentHandlerScript.totalHeight, false, connectTarget, ifConnector);
         }
-        //objectToConnect.transform.parent = connectTarget.transform.parent;
+        //objectToConnect.transform.SetParent(connectTarget.transform.parent);
+        //connectTarget.GetComponent<MouseDrag>().isLock = true;
+        //parentHandlerScript.ChangeChildrenLayer(parentHandlerScript.layerLevel, true, false, 0);
         //connectTarget.transform.parent.GetComponent<BuildingHandler>().totalHeight = parentHandlerScript.UpdateHeight();
-        parentHandlerScript.ChangeChildrenLayer(parentHandlerScript.layerLevel, true, false, 0);
     }
-
     public void AssignPosition(GameObject objectToAssign)
     {
         Vector3 pos = objectToAssign.GetComponent<BuildingHandler>().pos;
@@ -605,6 +646,38 @@ public class BlockSaveAndLoad : MonoBehaviour
         foreach (GameObject block in conBlocks)
         {
             Destroy(block);
+        }
+    }
+
+    public void DebugButton()
+	{
+        int count = 0;
+        Debug.Log("current debugButton: " + debugButton);
+        count = PlayerPrefs.GetInt(saveName + "count");
+        if (debugButton < count)
+        {
+            LoadInitialBlock(saveName, debugButton);
+            debugButton++;
+        }
+        else if (debugButton < (count * 2))
+        {
+            AssignAllBlocks(tempBlocks[debugButton - count]);
+            debugButton++;
+        }
+        else if (debugButton < (count * 3))
+        {
+            AssignPosition(tempBlocks[debugButton - count * 2]);
+            debugButton++;
+        }
+        else if (debugButton < (count * 4))
+        {
+            AssignDropdown(tempBlocks[debugButton - count * 3]);
+            debugButton++;
+        }
+        else  if (debugButton >= (count * 4))
+        {
+            Debug.Log("Allowing manual assigning!");
+            allowManualAssigning = true;
         }
     }
 }
