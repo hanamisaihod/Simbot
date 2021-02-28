@@ -95,7 +95,7 @@ public class CanvasFX_Controller : MonoBehaviour
         retryInitial = retryButton.transform.localScale;
         doneInitial = doneButton.transform.localScale;
 
-        retryButton.GetComponent<Button>().onClick.AddListener(ClearScene); // Please come back to edit this
+        //retryButton.GetComponent<Button>().onClick.AddListener(ClearScene); // Please come back to edit this
     }
 
     void Update()
@@ -111,12 +111,17 @@ public class CanvasFX_Controller : MonoBehaviour
             {
                 StopCoroutine(tableCor);
             }
+            EndingStarRating.clearType = clearTrigger;
             tableCor = StartCoroutine(tableShow());
             startShow = true;
             FXshowing = true;
         }
         else
+        {
             clearTrigger = false;
+            EndingStarRating.clearType = clearTrigger;
+        }
+            
 
         if (failTrigger && !startShow && !FXshowing)
         {
@@ -178,11 +183,11 @@ public class CanvasFX_Controller : MonoBehaviour
     }
 
     // Function trigger when click try again button    Please change this
-    void ClearScene()
-    {
-        if (Time.time > waitUntil) clearSceneTrigger = true;
-		SceneManager.LoadScene("Simulate");
-    }
+    //void ClearScene()
+    //{
+    //    if (Time.time > waitUntil) clearSceneTrigger = true;
+	//	SceneManager.LoadScene("Simulate");
+    //}
 
     IEnumerator ClearShow()
     {

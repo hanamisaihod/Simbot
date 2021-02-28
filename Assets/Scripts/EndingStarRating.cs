@@ -17,6 +17,7 @@ public class EndingStarRating : MonoBehaviour
     public GameObject endingStar3Appear;
     public static int lineOfCode;
     public static float robotHP;
+    public static bool clearType;
     //public StarRatingData endingSRData;
     public List<StarRatingData> SREnvAtEnding = new List<StarRatingData>();
     // Start is called before the first frame update
@@ -42,8 +43,26 @@ public class EndingStarRating : MonoBehaviour
                 {
                     endingCondition1.GetComponent<Text>().text = endingWord1;
                     //Debug.Log(endingCondition1.GetComponent<Text>().text);
-                    item.mapStar1 = true;
-                    endingStar1Appear.SetActive(true);
+                    if(clearType == true)
+                    {
+                        item.mapStar1 = true;
+                        endingStar1Appear.SetActive(true);
+                    }
+                    else
+                    {
+                        if(item.mapStar1 == true)
+                        {
+                            item.mapStar1 = true;
+                        }
+                        else
+                        {
+                            item.mapStar1 = false;
+                        }
+                        
+                        endingStar1Appear.SetActive(false);
+                    }
+                    
+                    
 
                 }
                 //LINE
@@ -64,14 +83,22 @@ public class EndingStarRating : MonoBehaviour
                         else
                         {
                             Debug.Log("False");
-                            item.mapStar2 = false;
+                            if(item.mapStar2 == true)
+                            {
+                                item.mapStar2 = true;
+                            }
+                            else
+                            {
+                                item.mapStar2 = false;
+                            }
+                            
                             endingStar2Appear.SetActive(false);
                             emptyStar2.SetActive(true);
                         }
                     }
                     if (LoadMainStage.mainStageKey == "Map2")
                     {
-                        if(blockCode <= 2)
+                        if(blockCode <= 5)
                         {
                             //true
                             Debug.Log("True");
@@ -81,7 +108,15 @@ public class EndingStarRating : MonoBehaviour
                         else
                         {
                             Debug.Log("False");
-                            item.mapStar2 = false;
+
+                            if(item.mapStar2 == true)
+                            {
+                                item.mapStar2 = true;
+                            }
+                            else
+                            {
+                                item.mapStar2 = false;
+                            }
                             endingStar2Appear.SetActive(false);
                             emptyStar2.SetActive(true);
                         }
@@ -99,7 +134,14 @@ public class EndingStarRating : MonoBehaviour
                     }
                     else
                     {
-                        item.mapStar3 = false;
+                        if(item.mapStar3 == true)
+                        {
+                            item.mapStar3 = true;
+                        }
+                        else
+                        {
+                            item.mapStar3 = false;
+                        }
                         emptyStar3.SetActive(true);
                         endingStar3Appear.SetActive(false);
                     }

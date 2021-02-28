@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestRobotMovementScene.unity
     guid: f9d5fd58d04a1a94e849f256177e89b5
+  - enabled: 1
+    path: Assets/Scenes/SelectRobot.unity
+    guid: 1b3691cf52c910f41a1b99a6383849cf
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000

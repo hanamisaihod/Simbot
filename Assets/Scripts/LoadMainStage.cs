@@ -13,6 +13,7 @@ public class LoadMainStage : MonoBehaviour
     public static string mainStageKey;
     public StarRating starRating;
     public GameObject enableFrame;
+    public GameObject invisibleFrame;
     public static string currentKeyword; 
     public string[] savePrefab;
     public object[] presavePrefab;
@@ -74,8 +75,9 @@ public class LoadMainStage : MonoBehaviour
 
     public IEnumerator mainStageClick(int mainIndex)
     {
-        Debug.Log("CLICKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK" + mainIndex);
-        LeanTween.scale(enableFrame,new Vector3(1,1,1),0.5f);        
+        //Debug.Log("CLICKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK" + mainIndex);
+        LeanTween.scale(enableFrame,new Vector3(1,1,1),0.5f);
+        invisibleFrame.SetActive(true);        
         string currentPreWord = savePrefab[mainIndex].ToString();
         currentPreWord = currentPreWord.Replace(@"\","/");
         string[] currentWordSpit = currentPreWord.Split("/"[0]);
@@ -114,7 +116,7 @@ public class LoadMainStage : MonoBehaviour
         LoadConfirm.clickToLoad = false;
         LoadConfirm.waitForSelectSlot = false;
         LeanTween.scale(enableFrame,new Vector3(0,0,0),0.5f);
-        Debug.Log("GO GO GO GO GO");
-        SceneManager.LoadScene("MapBuilding");
+        //Debug.Log("GO GO GO GO GO");
+        SceneManager.LoadScene("SelectRobot");
     }
 }
