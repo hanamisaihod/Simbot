@@ -438,6 +438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}
 --- !u!1 &3498996405503180280
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}
 --- !u!1 &3914280691203070805
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,6 +700,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}
 --- !u!1 &4165735472777117076
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,6 +846,7 @@ MonoBehaviour:
   repeatDrop: {fileID: 0}
   timesDrop: {fileID: 0}
   canvas: {fileID: 7648228773014404298}
+  pos: {x: 0, y: 0, z: 0}
   blockNum: 0
   ifChoice: 0
   compareDegreeChoice: 0
@@ -981,6 +988,8 @@ MonoBehaviour:
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 5564149678235207008}
   ifConnectorChild: {fileID: 0}
   abName: 
@@ -1311,9 +1320,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7501649074008417955}
+  - component: {fileID: 5564149678235207009}
   - component: {fileID: 3317353421384229048}
   - component: {fileID: 5564149678235207010}
-  - component: {fileID: 5564149678235207009}
   m_Layer: 0
   m_Name: Move_Head@10x
   m_TagString: DoConnector
@@ -1335,6 +1344,32 @@ Transform:
   m_Father: {fileID: 284546273049014355}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5564149678235207009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5564149678235207008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce863174c13dac4d86b5a183d3a4c01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLock: 0
+  parentHandlerScript: {fileID: 0}
+  height: 0
+  position: {x: 0, y: 0, z: 0}
+  mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
+  doConnectorChild: {fileID: 5564149678235207008}
+  ifConnectorChild: {fileID: 0}
+  abName: 
+  abNum: 0
+  blockNum: -1
+  attachedTo: {fileID: 0}
+  attachedBy: {fileID: 0}
 --- !u!212 &3317353421384229048
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1411,30 +1446,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.76, y: 10.77}
   m_EdgeRadius: 0
---- !u!114 &5564149678235207009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5564149678235207008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ce863174c13dac4d86b5a183d3a4c01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isLock: 0
-  parentHandlerScript: {fileID: 0}
-  height: 0
-  position: {x: 0, y: 0, z: 0}
-  mousePosition: {x: 0, y: 0}
-  doConnectorChild: {fileID: 5564149678235207008}
-  ifConnectorChild: {fileID: 0}
-  abName: 
-  abNum: 0
-  blockNum: -1
-  attachedTo: {fileID: 0}
-  attachedBy: {fileID: 0}
 --- !u!1 &5658806141903824918
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,6 +2191,8 @@ MonoBehaviour:
   height: 0
   position: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 5564149678235207008}
   ifConnectorChild: {fileID: 0}
   abName: 

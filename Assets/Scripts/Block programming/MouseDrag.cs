@@ -12,21 +12,20 @@ public class MouseDrag : MonoBehaviour
 	public BuildingHandler parentHandlerScript;
 	private GameObject closest;
 	public float height;
-	public Vector3 position;
+	private Vector3 position;
 	private int tempLayer = 0;
 	private bool changed;
-	public Vector2 mousePosition;
-	public GameObject trashCan;
-	public Vector3 trashCanWorldPosition;
+	private Vector2 mousePosition;
+	private GameObject trashCan;
+	private Vector3 trashCanWorldPosition;
 	private float distanceToTrash;
 	private float deleteDistance;
 	public GameObject doConnectorChild = null;
 	public GameObject ifConnectorChild = null;
-	public string abName = null;
-	public int abNum = 0;
 	public int blockNum = -1;
 
 	//Variables to be saved
+	public int abNum = 0;
 	public GameObject attachedTo;
 	public GameObject attachedBy;
 
