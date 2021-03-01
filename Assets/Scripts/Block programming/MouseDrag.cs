@@ -23,7 +23,7 @@ public class MouseDrag : MonoBehaviour
 	public GameObject doConnectorChild = null;
 	public GameObject ifConnectorChild = null;
 	public int blockNum = -1;
-
+	private GameObject varriableCarrier;
 	//Variables to be saved
 	public int abNum = 0;
 	public GameObject attachedTo;
@@ -70,6 +70,7 @@ public class MouseDrag : MonoBehaviour
             //trashCanWorldPosition = trashCan.GetComponent<TrashCan>().screenPos;
             //Debug.Log("Trash screen position" + trashCanWorldPosition);
         }
+		varriableCarrier = GameObject.FindGameObjectWithTag("VariableCarrier");
     }
 
     void Update()
@@ -79,24 +80,27 @@ public class MouseDrag : MonoBehaviour
 
 	public void OnMouseDown()
 	{
-		dragPlane = new Plane(mainCamera.transform.forward, transform.position);
-		Ray camRay = mainCamera.ScreenPointToRay(Input.mousePosition);
-		float planeDist;
-		dragPlane.Raycast(camRay, out planeDist);
-		offset = parentObject.transform.position - camRay.GetPoint(planeDist);
+		if (varriableCarrier.GetComponent<CarriedVariables>().mouseDragAvailable)
+		{
+			dragPlane = new Plane(mainCamera.transform.forward, transform.position);
+			Ray camRay = mainCamera.ScreenPointToRay(Input.mousePosition);
+			float planeDist;
+			dragPlane.Raycast(camRay, out planeDist);
+			offset = parentObject.transform.position - camRay.GetPoint(planeDist);
 
-		tempLayer = parentHandlerScript.layerLevel;
-		//parentHandlerScript.totalHeight = 0f;
-		parentHandlerScript.totalHeight = parentHandlerScript.UpdateHeight();
+			tempLayer = parentHandlerScript.layerLevel;
+			//parentHandlerScript.totalHeight = 0f;
+			parentHandlerScript.totalHeight = parentHandlerScript.UpdateHeight();
 
-		//mainCamera.GetComponent<CameraDrag>().available = false;
-        mainCamera.GetComponent<CameraHandler>().available = false;
+			//mainCamera.GetComponent<CameraDrag>().available = false;
+			mainCamera.GetComponent<CameraHandler>().available = false;
+		}
     }
 
 	public void OnMouseDrag()
 	{
 		parentHandlerScript.timer += Time.fixedDeltaTime;
-		if (parentHandlerScript.timer >= 1)
+		if (parentHandlerScript.timer >= 1 && varriableCarrier.GetComponent<CarriedVariables>().mouseDragAvailable)
 		{
 			if (!changed)
 			{
