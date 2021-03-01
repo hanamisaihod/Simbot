@@ -23,32 +23,40 @@ public class AlertOnFire : MonoBehaviour
             Vector3 forFun = new Vector3(fireBox.x,fireBox.y,fireBox.z + 1);
             Vector3 forFunn = new Vector3(fireBox.x,fireBox.y,fireBox.z - 1);
             Debug.Log("Position: " + fireBox);
-            foreach (GameObject item in DetectEnvironment.keepPosition)
+            if (DetectEnvironment.keepPosition != null)
             {
-                Vector3 aroundPosition = item.transform.position;
-                aroundPosition.x = (float) Math.Round(aroundPosition.x,MidpointRounding.AwayFromZero);
-                aroundPosition.y = (float) Math.Round(aroundPosition.y,MidpointRounding.AwayFromZero);
-                aroundPosition.z = (float) Math.Round(aroundPosition.z,MidpointRounding.AwayFromZero);
-                if(forFun == aroundPosition)
+                foreach (GameObject item in DetectEnvironment.keepPosition)
                 {
-                    Debug.Log("Found object name: " + item.name);
-                    // floor
-                    zPlusOne = item.transform.GetChild(0);
-                    ren = zPlusOne.GetComponent<Renderer>();
-                    ren.sharedMaterial = floorMat_warning;
-                    Debug.Log("not BUG");
+                    if(item != null)
+                    {
+                        Vector3 aroundPosition = item.transform.position;
+                        aroundPosition.x = (float) Math.Round(aroundPosition.x,MidpointRounding.AwayFromZero);
+                        aroundPosition.y = (float) Math.Round(aroundPosition.y,MidpointRounding.AwayFromZero);
+                        aroundPosition.z = (float) Math.Round(aroundPosition.z,MidpointRounding.AwayFromZero);
+                        if(forFun == aroundPosition)
+                        {
+                            Debug.Log("Found object name: " + item.name);
+                            // floor
+                            zPlusOne = item.transform.GetChild(0);
+                            ren = zPlusOne.GetComponent<Renderer>();
+                            ren.sharedMaterial = floorMat_warning;
+                            Debug.Log("not BUG");
+                        }
+                        if(forFunn == aroundPosition)
+                        {
+                            Debug.Log("Found object name: " + item.name);
+                            // floor
+                            zMinusOne = item.transform.GetChild(0);
+                            ren = zMinusOne.GetComponent<Renderer>();
+                            ren.sharedMaterial = floorMat_warning;
+                            Debug.Log("not BUG");
+                        }
+                    }
+                    
+                    
                 }
-                if(forFunn == aroundPosition)
-                {
-                    Debug.Log("Found object name: " + item.name);
-                    // floor
-                    zMinusOne = item.transform.GetChild(0);
-                    ren = zMinusOne.GetComponent<Renderer>();
-                    ren.sharedMaterial = floorMat_warning;
-                    Debug.Log("not BUG");
-                }
-                
             }
+            
             //DetectEnvironment.keepPosition
         }
         else if(startAlert == false)

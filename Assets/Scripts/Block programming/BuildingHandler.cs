@@ -11,7 +11,7 @@ public class BuildingHandler : MonoBehaviour
 	private GameObject[] doConnectorBlocks;
 	private GameObject[] ifConnectorBlocks;
 	public bool isBeingHeld = false;
-	private GameObject[] conBlocks;
+	public GameObject[] conBlocks;
 	public GameObject bestTarget;
 	public int layerLevel;
 	public int tempLayer;
