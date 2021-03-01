@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 975187241076265517}
+  - component: {fileID: 5853333324754347835}
   - component: {fileID: 5585656992068427346}
   - component: {fileID: 5897960082261577685}
-  - component: {fileID: 5853333324754347835}
   m_Layer: 0
   m_Name: Start@10x
   m_TagString: StartConnector
@@ -33,6 +33,32 @@ Transform:
   m_Father: {fileID: 3886591745859795978}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5853333324754347835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4183372766886574202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce863174c13dac4d86b5a183d3a4c01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLock: 0
+  parentHandlerScript: {fileID: 0}
+  height: 0
+  position: {x: 0, y: 0, z: 0}
+  mousePosition: {x: 0, y: 0}
+  trashCan: {fileID: 0}
+  trashCanWorldPosition: {x: 0, y: 0, z: 0}
+  doConnectorChild: {fileID: 0}
+  ifConnectorChild: {fileID: 0}
+  abName: 
+  abNum: 0
+  blockNum: -1
+  attachedTo: {fileID: 0}
+  attachedBy: {fileID: 0}
 --- !u!212 &5585656992068427346
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -109,30 +135,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 19.08, y: 15.73}
   m_EdgeRadius: 0
---- !u!114 &5853333324754347835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4183372766886574202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ce863174c13dac4d86b5a183d3a4c01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isLock: 0
-  parentHandlerScript: {fileID: 0}
-  height: 0
-  position: {x: 0, y: 0, z: 0}
-  mousePosition: {x: 0, y: 0}
-  doConnectorChild: {fileID: 0}
-  ifConnectorChild: {fileID: 0}
-  abName: 
-  abNum: 0
-  blockNum: -1
-  attachedTo: {fileID: 0}
-  attachedBy: {fileID: 0}
 --- !u!1 &8641958648996881970
 GameObject:
   m_ObjectHideFlags: 0
