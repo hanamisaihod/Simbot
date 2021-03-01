@@ -17,8 +17,9 @@ public class MouseDragFromPalette : MonoBehaviour, IBeginDragHandler, IDragHandl
 	public GameObject spawnPrefab;
 	private Vector3 initPosition;
 	private int blockNum = 2;
+	private GameObject varriableCarrier;
 
-    public void Start()
+	public void Start()
     {
         if (GameObject.Find("ModeSwitcher"))
         {
@@ -29,8 +30,9 @@ public class MouseDragFromPalette : MonoBehaviour, IBeginDragHandler, IDragHandl
                     mainCamera = obj.GetComponent<Camera>();
                 }
             }
-        }
-    }
+		}
+		varriableCarrier = GameObject.FindGameObjectWithTag("VariableCarrier");
+	}
 
     public GameObject[] FindBlock()
     {
@@ -46,6 +48,7 @@ public class MouseDragFromPalette : MonoBehaviour, IBeginDragHandler, IDragHandl
         //mainCamera.GetComponent<CameraDrag>().available = false;
         mainCamera.GetComponent<CameraHandler>().available = false;
         initPosition = transform.position;
+		varriableCarrier.GetComponent<CarriedVariables>().mouseDragAvailable = false;
 	}
 
 	public void OnDrag(PointerEventData eventData)
@@ -84,7 +87,7 @@ public class MouseDragFromPalette : MonoBehaviour, IBeginDragHandler, IDragHandl
 			}
 			tempPrefab.transform.localPosition = new Vector3(tempPrefab.transform.localPosition.x, tempPrefab.transform.localPosition.y, 0);
 		}
-
+		varriableCarrier.GetComponent<CarriedVariables>().mouseDragAvailable = true;
 		transform.position = initPosition;
 	}
 	public GameObject[] FindAvailableBlocks()
