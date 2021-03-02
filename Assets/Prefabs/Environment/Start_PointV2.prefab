@@ -5016,6 +5016,7 @@ GameObject:
   - component: {fileID: 6265574043630867035}
   - component: {fileID: 8149049312531605137}
   - component: {fileID: 7644791496255326023}
+  - component: {fileID: 3075872978644338497}
   m_Layer: 0
   m_Name: Start_PointV2
   m_TagString: Start
@@ -5114,3 +5115,16 @@ MonoBehaviour:
     type: 3}
   stovePrefab: {fileID: 1049934262172938741, guid: 96f33132163fb2842ac039b5b7a4d5ca,
     type: 3}
+--- !u!65 &3075872978644338497
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644791496255326020}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.020000005, z: 0.024745861}
+  m_Center: {x: 0, y: -1.2194028e-18, z: 0.0013729259}
