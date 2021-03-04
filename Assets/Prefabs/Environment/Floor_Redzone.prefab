@@ -19384,6 +19384,7 @@ GameObject:
   - component: {fileID: 7309262058331759158}
   - component: {fileID: 5121767236566781404}
   - component: {fileID: 4246911473530376338}
+  - component: {fileID: 816610367410429198}
   m_Layer: 0
   m_Name: Floor_Redzone
   m_TagString: RedZone
@@ -19486,3 +19487,17 @@ MonoBehaviour:
   smokeBig: {fileID: 4075991601444131731}
   pre_lava: {fileID: 4075991601528805104}
   lava: {fileID: 4075991601773945905}
+  callAlert: {fileID: 0}
+--- !u!65 &816610367410429198
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4246911473530376341}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.020000005, z: 0.022000007}
+  m_Center: {x: 0, y: 0, z: 0}

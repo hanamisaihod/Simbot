@@ -37,6 +37,7 @@ TagManager:
   - StageObjects
   - VariableCarrier
   - SubCamera
+  - Floor
   layers:
   - Default
   - TransparentFX

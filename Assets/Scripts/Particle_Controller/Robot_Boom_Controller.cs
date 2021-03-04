@@ -54,19 +54,40 @@ public class Robot_Boom_Controller : MonoBehaviour
 		Debug.Log("Health" + currentHealth + "/" + maxHealth);
 		if (currentHealth <= maxHealth * 66.0f / 100.0f && currentHealth >= maxHealth * 33.0f / 100.0f)
 		{
-			smokeSmall.Play();
+            if (!smokeSmall.isPlaying)
+            {
+                smokeSmall.Play();
+            }
 		}
 		else if (currentHealth <= maxHealth * 33.0f / 100.0f && currentHealth > 0)
-		{
-			smokeSmall.Play();
-			smokeMedium.Play();
+        {
+            if (!smokeSmall.isPlaying)
+            {
+                smokeSmall.Play();
+            }
+            if (!smokeMedium.isPlaying)
+            {
+                smokeMedium.Play();
+            }
 		}
 		else if (currentHealth <= 0)
-		{
-			smokeSmall.Play();
-			smokeMedium.Play();
-			smokeBig.Play();
-			fragment.Play();
+        {
+            if (!smokeSmall.isPlaying)
+            {
+                smokeSmall.Play();
+            }
+            if (!smokeMedium.isPlaying)
+            {
+                smokeMedium.Play();
+            }
+            if (!smokeBig.isPlaying)
+            {
+                smokeBig.Play();
+            }
+            if (!fragment.isPlaying)
+            {
+                fragment.Play();
+            }
 			lightPoint.GetComponent<Light>().enabled = true;
 			levelController.GetComponent<LevelController>().FailMission();
 		}
