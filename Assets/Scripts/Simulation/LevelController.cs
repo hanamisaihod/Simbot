@@ -29,7 +29,7 @@ public class LevelController : MonoBehaviour
         goal = GameObject.FindGameObjectWithTag("Goal");
         if (start)
         {
-            start.GetComponent<SpawnFX_Controller>().SpawnRobot(robotType);
+            start.GetComponent<SpawnFX_Controller>().SpawnRobot(Robotcheck.robotTypeNum);
         }
         if (GameObject.Find("Green_Destination"))
 		{

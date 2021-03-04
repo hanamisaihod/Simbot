@@ -23,90 +23,120 @@ public class StarRating : MonoBehaviour
     public List<StarRatingData> SREnv = new List<StarRatingData>();
     //public static List<StarRatingData> staticSREnv = new List<StarRatingData>();
     public void setCondition()
-    {
-        if(!Directory.Exists(Application.persistentDataPath + "/savesStage/" + LoadMainStage.currentKeyword + "StarRating"))
+    {       
+        //Debug.Log("EXISTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+        //mapRating = Directory.GetFiles(Application.dataPath + "/Resources/" + LoadMainStage.savePrefabKeyword + "StarRating/" + LoadMainStage.savePrefabKeyword + ".txt");
+        SREnv = SaveLoadSR.LoadSR<List<StarRatingData>>(LoadMainStage.currentKeyword);
+        //staticSREnv = SREnv;
+        foreach (StarRatingData item in SREnv)
         {
-            //Debug.Log("NOT EXISTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
-            //Debug.Log(LoadMainStage.currentKeyword);
-            Directory.CreateDirectory(Application.persistentDataPath + "/savesStage/" + LoadMainStage.currentKeyword + "StarRating");
-            condition1.GetComponent<Text>().text = "Goal";
-            condition2.GetComponent<Text>().text = "Minimum line of code";
-            condition3.GetComponent<Text>().text = "Robot HP";
-
-            SRData.mapCondition1.Add(condition1.GetComponent<Text>().text);
-            SRData.mapCondition2.Add(condition2.GetComponent<Text>().text);
-            SRData.mapCondition3.Add(condition3.GetComponent<Text>().text);
-
-            
-
-            SREnv.Add(SRData);
-            foreach (StarRatingData item in SREnv)
+            foreach (string wordCon1 in item.mapCondition1)
             {
-                item.mapStar1 = false;
-                item.mapStar2 = false;
-                item.mapStar3 = false;
+                //Debug.Log(wordCon1);
+                condition1.GetComponent<Text>().text = wordCon1;
+                if(item.mapStar1 == true)
+                {
+                    star1Appear.SetActive(true);
+                    star1.SetActive(false);
+                }
+                if(item.mapStar1 == false)
+                {
+                    star1Appear.SetActive(false);
+                    star1.SetActive(true);
+                }
+                
             }
-            SaveLoadSR.SaveSR<List<StarRatingData>>(SREnv,LoadMainStage.currentKeyword);            
+            foreach (string wordCon2 in item.mapCondition2)
+            {
+                //Debug.Log(wordCon2);
+                condition2.GetComponent<Text>().text = wordCon2;
+                if(item.mapStar2 == true)
+                {
+                    star2Appear.SetActive(true);
+                    star2.SetActive(false);
+                }
+                if(item.mapStar2 == false)
+                {
+                    star2Appear.SetActive(false);
+                    star2.SetActive(true);
+                }
+            }
+            foreach (string wordCon3 in item.mapCondition3)
+            {
+                //Debug.Log(wordCon3);
+                condition3.GetComponent<Text>().text = wordCon3;
+                if(item.mapStar3 == true)
+                {
+                    //Debug.Log("BUGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
+                    star3Appear.SetActive(true);
+                    star3.SetActive(false);
+                }
+                if(item.mapStar3 == false)
+                {
+                    //Debug.Log("BUGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
+                    star3Appear.SetActive(false);
+                    star3.SetActive(true);
+                }
+            }
         }
-        else
+    }
+
+    public void setDirectory()
+    {
+        if(LoadMainStage.buttonArray != null)
         {
-            //Debug.Log("EXISTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
-            //mapRating = Directory.GetFiles(Application.dataPath + "/Resources/" + LoadMainStage.savePrefabKeyword + "StarRating/" + LoadMainStage.savePrefabKeyword + ".txt");
-            SREnv = SaveLoadSR.LoadSR<List<StarRatingData>>(LoadMainStage.currentKeyword);
-            //staticSREnv = SREnv;
-            foreach (StarRatingData item in SREnv)
+            foreach (GameObject item in LoadMainStage.buttonArray)
             {
-                foreach (string wordCon1 in item.mapCondition1)
+                if(item != null)
                 {
-                    //Debug.Log(wordCon1);
-                    condition1.GetComponent<Text>().text = wordCon1;
-                    if(item.mapStar1 == true)
+                    if(!Directory.Exists(Application.persistentDataPath + "/savesStage/" + item.GetComponentInChildren<Text>().text + "StarRating"))
                     {
-                        star1Appear.SetActive(true);
-                        star1.SetActive(false);
-                    }
-                    if(item.mapStar1 == false)
-                    {
-                        star1Appear.SetActive(false);
-                        star1.SetActive(true);
-                    }
-                    
-                }
-                foreach (string wordCon2 in item.mapCondition2)
-                {
-                    //Debug.Log(wordCon2);
-                    condition2.GetComponent<Text>().text = wordCon2;
-                    if(item.mapStar2 == true)
-                    {
-                        star2Appear.SetActive(true);
-                        star2.SetActive(false);
-                    }
-                    if(item.mapStar2 == false)
-                    {
-                        star2Appear.SetActive(false);
-                        star2.SetActive(true);
-                    }
-                }
-                foreach (string wordCon3 in item.mapCondition3)
-                {
-                    //Debug.Log(wordCon3);
-                    condition3.GetComponent<Text>().text = wordCon3;
-                    if(item.mapStar3 == true)
-                    {
-                        //Debug.Log("BUGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
-                        star3Appear.SetActive(true);
-                        star3.SetActive(false);
-                    }
-                    if(item.mapStar3 == false)
-                    {
-                        //Debug.Log("BUGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
-                        star3Appear.SetActive(false);
-                        star3.SetActive(true);
+                        Directory.CreateDirectory(Application.persistentDataPath + "/savesStage/" + item.GetComponentInChildren<Text>().text + "StarRating");
+                        condition1.GetComponent<Text>().text = "Goal";
+                        condition2.GetComponent<Text>().text = "Minimum line of code";
+                        condition3.GetComponent<Text>().text = "Robot HP";
+
+                        SRData.mapCondition1.Add(condition1.GetComponent<Text>().text);
+                        SRData.mapCondition2.Add(condition2.GetComponent<Text>().text);
+                        SRData.mapCondition3.Add(condition3.GetComponent<Text>().text);
+
+                        
+                        SREnv.Add(SRData);
+                        foreach (StarRatingData SRitem in SREnv)
+                        {
+                            SRitem.mapStar1 = false;
+                            SRitem.mapStar2 = false;
+                            SRitem.mapStar3 = false;
+                        }
+                        Debug.Log(item.GetComponentInChildren<Text>().text);
+                        SaveLoadSR.SaveSR<List<StarRatingData>>(SREnv,item.GetComponentInChildren<Text>().text);
                     }
                 }
             }
+        }
+    }
 
-
+    public void checkStar()
+    {
+        if(LoadMainStage.buttonArray != null)
+        {
+            int sizeOfList = LoadMainStage.buttonArray.Count;
+            for (int i = 0; i < sizeOfList; i++)
+            {
+                Debug.Log("i = " + sizeOfList);
+                if(LoadMainStage.buttonArray[i] != null)
+                {
+                    Debug.Log("Num = " + LoadMainStage.buttonArray[i].GetComponentInChildren<Text>().text);
+                    SREnv = SaveLoadSR.LoadSR<List<StarRatingData>>(LoadMainStage.buttonArray[i].GetComponentInChildren<Text>().text);
+                    foreach (StarRatingData item in SREnv)
+                    {
+                        if(item.mapStar1 != true && item.mapStar2 != true && item.mapStar3 != true && i != sizeOfList - 1)
+                        {
+                            LoadMainStage.buttonArray[i+1].GetComponent<UnityEngine.UI.Button>().enabled = false;
+                        }
+                    }
+                }
+            }
         }
     }
 }
