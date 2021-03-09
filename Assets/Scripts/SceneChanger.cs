@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
 	public static bool viewBlock;
+	public bool ar = false;
     public void GoCode()
 	{
 		viewBlock = true;
@@ -43,6 +44,18 @@ public class SceneChanger : MonoBehaviour
         {
             GameObject.Find("BlockSaveManager").GetComponent<BlockSaveAndLoad>().SaveBlockProgram();
         }
-        SceneManager.LoadScene("TestRobotMovementScene");
+		if (!ar)
+		{
+			SceneManager.LoadScene("TestRobotMovementScene");
+		}
+		else
+		{
+
+		}
     }
+
+	public void TurnOnAR()
+	{
+		ar = !ar;
+	}
 }
