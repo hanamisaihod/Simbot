@@ -50,7 +50,7 @@ public class SceneChanger : MonoBehaviour
 		}
 		else
 		{
-
+			SceneManager.LoadScene("ARTest");
 		}
     }
 
