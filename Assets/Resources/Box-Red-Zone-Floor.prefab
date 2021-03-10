@@ -225,6 +225,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3714670549103044799, guid: 7566e4ea311737641a523a44f3e81b29,
+        type: 3}
+      propertyPath: m_TagString
+      value: RedWarning
+      objectReference: {fileID: 0}
     - target: {fileID: 4075991601673464526, guid: 7566e4ea311737641a523a44f3e81b29,
         type: 3}
       propertyPath: m_BoundingSphereOverride.x

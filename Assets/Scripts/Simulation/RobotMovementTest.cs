@@ -155,11 +155,11 @@ public class RobotMovementTest : MonoBehaviour
             }
             else if (posChance < 0.6)
             {
-                transform.position += Angle * 0.0002f;
+                transform.position += Angle * 0.0001f;
             }
             else
             {
-                transform.position += Angle * 0.0005f;
+                transform.position += Angle * 0.0002f;
             }
             float rotChance = Random.value;
             if (posChance < 0.2) // No push
@@ -168,11 +168,11 @@ public class RobotMovementTest : MonoBehaviour
             }
             else if (posChance < 0.6)
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, turbineList[x].transform.parent.eulerAngles.y, 0), 0.00002f * Time.time);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, turbineList[x].transform.parent.eulerAngles.y, 0), 0.00001f * Time.time);
             }
             else
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, turbineList[x].transform.parent.eulerAngles.y, 0), 0.00005f * Time.time);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, turbineList[x].transform.parent.eulerAngles.y, 0), 0.00002f * Time.time);
             }
         }
         if (isAtWallCount > 0)

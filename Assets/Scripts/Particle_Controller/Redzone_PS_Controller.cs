@@ -76,6 +76,7 @@ public class Redzone_PS_Controller : MonoBehaviour
         ren.sharedMaterial = floorMat_default;
 
         AlertOnFire.startAlert = false;
+        startEruption = false;
         callAlert.callOnFire();
         yield return new WaitForSeconds(7f);
         showing = false;
