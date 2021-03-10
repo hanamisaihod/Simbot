@@ -479,20 +479,21 @@ public class RobotMovementTest : MonoBehaviour
         RaycastHit leftHit;
         RaycastHit rightHit;
         int correctCount = 0;
-        if (Physics.Raycast(leftColorSensor.transform.position, -leftColorSensor.transform.up, out leftHit))
+        if (Physics.Raycast(leftColorSensor.transform.position, -leftColorSensor.transform.up, out leftHit, Mathf.Infinity))
         {
+            Debug.LogError("left sensor found tag: " + leftHit.collider.tag);
             if (block.GetComponent<BuildingHandler>().colorLeftChoice == 0) // If left choose black
             {
                 if (block.GetComponent<BuildingHandler>().compareLeftChoice == 0) // If left choose equal
                 {
-                    if (leftHit.transform.tag == "BlackLine")
+                    if (leftHit.collider.CompareTag("BlackLine"))
                     {
                         correctCount++;
                     }
                 }
                 else
                 {
-                    if (leftHit.transform.tag != "BlackLine")
+                    if (!leftHit.collider.CompareTag("BlackLine"))
                     {
                         correctCount++;
                     }
@@ -502,35 +503,35 @@ public class RobotMovementTest : MonoBehaviour
             {
                 if (block.GetComponent<BuildingHandler>().compareLeftChoice == 0) // If left choose equal
                 {
-                    if (leftHit.transform.tag == "RedWarning")
+                    if (leftHit.collider.CompareTag("RedWarning"))
                     {
                         correctCount++;
                     }
-                    Debug.Log("RedWarning");
                 }
                 else
                 {
-                    if (leftHit.transform.tag != "RedWarning")
+                    if (!leftHit.collider.CompareTag("RedWarning"))
                     {
                         correctCount++;
                     }
                 }
             }
         }
-        if (Physics.Raycast(rightColorSensor.transform.position, -rightColorSensor.transform.up, out rightHit))
+        if (Physics.Raycast(rightColorSensor.transform.position, -rightColorSensor.transform.up, out rightHit, Mathf.Infinity))
         {
+            Debug.LogError("right sensor found tag: " + rightHit.collider.tag);
             if (block.GetComponent<BuildingHandler>().colorRightChoice == 0) // If right choose black
             {
                 if (block.GetComponent<BuildingHandler>().compareRightChoice == 0) // If right choose equal
                 {
-                    if (rightHit.transform.tag == "BlackLine")
+                    if (rightHit.collider.CompareTag("BlackLine"))
                     {
                         correctCount++;
                     }
                 }
                 else
                 {
-                    if (rightHit.transform.tag != "BlackLine")
+                    if (!rightHit.collider.CompareTag("BlackLine"))
                     {
                         correctCount++;
                     }
@@ -540,21 +541,21 @@ public class RobotMovementTest : MonoBehaviour
             {
                 if (block.GetComponent<BuildingHandler>().compareRightChoice == 0) // If right choose equal
                 {
-                    if (rightHit.transform.tag == "RedWarning")
+                    if (rightHit.collider.CompareTag("RedWarning"))
                     {
                         correctCount++;
                     }
-                    Debug.Log("RedWarning");
                 }
                 else
                 {
-                    if (rightHit.transform.tag != "RedWarning")
+                    if (!rightHit.collider.CompareTag("RedWarning"))
                     {
                         correctCount++;
                     }
                 }
             }
         }
+        Debug.LogError("correctCount: " + correctCount);
         if (correctCount == 2)
         {
             return true;

@@ -36,8 +36,7 @@ public class Redzone_PS_Controller : MonoBehaviour
 
     void Update()
     {
-        redZoneTrigger = true;
-        if (redZoneTrigger && !showing && startEruption == true)
+        if (redZoneTrigger && !showing)
         {
             if (usingCor != null)
             {
@@ -73,10 +72,10 @@ public class Redzone_PS_Controller : MonoBehaviour
 		yield return new WaitForSeconds(0.3f);
         lightPoint.GetComponent<Light>().enabled = false;
         pre_lava.Stop();
+        red1.SetActive(false);
         ren.sharedMaterial = floorMat_default;
 
         AlertOnFire.startAlert = false;
-        startEruption = false;
         callAlert.callOnFire();
         yield return new WaitForSeconds(7f);
         showing = false;

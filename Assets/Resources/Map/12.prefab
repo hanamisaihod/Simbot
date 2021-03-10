@@ -4888,11 +4888,10 @@ GameObject:
   - component: {fileID: 2977025757194678306}
   - component: {fileID: 2167721434859712503}
   - component: {fileID: 6738780837439621381}
-  - component: {fileID: 7400562625910288585}
   - component: {fileID: 7908109971995994317}
   m_Layer: 21
   m_Name: Floor_Redzone
-  m_TagString: RedZoneFloor
+  m_TagString: RedZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5022,19 +5021,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &7400562625910288585
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394231481355282015}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.020000005, z: 0.022000007}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7908109971995994317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50954,7 +50940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6836397176211949850
 Transform:
   m_ObjectHideFlags: 0
@@ -50963,7 +50949,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7700538982331588745}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 0.0157}
+  m_LocalPosition: {x: 0, y: -0, z: 0.01125}
   m_LocalScale: {x: 0.0115, y: 0.0115, z: 0.00001}
   m_Children: []
   m_Father: {fileID: 6506453986644359815}
@@ -51030,7 +51016,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.73, y: 1.7100004, z: 0.001}
+  m_Size: {x: 5.19, y: 5.13, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0.000000007450581}
 --- !u!1 &7776866175627560828
 GameObject:
