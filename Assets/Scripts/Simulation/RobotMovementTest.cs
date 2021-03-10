@@ -506,6 +506,7 @@ public class RobotMovementTest : MonoBehaviour
                     {
                         correctCount++;
                     }
+                    Debug.Log("RedWarning");
                 }
                 else
                 {
@@ -543,6 +544,7 @@ public class RobotMovementTest : MonoBehaviour
                     {
                         correctCount++;
                     }
+                    Debug.Log("RedWarning");
                 }
                 else
                 {
