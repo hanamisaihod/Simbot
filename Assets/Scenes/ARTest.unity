@@ -323,6 +323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AttemptUpdate: 1
   m_MatchFrameRate: 1
+  m_TrackingMode: 2
 --- !u!4 &528592327
 Transform:
   m_ObjectHideFlags: 0
@@ -350,7 +351,7 @@ GameObject:
   - component: {fileID: 746806285}
   - component: {fileID: 746806284}
   m_Layer: 0
-  m_Name: Button (1)
+  m_Name: Toggle Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,8 +374,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -339.7, y: -228.1}
-  m_SizeDelta: {x: 84.034454, y: 16.332184}
+  m_AnchoredPosition: {x: -131, y: -54}
+  m_SizeDelta: {x: 40.8, y: 10.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &746806284
 MonoBehaviour:
@@ -557,8 +558,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 10.5
-  m_fontSizeBase: 10.5
+  m_fontSize: 5.5
+  m_fontSizeBase: 5.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -672,11 +673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9171da012ebc924d8dcd3c47a8724cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadObject: {fileID: 0}
-  once: 1
-  name: []
-  vector3: []
-  rotation: []
 --- !u!1 &1235682444
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +686,7 @@ GameObject:
   - component: {fileID: 1235682447}
   - component: {fileID: 1235682446}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Reset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -713,8 +709,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -339.7, y: -126.5}
-  m_SizeDelta: {x: 84.034454, y: 16.332184}
+  m_AnchoredPosition: {x: -339.7, y: -53}
+  m_SizeDelta: {x: 31.5, y: 10.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1235682446
 MonoBehaviour:
@@ -837,7 +833,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -884,8 +880,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UseCustomMaterial: 0
   m_CustomMaterial: {fileID: 0}
-  m_UseCustomRendererAsset: 0
-  m_CustomRendererAsset: {fileID: 0}
 --- !u!114 &1617695822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,8 +892,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4966719baa26e4b0e8231a24d9bd491a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FocusMode: 1
-  m_LightEstimationMode: 0
+  m_FocusMode: -1
+  m_LightEstimationMode: -1
+  m_AutoFocus: 1
+  m_LightEstimation: 0
+  m_FacingDirection: 1
 --- !u!114 &1617695823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1079,6 +1076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_RaycastPrefab: {fileID: 0}
 --- !u!114 &2009786806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1190,8 +1188,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 14.1
-  m_fontSizeBase: 14.1
+  m_fontSize: 7.4
+  m_fontSizeBase: 7.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1331,7 +1329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
