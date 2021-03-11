@@ -5,14 +5,17 @@ using UnityEngine;
 public class EnviSim : MonoBehaviour
 {
     public static string Mode;
+    public bool mainModeBool; // false is creative, true is main --- North's line
     public GameObject CreativeObj;
     public GameObject MainObj;
+    public GameObject creativeMap;
     // Start is called before the first frame update
     void Start()
     {
         DetectEnvironment.keepPosition.Clear();
         if(Mode == "Creative")
         {
+            creativeMap = new GameObject("creativeMap");
             Debug.Log("CREATIVEEEEEEEEEEEEEEEEEEEEE");
             for (int i = 0; i < AwakeNewSceneSpawn.MAX; i++)
             {
@@ -26,8 +29,12 @@ public class EnviSim : MonoBehaviour
                 CreativeObj.layer = 21;
                 CreativeObj.GetComponent<BoxCollider>().enabled = false;
                 CreativeObj.GetComponent<MeshRenderer>().enabled = false;
+                CreativeObj.transform.parent = creativeMap.transform;
                 DetectEnvironment.keepPosition.Add(CreativeObj);
             }
+            //North's line
+            if (GameObject.Find("ARSceneController"))
+                GameObject.Find("ARSceneController").GetComponent<ARSceneController>().AssignMap(false);
         }
         if (Mode == "Main")
         {
@@ -40,6 +47,9 @@ public class EnviSim : MonoBehaviour
                 GameObject childMain = MainObj.transform.GetChild(a).gameObject;
                 DetectEnvironment.keepPosition.Add(childMain);
             }
+            //North's line
+            if (GameObject.Find("ARSceneController"))
+              GameObject.Find("ARSceneController").GetComponent<ARSceneController>().AssignMap(true);
         }
         
     }

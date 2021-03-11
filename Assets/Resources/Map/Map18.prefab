@@ -115436,6 +115436,7 @@ MonoBehaviour:
   smokeBig: {fileID: 2381063572724912091}
   pre_lava: {fileID: 7519269127776666293}
   lava: {fileID: 1942354779349919230}
+  callAlert: {fileID: 0}
 --- !u!54 &626853918863412361
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -116216,6 +116217,7 @@ MonoBehaviour:
   smokeBig: {fileID: 7281247532760978346}
   pre_lava: {fileID: 2667226278132248472}
   lava: {fileID: 4943299786152450805}
+  callAlert: {fileID: 0}
 --- !u!54 &1163455434346715096
 Rigidbody:
   m_ObjectHideFlags: 0
