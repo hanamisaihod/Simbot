@@ -6,8 +6,13 @@ using UnityEngine.SceneManagement;
 public class SelectToMap : MonoBehaviour
 {
     // Update is called once per frame
-    public void ChangeSelectToMap()
+    public void ChangeSelectToMapBuidling()
     {
         SceneManager.LoadScene("MapBuilding");
     }
+    public void ChangeSelectToLoadMap()
+    {
+        SceneManager.LoadScene("LoadMap");
+    }
+
 }

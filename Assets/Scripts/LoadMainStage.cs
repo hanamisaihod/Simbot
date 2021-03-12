@@ -17,6 +17,7 @@ public class LoadMainStage : MonoBehaviour
     public static string currentKeyword; 
     public string[] savePrefab;
     public object[] presavePrefab;
+    public static List<GameObject> buttonArray = new List<GameObject>();
     public void Start()
     {
         enableFrame.transform.localScale = new Vector3(0,0,0);
@@ -67,9 +68,16 @@ public class LoadMainStage : MonoBehaviour
             buttonPrefabs.transform.SetParent(Container.transform,false);
             buttonPrefabs.transform.localPosition = Vector3.zero;
             buttonPrefabs.transform.localScale = Vector3.one;
+            buttonArray.Add(buttonPrefabs);
             int index = i;
             
             buttonPrefabs.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(mainStageClick(index)));
+        }
+        foreach (GameObject item in buttonArray)
+        {
+            //Debug.Log("Name: " + item.GetComponentInChildren<Text>().text); 
+            starRating.GetComponent<StarRating>().setDirectory();
+            //starRating.GetComponent<StarRating>().checkStar();
         }
     }
 

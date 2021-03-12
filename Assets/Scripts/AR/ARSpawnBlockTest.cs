@@ -9,7 +9,7 @@ public class ARSpawnBlockTest : MonoBehaviour
 {
 
 	public GameObject cubePrefab;
-
+	public ARPlaneManager planeManager;
 	private GameObject tempObject;
 	private ARRaycastManager arRaycastManager;
 	private Vector2 touchPosition;
@@ -41,6 +41,7 @@ public class ARSpawnBlockTest : MonoBehaviour
 		}
 		if (arRaycastManager.Raycast(touchPosition, hits, TrackableType.PlaneWithinPolygon))
 		{
+			
 			Pose hitPose = hits[0].pose;
 
 			if (!tempObject)

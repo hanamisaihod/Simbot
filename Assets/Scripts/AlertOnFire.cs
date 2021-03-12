@@ -9,8 +9,14 @@ public class AlertOnFire : MonoBehaviour
     public Material floorMat_default;
     public Material floorMat_warning;
     private Renderer ren;
-    public static Transform zPlusOne;
-    public static Transform zMinusOne;
+    public static Transform Up;
+    public static Transform Down;
+    public static Transform Left;
+    public static Transform Right;
+    public static Transform UpLeft;
+    public static Transform UpRight;
+    public static Transform DownLeft;
+    public static Transform DownRight;
     // Update is called once per frame
     public void callOnFire()
     {
@@ -20,8 +26,14 @@ public class AlertOnFire : MonoBehaviour
             fireBox.x = (float) Math.Round(fireBox.x,MidpointRounding.AwayFromZero);
             fireBox.y = (float) Math.Round(fireBox.y,MidpointRounding.AwayFromZero);
             fireBox.z = (float) Math.Round(fireBox.z,MidpointRounding.AwayFromZero);
-            Vector3 forFun = new Vector3(fireBox.x,fireBox.y,fireBox.z + 1);
-            Vector3 forFunn = new Vector3(fireBox.x,fireBox.y,fireBox.z - 1);
+            Vector3 forUp = new Vector3(fireBox.x,fireBox.y,fireBox.z + 1);
+            Vector3 forDown = new Vector3(fireBox.x,fireBox.y,fireBox.z - 1);
+            Vector3 forLeft = new Vector3(fireBox.x + 1,fireBox.y,fireBox.z);
+            Vector3 forRight = new Vector3(fireBox.x - 1,fireBox.y,fireBox.z);
+            Vector3 forUpLeft = new Vector3(fireBox.x + 1,fireBox.y,fireBox.z + 1);
+            Vector3 forUpRight = new Vector3(fireBox.x - 1,fireBox.y,fireBox.z + 1);
+            Vector3 forDownLeft = new Vector3(fireBox.x + 1,fireBox.y,fireBox.z - 1);
+            Vector3 forDownRight = new Vector3(fireBox.x - 1,fireBox.y,fireBox.z - 1);
             Debug.Log("Position: " + fireBox);
             if (DetectEnvironment.keepPosition != null)
             {
@@ -33,23 +45,109 @@ public class AlertOnFire : MonoBehaviour
                         aroundPosition.x = (float) Math.Round(aroundPosition.x,MidpointRounding.AwayFromZero);
                         aroundPosition.y = (float) Math.Round(aroundPosition.y,MidpointRounding.AwayFromZero);
                         aroundPosition.z = (float) Math.Round(aroundPosition.z,MidpointRounding.AwayFromZero);
-                        if(forFun == aroundPosition)
+                        if(forUp == aroundPosition )
                         {
                             Debug.Log("Found object name: " + item.name);
                             // floor
-                            zPlusOne = item.transform.GetChild(0);
-                            ren = zPlusOne.GetComponent<Renderer>();
-                            ren.sharedMaterial = floorMat_warning;
-                            Debug.Log("not BUG");
+                            Up = item.transform.GetChild(0);
+                            if(Up.gameObject.tag != "Wall")
+                            {
+                                ren = Up.GetComponent<Renderer>();
+                                ren.sharedMaterial = floorMat_warning;
+                                Debug.Log("not BUG");
+                            }
+                            
                         }
-                        if(forFunn == aroundPosition)
+                        if(forDown == aroundPosition)
                         {
                             Debug.Log("Found object name: " + item.name);
                             // floor
-                            zMinusOne = item.transform.GetChild(0);
-                            ren = zMinusOne.GetComponent<Renderer>();
-                            ren.sharedMaterial = floorMat_warning;
-                            Debug.Log("not BUG");
+                            Down = item.transform.GetChild(0);
+                            if(Down.gameObject.tag != "Wall")
+                            {
+                                ren = Down.GetComponent<Renderer>();
+                                ren.sharedMaterial = floorMat_warning;
+                                Debug.Log("not BUG");
+                            }
+                            
+                        }
+                        if(forLeft == aroundPosition)
+                        {
+                            Debug.Log("Found object name: " + item.name);
+                            // floor
+                            Left = item.transform.GetChild(0);
+                            if(Left.gameObject.tag != "Wall")
+                            {
+                                ren = Left.GetComponent<Renderer>();
+                                ren.sharedMaterial = floorMat_warning;
+                                Debug.Log("not BUG");
+                            }
+                            
+                        }
+                        if(forRight == aroundPosition)
+                        {
+                            Debug.Log("Found object name: " + item.name);
+                            // floor
+                            Right = item.transform.GetChild(0);
+                            if(Right.gameObject.tag != "Wall")
+                            {
+                                ren = Right.GetComponent<Renderer>();
+                                ren.sharedMaterial = floorMat_warning;
+                                Debug.Log("not BUG");
+                            }
+                            
+                        }
+                        if(forUpLeft == aroundPosition)
+                        {
+                            Debug.Log("Found object name: " + item.name);
+                            // floor
+                            UpLeft = item.transform.GetChild(0);
+                            if(UpLeft.gameObject.tag != "Wall")
+                            {
+                                ren = UpLeft.GetComponent<Renderer>();
+                                ren.sharedMaterial = floorMat_warning;
+                                Debug.Log("not BUG");
+                            }
+                            
+                        }
+                        if(forUpRight == aroundPosition)
+                        {
+                            Debug.Log("Found object name: " + item.name);
+                            // floor
+                            UpRight = item.transform.GetChild(0);
+                            if(UpRight.gameObject.tag != "Wall")
+                            {
+                                ren = UpRight.GetComponent<Renderer>();
+                                ren.sharedMaterial = floorMat_warning;
+                                Debug.Log("not BUG");
+                            }
+                            
+                        }
+                        if(forDownLeft == aroundPosition)
+                        {
+                            Debug.Log("Found object name: " + item.name);
+                            // floor
+                            DownLeft = item.transform.GetChild(0);
+                            if(DownLeft.gameObject.tag != "Wall")
+                            {
+                                ren = DownLeft.GetComponent<Renderer>();
+                                ren.sharedMaterial = floorMat_warning;
+                                Debug.Log("not BUG");
+                            }
+                            
+                        }
+                        if(forDownRight == aroundPosition)
+                        {
+                            Debug.Log("Found object name: " + item.name);
+                            // floor
+                            DownRight = item.transform.GetChild(0);
+                            if(DownRight.gameObject.tag != "Wall")
+                            {
+                                ren = DownRight.GetComponent<Renderer>();
+                                ren.sharedMaterial = floorMat_warning;
+                                Debug.Log("not BUG");
+                            }
+                            
                         }
                     }
                     
@@ -62,10 +160,46 @@ public class AlertOnFire : MonoBehaviour
         else if(startAlert == false)
         {
             Debug.Log("BUGGGGGGGGGGGGGGGGGGGGGGGGGG");
-            ren = zPlusOne.GetComponent<Renderer>();
-            ren.sharedMaterial = floorMat_default; 
-            ren = zMinusOne.GetComponent<Renderer>();
-            ren.sharedMaterial = floorMat_default;  
+            if(Up != null)
+            {
+                ren = Up.GetComponent<Renderer>();
+                ren.sharedMaterial = floorMat_default; 
+            }
+            if(Down != null)
+            {
+                ren = Down.GetComponent<Renderer>();
+                ren.sharedMaterial = floorMat_default; 
+            }
+            if(Left != null)
+            {
+                ren = Left.GetComponent<Renderer>();
+                ren.sharedMaterial = floorMat_default; 
+            }
+            if(Right != null)
+            {
+                ren = Right.GetComponent<Renderer>();
+                ren.sharedMaterial = floorMat_default; 
+            }
+            if(UpLeft != null)
+            {
+                ren = UpLeft.GetComponent<Renderer>();
+                ren.sharedMaterial = floorMat_default; 
+            }
+            if(UpRight != null)
+            {
+                ren = UpRight.GetComponent<Renderer>();
+                ren.sharedMaterial = floorMat_default; 
+            }
+            if(DownLeft != null)
+            {
+                ren = DownLeft.GetComponent<Renderer>();
+                ren.sharedMaterial = floorMat_default; 
+            }
+            if(DownRight != null)
+            {
+                ren = DownRight.GetComponent<Renderer>();
+                ren.sharedMaterial = floorMat_default; 
+            }  
         }
     }
 }
