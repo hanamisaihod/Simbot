@@ -141,12 +141,7 @@ public class Menu_Tutorial : MonoBehaviour
             buttonSetting.GetComponent<Image>().enabled = false;
             buttonExit.GetComponent<Image>().enabled = false;
             buttonInfo.GetComponent<Image>().enabled = false;
-
-            buttonPlay.transform.SetAsLastSibling();
-            buttonCreate.transform.SetAsFirstSibling();
-            buttonSetting.transform.SetAsFirstSibling();
-            buttonExit.transform.SetAsFirstSibling();
-            buttonInfo.transform.SetAsFirstSibling();
+            
         }
         else if (stage == 7)
         {
@@ -161,12 +156,7 @@ public class Menu_Tutorial : MonoBehaviour
             buttonSetting.GetComponent<Image>().enabled = false;
             buttonExit.GetComponent<Image>().enabled = false;
             buttonInfo.GetComponent<Image>().enabled = false;
-
-            buttonPlay.transform.SetAsFirstSibling();
-            buttonCreate.transform.SetAsLastSibling();
-            buttonSetting.transform.SetAsFirstSibling();
-            buttonExit.transform.SetAsFirstSibling();
-            buttonInfo.transform.SetAsFirstSibling();
+           
         }
         else if (stage == 8)
         {
@@ -181,12 +171,7 @@ public class Menu_Tutorial : MonoBehaviour
             buttonSetting.GetComponent<Image>().enabled = true;
             buttonExit.GetComponent<Image>().enabled = false;
             buttonInfo.GetComponent<Image>().enabled = false;
-
-            buttonPlay.transform.SetAsFirstSibling();
-            buttonCreate.transform.SetAsFirstSibling();
-            buttonSetting.transform.SetAsLastSibling();
-            buttonExit.transform.SetAsFirstSibling();
-            buttonInfo.transform.SetAsFirstSibling();
+            
         }
         else if (stage == 9)
         {
@@ -201,12 +186,7 @@ public class Menu_Tutorial : MonoBehaviour
             buttonSetting.GetComponent<Image>().enabled = false;
             buttonExit.GetComponent<Image>().enabled = true;
             buttonInfo.GetComponent<Image>().enabled = false;
-
-            buttonPlay.transform.SetAsFirstSibling();
-            buttonCreate.transform.SetAsFirstSibling();
-            buttonSetting.transform.SetAsFirstSibling();
-            buttonExit.transform.SetAsLastSibling();
-            buttonInfo.transform.SetAsFirstSibling();
+            
         }
         else if (stage == 10)
         {
@@ -221,12 +201,7 @@ public class Menu_Tutorial : MonoBehaviour
             buttonSetting.GetComponent<Image>().enabled = false;
             buttonExit.GetComponent<Image>().enabled = false;
             buttonInfo.GetComponent<Image>().enabled = true;
-
-            buttonPlay.transform.SetAsFirstSibling();
-            buttonCreate.transform.SetAsFirstSibling();
-            buttonSetting.transform.SetAsFirstSibling();
-            buttonExit.transform.SetAsFirstSibling();
-            buttonInfo.transform.SetAsLastSibling();
+            
         }
         else
         {
@@ -241,12 +216,7 @@ public class Menu_Tutorial : MonoBehaviour
             buttonSetting.GetComponent<Image>().enabled = false;
             buttonExit.GetComponent<Image>().enabled = false;
             buttonInfo.GetComponent<Image>().enabled = true;
-
-            buttonPlay.transform.SetAsFirstSibling();
-            buttonCreate.transform.SetAsFirstSibling();
-            buttonSetting.transform.SetAsFirstSibling();
-            buttonExit.transform.SetAsFirstSibling();
-            buttonInfo.transform.SetAsFirstSibling();
+            
         }
 
         if (stage == 5)
