@@ -25,6 +25,7 @@ public class Menu_Tutorial : MonoBehaviour
     public GameObject buttonSetting;
     public GameObject buttonExit;
     public GameObject buttonInfo;
+    public GameObject Boy;
 
     private bool textDone;
     private int partDone = 0;
@@ -34,7 +35,8 @@ public class Menu_Tutorial : MonoBehaviour
     public float volume = 0.5f;
     AudioSource playAudio;
     public float letterDelay = 0.01f;
-    public string[] fullText;
+    private string[] fullText;
+    public Sprite[] boyEmo;
     private string curreentLetter = "";
     private int stage = 0;
     private float waitUntil;
@@ -55,20 +57,32 @@ public class Menu_Tutorial : MonoBehaviour
         StartCoroutine(ShowButton(buttonSetting));
         StartCoroutine(ShowButton(buttonExit));
         StartCoroutine(ShowButton(buttonInfo));
-        fullText[0] = "Welcome to SIMBOT !!!";
-        fullText[1] = "My name is Neko.\nI gonna guide you to play this game.";
-        fullText[2] = "In this game, you can control robots by creating a block-based program to complete missions and you also can create your mission.";
-        fullText[3] = "When you want to play.\nJust click here.";
-        fullText[4] = "";
-        fullText[5] = "";
-        fullText[6] = "If you want to create or edit your mission, you would click here.";
-        fullText[7] = "You can click here whenever you want to change sound volume or camera controlling.";
-        fullText[8] = "If you want to take some rest, you would click here.\nI hope to see you again.\nWe have a job to do";
-        fullText[9] = "If you want to listen me again, you would click sign like this.";
-        fullText[10] = "";
-        fullText[11] = "";
-        fullText[12] = "Even this game still hasn't been done, we hope you would have fun";
-        fullText[13] = "Please give us your feedback\nThank you so much";
+        fullText = new string[50];
+        fullText[0] = "??? : Johny Johny!!!!!";
+        fullText[1] = "Johny : Aye? what is this? Dad doing this?";
+        fullText[2] = "??? : Hey Johny !!! Listen me";
+        fullText[3] = "??? : Your Dad ... w. . was sucked into the game!!";
+        fullText[4] = "Johny : Ehhhhhhhhhhhhhhhh!!!";
+        fullText[5] = "??? : Please help me johny, I try to help your father but I alone could not do much.";
+        fullText[6] = "Johny : B...But who are you? What are you?";
+        fullText[7] = "Neko : I'm Neko, An AI that created by your father to help teach players how to play this game.";
+        fullText[8] = "Neko : But there was a mistake during development.\nIt seems that a virus has intervened.\nThen your father ....";
+        fullText[9] = "Neko : I cannot do anything.";
+        fullText[10] = "Johny : A. .And what do I have to do!?";
+        fullText[11] = "Neko : You will have to play this game and take me to the deepest stage.\nIf I were there, I can get rid of the virus.";
+        fullText[12] = "Johny : So what are we waiting for? Let's GO!!!";
+        fullText[13] = "Neko : In this game, you can control robots by creating a block-based program to complete missions and you also can create your mission.";
+        fullText[14] = "Neko : When you want to play.\nJust click here.";
+        fullText[15] = "";
+        fullText[16] = "";
+        fullText[17] = "Neko : If you want to create or edit your mission, you would click here.";
+        fullText[18] = "Neko : You can click here whenever you want to change sound volume or camera controlling.";
+        fullText[19] = "Neko : If you want to take some rest, you would click here.\nI hope to see you again.\nWe have a job to do";
+        fullText[20] = "Neko : If you want to listen me again, you would click sign like this.";
+        fullText[21] = "";
+        fullText[22] = "";
+        fullText[23] = "Neko : Even this game still hasn't been done, we hope you would have fun";
+        fullText[24] = "Neko : Now let start the game";
     }
 
     void Update()
@@ -84,6 +98,7 @@ public class Menu_Tutorial : MonoBehaviour
             partDone = 0;
             textBox1Script.boxUpTrigger = true;
             Meow1Script.showRTrigger = true;
+            LeanTween.moveLocalX(Boy, Boy.transform.localPosition.x + 380f, 0.5f).setEaseInOutBack();
             MenuTutorialTrigger = false;
             startText = true;
         }
@@ -104,7 +119,7 @@ public class Menu_Tutorial : MonoBehaviour
 
         if (startText)
         {
-            if ((Input.GetMouseButtonDown(0) && Time.time > waitUntil) || stage == 0 || stage == 6 || stage == 12)
+            if ((Input.GetMouseButtonDown(0) && Time.time > waitUntil) || stage == 0 || stage == 17 || stage == 23)
             {
                 if (usingCor != null)
                 {
@@ -112,7 +127,7 @@ public class Menu_Tutorial : MonoBehaviour
                 }
                 if (partDone == 0 || partDone == 2) usingCor = StartCoroutine(ShowText(textZone1,fullText[stage]));
                 else if (partDone == 1) usingCor = StartCoroutine(ShowText(textZone2,fullText[stage]));
-                waitUntil = fullText.Length * letterDelay * 2.5f + Time.time;
+                waitUntil = 35 * letterDelay * 1f + Time.time;
                 stage++;
             }
             else if (Input.GetMouseButtonDown(0) && Time.time < waitUntil)
@@ -128,7 +143,29 @@ public class Menu_Tutorial : MonoBehaviour
             }
         }
 
-        if (stage == 4)
+        // Boy Emotion
+        if(stage == 2)
+            Boy.GetComponent<Image>().sprite = boyEmo[1];
+        else if (stage == 3)
+            Boy.GetComponent<Image>().sprite = boyEmo[0];
+        else if (stage == 5)
+            Boy.GetComponent<Image>().sprite = boyEmo[2];
+        else if (stage == 7)
+            Boy.GetComponent<Image>().sprite = boyEmo[1];
+        else if (stage == 8)
+            Boy.GetComponent<Image>().sprite = boyEmo[8];
+        else if (stage == 9)
+            Boy.GetComponent<Image>().sprite = boyEmo[10];
+        else if (stage == 11)
+            Boy.GetComponent<Image>().sprite = boyEmo[11];
+        else if (stage == 12)
+            Boy.GetComponent<Image>().sprite = boyEmo[8];
+        else if (stage == 13)
+            Boy.GetComponent<Image>().sprite = boyEmo[7];
+        else if (stage == 14)
+            Boy.GetComponent<Image>().sprite = boyEmo[6];
+
+        if (stage == 15)
         {
             ClickIcon1.GetComponent<Image>().enabled = true;
             ClickIcon2.GetComponent<Image>().enabled = false;
@@ -143,7 +180,7 @@ public class Menu_Tutorial : MonoBehaviour
             buttonInfo.GetComponent<Image>().enabled = false;
             
         }
-        else if (stage == 7)
+        else if (stage == 18)
         {
             ClickIcon1.GetComponent<Image>().enabled = false;
             ClickIcon2.GetComponent<Image>().enabled = true;
@@ -158,7 +195,7 @@ public class Menu_Tutorial : MonoBehaviour
             buttonInfo.GetComponent<Image>().enabled = false;
            
         }
-        else if (stage == 8)
+        else if (stage == 19)
         {
             ClickIcon1.GetComponent<Image>().enabled = false;
             ClickIcon2.GetComponent<Image>().enabled = false;
@@ -173,7 +210,7 @@ public class Menu_Tutorial : MonoBehaviour
             buttonInfo.GetComponent<Image>().enabled = false;
             
         }
-        else if (stage == 9)
+        else if (stage == 20)
         {
             ClickIcon1.GetComponent<Image>().enabled = false;
             ClickIcon2.GetComponent<Image>().enabled = false;
@@ -188,7 +225,7 @@ public class Menu_Tutorial : MonoBehaviour
             buttonInfo.GetComponent<Image>().enabled = false;
             
         }
-        else if (stage == 10)
+        else if (stage == 21)
         {
             ClickIcon1.GetComponent<Image>().enabled = false;
             ClickIcon2.GetComponent<Image>().enabled = false;
@@ -219,19 +256,19 @@ public class Menu_Tutorial : MonoBehaviour
             
         }
 
-        if (stage == 5)
+        if (stage == 16)
         {
             textDone = true;
             partDone++;
             stage++;
         }
-        else if (stage == 11)
+        else if (stage == 22)
         {
             textDone = true;
             partDone++;
             stage++;
         }
-        else if (stage == 15)
+        else if (stage == 26)
         {
             textDone = true;
             partDone++;
@@ -244,6 +281,7 @@ public class Menu_Tutorial : MonoBehaviour
             {
                 Meow1Script.showLTrigger = true;
                 textBox1Script.boxDownTrigger = true;
+                LeanTween.moveLocalX(Boy, Boy.transform.localPosition.x - 380f, 0.5f).setEaseInOutBack();
                 MenuTutorialTrigger2 = true;
                 Meow1Script.cancelTrigger = true;
             }

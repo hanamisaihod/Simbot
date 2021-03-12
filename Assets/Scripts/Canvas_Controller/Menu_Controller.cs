@@ -8,6 +8,7 @@ public class Menu_Controller : MonoBehaviour
     public GameObject NekoV1;
     public GameObject TurtleBot;
     public GameObject StoveBot;
+    public GameObject CutsceneTrigger;
     public bool ActiveNeko;
     public bool ActiveTurtle;
     public bool ActiveStove;
@@ -23,6 +24,7 @@ public class Menu_Controller : MonoBehaviour
         StartCoroutine(SceneShow());
         infoButton.GetComponent<Button>().onClick.AddListener(TutorialTrigger);
         tutorialCanvas.GetComponent<Canvas>().enabled = false;
+        //CutsceneTrigger.SetActive(true);
     }
 
     void Update()

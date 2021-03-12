@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cutscene_Controller : MonoBehaviour
 {
     public GameObject back;
+    public GameObject backTop;
     public GameObject S1;
     public GameObject S1_5;
     public GameObject S2;
@@ -15,7 +16,6 @@ public class Cutscene_Controller : MonoBehaviour
 
     void Start()
     {
-
         StartCoroutine(showCutScene());
     }
 
@@ -29,12 +29,16 @@ public class Cutscene_Controller : MonoBehaviour
         var S5_Rect = S5.GetComponent<RectTransform>();
         var S6_Rect = S6.GetComponent<RectTransform>();
         var back_Rect = back.GetComponent<RectTransform>();
+        var backTop_Rect = backTop.GetComponent<RectTransform>();
+
         LeanTween.alpha(S1_5_Rect, 0f, 0.5f);
         LeanTween.alpha(S2_Rect, 0f, 0.5f);
         LeanTween.alpha(S3_Rect, 0f, 0.5f);
         LeanTween.alpha(S4_Rect, 0f, 0.5f);
         LeanTween.alpha(S5_Rect, 0f, 0.5f);
         LeanTween.alpha(S6_Rect, 0f, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+        LeanTween.alpha(backTop_Rect, 0f, 0.5f);
         yield return new WaitForSeconds(0.5f);
 
         LeanTween.moveLocalY(S1,155,10f);
@@ -61,6 +65,7 @@ public class Cutscene_Controller : MonoBehaviour
         LeanTween.alpha(S6_Rect, 0f, 0.5f);
         LeanTween.alpha(back_Rect, 0f, 0.5f);
         yield return new WaitForSeconds(1f);
+        Menu_Tutorial.MenuTutorialTrigger = true;
         gameObject.SetActive(false);
     }
 }
