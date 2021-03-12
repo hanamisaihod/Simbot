@@ -38,6 +38,7 @@ TagManager:
   - VariableCarrier
   - SubCamera
   - Floor
+  - GoalBox
   layers:
   - Default
   - TransparentFX

@@ -8,6 +8,7 @@ public class ARPlacementIndicator : MonoBehaviour
 {
 	private ARRaycastManager rayManager;
 	public GameObject placementVisual;
+	public bool placed = false;
 
 	void Start()
 	{
@@ -28,7 +29,7 @@ public class ARPlacementIndicator : MonoBehaviour
 			transform.position = hits[0].pose.position;
 			transform.rotation = hits[0].pose.rotation;
 
-			if (!placementVisual.activeInHierarchy)
+			if (!placementVisual.activeInHierarchy && !placed)
 			{
 				placementVisual.SetActive(true);
 			}

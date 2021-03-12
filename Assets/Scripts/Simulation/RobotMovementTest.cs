@@ -44,17 +44,24 @@ public class RobotMovementTest : MonoBehaviour
         {
             delay = 0;
         }
+        float calculatedSpeed = speed;
+        float calculatedTorque = torque;
+        if (GameObject.Find("ARModeSwitcher"))
+        {
+            calculatedSpeed = speed * 0.02f;
+            //calculatedTorque = torque * 0.02f;
+        }
         if (delay == Mathf.Infinity)
         {
-            if (speed != 0)
+            if (calculatedSpeed != 0)
             {
                 if (isOnIceCount != 0)
                 {
-                    rbd.AddForce(transform.forward * 2 * speed);
+                    rbd.AddForce(transform.forward * 2 * calculatedSpeed);
                 }
                 else
                 {
-                    rbd.velocity = transform.forward * speed / 0.99f;
+                    rbd.velocity = transform.forward * calculatedSpeed / 0.99f;
                 }
             }
             else
@@ -64,15 +71,15 @@ public class RobotMovementTest : MonoBehaviour
                     rbd.velocity = new Vector3(0, 0, 0);
                 }
             }
-            if (torque != 0)
+            if (calculatedTorque != 0)
             {
                 if (isOnIceCount != 0)
                 {
-                    rbd.AddTorque(transform.up * torque / 4.0f / 57.273f);
+                    rbd.AddTorque(transform.up * calculatedTorque / 4.0f / 57.273f);
                 }
                 else
                 {
-                    rbd.angularVelocity = transform.up * torque / 57.273f / 0.99f;
+                    rbd.angularVelocity = transform.up * calculatedTorque / 57.273f / 0.99f;
                 }
             }
             else
@@ -92,15 +99,15 @@ public class RobotMovementTest : MonoBehaviour
         }
         else if (delay > 0.01999961)
         {
-            if (speed != 0)
+            if (calculatedSpeed != 0)
             {
                 if (isOnIceCount != 0)
                 {
-                    rbd.AddForce(transform.forward * 2 * speed);
+                    rbd.AddForce(transform.forward * 2 * calculatedSpeed);
                 }
                 else
                 {
-                    rbd.velocity = transform.forward * speed / 0.99f;
+                    rbd.velocity = transform.forward * calculatedSpeed / 0.99f;
                 }
             }
             else
@@ -110,15 +117,15 @@ public class RobotMovementTest : MonoBehaviour
                     rbd.velocity = new Vector3(0, 0, 0);
                 }
             }
-            if (torque != 0)
+            if (calculatedTorque != 0)
             {
                 if (isOnIceCount != 0)
                 {
-                    rbd.AddTorque(transform.up * torque / 4.0f / 57.273f);
+                    rbd.AddTorque(transform.up * calculatedTorque / 4.0f / 57.273f);
                 }
                 else
                 {
-                    rbd.angularVelocity = transform.up * torque / 57.273f / 0.99f;
+                    rbd.angularVelocity = transform.up * calculatedTorque / 57.273f / 0.99f;
                 }
             }
             else

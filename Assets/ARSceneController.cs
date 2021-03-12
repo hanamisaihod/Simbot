@@ -6,8 +6,10 @@ using System.Linq;
 public class ARSceneController : MonoBehaviour
 {
 	private ARPlacementIndicator placementIndicator;
+	public ARModeSwitcher modeSwitcher;
+	public GameObject robotFromLevelController;
 	public EnviSim enviSim;
-	[SerializeField] GameObject map;
+	public GameObject map;
 	[SerializeField] Vector3 centroid;
 	private void Start()
 	{
@@ -22,10 +24,14 @@ public class ARSceneController : MonoBehaviour
 		//}
 		if (placementIndicator.placementVisual.activeInHierarchy)
 		{
-			map.SetActive(true);
+			if (!map.activeInHierarchy)
+			{
+				map.SetActive(true);
+				modeSwitcher.applyButton.gameObject.SetActive(true);
+			}
 			//map.transform.position = placementIndicator.transform.position;
 			map.transform.position = new Vector3(placementIndicator.transform.position.x
-				, placementIndicator.transform.position.y + 0.5f * 0.02f
+				, placementIndicator.transform.position.y + 0.5f * 0.015f
 				, placementIndicator.transform.position.z);
 			map.transform.rotation = placementIndicator.transform.rotation;
 		}
@@ -45,6 +51,12 @@ public class ARSceneController : MonoBehaviour
 		centroid = CalculateMapCentroid();
 		MoveMapToCentroid();
 		map.SetActive(false);
+	}
+
+	private bool finishedRotating = true;
+	public void RotateMap()
+	{
+		map.transform.Rotate(map.transform.rotation.x, map.transform.rotation.y + 45, map.transform.rotation.z);
 	}
 
 	private Vector3 CalculateMapCentroid()

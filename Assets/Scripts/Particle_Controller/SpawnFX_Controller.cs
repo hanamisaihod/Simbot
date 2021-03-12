@@ -19,7 +19,7 @@ public class SpawnFX_Controller : MonoBehaviour
 
     public GameObject turtlePrefab;
 	public GameObject stovePrefab;
-
+    public GameObject spawnedRobot;
 	void Start()
     {
         blueLightCube.SetActive(true);
@@ -31,7 +31,7 @@ public class SpawnFX_Controller : MonoBehaviour
 
         blueInitial = blueLightCube.transform.localScale;
         whiteInitial = whiteLightCube.transform.localScale;
-		StartShowing();
+		//StartShowing();
 
     }
 
@@ -103,23 +103,48 @@ public class SpawnFX_Controller : MonoBehaviour
 		StartCoroutine(Clear());
 	}
 
-    public void SpawnRobot(int botType)
+    public void SpawnRobot(int botType, bool ar)
     {
-        if (botType == 0)
+        if (!ar)
         {
-            GameObject tempBot = Instantiate(turtlePrefab);
-            tempBot.transform.position = transform.position + new Vector3(0, 0.3f, 0);
-            tempBot.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-        }
-        else if (botType == 1) // check static variable for corresponding robot of current stage
-        {
-            GameObject tempBot = Instantiate(stovePrefab);
-            tempBot.transform.position = transform.position + new Vector3(0, 0.17f, 0);
-            tempBot.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-        }
-        else
-        {
+            if (botType == 0)
+            {
+                spawnedRobot = Instantiate(turtlePrefab);
+                spawnedRobot.transform.position = transform.position + new Vector3(0, 0.3f, 0);
+                spawnedRobot.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            }
+            else if (botType == 1) // check static variable for corresponding robot of current stage
+            {
+                spawnedRobot = Instantiate(stovePrefab);
+                spawnedRobot.transform.position = transform.position + new Vector3(0, 0.17f, 0);
+                spawnedRobot.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            }
+            else
+            {
 
+            }
+        }
+		else
+		{
+            Debug.Log("Spawning the robot in AR");
+            if (botType == 0)
+            {
+                spawnedRobot = Instantiate(turtlePrefab, new Vector3(999,999,999), new Quaternion());
+                spawnedRobot.transform.localScale *= 0.02f;
+                spawnedRobot.transform.position = transform.position + new Vector3(0, 0.3f * 0.02f, 0);
+                spawnedRobot.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            }
+            else if (botType == 1) // check static variable for corresponding robot of current stage
+            {
+                spawnedRobot = Instantiate(stovePrefab, new Vector3(999, 999, 999), new Quaternion());
+                spawnedRobot.transform.localScale *= 0.02f;
+                spawnedRobot.transform.position = transform.position + new Vector3(0, 0.17f * 0.02f, 0);
+                spawnedRobot.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            }
+            else
+            {
+
+            }
         }
     }
 }
