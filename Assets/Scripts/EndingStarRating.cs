@@ -71,7 +71,12 @@ public class EndingStarRating : MonoBehaviour
                     endingCondition2.GetComponent<Text>().text = endingWord2;
                     //Debug.Log(endingCondition2.GetComponent<Text>().text);
                     int blockCode = GameObject.Find("BlockSaveManager").GetComponent<BlockSaveAndLoad>().conBlocks.Length - 1;
-                    if (LoadMainStage.mainStageKey == "Map1")
+                    if(clearType != true)
+                    {
+                        item.mapStar2 = false;
+                        endingStar2Appear.SetActive(false);
+                    }
+                    else if (LoadMainStage.mainStageKey == "Map1")
                     {
                         if(blockCode <= 2)
                         {
@@ -96,7 +101,7 @@ public class EndingStarRating : MonoBehaviour
                             emptyStar2.SetActive(true);
                         }
                     }
-                    if (LoadMainStage.mainStageKey == "Map2")
+                    else if (LoadMainStage.mainStageKey == "Map2")
                     {
                         if(blockCode <= 5)
                         {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Robotcheck : MonoBehaviour
 {
@@ -37,6 +38,20 @@ public class Robotcheck : MonoBehaviour
                 robotTypeNum = 1;
             }
         }
+        if(EnviSim.Mode == "Creative")
+        {
+            turtleButton1.AddComponent<Button>();
+            lineButton1.AddComponent<Button>();
+            turtleButton1.GetComponent<Button>().onClick.AddListener(creativeTurtleRobotNum);
+            lineButton1.GetComponent<Button>().onClick.AddListener(creativeLineRobotNum);
+        }
     }
-
+    void creativeTurtleRobotNum()
+    {
+        robotTypeNum = 0;
+    }
+    void creativeLineRobotNum()
+    {
+        robotTypeNum = 1;
+    }
 }
