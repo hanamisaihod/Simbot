@@ -14,8 +14,22 @@ public class RobotStatus : MonoBehaviour
 
     void Start()
     {
-		healthRect = GameObject.Find("HP_Blood").GetComponent<RectTransform>();
-        levelController = GameObject.FindGameObjectWithTag("LevelController");
+		if (GameObject.Find("ARModeSwitcher"))
+		{
+			foreach (Transform child in GameObject.Find("ARModeSwitcher").GetComponent<ARModeSwitcher>().hpSet.transform)
+			{
+				if (child.name == "HP_Blood")
+				{
+					healthRect = child.GetComponent<RectTransform>();
+				}
+			}
+		}
+		else
+		{
+
+			healthRect = GameObject.Find("HP_Blood").GetComponent<RectTransform>();
+		}
+		levelController = GameObject.FindGameObjectWithTag("LevelController");
 		EndingStarRating.robotHP = playerHealth;
     }
 
@@ -28,10 +42,13 @@ public class RobotStatus : MonoBehaviour
 	public void DamagePlayer(float damage)
 	{
 		Debug.Log("Damge: " + damage);
-		playerHealth -= damage;
-		EndingStarRating.robotHP = playerHealth;
-		healthRect.sizeDelta = new Vector2(healthRect.sizeDelta.x - (damage*3.5f), healthRect.sizeDelta.y);
-		boomController.GetComponent<Robot_Boom_Controller>().UpdateBoomEffect(playerHealth, maxHealth);
+		if (damage > 0.25)
+		{
+			playerHealth -= damage;
+			EndingStarRating.robotHP = playerHealth;
+			healthRect.sizeDelta = new Vector2(healthRect.sizeDelta.x - (damage * 3.5f), healthRect.sizeDelta.y);
+			boomController.GetComponent<Robot_Boom_Controller>().UpdateBoomEffect(playerHealth, maxHealth);
+		}
         if (playerHealth <= 0)
         {
             levelController.GetComponent<LevelController>().stopRobot = true;

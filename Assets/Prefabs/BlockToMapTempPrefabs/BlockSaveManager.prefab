@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2191385448682690648}
-  - component: {fileID: 2191385448682690649}
+  - component: {fileID: 2475067124096151954}
   m_Layer: 0
   m_Name: BlockSaveManager
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2191385448682690649
+--- !u!114 &2475067124096151954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,6 +40,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 2191385448682690650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e1ce44571e04874490e6ec62aafc5d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cb16cd914208f146998d66337c1335c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveName: 
+  startPrefab: {fileID: 8641958648996881970, guid: fe66b9bc8433f304b867156022c6b5cd,
+    type: 3}
+  doPrefab: {fileID: 4268292269040110976, guid: 464d42ada39a983458e8d707245e2d79,
+    type: 3}
+  ifPrefab: {fileID: 4569972201353174900, guid: d8ea896d71b63f14c9cf53030770a068,
+    type: 3}
+  repeatPrefab: {fileID: 1952541985619196896, guid: 6f309fd507f75474eb35d4aa8fdfc657,
+    type: 3}
+  conBlocks: []
+  startBlock: []
+  doBlocks: []
+  ifBlocks: []
+  repeatBlocks: []
+  mainCamera: {fileID: 0}
+  newBlockProgram: 0
+  debugButton: 0
+  allowManualAssigning: 0

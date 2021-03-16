@@ -7,8 +7,9 @@ public class LevelController : MonoBehaviour
 {
 	private List<GameObject> productList;
     public List<GameObject> redzoneList;
+	public ARModeSwitcher arModeSwitcher;
 	private int deliveryLeft;
-    private GameObject start;
+    public GameObject start;
     private GameObject goal;
 	public GameObject canvasFX;
     public int robotType;
@@ -27,10 +28,19 @@ public class LevelController : MonoBehaviour
     {
         start = GameObject.FindGameObjectWithTag("Start");
         goal = GameObject.FindGameObjectWithTag("Goal");
-        if (start)
-        {
-            start.GetComponent<SpawnFX_Controller>().SpawnRobot(Robotcheck.robotTypeNum);
-        }
+		if (start)
+		{
+			if (!arModeSwitcher)
+			{
+				start.GetComponent<SpawnFX_Controller>().StartShowing();
+				start.GetComponent<SpawnFX_Controller>().SpawnRobot(Robotcheck.robotTypeNum, false);
+			}
+			else
+			{
+				start.GetComponent<SpawnFX_Controller>().StartShowing();
+				start.GetComponent<SpawnFX_Controller>().SpawnRobot(Robotcheck.robotTypeNum, true);
+			}
+		}
         if (GameObject.Find("Green_Destination"))
 		{
 			deliveryLeft++;
@@ -97,39 +107,12 @@ public class LevelController : MonoBehaviour
 	public void FinishMission()
 	{
 		goal.GetComponent<GoalFX_Controller>().StartTrigger();
-		CheckStar();
-		SaveMissionProgress();
 		canvasFX.GetComponent<CanvasFX_Controller>().clearTrigger = true;
         stopRobot = true;
-		//Star calculation
-		//show complete ui
-		//save progress
 	}
 
 	public void FailMission()
 	{
 		canvasFX.GetComponent<CanvasFX_Controller>().failTrigger = true;
 	}
-
-	public void CheckStar()
-	{
-        completionStar = true;
-        codeAmountStar = GetCodeAmountStar();
-        robotHealthStar = GetRobotHeathStar();
-	}
-
-	public void SaveMissionProgress()
-	{
-
-	}
-
-    public bool GetCodeAmountStar()
-    {
-        return true; //DELETE
-    }
-
-    public bool GetRobotHeathStar()
-    {
-        return true;
-    }
 }
