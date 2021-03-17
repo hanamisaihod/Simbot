@@ -17,7 +17,8 @@ public class EndingStarRating : MonoBehaviour
     public GameObject endingStar3Appear;
     public static int lineOfCode;
     public static float robotHP;
-    public static bool clearType;
+    public static bool clear = false;
+    public static bool fail = false;
     //public StarRatingData endingSRData;
     public List<StarRatingData> SREnvAtEnding = new List<StarRatingData>();
     // Start is called before the first frame update
@@ -43,12 +44,12 @@ public class EndingStarRating : MonoBehaviour
                 {
                     endingCondition1.GetComponent<Text>().text = endingWord1;
                     //Debug.Log(endingCondition1.GetComponent<Text>().text);
-                    if(clearType == true)
+                    if(clear == true)
                     {
                         item.mapStar1 = true;
                         endingStar1Appear.SetActive(true);
                     }
-                    else
+                    if(fail == true)
                     {
                         if(item.mapStar1 == true)
                         {
@@ -61,9 +62,6 @@ public class EndingStarRating : MonoBehaviour
                         
                         endingStar1Appear.SetActive(false);
                     }
-                    
-                    
-
                 }
                 //LINE
                 foreach (string endingWord2 in item.mapCondition2)
@@ -71,54 +69,66 @@ public class EndingStarRating : MonoBehaviour
                     endingCondition2.GetComponent<Text>().text = endingWord2;
                     //Debug.Log(endingCondition2.GetComponent<Text>().text);
                     int blockCode = GameObject.Find("BlockSaveManager").GetComponent<BlockSaveAndLoad>().conBlocks.Length - 1;
-                    if (LoadMainStage.mainStageKey == "Map1")
+                    if(fail == true && item.mapStar2 != true)
                     {
-                        if(blockCode <= 2)
-                        {
-                            //true
-                            Debug.Log("True");
-                            item.mapStar2 = true;
-                            endingStar2Appear.SetActive(true);
-                        }
-                        else
-                        {
-                            Debug.Log("False");
-                            if(item.mapStar2 == true)
-                            {
-                                item.mapStar2 = true;
-                            }
-                            else
-                            {
-                                item.mapStar2 = false;
-                            }
-                            
-                            endingStar2Appear.SetActive(false);
-                            emptyStar2.SetActive(true);
-                        }
+                        item.mapStar2 = false;
+                        endingStar2Appear.SetActive(false);
                     }
-                    if (LoadMainStage.mainStageKey == "Map2")
+                    else if (fail == true && item.mapStar2 == true)
                     {
-                        if(blockCode <= 5)
+                        endingStar2Appear.SetActive(false);
+                    }
+                    else
+                    {
+                        if (LoadMainStage.mainStageKey == "Map1")
                         {
-                            //true
-                            Debug.Log("True");
-                            item.mapStar2 = true;
-                            endingStar2Appear.SetActive(true);
-                        }
-                        else
-                        {
-                            Debug.Log("False");
-
-                            if(item.mapStar2 == true)
+                            if(blockCode <= 2)
                             {
+                                //true
+                                Debug.Log("True");
                                 item.mapStar2 = true;
+                                endingStar2Appear.SetActive(true);
                             }
                             else
                             {
-                                item.mapStar2 = false;
+                                Debug.Log("False");
+                                if(item.mapStar2 == true)
+                                {
+                                    item.mapStar2 = true;
+                                }
+                                else
+                                {
+                                    item.mapStar2 = false;
+                                }
+                                
+                                endingStar2Appear.SetActive(false);
+                                emptyStar2.SetActive(true);
                             }
-                            endingStar2Appear.SetActive(false);
-                            emptyStar2.SetActive(true);
+                        }
+                        else if (LoadMainStage.mainStageKey == "Map2")
+                        {
+                            if(blockCode <= 5)
+                            {
+                                //true
+                                Debug.Log("True");
+                                item.mapStar2 = true;
+                                endingStar2Appear.SetActive(true);
+                            }
+                            else
+                            {
+                                Debug.Log("False");
+
+                                if(item.mapStar2 == true)
+                                {
+                                    item.mapStar2 = true;
+                                }
+                                else
+                                {
+                                    item.mapStar2 = false;
+                                }
+                                endingStar2Appear.SetActive(false);
+                                emptyStar2.SetActive(true);
+                            }
                         }
                     }
                 }

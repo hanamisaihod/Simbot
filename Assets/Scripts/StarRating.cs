@@ -130,7 +130,7 @@ public class StarRating : MonoBehaviour
                     SREnv = SaveLoadSR.LoadSR<List<StarRatingData>>(LoadMainStage.buttonArray[i].GetComponentInChildren<Text>().text);
                     foreach (StarRatingData item in SREnv)
                     {
-                        if(item.mapStar1 != true && item.mapStar2 != true && item.mapStar3 != true && i != sizeOfList - 1)
+                        if(item.mapStar1 != true && i != sizeOfList - 1)
                         {
                             LoadMainStage.buttonArray[i+1].GetComponent<UnityEngine.UI.Button>().enabled = false;
                         }
