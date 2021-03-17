@@ -56,6 +56,7 @@ public class CanvasFX_Controller : MonoBehaviour
     public AudioClip soundLose;
     public float volume = 0.5f;
     public EndingStarRating callStarRating;
+    public GameObject ratingBox;
 
 
     void Start()
@@ -100,6 +101,7 @@ public class CanvasFX_Controller : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Cleartype = " + clearTrigger);
         if (clearTrigger && !startShow && !FXshowing)
         {
             if (usingCor != null)
@@ -111,7 +113,7 @@ public class CanvasFX_Controller : MonoBehaviour
             {
                 StopCoroutine(tableCor);
             }
-            EndingStarRating.clearType = clearTrigger;
+            EndingStarRating.clear = true;
             tableCor = StartCoroutine(tableShow());
             startShow = true;
             FXshowing = true;
@@ -119,7 +121,7 @@ public class CanvasFX_Controller : MonoBehaviour
         else
         {
             clearTrigger = false;
-            EndingStarRating.clearType = clearTrigger;
+            
         }
             
 
@@ -135,6 +137,7 @@ public class CanvasFX_Controller : MonoBehaviour
                 StopCoroutine(tableCor);
             }
             tableCor = StartCoroutine(tableShow());
+            EndingStarRating.fail = true;
             startShow = true;
             FXshowing = true;
         }
@@ -260,7 +263,7 @@ public class CanvasFX_Controller : MonoBehaviour
 
     IEnumerator tableShow()
     {
-        callStarRating.starRatingShow();
+        
         var tableRect = starTable.GetComponent<RectTransform>();
         var retryRect = retryButton.GetComponent<RectTransform>();
         var doneRect = doneButton.GetComponent<RectTransform>();
@@ -272,13 +275,32 @@ public class CanvasFX_Controller : MonoBehaviour
         LeanTween.scale(retryRect, retryRect.localScale / 8f, 0.1f);
         LeanTween.scale(doneRect, doneRect.localScale / 8f, 0.1f);
         yield return new WaitForSeconds(0.1f);
-        starTable.GetComponent<Image>().enabled = true;
-        emptyStar1.GetComponent<Image>().enabled = true;
-        emptyStar2.GetComponent<Image>().enabled = true;
-        emptyStar3.GetComponent<Image>().enabled = true;
-        textCon1.GetComponent<Text>().enabled = true;
-        textCon2.GetComponent<Text>().enabled = true;
-        textCon3.GetComponent<Text>().enabled = true;
+        if(EnviSim.Mode == "Main")
+        {
+            callStarRating.starRatingShow();
+            starTable.GetComponent<Image>().enabled = true;
+            emptyStar1.GetComponent<Image>().enabled = true;
+            emptyStar2.GetComponent<Image>().enabled = true;
+            emptyStar3.GetComponent<Image>().enabled = true;
+            textCon1.GetComponent<Text>().enabled = true;
+            textCon2.GetComponent<Text>().enabled = true;
+            textCon3.GetComponent<Text>().enabled = true;
+        }
+        else
+        {
+            ratingBox.GetComponent<Image>().enabled = false;
+            emptyStar1.SetActive(false);
+            emptyStar2.SetActive(false);
+            emptyStar3.SetActive(false);
+            star1.SetActive(false);
+            star2.SetActive(false);
+            star3.SetActive(false);
+            textCon1.SetActive(false);
+            textCon2.SetActive(false);
+            textCon3.SetActive(false);
+            
+        }
+        
         LeanTween.scale(tableRect, tableRect.localScale * 10.5f, 0.75f).setEaseInOutBack();
 
         yield return new WaitForSeconds(0.75f);
