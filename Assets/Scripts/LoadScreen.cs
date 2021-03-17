@@ -128,7 +128,7 @@ public class LoadScreen : MonoBehaviour
 
             LoadConfirm.clickToLoad = false;
             LoadConfirm.waitForSelectSlot = false;
-            SceneManager.LoadScene("MapBuilding");
+            SceneManager.LoadScene("SelectRobot");
         }
         else if(DeleteSave.clickToDelete == true)
         {

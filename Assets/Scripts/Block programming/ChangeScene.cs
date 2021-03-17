@@ -18,6 +18,6 @@ public class ChangeScene : MonoBehaviour
             GameObject.FindGameObjectWithTag("VariableCarrier").GetComponent<CarriedVariables>().currentMapName = inputMap;
         }
         Debug.Log("Sim MODEEEEEEEEEEEEEEEEEEEEEEE = " + EnviSim.Mode);
-        SceneManager.LoadScene("MapBuilding");
+        SceneManager.LoadScene("SelectRobot");
     }
 }
