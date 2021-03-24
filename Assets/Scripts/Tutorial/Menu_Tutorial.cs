@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * For menu tutorial (and any other tutorial)
+ * Save name is {ScriptName}
+ * Immediately delete this object when playerprefs returns true
+ */
 
 public class Menu_Tutorial : MonoBehaviour
 {
-    public static bool MenuTutorialTrigger;
+    public static bool MenuTutorialTrigger = true;
     private bool MenuTutorialTrigger2;
     private bool MenuTutorialTrigger3;
     public GameObject Meow1;
@@ -26,6 +31,10 @@ public class Menu_Tutorial : MonoBehaviour
     public GameObject buttonExit;
     public GameObject buttonInfo;
     public GameObject Boy;
+    public Menu_Controller menuController;
+
+    private Text textField1;
+    private Text textField2;
 
     private bool textDone;
     private int partDone = 0;
@@ -42,10 +51,19 @@ public class Menu_Tutorial : MonoBehaviour
     private float waitUntil;
     Coroutine usingCor;
     Coroutine delayCor;
+    private int textSum = 0;
+    private int textLength = 0;
 
 
     void Start()
     {
+        if (PlayerPrefs.HasKey("Menu_Tutorial"))
+		{
+            if (PlayerPrefs.GetInt("Menu_Tutorial") == 1)
+            {
+                MenuTutorialTrigger = false;
+            }
+		}
         playAudio = GetComponent<AudioSource>();
         ClickIcon1.GetComponent<Image>().enabled = false;
         ClickIcon2.GetComponent<Image>().enabled = false;
@@ -83,6 +101,22 @@ public class Menu_Tutorial : MonoBehaviour
         fullText[22] = "";
         fullText[23] = "Neko : Even this game still hasn't been done, we hope you would have fun";
         fullText[24] = "Neko : Now let start the game";
+
+        //Get text children
+        foreach (Transform child in textBox1.transform)
+		{
+            if (child.name == "Text")
+			{
+                textField1 = child.gameObject.GetComponent<Text>();
+			}
+		}
+        foreach (Transform child in textBox2.transform)
+        {
+            if (child.name == "Text")
+            {
+                textField2 = child.gameObject.GetComponent<Text>();
+            }
+        }
     }
 
     void Update()
@@ -116,35 +150,53 @@ public class Menu_Tutorial : MonoBehaviour
             Meow1Script.showRTrigger = true;
             MenuTutorialTrigger3 = false;
         }
-
+        textSum = textField1.text.Length + textField2.text.Length;
+        if (stage > 0)
+		{
+            if (fullText[stage-1] != null)
+			{
+                textLength = fullText[stage - 1].Length;
+            }
+		}
         if (startText)
         {
-            if ((Input.GetMouseButtonDown(0) && Time.time > waitUntil) || stage == 0 || stage == 17 || stage == 23)
+            if ((Input.GetMouseButtonDown(0) && textSum >= textLength) || stage == 0 || stage == 17 || stage == 23)
             {
                 if (usingCor != null)
                 {
                     StopCoroutine(usingCor);
                 }
-                if (partDone == 0 || partDone == 2) usingCor = StartCoroutine(ShowText(textZone1,fullText[stage]));
-                else if (partDone == 1) usingCor = StartCoroutine(ShowText(textZone2,fullText[stage]));
-                waitUntil = 35 * letterDelay * 1f + Time.time;
+                if (fullText[stage] != null) // Check if fulltext has any text to show
+                {
+                    if (partDone == 0 || partDone == 2)
+                    {
+                        usingCor = StartCoroutine(ShowText(textZone1, fullText[stage]));
+                    }
+                    else if (partDone == 1)
+                    {
+                        usingCor = StartCoroutine(ShowText(textZone2, fullText[stage]));
+                    }
+                }
                 stage++;
             }
-            else if (Input.GetMouseButtonDown(0) && Time.time < waitUntil)
+            else if (Input.GetMouseButtonDown(0) && textSum < textLength)
             {
                 if (usingCor != null)
                 {
                     StopCoroutine(usingCor);
                 }
                 stage--;
-                if (partDone == 0 || partDone == 2) textZone1.GetComponent<Text>().text = fullText[stage];
-                else if (partDone == 1) textZone2.GetComponent<Text>().text = fullText[stage];
+                if (fullText[stage] != null)
+                {
+                    if (partDone == 0 || partDone == 2) textZone1.GetComponent<Text>().text = fullText[stage];
+                    else if (partDone == 1) textZone2.GetComponent<Text>().text = fullText[stage];
+                }
                 stage++;
             }
         }
 
         // Boy Emotion
-        if(stage == 2)
+        if (stage == 2)
             Boy.GetComponent<Image>().sprite = boyEmo[1];
         else if (stage == 3)
             Boy.GetComponent<Image>().sprite = boyEmo[0];
@@ -303,6 +355,7 @@ public class Menu_Tutorial : MonoBehaviour
                 delayCor = StartCoroutine(DelayCall());
                 Meow1Script.cancelTrigger = true;
                 Meow2Script.cancelTrigger = true;
+                PlayerPrefs.SetInt("Menu_Tutorial", 1); // remember that this dialogue already happened
             }
             textDone = false;
         }
@@ -332,3 +385,40 @@ public class Menu_Tutorial : MonoBehaviour
         startText = false;
     }
 }
+
+
+//Backup code
+//if (startText)
+//{
+//    if ((Input.GetMouseButtonDown(0) && Time.time > waitUntil) || stage == 0 || stage == 17 || stage == 23)
+//    {
+//        if (usingCor != null)
+//        {
+//            StopCoroutine(usingCor);
+//        }
+//        if (fullText[stage] != null) // Check if fulltext has any text to show
+//        {
+//            if (partDone == 0 || partDone == 2)
+//            {
+//                usingCor = StartCoroutine(ShowText(textZone1, fullText[stage]));
+//            }
+//            else if (partDone == 1)
+//            {
+//                usingCor = StartCoroutine(ShowText(textZone2, fullText[stage]));
+//            }
+//        }
+//        waitUntil = 35 * letterDelay * 1f + Time.time;
+//        stage++;
+//    }
+//    else if (Input.GetMouseButtonDown(0) && Time.time < waitUntil)
+//    {
+//        if (usingCor != null)
+//        {
+//            StopCoroutine(usingCor);
+//        }
+//        stage--;
+//        if (partDone == 0 || partDone == 2) textZone1.GetComponent<Text>().text = fullText[stage];
+//        else if (partDone == 1) textZone2.GetComponent<Text>().text = fullText[stage];
+//        stage++;
+//    }
+//}

@@ -22,12 +22,24 @@ public class Mission_Tutorial : MonoBehaviour
     public Sprite[] boyEmo;
     private string curreentLetter = "";
     private int stage = 0;
+    public int maxStage = 5;
     private float waitUntil;
     Coroutine usingCor;
     Coroutine delayCor;
+    private int textSum = 0;
+    private int textLength = 0;
+    private Text textField1;
 
     void Start()
     {
+        
+        if (PlayerPrefs.HasKey("Mission_Tutorial"))
+		{
+            if (PlayerPrefs.GetInt("Mission_Tutorial") == 1)
+            {
+                Destroy(gameObject);
+            }
+        }
         var Meow1Script = Meow1.GetComponent<MeowUI_Animating>();
         var textBox1Script = textBox1.GetComponent<Textbox>();
 
@@ -42,9 +54,14 @@ public class Mission_Tutorial : MonoBehaviour
         fullText[2] = "Johny : What!? I won’t make any progress if I fail!?";
         fullText[3] = "Neko : Don’t worry. You only need to fulfill at least one requirement of each mission to complete it.";
         fullText[4] = "Neko : Once you selected a mission, the game will show you the requirements.\nThen, you can press confirm.";
-
         stage = 0;
-
+        foreach (Transform child in textBox1.transform)
+        {
+            if (child.name == "Text")
+            {
+                textField1 = child.gameObject.GetComponent<Text>();
+            }
+        }
     }
 
     void Update()
@@ -52,24 +69,37 @@ public class Mission_Tutorial : MonoBehaviour
         var Meow1Script = Meow1.GetComponent<MeowUI_Animating>();
         var textBox1Script = textBox1.GetComponent<Textbox>();
 
-        if ((Input.GetMouseButtonDown(0) && Time.time > waitUntil) || stage == 0)
+        textSum = textField1.text.Length;
+        if (stage > 0)
+        {
+            if (fullText[stage - 1] != null)
+            {
+                textLength = fullText[stage - 1].Length;
+            }
+        }
+        if ((Input.GetMouseButtonDown(0) && textSum >= textLength) || stage == 0)
         {
             if (usingCor != null)
             {
                 StopCoroutine(usingCor);
             }
-            usingCor = StartCoroutine(ShowText(textZone1, fullText[stage]));
-            waitUntil = 35 * letterDelay * 1f + Time.time;
+            if (fullText[stage] != null) // Check if fulltext has any text to show
+            {
+                usingCor = StartCoroutine(ShowText(textZone1, fullText[stage]));
+            }
             stage++;
         }
-        else if (Input.GetMouseButtonDown(0) && Time.time < waitUntil)
+        else if (Input.GetMouseButtonDown(0) && textSum < textLength)
         {
             if (usingCor != null)
             {
                 StopCoroutine(usingCor);
             }
             stage--;
-            textZone1.GetComponent<Text>().text = fullText[stage];
+            if (fullText[stage] != null)
+            {
+                textZone1.GetComponent<Text>().text = fullText[stage];
+            }
             stage++;
         }
 
@@ -100,6 +130,7 @@ public class Mission_Tutorial : MonoBehaviour
             back.SetActive(false);
             textDone = false;
             stage++;
+            PlayerPrefs.SetInt("Mission_Tutorial", 1); // remember that this dialogue already happened
         }
     }
 

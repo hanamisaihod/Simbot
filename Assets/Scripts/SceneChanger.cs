@@ -53,7 +53,10 @@ public class SceneChanger : MonoBehaviour
 			SceneManager.LoadScene("ARTest");
 		}
     }
-
+	public void ExitGame()
+	{
+		Application.Quit();
+	}
 	public void TurnOnAR()
 	{
 		ar = !ar;
