@@ -317,7 +317,18 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 491845305}
+        m_MethodName: ChangeTextToWhite
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
@@ -1261,6 +1272,7 @@ MonoBehaviour:
   - {fileID: 2830104830790117056, guid: 4c00b6181064981429bc65b9281ec043, type: 3}
   - {fileID: -8487752739670032820, guid: 4c00b6181064981429bc65b9281ec043, type: 3}
   - {fileID: -6170450381931686005, guid: 4c00b6181064981429bc65b9281ec043, type: 3}
+  maxStage: 5
 --- !u!114 &399234703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1833,6 +1845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txt_Input: {fileID: 20528487}
+  txt: {fileID: 2085982392}
 --- !u!1 &601515041
 GameObject:
   m_ObjectHideFlags: 0

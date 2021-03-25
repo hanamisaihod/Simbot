@@ -10,14 +10,39 @@ public class ChangeScene : MonoBehaviour
 	public static string inputBlock;
 	public InputField txt_Input;
     public static string subMode;
+    public Text txt;
     public void ClickChangeScene()
     {
+		foreach (string str in LoadScreen.allKeyword)
+		{
+			Debug.Log("map name: " + str);
+		}
+		bool mapExisted = false; ;
         inputMap = txt_Input.text;
-        if (GameObject.FindGameObjectWithTag("VariableCarrier"))
+        foreach (string str in LoadScreen.allKeyword)
         {
-            GameObject.FindGameObjectWithTag("VariableCarrier").GetComponent<CarriedVariables>().currentMapName = inputMap;
+            if (inputMap == str)
+            {
+                ChangeTextToRed();
+                mapExisted = true;
+			}
         }
-        Debug.Log("Sim MODEEEEEEEEEEEEEEEEEEEEEEE = " + EnviSim.Mode);
-        SceneManager.LoadScene("SelectRobot");
+        if (!mapExisted)
+        {
+            if (GameObject.FindGameObjectWithTag("VariableCarrier"))
+            {
+                GameObject.FindGameObjectWithTag("VariableCarrier").GetComponent<CarriedVariables>().currentMapName = inputMap;
+            }
+            Debug.Log("Sim MODEEEEEEEEEEEEEEEEEEEEEEE = " + EnviSim.Mode);
+            SceneManager.LoadScene("SelectRobot");
+        }
+    }
+    public void ChangeTextToRed()
+	{
+        txt.color = Color.red;
+	}
+    public void ChangeTextToWhite()
+    {
+        txt.color = Color.white;
     }
 }
