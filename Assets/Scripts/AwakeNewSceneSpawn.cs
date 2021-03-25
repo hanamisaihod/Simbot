@@ -22,12 +22,13 @@ public class AwakeNewSceneSpawn : MonoBehaviour
         name = new string[LoadScreen.countMaxValue];
         vector3 = new Vector3[LoadScreen.countMaxValue];
         rotation = new Quaternion[LoadScreen.countMaxValue];
-        Debug.Log("LoadScreen.countMaxValue: "+LoadScreen.countMaxValue);
-        Debug.Log("name.legth: "+name.Length);
+        //Debug.Log("LoadScreen.countMaxValue: "+LoadScreen.countMaxValue);
+        //Debug.Log("name.legth: "+name.Length);
         if(LoadScreen.spawnFromLoadName != null && LoadScreen.spawnFromLoadVector3 != null && LoadScreen.spawnFromLoadQuaternion != null && EnviSim.Mode == "Creative" && ChangeScene.subMode == "CreatedScene")
         {
             int length = 0;
             int i = 0;
+            Debug.Log("spawnFromLoadName count:" + LoadScreen.spawnFromLoadName.Count);
             foreach (string itemWord in LoadScreen.spawnFromLoadName)
             {
                 //Debug.Log("LoopCount: "+length);
@@ -49,20 +50,24 @@ public class AwakeNewSceneSpawn : MonoBehaviour
                 k++;
             }
             MAX = length;
-            for (int a = 0; a < length; a++)
+            if(Save.allowSpawn == true)
             {
-                LoadObject = Instantiate(Resources.Load(name[a], typeof(GameObject)),vector3[a],rotation[a]) as GameObject;
-                LoadObject.tag = "Untagged";
-                for (int z = 0; z < LoadObject.transform.childCount; z++)
+                for (int a = 0; a < length; a++)
                 {
-                    GameObject child = LoadObject.transform.GetChild(z).gameObject;
-                    child.layer = 21;
+                    LoadObject = Instantiate(Resources.Load(name[a], typeof(GameObject)),vector3[a],rotation[a]) as GameObject;
+                    LoadObject.tag = "Untagged";
+                    for (int z = 0; z < LoadObject.transform.childCount; z++)
+                    {
+                        GameObject child = LoadObject.transform.GetChild(z).gameObject;
+                        child.layer = 21;
+                    }
+                    LoadObject.layer = 21;
+                    LoadObject.GetComponent<BoxCollider>().enabled = false;
+                    LoadObject.GetComponent<MeshRenderer>().enabled = false;
+                    DetectEnvironment.keepPosition.Add(LoadObject);
                 }
-                LoadObject.layer = 21;
-                LoadObject.GetComponent<BoxCollider>().enabled = false;
-                LoadObject.GetComponent<MeshRenderer>().enabled = false;
-                DetectEnvironment.keepPosition.Add(LoadObject);
             }
+            
         }
 
     //Debug.Log("Count all Object in Keep: "+DetectEnvironment.keepPosition.Count);   

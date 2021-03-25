@@ -14,8 +14,12 @@ public class EnvInventory : MonoBehaviour
         GameEvent.SaveInitiated += Save;
     }
 
-    void Save()
+    public void Save()
     {
+        envData.name.Clear();
+        envData.position.Clear();
+        envData.rotation.Clear();
+        ItemEnv = new List<EnvironmentData>();
         foreach (GameObject item in DetectEnvironment.keepPosition)
         {
             item.name = item.name.Replace("(Clone)", "");

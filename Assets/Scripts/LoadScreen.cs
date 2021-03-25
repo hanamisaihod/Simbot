@@ -94,6 +94,7 @@ public class LoadScreen : MonoBehaviour
             }
 
             ItemEnv = SaveLoad.Load<List<EnvironmentData>>(file);
+            Save.allowSpawn = true;
             Debug.Log(ItemEnv.Count);
             foreach (EnvironmentData item in ItemEnv)
             {

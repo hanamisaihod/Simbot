@@ -12,30 +12,22 @@ public class Save : MonoBehaviour
     public string spwObj;
     public static int Max;
     public AwakeNewSceneSpawn callCreative;
+    public EnvInventory callSave;
+    public static bool allowSpawn = true;
     //public ModeSwitcher callMode;
+
     public void OnClickToSave()
     {
-        GameEvent.OnSaveInitiated();
-        ModeSwitcher modeSwitcher = GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>();
-        if (GameObject.Find("ModeSwitcher"))
-        {
-            foreach (GameObject obj in modeSwitcher.stageObjects)
-            {
-                Destroy(obj);
-                for (int i = modeSwitcher.stageObjects.Count - 1; i > -1; i--)
-                {
-                    if (modeSwitcher.stageObjects[i] == null)
-                    {
-                        modeSwitcher.stageObjects.RemoveAt(i);
-                    }
-                }
-            }
-        }
+        LoadScreen.spawnFromLoadName = new List<string>();
+        LoadScreen.spawnFromLoadVector3 = new List<Vector3>();
+        LoadScreen.spawnFromLoadQuaternion = new List<Quaternion>();
+        callSave.Save();
         //creativeEnv.Clear();        
         creativeEnv = SaveLoad.Load<List<EnvironmentData>>(ChangeScene.inputMap);
         foreach (EnvironmentData item in creativeEnv)
         {
             Max = 0;
+            Debug.Log("Name count: " + item.name.Count);
             foreach (string wordname in item.name)
             {
                 spwObj = wordname;
@@ -66,8 +58,9 @@ public class Save : MonoBehaviour
         }
         EnviSim.Mode = "Creative";
         ChangeScene.subMode = "CreatedScene";
-
+        allowSpawn = false;
         callCreative.Start();
+        Debug.Log("Envi Count = " + DetectEnvironment.keepPosition.Count);
         //SceneManager.LoadScene("MapBuilding");
     }
 }

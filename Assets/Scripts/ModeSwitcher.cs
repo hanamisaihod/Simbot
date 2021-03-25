@@ -35,7 +35,7 @@ public class ModeSwitcher : MonoBehaviour
         inBuildingMode = false;
     }
 
-    private void FindAllStageObjects()
+    public void FindAllStageObjects()
     {
         stageObjects.AddRange(GameObject.FindGameObjectsWithTag("StageObjects"));
         stageObjects.Add(GameObject.FindGameObjectWithTag("Building"));

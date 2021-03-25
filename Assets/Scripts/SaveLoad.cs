@@ -13,6 +13,11 @@ public class SaveLoad : MonoBehaviour
     public static void Save<T>(T objectToSave ,string key)
     {
         string path = Application.persistentDataPath + "/saves/";
+        if(File.Exists(path + key + ".txt"))
+        {
+            Debug.Log("DELETE");
+            File.Delete(path + key + ".txt");
+        }
         Directory.CreateDirectory(path);
         BinaryFormatter formatter = new BinaryFormatter();
         //Debug.Log(path + key + ".txt");
