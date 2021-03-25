@@ -35,7 +35,7 @@ public class ModeSwitcher : MonoBehaviour
         inBuildingMode = false;
     }
 
-    private void FindAllStageObjects()
+    public void FindAllStageObjects()
     {
         stageObjects.AddRange(GameObject.FindGameObjectsWithTag("StageObjects"));
         stageObjects.Add(GameObject.FindGameObjectWithTag("Building"));
@@ -54,7 +54,25 @@ public class ModeSwitcher : MonoBehaviour
             }
         }
     }
-
+    public void DeleteStageObject()
+	{
+        ModeSwitcher modeSwitcher = GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>();
+        modeSwitcher.FindAllStageObjects();
+        if (GameObject.Find("ModeSwitcher"))
+        {
+            foreach (GameObject obj in modeSwitcher.stageObjects)
+            {
+                Destroy(obj);
+                for (int i = modeSwitcher.stageObjects.Count - 1; i > -1; i--)
+                {
+                    if (modeSwitcher.stageObjects[i] == null)
+                    {
+                        modeSwitcher.stageObjects.RemoveAt(i);
+                    }
+                }
+            }
+        }
+    }
     public void SwitchToMap()
     {
         if (!pallete.GetComponent<Palette>().moving && !slideFrame.GetComponent<NewSlide>().moving)
