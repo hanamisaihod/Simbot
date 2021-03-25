@@ -20,7 +20,7 @@ public class EnviSim : MonoBehaviour
             for (int i = 0; i < AwakeNewSceneSpawn.MAX; i++)
             {
                 CreativeObj = Instantiate(Resources.Load(AwakeNewSceneSpawn.name[i], typeof(GameObject)),AwakeNewSceneSpawn.vector3[i],AwakeNewSceneSpawn.rotation[i]) as GameObject;
-                CreativeObj.tag = "Untagged";
+                CreativeObj.tag = "StageObjects";
                 for (int z = 0; z < CreativeObj.transform.childCount; z++)
                 {
                     GameObject child = CreativeObj.transform.GetChild(z).gameObject;
