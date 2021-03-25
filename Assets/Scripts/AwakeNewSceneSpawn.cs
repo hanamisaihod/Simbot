@@ -12,6 +12,11 @@ public class AwakeNewSceneSpawn : MonoBehaviour
     public static int MAX;
     public void Start()
     {
+        Debug.Log("STARTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+        if(Save.Max > 0)
+        {
+            LoadScreen.countMaxValue = Save.Max;
+        }
         name = new string[LoadScreen.countMaxValue];
         vector3 = new Vector3[LoadScreen.countMaxValue];
         rotation = new Quaternion[LoadScreen.countMaxValue];
@@ -23,7 +28,7 @@ public class AwakeNewSceneSpawn : MonoBehaviour
             int i = 0;
             foreach (string itemWord in LoadScreen.spawnFromLoadName)
             {
-                Debug.Log("LoopCount: "+length);
+                //Debug.Log("LoopCount: "+length);
                 name[i] = itemWord;
                 i++;
                 
@@ -58,7 +63,7 @@ public class AwakeNewSceneSpawn : MonoBehaviour
             }
         }
 
-    Debug.Log("Count all Object in Keep: "+DetectEnvironment.keepPosition.Count);   
+    //Debug.Log("Count all Object in Keep: "+DetectEnvironment.keepPosition.Count);   
     //once = false;
     }
 }

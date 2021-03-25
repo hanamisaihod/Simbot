@@ -15,6 +15,8 @@ public class Robotcheck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        turtle.SetActive(false);
+        line.SetActive(false);
         if(EnviSim.Mode == "Main")
         {
             if(LoadMainStage.mainStageKey == "Map1" || LoadMainStage.mainStageKey == "Map2"|| LoadMainStage.mainStageKey == "Map3"
@@ -49,9 +51,13 @@ public class Robotcheck : MonoBehaviour
     void creativeTurtleRobotNum()
     {
         robotTypeNum = 0;
+        turtle.SetActive(true);
+        line.SetActive(false);
     }
     void creativeLineRobotNum()
     {
         robotTypeNum = 1;
+        turtle.SetActive(false);
+        line.SetActive(true);
     }
 }

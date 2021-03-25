@@ -101,7 +101,7 @@ public class CanvasFX_Controller : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Cleartype = " + clearTrigger);
+        //Debug.Log("Cleartype = " + clearTrigger);
         if (clearTrigger && !startShow && !FXshowing)
         {
             if (usingCor != null)
@@ -114,6 +114,7 @@ public class CanvasFX_Controller : MonoBehaviour
                 StopCoroutine(tableCor);
             }
             EndingStarRating.clear = true;
+            Debug.Log("clear = " + EndingStarRating.clear);
             tableCor = StartCoroutine(tableShow());
             startShow = true;
             FXshowing = true;
@@ -138,6 +139,7 @@ public class CanvasFX_Controller : MonoBehaviour
             }
             tableCor = StartCoroutine(tableShow());
             EndingStarRating.fail = true;
+            Debug.Log("fail = " + EndingStarRating.fail);
             startShow = true;
             FXshowing = true;
         }
