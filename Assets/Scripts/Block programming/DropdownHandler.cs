@@ -167,9 +167,26 @@ public class DropdownHandler : MonoBehaviour
             {
                 parentHandlerScript.speedChoice = 0;
             }
+            else if (val == "-")
+            {
+                parentHandlerScript.speedChoice = 0;
+            }
             else
             {
-                parentHandlerScript.speedChoice = float.Parse(val);
+                if (float.Parse(val) > 2)
+                {
+                    speedDrop.GetComponent<TMP_InputField>().text = "2";
+                    parentHandlerScript.speedChoice = 2;
+                }
+                else if (float.Parse(val) < -2)
+                {
+                    speedDrop.GetComponent<TMP_InputField>().text = "-2";
+                    parentHandlerScript.speedChoice = -2;
+                }
+                else
+                {
+                    parentHandlerScript.speedChoice = float.Parse(val);
+                }
             }
             UpdateActiveOptions();
             
@@ -183,9 +200,26 @@ public class DropdownHandler : MonoBehaviour
             {
                 parentHandlerScript.torqueChoice = 0;
             }
+            else if (val == "-")
+            {
+                parentHandlerScript.torqueChoice = 0;
+            }
             else
             {
-                parentHandlerScript.torqueChoice = float.Parse(val);
+                if (float.Parse(val) > 90)
+                {
+                    torqueDrop.GetComponent<TMP_InputField>().text = "90";
+                    parentHandlerScript.torqueChoice = 90;
+                }
+                else if (float.Parse(val) < -90)
+                {
+                    torqueDrop.GetComponent<TMP_InputField>().text = "-90";
+                    parentHandlerScript.torqueChoice = -90;
+                }
+                else
+                {
+                    parentHandlerScript.torqueChoice = float.Parse(val);
+                }
             }
             UpdateActiveOptions();
         }

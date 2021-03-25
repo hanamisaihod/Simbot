@@ -25402,6 +25402,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3868862930011102629, guid: a5bdbad72cf7c5847bc44e46cb79e24f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 4538263907530000159, guid: a5bdbad72cf7c5847bc44e46cb79e24f,
         type: 3}
       propertyPath: m_RootOrder
@@ -25644,7 +25649,7 @@ MonoBehaviour:
   ObjToPlace: {fileID: 0}
   mask:
     serializedVersion: 2
-    m_Bits: 2621239
+    m_Bits: 2097462
   call: {fileID: 0}
 --- !u!81 &1816997356
 AudioListener:
@@ -25705,7 +25710,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816997352}
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: -0.19, y: 7.15, z: 1.67}
+  m_LocalPosition: {x: -0.19, y: 7.15, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 655431187}

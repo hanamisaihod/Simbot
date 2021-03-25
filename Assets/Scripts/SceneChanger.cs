@@ -62,6 +62,9 @@ public class SceneChanger : MonoBehaviour
 	{	
 		MissionType.viewCreative = true; 
 		SceneManager.LoadScene("LoadMap");
+	public void ExitGame()
+	{
+		Application.Quit();
 	}
 	public void TurnOnAR()
 	{

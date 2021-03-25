@@ -11,7 +11,13 @@ public class NewDrag : MonoBehaviour
     public static GameObject ObjToPlace;
     public static GameObject spawnObject;
 
-    void OnMouseDrag()
+	private void Start()
+    {
+        ObjToMove = gameObject.transform;
+        ObjToPlace = gameObject;
+	}
+
+	void OnMouseDrag()
     {
         ObjToMove = gameObject.transform;
         ObjToPlace = gameObject;
@@ -28,7 +34,6 @@ public class NewDrag : MonoBehaviour
             RaycastBuilder.LastPosZ = RaycastBuilder.blockPos.z;
             ObjToMove.position = new Vector3(RaycastBuilder.blockPos.x, 0 ,RaycastBuilder.blockPos.z);      
         }
-
     }
 
     public static void TriggerOnConfirmation()
