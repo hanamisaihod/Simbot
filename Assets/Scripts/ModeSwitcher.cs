@@ -9,6 +9,7 @@ public class ModeSwitcher : MonoBehaviour
     public GameObject pallete;
     public GameObject slideFrame;
     public GameObject blockTrashCan;
+    public bool inBuildingMode;
 
     public void SwtichToCode()
     {
@@ -30,12 +31,21 @@ public class ModeSwitcher : MonoBehaviour
                 }
             }
         }
+        inBuildingMode = false;
     }
 
     private void FindAllStageObjects()
     {
-        mapBuildingObjects.AddRange(GameObject.FindGameObjectsWithTag("StageObjects"));
-        mapBuildingObjects.Add(GameObject.FindGameObjectWithTag("Building"));
+        List<GameObject> stageObjects = new List<GameObject>();
+        stageObjects.AddRange(GameObject.FindGameObjectsWithTag("StageObjects"));
+        stageObjects.Add(GameObject.FindGameObjectWithTag("Building"));
+        foreach (GameObject obj in stageObjects)
+		{
+            if (!mapBuildingObjects.Contains(obj))
+			{
+                mapBuildingObjects.Add(obj);
+			}
+		}
     }
 
     public void SwitchToMap()
@@ -57,5 +67,6 @@ public class ModeSwitcher : MonoBehaviour
                 }
             }
         }
+        inBuildingMode = true;
     }
 }
