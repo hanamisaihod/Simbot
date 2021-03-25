@@ -15,17 +15,17 @@ public class SaveLoad : MonoBehaviour
         string path = Application.persistentDataPath + "/saves/";
         Directory.CreateDirectory(path);
         BinaryFormatter formatter = new BinaryFormatter();
-        Debug.Log(path + key + ".txt");
+        //Debug.Log(path + key + ".txt");
         using (FileStream fileStream = new FileStream(path + key + ".txt",FileMode.Create))
         {
             formatter.Serialize(fileStream, objectToSave);
-            Debug.Log("Save");
+            //Debug.Log("Save");
         }
     }
 
     public static T Load<T>(string key)
     {
-        Debug.Log("Key" + key);
+        //Debug.Log("Key" + key);
         string path = Application.persistentDataPath + "/saves/";
         BinaryFormatter formatter = new BinaryFormatter();
         T returnValue = default(T);
@@ -33,7 +33,7 @@ public class SaveLoad : MonoBehaviour
         {
             returnValue = (T)formatter.Deserialize(fileStream);
         }
-        Debug.Log("Load");
+        //Debug.Log("Load");
         return returnValue;
     }
 

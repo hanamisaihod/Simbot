@@ -29,6 +29,7 @@ public class EnvInventory : MonoBehaviour
             RosInString = rotation.ToString();
             envData.rotation.Add(RosInString);
         }
+        //Debug.Log("countloop" + countloop);
         ItemEnv.Add(envData);
         SaveLoad.Save<List<EnvironmentData>>(ItemEnv, ChangeScene.inputMap);
     }

@@ -12,9 +12,11 @@ public class AwakeNewSceneSpawn : MonoBehaviour
     public static int MAX;
     public void Start()
     {
-        Debug.Log("STARTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+        
         if(Save.Max > 0)
         {
+            Debug.Log("STARTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+            Debug.Log("Max = " + Save.Max);
             LoadScreen.countMaxValue = Save.Max;
         }
         name = new string[LoadScreen.countMaxValue];

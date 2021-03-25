@@ -12,12 +12,30 @@ public class Save : MonoBehaviour
     public string spwObj;
     public static int Max;
     public AwakeNewSceneSpawn callCreative;
+    //public ModeSwitcher callMode;
     public void OnClickToSave()
     {
         GameEvent.OnSaveInitiated();
+        ModeSwitcher modeSwitcher = GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>();
+        if (GameObject.Find("ModeSwitcher"))
+        {
+            foreach (GameObject obj in modeSwitcher.stageObjects)
+            {
+                Destroy(obj);
+                for (int i = modeSwitcher.stageObjects.Count - 1; i > -1; i--)
+                {
+                    if (modeSwitcher.stageObjects[i] == null)
+                    {
+                        modeSwitcher.stageObjects.RemoveAt(i);
+                    }
+                }
+            }
+        }
+        //creativeEnv.Clear();        
         creativeEnv = SaveLoad.Load<List<EnvironmentData>>(ChangeScene.inputMap);
         foreach (EnvironmentData item in creativeEnv)
         {
+            Max = 0;
             foreach (string wordname in item.name)
             {
                 spwObj = wordname;
@@ -48,6 +66,7 @@ public class Save : MonoBehaviour
         }
         EnviSim.Mode = "Creative";
         ChangeScene.subMode = "CreatedScene";
+
         callCreative.Start();
         //SceneManager.LoadScene("MapBuilding");
     }
