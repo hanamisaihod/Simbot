@@ -6,6 +6,7 @@ public class ModeSwitcher : MonoBehaviour
 {
     public List<GameObject> mapBuildingObjects;
     public List<GameObject> stageObjects;
+    public GameObject placingObject;
     public List<GameObject> blockProgrammingObjects;
     public GameObject pallete;
     public GameObject slideFrame;
@@ -38,7 +39,7 @@ public class ModeSwitcher : MonoBehaviour
     public void FindAllStageObjects()
     {
         stageObjects.AddRange(GameObject.FindGameObjectsWithTag("StageObjects"));
-        stageObjects.Add(GameObject.FindGameObjectWithTag("Building"));
+        placingObject = (GameObject.FindGameObjectWithTag("Building"));
         foreach (GameObject obj in stageObjects)
 		{
             if (!mapBuildingObjects.Contains(obj))
@@ -46,6 +47,10 @@ public class ModeSwitcher : MonoBehaviour
                 mapBuildingObjects.Add(obj);
 			}
 		}
+        if (!mapBuildingObjects.Contains(placingObject))
+		{
+            mapBuildingObjects.Add(placingObject);
+        }
         for (int i = mapBuildingObjects.Count - 1; i > -1; i--)
         {
             if (mapBuildingObjects[i] == null)
@@ -60,14 +65,17 @@ public class ModeSwitcher : MonoBehaviour
         modeSwitcher.FindAllStageObjects();
         if (GameObject.Find("ModeSwitcher"))
         {
-            foreach (GameObject obj in modeSwitcher.stageObjects)
+            if (modeSwitcher.stageObjects.Count > 0)
             {
-                Destroy(obj);
-                for (int i = modeSwitcher.stageObjects.Count - 1; i > -1; i--)
+                foreach (GameObject obj in modeSwitcher.stageObjects)
                 {
-                    if (modeSwitcher.stageObjects[i] == null)
+                    Destroy(obj);
+                    for (int i = modeSwitcher.stageObjects.Count - 1; i > -1; i--)
                     {
-                        modeSwitcher.stageObjects.RemoveAt(i);
+                        if (modeSwitcher.stageObjects[i] == null)
+                        {
+                            modeSwitcher.stageObjects.RemoveAt(i);
+                        }
                     }
                 }
             }

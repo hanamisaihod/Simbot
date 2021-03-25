@@ -50,7 +50,7 @@ public class AwakeNewSceneSpawn : MonoBehaviour
             for (int a = 0; a < length; a++)
             {
                 LoadObject = Instantiate(Resources.Load(name[a], typeof(GameObject)),vector3[a],rotation[a]) as GameObject;
-                LoadObject.tag = "Untagged";
+                LoadObject.tag = "StageObjects";
                 for (int z = 0; z < LoadObject.transform.childCount; z++)
                 {
                     GameObject child = LoadObject.transform.GetChild(z).gameObject;
