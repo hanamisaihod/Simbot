@@ -59,8 +59,8 @@ public class SceneChanger : MonoBehaviour
 		SceneManager.LoadScene("LoadMap");
 	}
 	public void GoToCreativeMission()
-	{	
-		MissionType.viewCreative = true; 
+	{
+		MissionType.viewCreative = true;
 		SceneManager.LoadScene("LoadMap");
 	}
 	public void ExitGame()
