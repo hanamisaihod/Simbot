@@ -15884,6 +15884,7 @@ MonoBehaviour:
     type: 3}
   stovePrefab: {fileID: 1049934262172938741, guid: 96f33132163fb2842ac039b5b7a4d5ca,
     type: 3}
+  spawnedRobot: {fileID: 0}
 --- !u!65 &2541975482180357820
 BoxCollider:
   m_ObjectHideFlags: 0

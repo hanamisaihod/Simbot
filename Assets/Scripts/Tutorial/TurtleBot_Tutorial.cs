@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Mission_Tutorial : MonoBehaviour
+public class TurtleBot_Tutorial : MonoBehaviour
 {
     public bool TutorialTrigger = true;
     public GameObject Meow1;
@@ -22,7 +22,7 @@ public class Mission_Tutorial : MonoBehaviour
     public Sprite[] boyEmo;
     private string curreentLetter = "";
     private int stage = 0;
-    public int maxStage = 5;
+    public int maxStage = 7;
     Coroutine usingCor;
     Coroutine delayCor;
     private int textSum = 0;
@@ -32,27 +32,31 @@ public class Mission_Tutorial : MonoBehaviour
     void Start()
     {
         
-        if (PlayerPrefs.HasKey("Mission_Tutorial"))
-		{
-            if (PlayerPrefs.GetInt("Mission_Tutorial") == 1)
+        if (PlayerPrefs.HasKey("TurtleBot_Tutorial"))
+        {
+            if (PlayerPrefs.GetInt("TurtleBot_Tutorial") == 1)
             {
                 Destroy(gameObject);
             }
         }
+
         var Meow1Script = Meow1.GetComponent<MeowUI_Animating>();
         var textBox1Script = textBox1.GetComponent<Textbox>();
-
         back.SetActive(true);
         playAudio = GetComponent<AudioSource>();
         textBox1Script.boxUpTrigger = true;
         Meow1Script.showRTrigger = true;
         LeanTween.moveLocalX(Boy, Boy.transform.localPosition.x + 380f, 0.5f).setEaseInOutBack();
         fullText = new string[50];
-        fullText[0] = "Neko : You can select the mission that you want to play in this menu.";
-        fullText[1] = "Neko : If you fail to complete a mission, you won’t be able to play the next one.";
-        fullText[2] = "Johny : What!? I won’t make any progress if I fail!?";
-        fullText[3] = "Neko : Don’t worry. You only need to fulfill at least one requirement of each mission to complete it.";
-        fullText[4] = "Neko : Once you selected a mission, the game will show you the requirements.\nThen, you can press confirm.";
+        fullText[0] = "Neko : This is the robot that will help us clear the missions.";
+        fullText[1] = "Neko : This one is the “TurtleBot”. It is inspired by transport robots.\n" +
+            "It has a distance sensor on its head to detect things in 360 degrees.";
+        fullText[2] = "Johny : Subarashiiiiiiiiiiii !!!!!!!!!!!!! (Amazing!!!)";
+        fullText[3] = "Johny : So how good is the distance sensor?";
+        fullText[4] = "Neko : It helps the robot to know the distance between itself and the target object.\n" +
+            "It lets know when to stop the robot before it collides.";
+        fullText[5] = "Johny : I see.";
+        fullText[6] = "Neko : If you are ready, hit the next button, and let’s get started!";
         stage = 0;
         foreach (Transform child in textBox1.transform)
         {
@@ -103,16 +107,18 @@ public class Mission_Tutorial : MonoBehaviour
         }
 
         if(stage == 1)
-            Boy.GetComponent<Image>().sprite = boyEmo[8];
-        else if (stage == 2)
-            Boy.GetComponent<Image>().sprite = boyEmo[0];
-        else if(stage == 3)
-            Boy.GetComponent<Image>().sprite = boyEmo[1];
-        else if(stage == 4)
-            Boy.GetComponent<Image>().sprite = boyEmo[8];
-        else if(stage == 5)
             Boy.GetComponent<Image>().sprite = boyEmo[4];
-        else if(stage == 6)
+        else if (stage == 3)
+            Boy.GetComponent<Image>().sprite = boyEmo[2];
+        else if (stage == 4)
+            Boy.GetComponent<Image>().sprite = boyEmo[1];
+        else if (stage == 5)
+            Boy.GetComponent<Image>().sprite = boyEmo[8];
+        else if (stage == 6)
+            Boy.GetComponent<Image>().sprite = boyEmo[3];
+        else if (stage == 7)
+            Boy.GetComponent<Image>().sprite = boyEmo[4];
+        else if (stage == 8)
             textDone = true;
 
         if (textDone)
@@ -129,7 +135,7 @@ public class Mission_Tutorial : MonoBehaviour
             back.SetActive(false);
             textDone = false;
             stage++;
-            PlayerPrefs.SetInt("Mission_Tutorial", 1); // remember that this dialogue already happened
+            PlayerPrefs.SetInt("TurtleBot_Tutorial", 1); // remember that this dialogue already happened
         }
     }
 
