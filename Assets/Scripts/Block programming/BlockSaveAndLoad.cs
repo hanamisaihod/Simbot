@@ -84,11 +84,34 @@ public class BlockSaveAndLoad : MonoBehaviour
 
     public void GatherAllBlocks()
     {
+        GameObject startBlockTemp = null;
+        if (GameObject.Find("ModeSwitcher"))
+        {
+            foreach (GameObject obj in GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockProgrammingObjects)
+            {
+                if (obj.tag == "StartBlock")
+				{
+                    startBlockTemp = obj;
+                    if (startBlockTemp.activeInHierarchy == false)
+					{
+                        Debug.Log("activating start block");
+                        startBlockTemp.SetActive(true);
+					}
+                }
+            }
+        }
         startBlock = GameObject.FindGameObjectsWithTag("StartBlock");
         doBlocks = GameObject.FindGameObjectsWithTag("DoBlock");
         ifBlocks = GameObject.FindGameObjectsWithTag("IfBlock");
         repeatBlocks = GameObject.FindGameObjectsWithTag("RepeatBlock");
         conBlocks = startBlock.Concat(doBlocks).Concat(ifBlocks).Concat(repeatBlocks).ToArray();
+        if (startBlockTemp != null)
+        {
+            if (GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().inBuildingMode == true)
+            {
+                startBlockTemp.SetActive(false);
+            }
+        }
     }
 
     public void SaveBlockProgram()

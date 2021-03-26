@@ -16,7 +16,7 @@ public class LoadScreen : MonoBehaviour
     public static int countMaxValue;
     public string saveKeyword;
     public string fileKeyword;
-    
+    [SerializeField] public static List<string> allKeyword = new List<string>();
     public void Start()
     {
         ShowLoadScreen();
@@ -52,6 +52,7 @@ public class LoadScreen : MonoBehaviour
             }
             saveKeyword = saveKeyword.Replace(".txt", "");
             buttonObject.GetComponentInChildren<Text>().text = saveKeyword;
+            allKeyword.Add(saveKeyword);
             //buttonObject.GetComponentInChildren<Text>().text = buttonObject.GetComponentInChildren<Text>().text.Replace("C:/Users/asus/AppData/LocalLow/DefaultCompany/MyFirstGame/saves/", "");
             //buttonObject.GetComponentInChildren<Text>().text = buttonObject.GetComponentInChildren<Text>().text.Replace(".txt", "");
             GameObject Container = GameObject.Find("LocalArea");
@@ -94,6 +95,7 @@ public class LoadScreen : MonoBehaviour
             }
 
             ItemEnv = SaveLoad.Load<List<EnvironmentData>>(file);
+            Save.allowSpawn = true;
             Debug.Log(ItemEnv.Count);
             foreach (EnvironmentData item in ItemEnv)
             {
@@ -136,6 +138,15 @@ public class LoadScreen : MonoBehaviour
             LoadConfirm.waitForSelectSlot = false;
             DeleteSave.clickToDelete = false;
             SceneManager.LoadScene("LoadMap");
+			for (int i = 0; i < allKeyword.Count; i++)
+			{
+                if (allKeyword[i] == file)
+				{
+                    allKeyword.RemoveAt(i);
+				}
+			}
+            //Delete Save
+            PlayerPrefs.SetInt(file + "count", 1);
         }
         else if (ChangeToSimulate.simulate == true)
         {

@@ -53,6 +53,16 @@ public class SceneChanger : MonoBehaviour
 			SceneManager.LoadScene("ARTest");
 		}
     }
+	public void GoToMainMission()
+	{
+		MissionType.viewCreative = false; 
+		SceneManager.LoadScene("LoadMap");
+	}
+	public void GoToCreativeMission()
+	{
+		MissionType.viewCreative = true;
+		SceneManager.LoadScene("LoadMap");
+	}
 	public void ExitGame()
 	{
 		Application.Quit();

@@ -62,6 +62,7 @@ public class LoadMainStage : MonoBehaviour
             }
             savePrefabKeyword = savePrefabKeyword.Replace(".prefab", "");
             buttonPrefabs.GetComponentInChildren<Text>().text = savePrefabKeyword;
+            LoadScreen.allKeyword.Add(savePrefabKeyword);
             //buttonObject.GetComponentInChildren<Text>().text = buttonObject.GetComponentInChildren<Text>().text.Replace("C:/Users/asus/AppData/LocalLow/DefaultCompany/MyFirstGame/saves/", "");
             //buttonObject.GetComponentInChildren<Text>().text = buttonObject.GetComponentInChildren<Text>().text.Replace(".txt", "");
             GameObject Container = GameObject.Find("LocalArea");

@@ -8,7 +8,6 @@ public class GameEvent : MonoBehaviour
 
     public static void OnSaveInitiated()
     {
-        
         SaveInitiated?.Invoke();
     }
 }
