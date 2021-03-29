@@ -30025,7 +30025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &2115114031
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30143,9 +30143,9 @@ MonoBehaviour:
   ClickIcon: {fileID: 723977245}
   ClickIcon2: {fileID: 1767314129}
   ClickIcon3: {fileID: 1381226016}
-  ClickIcon4: {fileID: 0}
-  ClickIcon5: {fileID: 0}
-  ClickIcon6: {fileID: 0}
+  ClickIcon4: {fileID: 394876624}
+  ClickIcon5: {fileID: 741407969}
+  ClickIcon6: {fileID: 1008206204}
   soundLetter: {fileID: 8300000, guid: bba82f595fdeb9e4f9fa02122a35f055, type: 3}
   volume: 0.5
   letterDelay: 0.06
@@ -30173,7 +30173,7 @@ MonoBehaviour:
   simulate_button: {fileID: 1169576894}
   startCode: {fileID: 2091620206}
   tip_moveCode: {fileID: 1228405555}
-  tip_set_move: {fileID: 0}
+  tip_set_move: {fileID: 1199989260}
 --- !u!114 &2115114033
 MonoBehaviour:
   m_ObjectHideFlags: 0

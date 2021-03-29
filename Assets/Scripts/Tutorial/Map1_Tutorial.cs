@@ -171,6 +171,23 @@ public class Map1_Tutorial : MonoBehaviour
             // Boy Emotion
             if (stage == 1)
                 Boy.GetComponent<Image>().sprite = boyEmo[2];
+            else if (stage == 2)
+                Boy.GetComponent<Image>().sprite = boyEmo[1];
+            else if (stage == 3)
+                Boy.GetComponent<Image>().sprite = boyEmo[8];
+            else if (stage == 5)
+                Boy.GetComponent<Image>().sprite = boyEmo[4];
+            else if (stage == 8)
+                Boy.GetComponent<Image>().sprite = boyEmo[1];
+            else if (stage == 9)
+                Boy.GetComponent<Image>().sprite = boyEmo[8];
+            else if (stage == 12)
+                Boy.GetComponent<Image>().sprite = boyEmo[4];
+            else if (stage == 16)
+                Boy.GetComponent<Image>().sprite = boyEmo[0];
+            else if (stage == 19)
+                Boy.GetComponent<Image>().sprite = boyEmo[4];
+
 
             // Object Control
             if (stage == 4)
