@@ -12,6 +12,12 @@ public class Map1_Tutorial : MonoBehaviour
     public GameObject textZone1;
     public GameObject Boy;
     public GameObject back;
+    public GameObject ClickIcon;
+    public GameObject ClickIcon2;
+    public GameObject ClickIcon3;
+    public GameObject ClickIcon4;
+    public GameObject ClickIcon5;
+    public GameObject ClickIcon6;
 
     private bool startText;
     private bool textDone;
@@ -36,6 +42,11 @@ public class Map1_Tutorial : MonoBehaviour
     public GameObject goal;
     public GameObject code_button;
     public GameObject palette_button;
+    public GameObject map_button;
+    public GameObject simulate_button;
+    public GameObject startCode;
+    public GameObject tip_moveCode;
+    public GameObject tip_set_move;
 
     void Start()
     {
@@ -71,12 +82,11 @@ public class Map1_Tutorial : MonoBehaviour
         fullText[15] = "Neko : In the Move block, the first box is for the forward movement speed of the robot, in block per second.\n" +
             "Of course, you can also enter a negative value to move backward.";
         fullText[16] = "Neko : The second one is the rotational speed of the robot, in degree per second.";
-        fullText[17] = "Neko : The last box is the number of seconds the robot follows the instruction for.\n" +
+        fullText[17] = "Neko : The last box is the number of seconds the robot follows the instruction for. " +
             "If you want the robot to follow the instructions until there’s a new Move command, you can set the delay to 9999.";
         fullText[18] = "Neko : From the mission we’ve seen, let's set move speed to 1, rotate speed to 0, and delay to 3.";
         fullText[19] = "Neko : If you want to go back to see the mission again, press the map button.";
         fullText[20] = "Neko : If you want to test the program, you can press simulate button.";
-
 
         stage = 0;
         foreach (Transform child in textBox1.transform)
@@ -108,6 +118,12 @@ public class Map1_Tutorial : MonoBehaviour
         {
             palette_button.SetActive(true);
             StartCoroutine(ShowButton(palette_button));
+            startCode.SetActive(true);
+            StartCoroutine(ShowButton(startCode));
+            map_button.SetActive(true);
+            StartCoroutine(ShowButton(map_button));
+            simulate_button.SetActive(true);
+            StartCoroutine(ShowButton(simulate_button));
             back.SetActive(true);
             textBox1Script.boxUpTrigger = true;
             Meow1Script.showRTrigger = true;
@@ -170,18 +186,93 @@ public class Map1_Tutorial : MonoBehaviour
             else
                 goal.SetActive(false);
             if(stage == 9)
+            {
                 code_button.GetComponent<Image>().enabled = true;
+                ClickIcon.SetActive(true);
+            }
             else
+            {
                 code_button.GetComponent<Image>().enabled = false;
+                ClickIcon.SetActive(false);
+            }
             if (stage == 10)
             {
                 textDone = true;
                 partDone = 1;
             }
-            if(stage == 14)
-                palette_button.GetComponent<Image>().enabled = true;
+            if (stage == 13)
+                startCode.GetComponent<Image>().enabled = true;
             else
+                startCode.GetComponent<Image>().enabled = false;
+            if (stage == 14)
+            {
+                palette_button.GetComponent<Image>().enabled = true;
+                ClickIcon2.SetActive(true);
+            }
+            else
+            {
                 palette_button.GetComponent<Image>().enabled = false;
+                ClickIcon2.SetActive(false);
+            }
+            if (stage == 15)
+                tip_moveCode.SetActive(true);
+            else
+                tip_moveCode.SetActive(false);
+            if(stage == 16)
+            {
+                tip_set_move.SetActive(true);
+                ClickIcon4.SetActive(true);
+                ClickIcon5.SetActive(false);
+                ClickIcon6.SetActive(false);
+            }
+            else if(stage == 17)
+            {
+                tip_set_move.SetActive(true);
+                ClickIcon4.SetActive(false);
+                ClickIcon5.SetActive(true);
+                ClickIcon6.SetActive(false);
+            }
+            else if(stage == 18)
+            {
+                tip_set_move.SetActive(true);
+                ClickIcon4.SetActive(false);
+                ClickIcon5.SetActive(false);
+                ClickIcon6.SetActive(true);
+            }
+            else if (stage == 19)
+            {
+                tip_set_move.SetActive(true);
+                ClickIcon4.SetActive(false);
+                ClickIcon5.SetActive(false);
+                ClickIcon6.SetActive(false);
+            }
+            else
+            {
+                tip_set_move.SetActive(false);
+                ClickIcon4.SetActive(false);
+                ClickIcon5.SetActive(false);
+                ClickIcon6.SetActive(false);
+            }
+            if (stage == 20)
+            {
+                ClickIcon3.SetActive(true);
+                map_button.GetComponent<Image>().enabled = true;
+            }
+            else
+            {
+                ClickIcon3.SetActive(false);
+                map_button.GetComponent<Image>().enabled = false;
+            }
+            if(stage == 21)
+                simulate_button.GetComponent<Image>().enabled = true;
+            else
+                simulate_button.GetComponent<Image>().enabled = false;
+            if(stage == 22)
+            {
+                textDone = true;
+                partDone = 2;
+            }
+
 
 
             if (textDone)
@@ -195,22 +286,23 @@ public class Map1_Tutorial : MonoBehaviour
                     Meow1Script.cancelTrigger = true;
                     startText = false;
                 }
-                textDone = false;
-                stage++;
-                /*Meow1Script.showLTrigger = true;
-                textBox1Script.boxDownTrigger = true;
-                LeanTween.moveLocalX(Boy, Boy.transform.localPosition.x - 380f, 0.5f).setEaseInOutBack();
-                if (delayCor != null)
+                else if(partDone == 2)
                 {
-                    StopCoroutine(delayCor);
+                    Meow1Script.showLTrigger = true;
+                    textBox1Script.boxDownTrigger = true;
+                    LeanTween.moveLocalX(Boy, Boy.transform.localPosition.x - 380f, 0.5f).setEaseInOutBack();
+                    back.SetActive(false);
+                    if (delayCor != null)
+                    {
+                        StopCoroutine(delayCor);
+                    }
+                    delayCor = StartCoroutine(DelayCall());
+                    Meow1Script.cancelTrigger = true;
+                    PlayerPrefs.SetInt("Map1_Tutorial", 1); // remember that this dialogue already happened
+                    startText = false;
                 }
-                delayCor = StartCoroutine(DelayCall());
-                Meow1Script.cancelTrigger = true;
-                back.SetActive(false);
                 textDone = false;
                 stage++;
-                PlayerPrefs.SetInt("Map1_Tutorial", 1); // remember that this dialogue already happened
-                startText = false;*/
             }
         }
         
@@ -219,7 +311,9 @@ public class Map1_Tutorial : MonoBehaviour
     public void startPart2()
     {
         if (partDone == 1)
+        {
             trigger2 = true;
+        }
     }
 
     IEnumerator ShowText(GameObject textZone, string fulltext)
