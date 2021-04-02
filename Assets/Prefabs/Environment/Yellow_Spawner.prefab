@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 4446918029354641906}
   - component: {fileID: 7965224006372381963}
   - component: {fileID: 2758131299018429876}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Yellow_Cube
   m_TagString: ProductPickup
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 8654449607576301914}
   - component: {fileID: 8654449607576301912}
   - component: {fileID: 8654449607576301915}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PS_Aura
   m_TagString: Untagged
   m_Icon: {fileID: 0}

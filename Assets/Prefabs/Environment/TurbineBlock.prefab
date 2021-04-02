@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 194668442393851554}
   - component: {fileID: 8574055183459490897}
   - component: {fileID: 599448949978166314}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Turbine
   m_Icon: {fileID: 0}

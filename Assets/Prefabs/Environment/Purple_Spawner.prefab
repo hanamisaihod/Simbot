@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 5958708951967359092}
   - component: {fileID: 5958708951967359094}
   - component: {fileID: 5958708951967359093}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PS_Aura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9795,7 +9795,7 @@ GameObject:
   - component: {fileID: 1665767036197304540}
   - component: {fileID: 4909336050210669605}
   - component: {fileID: 5643370664490966224}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Purple_Cube
   m_TagString: ProductPickup
   m_Icon: {fileID: 0}

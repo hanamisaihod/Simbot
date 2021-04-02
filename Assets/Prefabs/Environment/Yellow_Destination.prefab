@@ -4938,7 +4938,6 @@ MonoBehaviour:
   BaseMat_active: {fileID: 2100000, guid: e5c6bc7a57a7f2b43be5e094c15dcf53, type: 2}
   AuraFX: {fileID: 5770646424079792142}
   Base: {fileID: 4401994434050196166}
-  ReceivedProduct: {fileID: 0}
   Received: 0
 --- !u!65 &1731609972762023633
 BoxCollider:
@@ -4965,7 +4964,7 @@ GameObject:
   - component: {fileID: 6532758076861859542}
   - component: {fileID: 8509772395804758199}
   - component: {fileID: 5855607346043255763}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: ProductDeliver
   m_Icon: {fileID: 0}

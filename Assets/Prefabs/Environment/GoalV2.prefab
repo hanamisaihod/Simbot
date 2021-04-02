@@ -23919,7 +23919,7 @@ GameObject:
   - component: {fileID: 1525102916633758047}
   - component: {fileID: 7267420052406149628}
   - component: {fileID: 5106372478923315138}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: GoalFinishZone
   m_Icon: {fileID: 0}
@@ -24144,7 +24144,7 @@ GameObject:
   - component: {fileID: 2786309492345991491}
   - component: {fileID: 2063413476159539952}
   - component: {fileID: 4980729829279122615}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RedCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24236,7 +24236,7 @@ GameObject:
   - component: {fileID: 4209079453481112999}
   - component: {fileID: 8959781051265096653}
   - component: {fileID: 6830794676157903810}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WhiteCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

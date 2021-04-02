@@ -98,7 +98,7 @@ MonoBehaviour:
   Base: {fileID: 7615295335342446184}
   Core: {fileID: 7160259371047958789}
   AuraFX: {fileID: 7160259371809472167}
-  ObjectTaken: 0
+  Taken: 0
 --- !u!65 &1146955923640404618
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 7160259371757365110}
   - component: {fileID: 7160259371757365108}
   - component: {fileID: 7160259371757365111}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PS_Aura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9713,7 +9713,7 @@ GameObject:
   - component: {fileID: 2806359968724189150}
   - component: {fileID: 8488925682588812071}
   - component: {fileID: 6206687756755550217}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Green_Cube
   m_TagString: ProductPickup
   m_Icon: {fileID: 0}

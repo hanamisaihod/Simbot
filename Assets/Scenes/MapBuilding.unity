@@ -33197,7 +33197,7 @@ MonoBehaviour:
   pallete: {fileID: 5329823485846449011}
   slideFrame: {fileID: 639729867}
   blockTrashCan: {fileID: 219868813517352813}
-  inBuildingMode: 0
+  inBuildingMode: 1
 --- !u!4 &1010570575
 Transform:
   m_ObjectHideFlags: 0
