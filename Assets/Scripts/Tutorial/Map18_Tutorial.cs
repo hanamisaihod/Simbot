@@ -113,17 +113,17 @@ public class Map18_Tutorial : MonoBehaviour
         }
 
         if (stage == 1)
-            Boy.GetComponent<Image>().sprite = boyEmo[10];
+            Boy.GetComponent<Image>().sprite = boyEmo[4];
         else if (stage == 2)
-            Boy.GetComponent<Image>().sprite = boyEmo[11];
-        else if (stage == 3)
         {
             Boy.GetComponent<Image>().sprite = boyEmo[10];
             lava.SetActive(true);
         }
+        else if (stage == 3)
+            Boy.GetComponent<Image>().sprite = boyEmo[1];
         else if (stage == 4)
-            Boy.GetComponent<Image>().sprite = boyEmo[3];
-        else if (stage == 5)
+            Boy.GetComponent<Image>().sprite = boyEmo[0];
+        else if (stage == 6)
             textDone = true;
 
         if (textDone)
