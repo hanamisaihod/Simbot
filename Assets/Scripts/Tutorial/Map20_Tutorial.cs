@@ -31,6 +31,9 @@ public class Map20_Tutorial : MonoBehaviour
     private int textLength = 0;
     private Text textField1;
 
+    public GameObject boss;
+    public Camera cam2;
+
     void Start()
     {
         if (PlayerPrefs.HasKey("Map20_Tutorial"))
@@ -60,6 +63,7 @@ public class Map20_Tutorial : MonoBehaviour
 
         if (TutorialTrigger)
         {
+            boss.SetActive(true);
             back.SetActive(true);
             textBox1Script.boxUpTrigger = true;
             Meow1Script.showRTrigger = true;
@@ -115,6 +119,7 @@ public class Map20_Tutorial : MonoBehaviour
 
         if (textDone)
         {
+            cam2.enabled = false;
             Meow1Script.showLTrigger = true;
             textBox1Script.boxDownTrigger = true;
             LeanTween.moveLocalX(Boy, Boy.transform.localPosition.x - 380f, 0.5f).setEaseInOutBack();
