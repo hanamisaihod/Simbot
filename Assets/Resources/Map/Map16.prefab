@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 1255464121698702564}
   - component: {fileID: 6143626336348633843}
   - component: {fileID: 3547574992630011935}
-  m_Layer: 20
+  m_Layer: 2
   m_Name: RedCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5407,7 +5407,7 @@ GameObject:
   - component: {fileID: 6882826251046480475}
   - component: {fileID: 8825524878341041675}
   - component: {fileID: 8911916210926078095}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Turbine
   m_Icon: {fileID: 0}
@@ -15323,7 +15323,7 @@ GameObject:
   - component: {fileID: 1171486477740794785}
   - component: {fileID: 1605410499182991020}
   - component: {fileID: 5010234077762611875}
-  m_Layer: 20
+  m_Layer: 2
   m_Name: WhiteCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20157,7 +20157,7 @@ GameObject:
   - component: {fileID: 8186788680730808875}
   - component: {fileID: 5221164771182233687}
   - component: {fileID: 6312044471628399763}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Turbine
   m_Icon: {fileID: 0}
@@ -25224,7 +25224,7 @@ GameObject:
   - component: {fileID: 4938693397485454401}
   - component: {fileID: 9061884856304216254}
   - component: {fileID: 5015233342912603865}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PS_Aura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35615,7 +35615,7 @@ GameObject:
   - component: {fileID: 9175992614774716655}
   - component: {fileID: 877525180209477197}
   - component: {fileID: 4983348302810359530}
-  m_Layer: 20
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: GoalFinishZone
   m_Icon: {fileID: 0}
@@ -35709,7 +35709,7 @@ GameObject:
   - component: {fileID: 5431777259905051898}
   - component: {fileID: 6620222391795928458}
   - component: {fileID: 6545645744106156291}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Green_Cube
   m_TagString: ProductPickup
   m_Icon: {fileID: 0}
@@ -51281,6 +51281,7 @@ MonoBehaviour:
     type: 3}
   stovePrefab: {fileID: 1049934262172938741, guid: 96f33132163fb2842ac039b5b7a4d5ca,
     type: 3}
+  spawnedRobot: {fileID: 0}
 --- !u!54 &1139091923910696072
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -61707,7 +61708,7 @@ GameObject:
   - component: {fileID: 3124765759301616169}
   - component: {fileID: 4381939451259471938}
   - component: {fileID: 2568594997035093661}
-  m_Layer: 20
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: ProductDeliver
   m_Icon: {fileID: 0}
@@ -82939,7 +82940,7 @@ GameObject:
   - component: {fileID: 7677705327221177171}
   - component: {fileID: 8475709248346547661}
   - component: {fileID: 4049093691983482868}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Turbine
   m_Icon: {fileID: 0}
@@ -83364,7 +83365,7 @@ GameObject:
   - component: {fileID: 1103126598542586026}
   - component: {fileID: 6414295612258544788}
   - component: {fileID: 757393843716232042}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Turbine
   m_Icon: {fileID: 0}

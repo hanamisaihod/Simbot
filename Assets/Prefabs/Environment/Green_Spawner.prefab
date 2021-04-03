@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 7160259371166395485}
   - component: {fileID: 7160259371166395474}
   - component: {fileID: 1146955923640404618}
+  - component: {fileID: 6728630190297295936}
   m_Layer: 0
   m_Name: Green_Spawner
   m_TagString: Untagged
@@ -112,6 +113,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.1, z: 1}
   m_Center: {x: 0, y: -0.45, z: 0}
+--- !u!114 &6728630190297295936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7160259371166395484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17889f84d626bd47ab24108c49ee183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 7922516612227774459}
+  - {fileID: 7160259371757365105}
 --- !u!1 &7160259371757365105
 GameObject:
   m_ObjectHideFlags: 0

@@ -428,13 +428,13 @@ public class RobotMovementTest : MonoBehaviour
         Quaternion spreadAngle = Quaternion.AngleAxis(degree, new Vector3(0, 1, 0));
         Vector3 sensorAngle = spreadAngle * sensorForward;
         Physics.Raycast(distanceSensor.transform.position, sensorAngle, out hit);
-        if (Physics.Raycast(distanceSensor.transform.position, sensorAngle))
-        {
-            if (!hit.transform.CompareTag("Wall"))
-            {
-                return false;
-            }
-        }
+        //if (Physics.Raycast(distanceSensor.transform.position, sensorAngle))
+        //{
+        //    if (!hit.transform.CompareTag("Wall"))
+        //    {
+        //        return false;
+        //    }
+        //}
         //distanceFromHit = Vector3.Distance(distanceSensor.transform.position, hit.point);
         distanceFromHit = hit.distance;
         Debug.Log("Hit distance: " + distanceFromHit + "Degree: " + degree);

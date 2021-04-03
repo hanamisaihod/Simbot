@@ -19385,6 +19385,7 @@ GameObject:
   - component: {fileID: 5121767236566781404}
   - component: {fileID: 4246911473530376338}
   - component: {fileID: 816610367410429198}
+  - component: {fileID: 8235345571004739980}
   m_Layer: 0
   m_Name: Floor_Redzone
   m_TagString: RedZone
@@ -19501,3 +19502,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.020000005, z: 0.022000007}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8235345571004739980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4246911473530376341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17889f84d626bd47ab24108c49ee183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 2023831363000482350}

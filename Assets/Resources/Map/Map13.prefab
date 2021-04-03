@@ -15179,7 +15179,7 @@ GameObject:
   - component: {fileID: 1613887839534867740}
   - component: {fileID: 9215219366772652314}
   - component: {fileID: 2910894625400354728}
-  m_Layer: 20
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: GoalFinishZone
   m_Icon: {fileID: 0}
@@ -29904,7 +29904,7 @@ GameObject:
   - component: {fileID: 932890650012645862}
   - component: {fileID: 8512433182868593137}
   - component: {fileID: 1843494610879947785}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Turbine
   m_Icon: {fileID: 0}
@@ -49195,7 +49195,7 @@ GameObject:
   - component: {fileID: 6417158380643927974}
   - component: {fileID: 9068862700956572912}
   - component: {fileID: 8392430034947051897}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Turbine
   m_Icon: {fileID: 0}
@@ -49288,7 +49288,7 @@ GameObject:
   - component: {fileID: 739034583269855544}
   - component: {fileID: 2748606462901730040}
   - component: {fileID: 7997999583101585480}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Turbine
   m_Icon: {fileID: 0}
@@ -49595,6 +49595,7 @@ MonoBehaviour:
     type: 3}
   stovePrefab: {fileID: 1049934262172938741, guid: 96f33132163fb2842ac039b5b7a4d5ca,
     type: 3}
+  spawnedRobot: {fileID: 0}
 --- !u!54 &2455986821149724376
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -59345,7 +59346,7 @@ GameObject:
   - component: {fileID: 982571296960152905}
   - component: {fileID: 2351130193705153747}
   - component: {fileID: 5449237268848587803}
-  m_Layer: 20
+  m_Layer: 2
   m_Name: RedCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64497,7 +64498,7 @@ GameObject:
   - component: {fileID: 4333759526994311222}
   - component: {fileID: 1708505283348555061}
   - component: {fileID: 6248948450533003048}
-  m_Layer: 20
+  m_Layer: 2
   m_Name: WhiteCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70294,7 +70295,7 @@ GameObject:
   - component: {fileID: 553059907567581678}
   - component: {fileID: 4936819259899856459}
   - component: {fileID: 218059255666927163}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Turbine
   m_Icon: {fileID: 0}

@@ -9778,6 +9778,7 @@ GameObject:
   - component: {fileID: 8654449608301230705}
   - component: {fileID: 8654449608301230718}
   - component: {fileID: 317211717700150487}
+  - component: {fileID: 8631939512143678012}
   m_Layer: 0
   m_Name: Yellow_Spawner
   m_TagString: Untagged
@@ -9834,6 +9835,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.1, z: 1}
   m_Center: {x: 0, y: -0.45, z: 0}
+--- !u!114 &8631939512143678012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8654449608301230704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17889f84d626bd47ab24108c49ee183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 8554304939003699671}
+  - {fileID: 8654449607576301917}
 --- !u!1 &8654449608440770345
 GameObject:
   m_ObjectHideFlags: 0

@@ -2051,7 +2051,7 @@ GameObject:
   - component: {fileID: 6403875848079569414}
   - component: {fileID: 9160493279003680813}
   - component: {fileID: 8627199076915500905}
-  m_Layer: 20
+  m_Layer: 2
   m_Name: WhiteCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2598,6 +2598,7 @@ MonoBehaviour:
     type: 3}
   stovePrefab: {fileID: 1049934262172938741, guid: 96f33132163fb2842ac039b5b7a4d5ca,
     type: 3}
+  spawnedRobot: {fileID: 0}
 --- !u!65 &4389199795459384383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31382,7 +31383,7 @@ GameObject:
   - component: {fileID: 3088955345357280299}
   - component: {fileID: 7419229899956332729}
   - component: {fileID: 6790045617726513315}
-  m_Layer: 20
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: GoalFinishZone
   m_Icon: {fileID: 0}
@@ -31722,7 +31723,7 @@ GameObject:
   - component: {fileID: 4728848882285082291}
   - component: {fileID: 38265843034413261}
   - component: {fileID: 2125888521498095157}
-  m_Layer: 20
+  m_Layer: 2
   m_Name: RedCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

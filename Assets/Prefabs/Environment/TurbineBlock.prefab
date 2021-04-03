@@ -9694,6 +9694,7 @@ GameObject:
   - component: {fileID: 239200212531799952}
   - component: {fileID: 2645082043024085850}
   - component: {fileID: 6304196319238421353}
+  - component: {fileID: -4741603613349084912}
   m_Layer: 0
   m_Name: TurbineBlock
   m_TagString: Wall
@@ -9782,3 +9783,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.020226799, y: 0.020194354, z: 0.22007625}
   m_Center: {x: -9.313226e-10, y: 0, z: 0}
+--- !u!114 &-4741603613349084912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590791357648908943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17889f84d626bd47ab24108c49ee183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 84652936413740640}
