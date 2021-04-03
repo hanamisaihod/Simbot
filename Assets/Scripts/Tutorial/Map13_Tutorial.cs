@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Map7_Tutorial : MonoBehaviour
+public class Map13_Tutorial : MonoBehaviour
 {
     public bool TutorialTrigger = true;
     private bool trigger2;
@@ -24,39 +24,34 @@ public class Map7_Tutorial : MonoBehaviour
     public Sprite[] boyEmo;
     private string curreentLetter = "";
     private int stage = 0;
-    public int maxStage = 8;
+    public int maxStage = 5;
     Coroutine usingCor;
     Coroutine delayCor;
     private int textSum = 0;
     private int textLength = 0;
     private Text textField1;
 
-    public GameObject tutorial_if;
-    public GameObject tutorial_while;
-    public GameObject code_tutorial;
+    public GameObject turbine;
+    public GameObject if_color;
+    public GameObject tutorial_map13;
 
     void Start()
     {
-        if (PlayerPrefs.HasKey("Map7_Tutorial"))
+        if (PlayerPrefs.HasKey("Map13_Tutorial"))
         {
-            if (PlayerPrefs.GetInt("Map7_Tutorial") == 1)
+            if (PlayerPrefs.GetInt("Map13_Tutorial") == 1)
             {
                 TutorialTrigger = false;
             }
         }
-        var Meow1Script = Meow1.GetComponent<MeowUI_Animating>();
-        var textBox1Script = textBox1.GetComponent<Textbox>();
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
-        fullText[0] = "Johny : Whew! How did I make it through all that!";
-        fullText[1] = "Neko : Ha! You really are his son!";
+        fullText[0] = "Johny : Wait! What's this now!?";
+        fullText[1] = "Neko : That’s right. From now on, certain missions will have black lines for the robot to follow. And there is a new obstacle: the wind turbine. If not careful, the robot will be blown away.";
         fullText[2] = "";
         fullText[3] = "";
-        fullText[4] = "Neko : Now, I will introduce you to new types of blocks. Under the Move block is the If block. It will execute the code inside only if the condition is true.";
-        fullText[5] = "Neko : Conditions will be different depending on the robot used for the mission. For this robot, it will detect the distance in the direction we set.";
-        fullText[6] = "Neko : For example, the front is 0 degrees and the right is 90 degrees.";
-        fullText[7] = "Neko : The last one is the While block that repeats the code inside until the condition is false.";
-        fullText[8] = "Neko : In this mission, try writing a program like this.";
+        fullText[4] = "Neko : Now, you can use the other if condition. This will check the color of the sensors found on the left and right underneath the robot.";
+        fullText[5] = "Neko : Try making a program like this.";
         foreach (Transform child in textBox1.transform)
         {
             if (child.name == "Text")
@@ -64,8 +59,10 @@ public class Map7_Tutorial : MonoBehaviour
                 textField1 = child.gameObject.GetComponent<Text>();
             }
         }
+
     }
 
+   
     void Update()
     {
         var Meow1Script = Meow1.GetComponent<MeowUI_Animating>();
@@ -129,33 +126,32 @@ public class Map7_Tutorial : MonoBehaviour
         }
 
         if(stage == 1)
-            Boy.GetComponent<Image>().sprite = boyEmo[11];
-        else if (stage == 2)
-            Boy.GetComponent<Image>().sprite = boyEmo[10];
-        else if (stage == 3)
         {
+            Boy.GetComponent<Image>().sprite = boyEmo[2];
+        }
+        else if(stage == 2)
+        {
+            Boy.GetComponent<Image>().sprite = boyEmo[8];
+            turbine.SetActive(true);
+        }
+        else if(stage == 3)
+        {
+            turbine.SetActive(false);
             textDone = true;
             partDone = 1;
         }
-        else if (stage == 5)
+        else if(stage == 5)
         {
-            Boy.GetComponent<Image>().sprite = boyEmo[4];
-            tutorial_if.SetActive(true);
+            if_color.SetActive(true);
         }
-        else if (stage == 8)
+        else if(stage == 6)
         {
-            tutorial_if.SetActive(false);
-            tutorial_while.SetActive(true);
+            if_color.SetActive(false);
+            tutorial_map13.SetActive(true);
         }
-        else if (stage == 9)
+        else if(stage == 7)
         {
-            code_tutorial.SetActive(true);
-            tutorial_while.SetActive(false);
-        }
-        else if (stage == 10)
-            code_tutorial.SetActive(false);
-        else if (stage == 11)
-        {
+            tutorial_map13.SetActive(false);
             textDone = true;
             partDone = 2;
         }
@@ -183,7 +179,7 @@ public class Map7_Tutorial : MonoBehaviour
                 }
                 delayCor = StartCoroutine(DelayCall());
                 Meow1Script.cancelTrigger = true;
-                PlayerPrefs.SetInt("Map7_Tutorial", 1); // remember that this dialogue already happened
+                PlayerPrefs.SetInt("Map13_Tutorial", 1); // remember that this dialogue already happened
                 startText = false;
             }
             textDone = false;
