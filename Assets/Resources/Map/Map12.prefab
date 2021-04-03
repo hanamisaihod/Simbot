@@ -12767,7 +12767,7 @@ GameObject:
   - component: {fileID: 311233967874678486}
   - component: {fileID: 311233967874678484}
   - component: {fileID: 311233967874678485}
-  m_Layer: 20
+  m_Layer: 2
   m_Name: WhiteCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23686,7 +23686,7 @@ GameObject:
   - component: {fileID: 311233968162986368}
   - component: {fileID: 311233968162986369}
   - component: {fileID: 311233968162986370}
-  m_Layer: 20
+  m_Layer: 2
   m_Name: RedCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23779,7 +23779,7 @@ GameObject:
   - component: {fileID: 311233968180494894}
   - component: {fileID: 311233968180494895}
   - component: {fileID: 311233968180494880}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: IceFloor
   m_Icon: {fileID: 0}
@@ -28635,7 +28635,7 @@ GameObject:
   - component: {fileID: 311233968228866606}
   - component: {fileID: 311233968228866607}
   - component: {fileID: 311233968228866592}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: IceFloor
   m_Icon: {fileID: 0}
@@ -34835,7 +34835,7 @@ GameObject:
   - component: {fileID: 311233968490252664}
   - component: {fileID: 311233968490252665}
   - component: {fileID: 311233968490252666}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: IceFloor
   m_Icon: {fileID: 0}
@@ -35387,7 +35387,7 @@ GameObject:
   - component: {fileID: 311233968537831572}
   - component: {fileID: 311233968537831573}
   - component: {fileID: 311233968537831574}
-  m_Layer: 20
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: GoalFinishZone
   m_Icon: {fileID: 0}
@@ -36701,7 +36701,7 @@ GameObject:
   - component: {fileID: 311233968657574940}
   - component: {fileID: 311233968657574941}
   - component: {fileID: 311233968657574942}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: IceFloor
   m_Icon: {fileID: 0}
@@ -60750,7 +60750,7 @@ GameObject:
   - component: {fileID: 311233969430556250}
   - component: {fileID: 311233969430556251}
   - component: {fileID: 311233969430556252}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: IceFloor
   m_Icon: {fileID: 0}
@@ -66319,7 +66319,7 @@ GameObject:
   - component: {fileID: 311233969518495318}
   - component: {fileID: 311233969518495319}
   - component: {fileID: 311233969518495272}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: IceFloor
   m_Icon: {fileID: 0}
@@ -72412,6 +72412,7 @@ MonoBehaviour:
     type: 3}
   stovePrefab: {fileID: 1049934262172938741, guid: 96f33132163fb2842ac039b5b7a4d5ca,
     type: 3}
+  spawnedRobot: {fileID: 0}
 --- !u!65 &311233969644442172
 BoxCollider:
   m_ObjectHideFlags: 0

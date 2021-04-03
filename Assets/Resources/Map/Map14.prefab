@@ -5000,7 +5000,7 @@ GameObject:
   - component: {fileID: 6327377549186777216}
   - component: {fileID: 8149828488766796737}
   - component: {fileID: 1751069812539741310}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Turbine
   m_Icon: {fileID: 0}
@@ -11422,6 +11422,7 @@ MonoBehaviour:
     type: 3}
   stovePrefab: {fileID: 1049934262172938741, guid: 96f33132163fb2842ac039b5b7a4d5ca,
     type: 3}
+  spawnedRobot: {fileID: 0}
 --- !u!54 &6743084329474710431
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31263,7 +31264,7 @@ GameObject:
   - component: {fileID: 2284196888566942836}
   - component: {fileID: 5170299134754789263}
   - component: {fileID: 7665775735200958782}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Turbine
   m_Icon: {fileID: 0}
@@ -31557,7 +31558,7 @@ GameObject:
   - component: {fileID: 5451040359267277425}
   - component: {fileID: 6938154407259768642}
   - component: {fileID: 947067937341311106}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Turbine
   m_Icon: {fileID: 0}
@@ -36945,7 +36946,7 @@ GameObject:
   - component: {fileID: 440427417571028222}
   - component: {fileID: 6929597195455768636}
   - component: {fileID: 2621940647006820174}
-  m_Layer: 20
+  m_Layer: 2
   m_Name: RedCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41792,7 +41793,7 @@ GameObject:
   - component: {fileID: 8012101223803993633}
   - component: {fileID: 6939595191236988545}
   - component: {fileID: 8716280677697643537}
-  m_Layer: 20
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: GoalFinishZone
   m_Icon: {fileID: 0}
@@ -47089,7 +47090,7 @@ GameObject:
   - component: {fileID: 3927874748973952611}
   - component: {fileID: 2796504847611809370}
   - component: {fileID: 343829913059754806}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Turbine
   m_Icon: {fileID: 0}
@@ -47394,7 +47395,7 @@ GameObject:
   - component: {fileID: 6429273586277154122}
   - component: {fileID: 6820422270652042717}
   - component: {fileID: 6284852806844533844}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Turbine
   m_Icon: {fileID: 0}
@@ -52369,7 +52370,7 @@ GameObject:
   - component: {fileID: 2204758000051325876}
   - component: {fileID: 1839079579790220144}
   - component: {fileID: 1418467537588637279}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Turbine
   m_Icon: {fileID: 0}
@@ -62391,7 +62392,7 @@ GameObject:
   - component: {fileID: 73265148826034728}
   - component: {fileID: 2095510446025401144}
   - component: {fileID: 5585583833029849373}
-  m_Layer: 20
+  m_Layer: 2
   m_Name: WhiteCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4848,6 +4848,7 @@ GameObject:
   - component: {fileID: 2007259145982252982}
   - component: {fileID: 7367630464652020478}
   - component: {fileID: 1731609972762023633}
+  - component: {fileID: 6650077936523732323}
   m_Layer: 0
   m_Name: Yellow_Destination
   m_TagString: Untagged
@@ -4952,6 +4953,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.020000005, z: 0.022000007}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6650077936523732323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367630464652020479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17889f84d626bd47ab24108c49ee183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 8952033370552217158}
 --- !u!1 &8952033370552217158
 GameObject:
   m_ObjectHideFlags: 0

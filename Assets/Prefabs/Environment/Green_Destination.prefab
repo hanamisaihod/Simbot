@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 4400709313388688197}
   - component: {fileID: 4681024091816865293}
   - component: {fileID: 8025648759774631584}
+  - component: {fileID: 7980643806016664748}
   m_Layer: 0
   m_Name: Green_Destination
   m_TagString: Untagged
@@ -292,6 +293,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.020000005, z: 0.022000007}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7980643806016664748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4681024091816865292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17889f84d626bd47ab24108c49ee183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 3083630519427874841}
 --- !u!1 &8564780077714463999
 GameObject:
   m_ObjectHideFlags: 0
