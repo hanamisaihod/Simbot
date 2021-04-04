@@ -40,7 +40,9 @@ public class Map20_Tutorial : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("Map20_Tutorial") == 1)
             {
+                boss.SetActive(true);
                 TutorialTrigger = false;
+                cam2.enabled = false;
             }
         }
         playAudio = GetComponent<AudioSource>();
