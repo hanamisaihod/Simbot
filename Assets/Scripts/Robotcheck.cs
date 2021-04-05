@@ -9,14 +9,20 @@ public class Robotcheck : MonoBehaviour
     public GameObject turtle;
     public GameObject line;
     public GameObject turtleButton1;
-    //public GameObject turtleButton2;
+    public GameObject turtleButtonOff;
+    public GameObject turtleButtonOn;
     public GameObject lineButton1;
-    //public GameObject lineButton2;
+    public GameObject lineButtonOff;
+    public GameObject lineButtonOn;
     // Start is called before the first frame update
     void Start()
     {
         turtle.SetActive(false);
         line.SetActive(false);
+        turtleButtonOn.SetActive(false);
+        turtleButtonOff.SetActive(true);
+        lineButtonOff.SetActive(true);
+        lineButtonOn.SetActive(false);
         if(EnviSim.Mode == "Main")
         {
             if(LoadMainStage.mainStageKey == "Map1" || LoadMainStage.mainStageKey == "Map2"|| LoadMainStage.mainStageKey == "Map3"
@@ -28,6 +34,8 @@ public class Robotcheck : MonoBehaviour
                 line.SetActive(false);
                 turtleButton1.SetActive(true);
                 lineButton1.SetActive(false);
+                turtleButtonOn.SetActive(true);
+                turtleButtonOff.SetActive(false);
                 robotTypeNum = 0;
             }
             else
@@ -36,6 +44,8 @@ public class Robotcheck : MonoBehaviour
                 line.SetActive(true);
                 turtleButton1.SetActive(false);
                 lineButton1.SetActive(true);
+                lineButtonOn.SetActive(true);
+                lineButtonOff.SetActive(false);
                 lineButton1.transform.position = turtleButton1.transform.position;
                 robotTypeNum = 1;
             }
@@ -53,11 +63,19 @@ public class Robotcheck : MonoBehaviour
         robotTypeNum = 0;
         turtle.SetActive(true);
         line.SetActive(false);
+        turtleButtonOn.SetActive(true);
+        turtleButtonOff.SetActive(false);
+        lineButtonOff.SetActive(true);
+        lineButtonOn.SetActive(false);
     }
     void creativeLineRobotNum()
     {
         robotTypeNum = 1;
         turtle.SetActive(false);
         line.SetActive(true);
+        lineButtonOn.SetActive(true);
+        lineButtonOff.SetActive(false);
+        turtleButtonOff.SetActive(true);
+        turtleButtonOn.SetActive(false);
     }
 }
