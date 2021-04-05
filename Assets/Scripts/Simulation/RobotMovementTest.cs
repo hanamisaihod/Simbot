@@ -791,6 +791,10 @@ public class RobotMovementTest : MonoBehaviour
         {
             levelController.GetComponent<LevelController>().FinishMission();
         }
+        if (other.transform.tag == "Boss1")
+        {
+            robotStatScript.DamagePlayer(999);
+        }
     }
     private void OnTriggerExit(Collider other)
     {

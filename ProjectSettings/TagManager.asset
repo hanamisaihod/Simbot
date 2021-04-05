@@ -39,6 +39,7 @@ TagManager:
   - SubCamera
   - Floor
   - GoalBox
+  - Boss1
   layers:
   - Default
   - TransparentFX

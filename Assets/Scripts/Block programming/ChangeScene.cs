@@ -32,6 +32,7 @@ public class ChangeScene : MonoBehaviour
             if (GameObject.FindGameObjectWithTag("VariableCarrier"))
             {
                 GameObject.FindGameObjectWithTag("VariableCarrier").GetComponent<CarriedVariables>().currentMapName = inputMap;
+                GameObject.FindGameObjectWithTag("VariableCarrier").GetComponent<CarriedVariables>().newMap = true;
             }
             Debug.Log("Sim MODEEEEEEEEEEEEEEEEEEEEEEE = " + EnviSim.Mode);
             SceneManager.LoadScene("SelectRobot");
