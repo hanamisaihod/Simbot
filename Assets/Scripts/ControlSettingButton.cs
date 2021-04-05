@@ -7,9 +7,24 @@ public class ControlSettingButton : MonoBehaviour
 	public GameObject toggleLight;
 	public GameObject otherControl;
 	public bool isActive;
+	public bool thisIsInverse;
 	void Start()
 	{
-		isActive = toggleLight.activeSelf;
+		if (PlayerPrefs.HasKey("controlInverse"))
+		{
+			if (PlayerPrefs.GetInt("controlInverse") == 1)
+			{
+				if (thisIsInverse)
+				{
+					toggleLight.SetActive(true);
+				}
+				else
+				{
+					toggleLight.SetActive(false);
+				}
+			}
+		}
+		isActive = toggleLight.activeInHierarchy;
 	}
 
 	public void Toggle()
