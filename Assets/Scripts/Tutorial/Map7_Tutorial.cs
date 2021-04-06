@@ -30,6 +30,7 @@ public class Map7_Tutorial : MonoBehaviour
     private int textSum = 0;
     private int textLength = 0;
     private Text textField1;
+    public Button infoButton;
 
     public GameObject tutorial_if;
     public GameObject tutorial_while;
@@ -44,6 +45,7 @@ public class Map7_Tutorial : MonoBehaviour
                 TutorialTrigger = false;
             }
         }
+        infoButton.GetComponent<Button>().onClick.AddListener(ActivateTutorial);
         var Meow1Script = Meow1.GetComponent<MeowUI_Animating>();
         var textBox1Script = textBox1.GetComponent<Textbox>();
         playAudio = GetComponent<AudioSource>();
@@ -65,6 +67,10 @@ public class Map7_Tutorial : MonoBehaviour
             }
         }
     }
+    void ActivateTutorial()
+    {
+        if (!startText) TutorialTrigger = true;
+    }
 
     void Update()
     {
@@ -73,6 +79,7 @@ public class Map7_Tutorial : MonoBehaviour
 
         if (TutorialTrigger)
         {
+            stage = 0;
             back.SetActive(true);
             textBox1Script.boxUpTrigger = true;
             Meow1Script.showRTrigger = true;

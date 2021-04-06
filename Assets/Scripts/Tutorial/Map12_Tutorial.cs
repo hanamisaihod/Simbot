@@ -30,6 +30,7 @@ public class Map12_Tutorial : MonoBehaviour
     private int textSum = 0;
     private int textLength = 0;
     private Text textField1;
+    public Button infoButton;
 
     public GameObject warning;
 
@@ -42,6 +43,7 @@ public class Map12_Tutorial : MonoBehaviour
                 TutorialTrigger = false;
             }
         }
+        infoButton.GetComponent<Button>().onClick.AddListener(ActivateTutorial);
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
         fullText[0] = "Johny : What happened!?";
@@ -57,6 +59,10 @@ public class Map12_Tutorial : MonoBehaviour
             }
         }
     }
+    void ActivateTutorial()
+    {
+        if (!startText) TutorialTrigger = true;
+    }
 
     void Update()
     {
@@ -66,6 +72,7 @@ public class Map12_Tutorial : MonoBehaviour
 
         if (TutorialTrigger)
         {
+            stage = 0;
             warning.SetActive(true);
             LeanTween.alpha(warnRect, 0, 0.7f).setLoopPingPong();
             back.SetActive(true);

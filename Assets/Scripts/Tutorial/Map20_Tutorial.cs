@@ -30,6 +30,7 @@ public class Map20_Tutorial : MonoBehaviour
     private int textSum = 0;
     private int textLength = 0;
     private Text textField1;
+    public Button infoButton;
 
     public GameObject boss;
     public Camera cam2;
@@ -45,6 +46,7 @@ public class Map20_Tutorial : MonoBehaviour
                 cam2.enabled = false;
             }
         }
+        infoButton.GetComponent<Button>().onClick.AddListener(ActivateTutorial);
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
         fullText[0] = "Neko : What else now?";
@@ -57,6 +59,10 @@ public class Map20_Tutorial : MonoBehaviour
             }
         }
     }
+    void ActivateTutorial()
+    {
+        if (!startText) TutorialTrigger = true;
+    }
 
     void Update()
     {
@@ -65,6 +71,7 @@ public class Map20_Tutorial : MonoBehaviour
 
         if (TutorialTrigger)
         {
+            stage = 0;
             boss.SetActive(true);
             back.SetActive(true);
             textBox1Script.boxUpTrigger = true;

@@ -47,9 +47,11 @@ public class ARSceneController : MonoBehaviour
 		{
 			map = enviSim.creativeMap;
 		}
+		modeSwitcher.AssignBossesAsChildren(map);
 		map.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
 		centroid = CalculateMapCentroid();
 		MoveMapToCentroid();
+		AdjustParticleSize();
 		map.SetActive(false);
 	}
 
@@ -79,8 +81,17 @@ public class ARSceneController : MonoBehaviour
 		foreach (Transform child in map.transform)
 		{
 			child.localPosition = new Vector3(child.localPosition.x - centroid.x
-				, child.localPosition.y
+				, 0
 				, child.localPosition.z - centroid.z);
+		}
+	}
+
+	public void AdjustParticleSize()
+	{
+		ParticleSystem[] particleObjs = FindObjectsOfType<ParticleSystem>();
+		foreach (ParticleSystem obj in particleObjs)
+		{
+			obj.transform.localScale = obj.transform.localScale * 0.02f;
 		}
 	}
 }

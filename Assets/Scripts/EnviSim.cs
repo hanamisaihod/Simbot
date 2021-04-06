@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnviSim : MonoBehaviour
 {
@@ -51,7 +52,5 @@ public class EnviSim : MonoBehaviour
             if (GameObject.Find("ARSceneController"))
               GameObject.Find("ARSceneController").GetComponent<ARSceneController>().AssignMap(true);
         }
-        
     }
-
 }

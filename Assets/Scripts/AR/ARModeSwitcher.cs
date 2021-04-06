@@ -13,6 +13,8 @@ public class ARModeSwitcher : MonoBehaviour
 	public GameObject confirmButton;
 	public GameObject applyButton;
 	public GameObject rotateMap;
+	public GameObject boss1, boss2;
+	public GameObject map1tutorial;
 	// There will be three modes in AR
 	//1. Map placement 2. Map confirmation and adjustment 3. simulate
 
@@ -24,6 +26,12 @@ public class ARModeSwitcher : MonoBehaviour
 		confirmButton.SetActive(false);
 		rotateMap.SetActive(false);
 		applyButton.SetActive(false);
+		boss1.GetComponent<Tutorial_Activator>().DeactivateObject();
+		boss2.GetComponent<Tutorial_Activator>().DeactivateObject();
+		map1tutorial.GetComponent<Tutorial_Activator>().DeactivateObject();
+		boss1.SetActive(false);
+		boss2.SetActive(false);
+		map1tutorial.SetActive(false);
 	}
 
 	public void MapPlacementToConfirmation() //When the player press apply button
@@ -33,6 +41,14 @@ public class ARModeSwitcher : MonoBehaviour
 		applyButton.SetActive(false);
 		rotateMap.SetActive(true);
 		confirmButton.SetActive(true);
+		if (map1tutorial.GetComponent<Tutorial_Activator>().thisIsActive)
+		{
+			map1tutorial.SetActive(true);
+		}
+		if (boss2.GetComponent<Tutorial_Activator>().thisIsActive)
+		{
+			boss2.SetActive(true);
+		}
 	}
 
     public void ConfirmationToSimulate() //When the player press confirm button
@@ -46,5 +62,21 @@ public class ARModeSwitcher : MonoBehaviour
 		hpSet.SetActive(true);
 		retryButton.SetActive(true);
 		simulateButton.SetActive(true);
+		if (boss1.GetComponent<Tutorial_Activator>().thisIsActive)
+		{
+			StartCoroutine(Boss1SpawnDelay(5));
+		}
+	}
+
+	public void AssignBossesAsChildren(GameObject map)
+	{
+		boss1.transform.parent = map.transform;
+		boss2.transform.parent = map.transform;
+	}
+
+	IEnumerator Boss1SpawnDelay(float delay)
+	{
+		yield return new WaitForSeconds(delay);
+		boss1.SetActive(true);
 	}
 }
