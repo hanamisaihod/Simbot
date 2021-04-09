@@ -7,6 +7,7 @@ public class ARModeSwitcher : MonoBehaviour
     public ARPlacementIndicator placementIndicator;
 	public ARSceneController sceneController;
 	public GameObject levelController;
+	public GameObject lookAroundText;
 	public GameObject simulateButton;
     public GameObject hpSet;
     public GameObject retryButton;

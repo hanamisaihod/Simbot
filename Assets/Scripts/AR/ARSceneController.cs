@@ -28,6 +28,7 @@ public class ARSceneController : MonoBehaviour
 			{
 				map.SetActive(true);
 				modeSwitcher.applyButton.gameObject.SetActive(true);
+				modeSwitcher.lookAroundText.SetActive(false);
 			}
 			//map.transform.position = placementIndicator.transform.position;
 			map.transform.position = new Vector3(placementIndicator.transform.position.x
@@ -52,6 +53,7 @@ public class ARSceneController : MonoBehaviour
 		centroid = CalculateMapCentroid();
 		MoveMapToCentroid();
 		AdjustParticleSize();
+		AdjustLightRange();
 		map.SetActive(false);
 	}
 
@@ -81,7 +83,7 @@ public class ARSceneController : MonoBehaviour
 		foreach (Transform child in map.transform)
 		{
 			child.localPosition = new Vector3(child.localPosition.x - centroid.x
-				, 0
+				, 0.5f
 				, child.localPosition.z - centroid.z);
 		}
 	}
@@ -92,6 +94,14 @@ public class ARSceneController : MonoBehaviour
 		foreach (ParticleSystem obj in particleObjs)
 		{
 			obj.transform.localScale = obj.transform.localScale * 0.02f;
+		}
+	}
+	public void AdjustLightRange()
+	{
+		Light[] lightObjs = FindObjectsOfType<Light>();
+		foreach (Light obj in lightObjs)
+		{
+			obj.range = obj.range * 0.02f;
 		}
 	}
 }
