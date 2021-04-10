@@ -6,11 +6,17 @@ public class Tutorial_Activator : MonoBehaviour
 {
     public string triggerMapName = "";
     public string currentMapName = "";
-    public bool creativeTutorial = false;
+    public bool creativeTutorial = false; // if this is creative tutorial
+    public bool thisIsActive = false;
     [SerializeField] private GameObject blockSaveManager;
 
     void Start()
     {
+        DeactivateObject();
+    }
+
+    public void DeactivateObject()
+	{
         if (!creativeTutorial)
         {
             if (GameObject.FindGameObjectWithTag("VariableCarrier"))
@@ -20,15 +26,23 @@ public class Tutorial_Activator : MonoBehaviour
                 {
                     gameObject.SetActive(false);
                 }
+                else
+                {
+                    thisIsActive = true;
+                }
             }
         }
-		else
-		{
+        else
+        {
             if (GameObject.FindGameObjectWithTag("VariableCarrier"))
             {
                 if (!GameObject.FindGameObjectWithTag("VariableCarrier").GetComponent<CarriedVariables>().newMap)
                 {
                     gameObject.SetActive(false);
+                }
+                else
+                {
+                    thisIsActive = true;
                 }
             }
         }

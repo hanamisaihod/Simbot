@@ -30,6 +30,7 @@ public class Creative_Tutorial : MonoBehaviour
     private int textSum = 0;
     private int textLength = 0;
     private Text textField1;
+    public Button infoButton;
 
     public GameObject bin;
     public GameObject rotate;
@@ -47,6 +48,7 @@ public class Creative_Tutorial : MonoBehaviour
                 TutorialTrigger = false;
             }
         }
+        infoButton.GetComponent<Button>().onClick.AddListener(ActivateTutorial);
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
         fullText[0] = "Neko : For creating missions, You can select a structure or obstacle from the toolbar underneath it.";
@@ -58,6 +60,10 @@ public class Creative_Tutorial : MonoBehaviour
                 textField1 = child.gameObject.GetComponent<Text>();
             }
         }
+    }
+    void ActivateTutorial()
+    {
+        if (!startText) TutorialTrigger = true;
     }
 
     void Update()

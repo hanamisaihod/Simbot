@@ -30,6 +30,7 @@ public class Map9_Tutorial : MonoBehaviour
     private int textSum = 0;
     private int textLength = 0;
     private Text textField1;
+    public Button infoButton;
 
     public GameObject iceFloor;
 
@@ -42,6 +43,7 @@ public class Map9_Tutorial : MonoBehaviour
                 TutorialTrigger = false;
             }
         }
+        infoButton.GetComponent<Button>().onClick.AddListener(ActivateTutorial);
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
         fullText[0] = "Neko : Now let’s be more careful. We have found a new obstacle. It's the ice floor.";
@@ -56,8 +58,12 @@ public class Map9_Tutorial : MonoBehaviour
             }
         }
     }
+    void ActivateTutorial()
+    {
+        if (!startText) TutorialTrigger = true;
+    }
 
-    
+
     void Update()
     {
         var Meow1Script = Meow1.GetComponent<MeowUI_Animating>();
@@ -65,6 +71,7 @@ public class Map9_Tutorial : MonoBehaviour
 
         if (TutorialTrigger)
         {
+            stage = 0;
             back.SetActive(true);
             textBox1Script.boxUpTrigger = true;
             Meow1Script.showRTrigger = true;

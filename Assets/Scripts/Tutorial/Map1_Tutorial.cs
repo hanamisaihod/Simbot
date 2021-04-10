@@ -36,6 +36,7 @@ public class Map1_Tutorial : MonoBehaviour
     private int textSum = 0;
     private int textLength = 0;
     private Text textField1;
+    public Button infoButton;
 
     public GameObject joys;
     public GameObject startPoint;
@@ -48,6 +49,7 @@ public class Map1_Tutorial : MonoBehaviour
     public GameObject tip_moveCode;
     public GameObject tip_set_move;
 
+
     void Start()
     {
         if (PlayerPrefs.HasKey("Map1_Tutorial"))
@@ -57,6 +59,7 @@ public class Map1_Tutorial : MonoBehaviour
                 TutorialTrigger = false;
             }
         }
+        infoButton.GetComponent<Button>().onClick.AddListener(ActivateTutorial);
         var Meow1Script = Meow1.GetComponent<MeowUI_Animating>();
         var textBox1Script = textBox1.GetComponent<Textbox>();
         playAudio = GetComponent<AudioSource>();
@@ -97,6 +100,10 @@ public class Map1_Tutorial : MonoBehaviour
             }
         }
     }
+    void ActivateTutorial()
+    {
+        if (!startText) TutorialTrigger = true;
+    }
 
     void Update()
     {
@@ -105,6 +112,7 @@ public class Map1_Tutorial : MonoBehaviour
 
         if(TutorialTrigger)
         {
+            stage = 0;
             back.SetActive(true);
             textBox1Script.boxUpTrigger = true;
             Meow1Script.showRTrigger = true;
