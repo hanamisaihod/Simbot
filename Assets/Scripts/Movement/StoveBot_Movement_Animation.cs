@@ -10,6 +10,13 @@ public class StoveBot_Movement_Animation : MonoBehaviour
     private float speed;
     private float torque;
     private float delay;
+    AudioSource moveAudio;
+    public AudioClip soundMove;
+
+    void Start()
+    {
+        moveAudio = gameObject.GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -24,6 +31,10 @@ public class StoveBot_Movement_Animation : MonoBehaviour
         {
             wheel_left.transform.Rotate(Vector3.down * Time.fixedDeltaTime * 600 * (speed + 0.00347f * torque), Space.Self);
             wheel_right.transform.Rotate(Vector3.down * Time.fixedDeltaTime * 600 * (speed - 0.00347f * torque), Space.Self);
+            if (!moveAudio.isPlaying)
+                moveAudio.Play();
         }
+        else
+            moveAudio.Stop();
     }
 }

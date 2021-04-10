@@ -87,7 +87,7 @@ public class Map1_Tutorial : MonoBehaviour
         fullText[16] = "Neko : The second one is the rotational speed of the robot, in degree per second.";
         fullText[17] = "Neko : The last box is the number of seconds the robot follows the instruction for. " +
             "If you want the robot to follow the instructions until there’s a new Move command, you can set the delay to 9999.";
-        fullText[18] = "Neko : From the mission we’ve seen, let's set move speed to 1, rotate speed to 0, and delay to 3.";
+        fullText[18] = "Neko : From the mission we’ve seen, let's set move speed to 1, rotate speed to 0, and delay to 4.";
         fullText[19] = "Neko : If you want to go back to see the mission again, press the map button.";
         fullText[20] = "Neko : If you want to test the program, you can press simulate button.";
 
