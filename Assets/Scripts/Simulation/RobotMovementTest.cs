@@ -860,13 +860,13 @@ public class RobotMovementTest : MonoBehaviour
                         StartCoroutine(WallColliderTimer(relativeVec));
                         GameObject tempVisualiser = Instantiate(collisionVisualiser, other.contacts[0].point, other.transform.rotation);
                         Object.Destroy(tempVisualiser, 2.0f);
+                        Debug.Log(" Robot Position: " + gameObject.transform.position
+                            + "\n Collision Position: " + other.contacts[0].point
+                            + "\n Distance between robot and collision: " + (gameObject.transform.position - other.contacts[0].point).magnitude);
                     }
                     if (relativeVec > 1.5f * 0.02f)
                     {
                         emojiTrigger.ManageEmojiDisplay(1);
-                        StartCoroutine(WallColliderTimer(relativeVec / 2));
-                        GameObject tempVisualiser = Instantiate(collisionVisualiser, other.contacts[0].point, other.transform.rotation);
-                        Object.Destroy(tempVisualiser, 2.0f);
                     }
                 }
 				else
@@ -879,7 +879,6 @@ public class RobotMovementTest : MonoBehaviour
                     if (relativeVec > 1.5f)
                     {
                         emojiTrigger.ManageEmojiDisplay(1);
-                        StartCoroutine(WallColliderTimer(relativeVec / 2));
                     }
                 }
             }
