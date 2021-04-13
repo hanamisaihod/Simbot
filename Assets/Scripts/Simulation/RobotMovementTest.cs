@@ -861,7 +861,7 @@ public class RobotMovementTest : MonoBehaviour
                 {
                     if (relativeVec > 0.1f * 0.02f)
                     {
-                        robotStatScript.DamagePlayer(relativeVec * 10.0f);
+                        robotStatScript.DamagePlayer(relativeVec * 10.0f / 0.02f);
                         StartCoroutine(WallColliderTimer(relativeVec));
                         GameObject tempVisualiser = Instantiate(collisionVisualiser, other.contacts[0].point, other.transform.rotation);
                         Object.Destroy(tempVisualiser, 2.0f);
