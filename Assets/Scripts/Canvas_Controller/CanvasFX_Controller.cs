@@ -113,16 +113,15 @@ public class CanvasFX_Controller : MonoBehaviour
             {
                 StopCoroutine(tableCor);
             }
-            EndingStarRating.clear = true;
-            Debug.Log("clear = " + EndingStarRating.clear);
+            //EndingStarRating.clear = true;
+            //Debug.Log("clear = " + EndingStarRating.clear);
             tableCor = StartCoroutine(tableShow());
             startShow = true;
             FXshowing = true;
         }
         else
         {
-            clearTrigger = false;
-            
+            clearTrigger = false;        
         }
             
 
@@ -138,8 +137,8 @@ public class CanvasFX_Controller : MonoBehaviour
                 StopCoroutine(tableCor);
             }
             tableCor = StartCoroutine(tableShow());
-            EndingStarRating.fail = true;
-            Debug.Log("fail = " + EndingStarRating.fail);
+            //EndingStarRating.fail = true;
+            //Debug.Log("fail = " + EndingStarRating.fail);
             startShow = true;
             FXshowing = true;
         }
@@ -196,6 +195,7 @@ public class CanvasFX_Controller : MonoBehaviour
 
     IEnumerator ClearShow()
     {
+        EndingStarRating.clear = true;
         var Rect = textClear.GetComponent<RectTransform>();
         var whiteRect = whiteFlash.GetComponent<RectTransform>();
         
@@ -237,6 +237,7 @@ public class CanvasFX_Controller : MonoBehaviour
 
     IEnumerator FailShow()
     {
+        EndingStarRating.fail = true;
         var Rect = textFail.GetComponent<RectTransform>();
         var darkRect = darkTheme.GetComponent<RectTransform>();
 
