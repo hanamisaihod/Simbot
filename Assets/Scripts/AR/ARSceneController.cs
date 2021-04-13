@@ -90,18 +90,18 @@ public class ARSceneController : MonoBehaviour
 
 	public void AdjustParticleSize()
 	{
-		ParticleSystem[] particleObjs = FindObjectsOfType<ParticleSystem>();
+		ParticleSystem[] particleObjs = Resources.FindObjectsOfTypeAll(typeof(ParticleSystem)) as ParticleSystem[];
 		foreach (ParticleSystem obj in particleObjs)
 		{
-			obj.transform.localScale = obj.transform.localScale * 0.02f;
+			obj.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
 		}
 	}
 	public void AdjustLightRange()
 	{
-		Light[] lightObjs = FindObjectsOfType<Light>();
+		Light[] lightObjs = Resources.FindObjectsOfTypeAll(typeof(Light)) as Light[];
 		foreach (Light obj in lightObjs)
 		{
-			obj.range = obj.range * 0.02f;
+			obj.range = 0.02f;
 		}
 	}
 }

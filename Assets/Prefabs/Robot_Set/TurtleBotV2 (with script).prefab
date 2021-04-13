@@ -4935,7 +4935,7 @@ GameObject:
   - component: {fileID: 7633102598847351128}
   m_Layer: 0
   m_Name: PS_Drop2
-  m_TagString: Untagged
+  m_TagString: Drop2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14808,7 +14808,7 @@ GameObject:
   - component: {fileID: 5019434106167564100}
   m_Layer: 0
   m_Name: PS_Drop
-  m_TagString: Untagged
+  m_TagString: Drop1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24754,6 +24754,7 @@ MonoBehaviour:
   degree: 0
   distance: 0
   distanceFromHit: 0
+  wallHitAvailable: 0
   isOnIceCount: 0
   isOnFloorCount: 0
   isAtWallCount: 0
@@ -24762,16 +24763,24 @@ MonoBehaviour:
   startedReading: 0
   isHoldingObject: 0
   turbineList: []
+  rbd: {fileID: 6106402775447490078}
   distanceSensor: {fileID: 1000158568698169711}
   leftColorSensor: {fileID: 0}
   rightColorSensor: {fileID: 0}
+  emojiTrigger: {fileID: 0}
   greenProduct: {fileID: 0}
   purpleProduct: {fileID: 0}
   redProduct: {fileID: 0}
   yellowProduct: {fileID: 0}
+  arModeSwither: {fileID: 0}
+  emojiController: {fileID: 8277269880833604276}
+  sphereCollider: {fileID: 6106402775447490073}
+  boxCollider: {fileID: 0}
   repeats: []
   player: {fileID: 0}
   currentTimes: 0
+  collisionVisualiser: {fileID: 7352037682259999796, guid: b819d0cbe0b925a46ac3c483e193b679,
+    type: 3}
 --- !u!114 &6106402775447490076
 MonoBehaviour:
   m_ObjectHideFlags: 0

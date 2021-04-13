@@ -12,6 +12,7 @@ public class RobotMovementTest : MonoBehaviour
     public float degree;
     public float distance;
     public float distanceFromHit;
+    public bool wallHitAvailable;
     public int isOnIceCount = 0;
     public int isOnFloorCount = 0;
     public int isAtWallCount = 0;
@@ -20,23 +21,42 @@ public class RobotMovementTest : MonoBehaviour
     public bool startedReading = false;
     public bool isHoldingObject = false;
     public List<Collider> turbineList = new List<Collider>();
-    private Rigidbody rbd;
+    public Rigidbody rbd;
     public GameObject distanceSensor;
     public GameObject leftColorSensor;
     public GameObject rightColorSensor;
     private RobotStatus robotStatScript;
     private GameObject levelController;
-
+    [SerializeField] private Emoji_Trigger emojiTrigger;
     public GameObject greenProduct;
     public GameObject purpleProduct;
     public GameObject redProduct;
     public GameObject yellowProduct;
+    public GameObject arModeSwither = null;
+    public Emoji_Controller emojiController;
+    public SphereCollider sphereCollider = null;
+    public BoxCollider boxCollider = null;
 
     private void Start()
     {
         rbd = GetComponent<Rigidbody>();
         robotStatScript = GetComponent<RobotStatus>();
         levelController = GameObject.FindGameObjectWithTag("LevelController");
+        emojiTrigger = FindObjectOfType<Emoji_Trigger>();
+        wallHitAvailable = true;
+        if (GameObject.Find("ARModeSwitcher"))
+		{
+            arModeSwither = GameObject.Find("ARModeSwitcher");
+            //if (sphereCollider != null)
+            //{
+            //    sphereCollider.radius *= 0.02f;
+            //}
+            //if (boxCollider != null)
+            //{
+            //    boxCollider.size *= 0.02f;
+            //}
+
+        }
     }
     void FixedUpdate()
     {
@@ -46,7 +66,7 @@ public class RobotMovementTest : MonoBehaviour
         }
         float calculatedSpeed = speed;
         float calculatedTorque = torque;
-        if (GameObject.Find("ARModeSwitcher"))
+        if (arModeSwither != null)
         {
             calculatedSpeed = speed * 0.02f;
             //calculatedTorque = torque * 0.02f;
@@ -162,50 +182,64 @@ public class RobotMovementTest : MonoBehaviour
             }
             else if (posChance < 0.6)
             {
-                transform.position += Angle * 0.0001f;
+                if (arModeSwither != null)
+				{
+                    transform.position += Angle * 0.0004f * 0.02f;
+                }
+				else
+                {
+                    transform.position += Angle * 0.0002f;
+                }
             }
             else
             {
-                transform.position += Angle * 0.0002f;
+                if (arModeSwither != null)
+                {
+                    transform.position += Angle * 0.0007f * 0.02f;
+                }
+                else
+                {
+                    transform.position += Angle * 0.0005f;
+                }
             }
             float rotChance = Random.value;
-            if (posChance < 0.2) // No push
+            if (rotChance < 0.2) // No rotate
             {
 
             }
-            else if (posChance < 0.6)
+            else if (rotChance < 0.6)
             {
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, turbineList[x].transform.parent.eulerAngles.y, 0), 0.00001f * Time.time);
             }
             else
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, turbineList[x].transform.parent.eulerAngles.y, 0), 0.00002f * Time.time);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, turbineList[x].transform.parent.eulerAngles.y, 0), 0.00003f * Time.time);
             }
         }
-        if (isAtWallCount > 0)
-        {
-            //if (rbd.velocity.magnitude > 0.1f)
-            //{
-            //    if (wallDamageCounter > 1)
-            //    {
-            //        wallDamageCounter += Time.fixedDeltaTime;
-            //        //robotStatScript.playerHealth -= rbd.velocity.magnitude * 10.0f;
-            //        robotStatScript.DamagePlayer(rbd.velocity.magnitude * 10.0f);
-            //        wallDamageCounter = 0;
-            //    }
-            //}
-            if (wallDamageCounter > 1)
-            {
-                //robotStatScript.playerHealth -= rbd.velocity.magnitude * 10.0f;
-                robotStatScript.DamagePlayer(rbd.velocity.magnitude * 12f);
-                wallDamageCounter = 0;
-            }
-            if (rbd.velocity.magnitude > 0)
-            {
-                wallDamageCounter += Time.fixedDeltaTime * 5;
-            }
-        }
-    }
+		if (isAtWallCount > 0)
+		{
+			//if (rbd.velocity.magnitude > 0.1f)
+			//{
+			//    if (wallDamageCounter > 1)
+			//    {
+			//        wallDamageCounter += Time.fixedDeltaTime;
+			//        //robotStatScript.playerHealth -= rbd.velocity.magnitude * 10.0f;
+			//        robotStatScript.DamagePlayer(rbd.velocity.magnitude * 10.0f);
+			//        wallDamageCounter = 0;
+			//    }
+			//}
+			//if (wallDamageCounter > 1)
+			//{
+			//    //robotStatScript.playerHealth -= rbd.velocity.magnitude * 10.0f;
+			//    robotStatScript.DamagePlayer(rbd.velocity.magnitude * 12f);
+			//    wallDamageCounter = 0;
+			//}
+			//if (rbd.velocity.magnitude > 0)
+			//{
+			//    wallDamageCounter += Time.fixedDeltaTime * 5;
+			//}
+		}
+	}
 
     public void StartReading()
     {
@@ -807,6 +841,8 @@ public class RobotMovementTest : MonoBehaviour
             turbineList.Remove(other);
         }
     }
+
+    public GameObject collisionVisualiser;
     private void OnCollisionEnter(Collision other)
     {
         if (other.transform.tag == "Wall")
@@ -814,9 +850,38 @@ public class RobotMovementTest : MonoBehaviour
             float relativeVec = other.relativeVelocity.magnitude;
             Debug.Log("Velocity magnitude at collision: " + relativeVec);
             isAtWallCount++;
-            if (relativeVec > 0.1f)
+            if (wallHitAvailable == true)
             {
-                robotStatScript.DamagePlayer(relativeVec * 10.0f);
+                if (arModeSwither != null)
+                {
+                    if (relativeVec > 0.1f * 0.02f)
+                    {
+                        robotStatScript.DamagePlayer(relativeVec * 10.0f);
+                        StartCoroutine(WallColliderTimer(relativeVec));
+                        GameObject tempVisualiser = Instantiate(collisionVisualiser, other.contacts[0].point, other.transform.rotation);
+                        Object.Destroy(tempVisualiser, 2.0f);
+                    }
+                    if (relativeVec > 1.5f * 0.02f)
+                    {
+                        emojiTrigger.ManageEmojiDisplay(1);
+                        StartCoroutine(WallColliderTimer(relativeVec / 2));
+                        GameObject tempVisualiser = Instantiate(collisionVisualiser, other.contacts[0].point, other.transform.rotation);
+                        Object.Destroy(tempVisualiser, 2.0f);
+                    }
+                }
+				else
+                {
+                    if (relativeVec > 0.1f)
+                    {
+                        robotStatScript.DamagePlayer(relativeVec * 10.0f);
+                        StartCoroutine(WallColliderTimer(relativeVec));
+                    }
+                    if (relativeVec > 1.5f)
+                    {
+                        emojiTrigger.ManageEmojiDisplay(1);
+                        StartCoroutine(WallColliderTimer(relativeVec / 2));
+                    }
+                }
             }
         }
     }
@@ -831,7 +896,14 @@ public class RobotMovementTest : MonoBehaviour
 
     public void FallAnimation()
     {
-        LeanTween.moveY(gameObject, transform.position.y - 10, 5);
+        if (arModeSwither != null)
+        {
+            LeanTween.moveY(gameObject, transform.position.y - 10 * 0.02f, 5);
+        }
+		else
+        {
+            LeanTween.moveY(gameObject, transform.position.y - 10, 5);
+        }
         StartCoroutine(FallHealthDecrease());
     }
     IEnumerator FallHealthDecrease()
@@ -856,5 +928,11 @@ public class RobotMovementTest : MonoBehaviour
         robotStatScript.DamagePlayer(10f);
         yield return new WaitForSeconds(0.25f);
         robotStatScript.DamagePlayer(10f);
+    }
+    IEnumerator WallColliderTimer(float time)
+    {
+        wallHitAvailable = false;
+        yield return new WaitForSeconds(time);
+        wallHitAvailable = true;
     }
 }

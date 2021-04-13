@@ -40,6 +40,8 @@ TagManager:
   - Floor
   - GoalBox
   - Boss1
+  - Drop1
+  - Drop2
   layers:
   - Default
   - TransparentFX

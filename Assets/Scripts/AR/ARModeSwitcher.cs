@@ -33,6 +33,8 @@ public class ARModeSwitcher : MonoBehaviour
 		boss1.SetActive(false);
 		boss2.SetActive(false);
 		map1tutorial.SetActive(false);
+		sceneController.AdjustParticleSize();
+		sceneController.AdjustLightRange();
 	}
 
 	public void MapPlacementToConfirmation() //When the player press apply button
@@ -50,6 +52,8 @@ public class ARModeSwitcher : MonoBehaviour
 		{
 			boss2.SetActive(true);
 		}
+		sceneController.AdjustParticleSize();
+		sceneController.AdjustLightRange();
 	}
 
     public void ConfirmationToSimulate() //When the player press confirm button
@@ -67,6 +71,8 @@ public class ARModeSwitcher : MonoBehaviour
 		{
 			StartCoroutine(Boss1SpawnDelay(5));
 		}
+		sceneController.AdjustParticleSize();
+		sceneController.AdjustLightRange();
 	}
 
 	public void AssignBossesAsChildren(GameObject map)
