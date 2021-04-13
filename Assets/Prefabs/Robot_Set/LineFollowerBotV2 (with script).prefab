@@ -19875,6 +19875,8 @@ MonoBehaviour:
   distance: 0
   distanceFromHit: 0
   wallHitAvailable: 0
+  thisIsTurtleBot: 0
+  thisIsStoveBot: 1
   isOnIceCount: 0
   isOnFloorCount: 0
   isAtWallCount: 0

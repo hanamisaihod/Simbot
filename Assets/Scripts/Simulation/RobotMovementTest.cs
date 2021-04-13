@@ -13,6 +13,8 @@ public class RobotMovementTest : MonoBehaviour
     public float distance;
     public float distanceFromHit;
     public bool wallHitAvailable;
+    public bool thisIsTurtleBot;
+    public bool thisIsStoveBot;
     public int isOnIceCount = 0;
     public int isOnFloorCount = 0;
     public int isAtWallCount = 0;
@@ -861,7 +863,7 @@ public class RobotMovementTest : MonoBehaviour
                 {
                     if (relativeVec > 0.1f * 0.02f)
                     {
-                        robotStatScript.DamagePlayer(relativeVec * 10.0f / 0.02f);
+                        robotStatScript.DamagePlayer(relativeVec * 10.0f * 50f);
                         StartCoroutine(WallColliderTimer(relativeVec));
                         GameObject tempVisualiser = Instantiate(collisionVisualiser, other.contacts[0].point, other.transform.rotation);
                         Object.Destroy(tempVisualiser, 2.0f);
@@ -880,6 +882,11 @@ public class RobotMovementTest : MonoBehaviour
                     {
                         robotStatScript.DamagePlayer(relativeVec * 10.0f);
                         StartCoroutine(WallColliderTimer(relativeVec));
+                        GameObject tempVisualiser = Instantiate(collisionVisualiser, other.contacts[0].point, other.transform.rotation);
+                        Object.Destroy(tempVisualiser, 2.0f);
+                        Debug.Log(" Robot Position: " + gameObject.transform.position
+                            + "\n Collision Position: " + other.contacts[0].point
+                            + "\n Distance between robot and collision: " + (gameObject.transform.position - other.contacts[0].point).magnitude);
                     }
                     if (relativeVec > 1.5f)
                     {
