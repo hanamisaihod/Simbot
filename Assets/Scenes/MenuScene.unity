@@ -680,7 +680,6 @@ GameObject:
   - component: {fileID: 62443408}
   - component: {fileID: 62443407}
   - component: {fileID: 62443406}
-  - component: {fileID: 62443405}
   - component: {fileID: 62443410}
   m_Layer: 5
   m_Name: Cutscene
@@ -688,31 +687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &62443405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62443404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab8b52043b3ea274c8de5cefb0b59250, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NekoV1: {fileID: 108085041424285170}
-  TurtleBot: {fileID: 8999485933003568743}
-  StoveBot: {fileID: 1049934263758857042}
-  CutsceneTrigger: {fileID: 0}
-  ActiveNeko: 1
-  ActiveTurtle: 0
-  ActiveStove: 0
-  tutorialCanvas: {fileID: 1353865796}
-  cloud1: {fileID: 0}
-  cloud2: {fileID: 0}
-  logo: {fileID: 0}
-  infoButton: {fileID: 0}
+  m_IsActive: 1
 --- !u!114 &62443406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6492,7 +6467,7 @@ MonoBehaviour:
   TurtleBot: {fileID: 8999485933003568743}
   StoveBot: {fileID: 1049934263758857042}
   CutsceneTrigger: {fileID: 62443404}
-  ActiveNeko: 1
+  ActiveNeko: 0
   ActiveTurtle: 0
   ActiveStove: 0
   tutorialCanvas: {fileID: 1353865796}

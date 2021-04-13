@@ -52,7 +52,7 @@ public class StoveBot_OnMenu_Animation : MonoBehaviour
             delay -= Time.fixedDeltaTime;
             wheel_left.transform.Rotate(Vector3.down * Time.fixedDeltaTime * 300 * (speed + 0.00347f * torque), Space.Self);
             wheel_right.transform.Rotate(Vector3.down * Time.fixedDeltaTime * 300 * (speed - 0.00347f * torque), Space.Self);
-            if (!moveAudio.isPlaying)
+            if (!moveAudio.isPlaying && moveAudio.isActiveAndEnabled)
                 moveAudio.Play();
         }
         else

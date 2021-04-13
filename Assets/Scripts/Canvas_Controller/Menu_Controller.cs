@@ -24,7 +24,27 @@ public class Menu_Controller : MonoBehaviour
         StartCoroutine(SceneShow());
         infoButton.GetComponent<Button>().onClick.AddListener(TutorialTrigger);
         tutorialCanvas.GetComponent<Canvas>().enabled = false;
-        //CutsceneTrigger.SetActive(true);
+        if (PlayerPrefs.HasKey("Menu_Tutorial"))
+        {
+            if (PlayerPrefs.GetInt("Menu_Tutorial") == 1)
+            {
+                CutsceneTrigger.SetActive(false);
+            }
+        }
+        float mascotChance = Random.value;
+
+        if (mascotChance < 0.4)
+		{
+            ActiveNeko = true;
+        }
+        else if (mascotChance < 0.7)
+        {
+            ActiveTurtle = true;
+        }
+        else
+        {
+            ActiveStove = true;
+        }
     }
 
     void Update()

@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class Menu_Tutorial : MonoBehaviour
 {
-    public static bool MenuTutorialTrigger = true;
+    public static bool MenuTutorialTrigger = false;
     private bool MenuTutorialTrigger2;
     private bool MenuTutorialTrigger3;
     public GameObject Meow1;
