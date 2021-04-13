@@ -5,9 +5,7 @@ using UnityEngine;
 public class Emoji_Trigger : MonoBehaviour
 {
     [SerializeField] private Emoji_Controller emojiController = null;
-	private List<Collider> turbineList = new List<Collider>();
-    private List<Collider> lavaList = new List<Collider>();
-    private List<Collider> wallList = new List<Collider>();
+    [SerializeField] private int turbineCount, lavaCount, wallCount = 0;
     public GameObject[] groundCheckers;
     [SerializeField] private bool nearbyWall = false;
     [SerializeField] private bool inWind = false;
@@ -18,7 +16,6 @@ public class Emoji_Trigger : MonoBehaviour
 
     void Start()
     {
-        turbineList = new List<Collider>();
         //if (GameObject.Find("ARModeSwitcher"))
         //{
         //    gameObject.transform.localScale = gameObject.transform.localScale * 0.02f;
@@ -57,15 +54,30 @@ public class Emoji_Trigger : MonoBehaviour
     {
         if (other.transform.tag == "Turbine")
         {
-            turbineList.Add(other);
+            turbineCount++;
         }
         if (other.transform.tag == "Lava")
         {
-            lavaList.Add(other);
+            lavaCount++;
         }
         if (other.transform.tag == "Wall")
         {
-            wallList.Add(other);
+            wallCount++;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.transform.tag == "Turbine")
+        {
+            turbineCount--;
+        }
+        if (other.transform.tag == "Lava")
+        {
+            lavaCount--;
+        }
+        if (other.transform.tag == "Wall")
+        {
+            wallCount--;
         }
     }
     /*
@@ -95,7 +107,7 @@ public class Emoji_Trigger : MonoBehaviour
                 {
                     if (FindObjectOfType<RobotMovementTest>().rbd.velocity.magnitude > 0.2f * 0.02f)
                     {
-                        if (lavaList.Count > 0 || wallList.Count > 0 || CheckNearbyEdge())
+                        if (lavaCount > 0 || wallCount > 0 || CheckNearbyEdge())
                         {
                             emojiController.EhhTrigger = true;
                             emojiController.CryTrigger = false;
@@ -106,7 +118,7 @@ public class Emoji_Trigger : MonoBehaviour
                 {
                     if (FindObjectOfType<RobotMovementTest>().rbd.velocity.magnitude > 0.2f)
                     {
-                        if (lavaList.Count > 0 || wallList.Count > 0 || CheckNearbyEdge())
+                        if (lavaCount > 0 || wallCount > 0 || CheckNearbyEdge())
                         {
                             emojiController.EhhTrigger = true;
                             emojiController.CryTrigger = false;
@@ -122,7 +134,7 @@ public class Emoji_Trigger : MonoBehaviour
         }
         if (!emojiController.Confuse1.isPlaying && !emojiController.Ehh.isPlaying) // Cry
 		{
-            if (turbineList.Count > 0)
+            if (turbineCount > 0)
             {
                 emojiController.CryTrigger = true;
             }
