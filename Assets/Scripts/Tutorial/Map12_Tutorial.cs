@@ -17,6 +17,7 @@ public class Map12_Tutorial : MonoBehaviour
     private bool textDone;
     private int partDone = 0;
     public AudioClip soundLetter;
+    public AudioClip soundAlert;
     public float volume = 0.5f;     // volume of sound effect
     AudioSource playAudio;
     public float letterDelay = 0.06f;
@@ -74,6 +75,7 @@ public class Map12_Tutorial : MonoBehaviour
 
         if (TutorialTrigger)
         {
+            playAudio.PlayOneShot(soundAlert, volume);
             stage = 0;
             warning.SetActive(true);
             LeanTween.alpha(warnRect, 0, 0.7f).setLoopPingPong();

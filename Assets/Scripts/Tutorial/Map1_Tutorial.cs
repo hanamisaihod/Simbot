@@ -30,7 +30,7 @@ public class Map1_Tutorial : MonoBehaviour
     public Sprite[] boyEmo;
     private string curreentLetter = "";
     private int stage = 0;
-    public int maxStage = 21;
+    public int maxStage = 22;
     Coroutine usingCor;
     Coroutine delayCor;
     private int textSum = 0;
@@ -82,14 +82,14 @@ public class Map1_Tutorial : MonoBehaviour
             "The Robot will begin reading the program from this block.";
         fullText[13] = "Neko : You can choose other types of blocks from the box on the right-hand side.";
         fullText[14] = "Neko : The first block we're going to use is the Move block. Hold and drag to start block.";
-        fullText[15] = "Neko : In the Move block, the first box is for the forward movement speed of the robot, in block per second.\n" +
-            "Of course, you can also enter a negative value to move backward.";
-        fullText[16] = "Neko : The second one is the rotational speed of the robot, in degree per second.";
-        fullText[17] = "Neko : The last box is the number of seconds the robot follows the instruction for. " +
-            "If you want the robot to follow the instructions until there’s a new Move command, you can set the delay to 9999.";
-        fullText[18] = "Neko : From the mission we’ve seen, let's set move speed to 1, rotate speed to 0, and delay to 4.";
-        fullText[19] = "Neko : If you want to go back to see the mission again, press the map button.";
-        fullText[20] = "Neko : If you want to test the program, you can press simulate button.";
+        fullText[15] = "Neko : In the Move block, the first box is for the forward movement speed of the robot, in block per second.";
+        fullText[16] = "Neko : Of course, you can also enter a negative value to move backward.";
+        fullText[17] = "Neko : The second one is the rotational speed of the robot, in degree per second.";
+        fullText[18] = "Neko : The last box is the number of seconds the robot follows the instruction for. ";
+        fullText[19] = "Neko : If you want the robot to follow the instructions until there’s a new Move command, you can set the delay to 9999.";
+        fullText[20] = "Neko : From the mission we’ve seen, let's set move speed to 1, rotate speed to 0, and delay to 4.";
+        fullText[21] = "Neko : If you want to go back to see the mission again, press the map button.";
+        fullText[22] = "Neko : If you want to test the program, you can press simulate button.";
 
         stage = 0;
         foreach (Transform child in textBox1.transform)
@@ -195,7 +195,7 @@ public class Map1_Tutorial : MonoBehaviour
                 Boy.GetComponent<Image>().sprite = boyEmo[4];
             else if (stage == 16)
                 Boy.GetComponent<Image>().sprite = boyEmo[0];
-            else if (stage == 19)
+            else if (stage == 21)
                 Boy.GetComponent<Image>().sprite = boyEmo[4];
 
 
@@ -252,21 +252,21 @@ public class Map1_Tutorial : MonoBehaviour
                 ClickIcon5.SetActive(false);
                 ClickIcon6.SetActive(false);
             }
-            else if(stage == 17)
+            else if(stage == 18)
             {
                 tip_set_move.SetActive(true);
                 ClickIcon4.SetActive(false);
                 ClickIcon5.SetActive(true);
                 ClickIcon6.SetActive(false);
             }
-            else if(stage == 18)
+            else if(stage == 19)
             {
                 tip_set_move.SetActive(true);
                 ClickIcon4.SetActive(false);
                 ClickIcon5.SetActive(false);
                 ClickIcon6.SetActive(true);
             }
-            else if (stage == 19)
+            else if (stage == 21)
             {
                 tip_set_move.SetActive(true);
                 ClickIcon4.SetActive(false);
@@ -280,7 +280,7 @@ public class Map1_Tutorial : MonoBehaviour
                 ClickIcon5.SetActive(false);
                 ClickIcon6.SetActive(false);
             }
-            if (stage == 20)
+            if (stage == 22)
             {
                 ClickIcon3.SetActive(true);
                 map_button.GetComponent<Image>().enabled = true;
@@ -290,11 +290,11 @@ public class Map1_Tutorial : MonoBehaviour
                 ClickIcon3.SetActive(false);
                 map_button.GetComponent<Image>().enabled = false;
             }
-            if(stage == 21)
+            if(stage == 23)
                 simulate_button.GetComponent<Image>().enabled = true;
             else
                 simulate_button.GetComponent<Image>().enabled = false;
-            if(stage == 22)
+            if(stage == 24)
             {
                 textDone = true;
                 partDone = 2;

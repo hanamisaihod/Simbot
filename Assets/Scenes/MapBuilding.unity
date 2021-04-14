@@ -7080,6 +7080,7 @@ MonoBehaviour:
   Boy: {fileID: 1978242378}
   back: {fileID: 1973713870}
   soundLetter: {fileID: 8300000, guid: bba82f595fdeb9e4f9fa02122a35f055, type: 3}
+  soundMonster: {fileID: 8300000, guid: c6d5aca2072dd0747b3328ec88da719a, type: 3}
   volume: 0.5
   letterDelay: 0.06
   boyEmo:
@@ -17284,6 +17285,7 @@ MonoBehaviour:
   Boy: {fileID: 1425237817}
   back: {fileID: 911095225}
   soundLetter: {fileID: 8300000, guid: bba82f595fdeb9e4f9fa02122a35f055, type: 3}
+  soundAlert: {fileID: 8300000, guid: 6cc5525305568a048bf8f4d5102b5df5, type: 3}
   volume: 0.5
   letterDelay: 0.06
   boyEmo:
@@ -35653,15 +35655,15 @@ RectTransform:
   m_GameObject: {fileID: 1089025507}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5171652, y: 1.5171652, z: 1.5171652}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_Children: []
   m_Father: {fileID: 2115114036}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 579.481, y: -0.000015258789}
-  m_SizeDelta: {x: 36.1, y: 73.5}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -29.099976, y: -0.000015258789}
+  m_SizeDelta: {x: 36.099976, y: 73.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1089025509
 MonoBehaviour:
@@ -49575,7 +49577,7 @@ MonoBehaviour:
   - {fileID: 2830104830790117056, guid: 4c00b6181064981429bc65b9281ec043, type: 3}
   - {fileID: -8487752739670032820, guid: 4c00b6181064981429bc65b9281ec043, type: 3}
   - {fileID: -6170450381931686005, guid: 4c00b6181064981429bc65b9281ec043, type: 3}
-  maxStage: 21
+  maxStage: 22
   infoButton: {fileID: 819997279}
   joys: {fileID: 1317012773528526334}
   startPoint: {fileID: 1125240099}
