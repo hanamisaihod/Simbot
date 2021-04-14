@@ -18,7 +18,7 @@ public class TurtleBot_Movement_Animation : MonoBehaviour
     private float headTargetDegree;
     private float headCurrentDegree;
     private bool moving;
-    public AudioClip soundMove;
+    public float volume = 1f;     // volume of robot sound
 
     void Start()
     {
@@ -27,6 +27,7 @@ public class TurtleBot_Movement_Animation : MonoBehaviour
   
     void FixedUpdate()
     {
+        moveAudio.volume = volume;  // volume of robot sound
         delay = gameObject.GetComponent<RobotMovementTest>().delay;
         speed = gameObject.GetComponent<RobotMovementTest>().speed;
         torque = gameObject.GetComponent<RobotMovementTest>().torque;
