@@ -36,6 +36,12 @@ public class Redzone_PS_Controller : MonoBehaviour
 
     void Update()
     {
+        if(startEruption == true)
+        {
+            redZoneTrigger = true;
+            //AlertOnFire.startAlert = true;
+            //callAlert.callOnFire();
+        }
         if (redZoneTrigger && !showing)
         {
             if (usingCor != null)
@@ -45,6 +51,8 @@ public class Redzone_PS_Controller : MonoBehaviour
 
             usingCor = StartCoroutine(Show());
             showing = true;
+            //AlertOnFire.startAlert = false;
+            //callAlert.callOnFire();
             redZoneTrigger = false;
         }
         else
