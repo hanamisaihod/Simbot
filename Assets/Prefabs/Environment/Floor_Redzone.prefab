@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8882981207541994580}
   - component: {fileID: 5237211618227553776}
   - component: {fileID: 5227044297741888553}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LavaCollider
   m_TagString: Lava
   m_Icon: {fileID: 0}
