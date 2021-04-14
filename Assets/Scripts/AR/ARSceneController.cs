@@ -70,11 +70,16 @@ public class ARSceneController : MonoBehaviour
 		{
 			foreach (Transform child in map.transform)
 			{
-				tempCentroid += child.transform.localPosition;
+				Debug.Log("Child's name: " + child.name);
+				if (!child.CompareTag("Boss1") && !child.CompareTag("Boss2"))
+				{
+					tempCentroid += child.transform.localPosition;
+				}
 			}
 			tempCentroid /= map.transform.childCount;
 		}
-		Debug.Log("centroid position: " + tempCentroid.ToString("F8"));
+		Debug.Log("centroid position: " + tempCentroid.ToString("F8")
+			+ "\nchild count: " + map.transform.childCount);
 		return tempCentroid;
 	}
 

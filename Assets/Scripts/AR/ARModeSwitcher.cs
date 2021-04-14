@@ -22,7 +22,6 @@ public class ARModeSwitcher : MonoBehaviour
 	private void Start()
 	{
 		hpSet.SetActive(false);
-		retryButton.SetActive(false);
 		simulateButton.SetActive(false);
 		confirmButton.SetActive(false);
 		rotateMap.SetActive(false);
@@ -65,7 +64,6 @@ public class ARModeSwitcher : MonoBehaviour
 		rotateMap.SetActive(false);
 		confirmButton.SetActive(false);
 		hpSet.SetActive(true);
-		retryButton.SetActive(true);
 		simulateButton.SetActive(true);
 		if (boss1.GetComponent<Tutorial_Activator>().thisIsActive)
 		{

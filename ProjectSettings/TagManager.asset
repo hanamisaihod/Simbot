@@ -42,6 +42,7 @@ TagManager:
   - Boss1
   - Drop1
   - Drop2
+  - Boss2
   layers:
   - Default
   - TransparentFX

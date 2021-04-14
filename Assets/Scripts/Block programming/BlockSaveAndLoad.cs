@@ -94,7 +94,6 @@ public class BlockSaveAndLoad : MonoBehaviour
                     startBlockTemp = obj;
                     if (startBlockTemp.activeInHierarchy == false)
 					{
-                        Debug.Log("activating start block");
                         startBlockTemp.SetActive(true);
 					}
                 }
@@ -129,7 +128,6 @@ public class BlockSaveAndLoad : MonoBehaviour
         }
         currentObj = 0;
         PlayerPrefs.SetInt(saveName + "count", conBlocks.Length); //Save block program size
-        Debug.Log("conblocks length: " + conBlocks.Length);
         PlayerPrefs.SetInt(saveName, 1); //Save name (if the name exist, this int key exist and will be 1)
         foreach (GameObject block in conBlocks)
         {
@@ -155,8 +153,6 @@ public class BlockSaveAndLoad : MonoBehaviour
                 //    block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.GetComponent<BuildingHandler>().blockNum);
                 PlayerPrefs.SetInt(name + currentObj.ToString() + "sc" + "ab",
                     block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().abNum);
-                Debug.Log("Block name: " + block.name + "\n" +
-                    "sc abNum:" + block.GetComponent<BuildingHandler>().startConnector.GetComponent<MouseDrag>().abNum);
             }
 			else
 			{
@@ -209,8 +205,6 @@ public class BlockSaveAndLoad : MonoBehaviour
                     //    block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.GetComponent<BuildingHandler>().blockNum);
                     PlayerPrefs.SetInt(name + currentObj.ToString() + "dc" + "ab",
                             block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum);
-                    Debug.Log("Block name: " + block.name + "\n" +
-                        "dc abNum:" + block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum);
                 }
                 else
                 {
@@ -226,8 +220,6 @@ public class BlockSaveAndLoad : MonoBehaviour
                     //    block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.GetComponent<BuildingHandler>().blockNum);
                     PlayerPrefs.SetInt(name + currentObj.ToString() + "dc" + "ab",
                             block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum);
-                    Debug.Log("Block name: " + block.name + "\n" +
-                        "dc abNum:" + block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().abNum);
                 }
                 else
                 {
@@ -240,8 +232,6 @@ public class BlockSaveAndLoad : MonoBehaviour
                     //    block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.GetComponent<BuildingHandler>().blockNum);
                     PlayerPrefs.SetInt(name + currentObj.ToString() + "ic" + "ab",
                             block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().abNum);
-                    Debug.Log("Block name: " + block.name + "\n" +
-                        "ic abNum:" + block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().abNum);
                 }
                 else
                 {
@@ -530,8 +520,6 @@ public class BlockSaveAndLoad : MonoBehaviour
     //The culprit seems to be the parent assigning line. . .
     public void AssignConnection(GameObject connectTarget, GameObject objectToConnect)
     {
-        Debug.Log("The connecting block is: " + objectToConnect.name);
-        Debug.Log("Connecting to me: " + connectTarget.name + " , child of: " + connectTarget.transform.parent.name);
         BuildingHandler parentHandlerScript = objectToConnect.GetComponent<BuildingHandler>();
         objectToConnect.transform.parent = connectTarget.transform.parent;
         connectTarget.GetComponent<MouseDrag>().isLock = true;
@@ -710,7 +698,6 @@ public class BlockSaveAndLoad : MonoBehaviour
     public void DebugButton()
 	{
         int count = 0;
-        Debug.Log("current debugButton: " + debugButton);
         count = PlayerPrefs.GetInt(saveName + "count");
         if (debugButton < count)
         {
@@ -734,7 +721,6 @@ public class BlockSaveAndLoad : MonoBehaviour
         }
         else if (debugButton >= (count * 4))
         {
-            Debug.Log("Allowing manual assigning!");
             allowManualAssigning = true;
         }
     }
