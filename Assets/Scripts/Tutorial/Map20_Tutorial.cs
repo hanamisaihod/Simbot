@@ -17,7 +17,7 @@ public class Map20_Tutorial : MonoBehaviour
     private bool textDone;
     private int partDone = 0;
     public AudioClip soundLetter;
-    public float volume = 0.5f;
+    public float volume = 0.5f;     // volume of sound effect
     AudioSource playAudio;
     public float letterDelay = 0.06f;
     private string[] fullText;
@@ -66,6 +66,8 @@ public class Map20_Tutorial : MonoBehaviour
 
     void Update()
     {
+        playAudio.volume = volume;  // volume of sound effect
+
         var Meow1Script = Meow1.GetComponent<MeowUI_Animating>();
         var textBox1Script = textBox1.GetComponent<Textbox>();
 
