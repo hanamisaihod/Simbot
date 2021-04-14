@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Redzone_PS_Controller : MonoBehaviour
 {
@@ -36,6 +37,10 @@ public class Redzone_PS_Controller : MonoBehaviour
 
     void Update()
     {
+        if(SceneManager.GetActiveScene().name != "TestRobotMovementScene")
+        {
+            startEruption = false;
+        }
         if(startEruption == true)
         {
             redZoneTrigger = true;
