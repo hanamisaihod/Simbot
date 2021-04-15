@@ -53,7 +53,7 @@ public class TurtleBot_Tutorial : MonoBehaviour
             "It has a distance sensor on its head to detect things in 360 degrees.";
         fullText[2] = "Johny : Subarashiiiiiiiiiiii !!!!!!!!!!!!! (Amazing!!!)";
         fullText[3] = "Johny : So how good is the distance sensor?";
-        fullText[4] = "Neko : It helps the robot to know the distance between itself and the target object.\n" +
+        fullText[4] = "Neko : It helps the robot to know the distance between itself and the target object. " +
             "It lets know when to stop the robot before it collides.";
         fullText[5] = "Johny : I see.";
         fullText[6] = "Neko : If you are ready, hit the next button, and let’s get started!";

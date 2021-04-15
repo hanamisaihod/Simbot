@@ -17,6 +17,7 @@ public class Map20_Tutorial : MonoBehaviour
     private bool textDone;
     private int partDone = 0;
     public AudioClip soundLetter;
+    public AudioClip soundMonster;
     public float volume = 0.5f;     // volume of sound effect
     AudioSource playAudio;
     public float letterDelay = 0.06f;
@@ -73,6 +74,7 @@ public class Map20_Tutorial : MonoBehaviour
 
         if (TutorialTrigger)
         {
+            playAudio.PlayOneShot(soundMonster, volume);
             stage = 0;
             boss.SetActive(true);
             back.SetActive(true);

@@ -24800,7 +24800,7 @@ MonoBehaviour:
   falling: 0
   healthRect: {fileID: 0}
   boomController: {fileID: 71618654098467795}
-  hurtSound: {fileID: 8300000, guid: b4d738ce7d6b10640bd6e8f34fe562e0, type: 3}
+  hurtSound: {fileID: 8300000, guid: 60cdf7a2adedbea4396e98c905dc2e97, type: 3}
   volume: 0.3
 --- !u!114 &2698244599021069488
 MonoBehaviour:
