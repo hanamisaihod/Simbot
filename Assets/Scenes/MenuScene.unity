@@ -27376,6 +27376,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5136111200171453394, guid: e24bc6cb709de9948979d5cb94ca93fe,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4559137208369425442, guid: ee1015a8e10006742ba8c314946e97f6,
+        type: 2}
     - target: {fileID: 5136111200171453395, guid: e24bc6cb709de9948979d5cb94ca93fe,
         type: 3}
       propertyPath: m_Name
@@ -28165,6 +28171,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 540195045016107996, guid: 46a9330120395654ba90727780363ca9,
+        type: 3}
+      propertyPath: m_MinValue
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 540195045016107996, guid: 46a9330120395654ba90727780363ca9,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 540195045580814240, guid: 46a9330120395654ba90727780363ca9,
+        type: 3}
+      propertyPath: m_MinValue
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 540195045580814240, guid: 46a9330120395654ba90727780363ca9,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 540195046426221308, guid: 46a9330120395654ba90727780363ca9,
+        type: 3}
+      propertyPath: m_MinValue
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 540195046426221308, guid: 46a9330120395654ba90727780363ca9,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6281009952029261776, guid: 46a9330120395654ba90727780363ca9,
         type: 3}
       propertyPath: m_Name
