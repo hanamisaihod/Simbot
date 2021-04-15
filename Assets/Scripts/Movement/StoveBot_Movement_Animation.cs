@@ -11,7 +11,7 @@ public class StoveBot_Movement_Animation : MonoBehaviour
     private float torque;
     private float delay;
     AudioSource moveAudio;
-    public AudioClip soundMove;
+    public float volume = 1f;     // volume of robot sound
 
     void Start()
     {
@@ -27,6 +27,7 @@ public class StoveBot_Movement_Animation : MonoBehaviour
 
     void FixedUpdate()
     {
+        moveAudio.volume = volume;  // volume of robot sound
         if (delay > 0.01999961)
         {
             wheel_left.transform.Rotate(Vector3.down * Time.fixedDeltaTime * 600 * (speed + 0.00347f * torque), Space.Self);

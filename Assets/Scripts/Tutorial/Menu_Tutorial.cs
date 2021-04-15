@@ -41,7 +41,7 @@ public class Menu_Tutorial : MonoBehaviour
     public static bool startText;
 
     public AudioClip soundLetter;
-    public float volume = 0.5f;
+    public float volume = 0.5f;     // volume of sound effect
     AudioSource playAudio;
     public float letterDelay = 0.06f;
     private string[] fullText;
@@ -84,7 +84,7 @@ public class Menu_Tutorial : MonoBehaviour
         fullText[5] = "??? : Please help me Johny, I tried to help your father but I alone could not do much.";
         fullText[6] = "Johny : B...But, who are you? WHAT are you?";
         fullText[7] = "Neko : I'm Neko, An AI that created by your father to guide players through this game.";
-        fullText[8] = "Neko : But there was an anomaly during the development.\nIt seems that a virus has invaded the system.\nThen your father ....";
+        fullText[8] = "Neko : But there was an anomaly during the development.\nIt seems that a virus has invaded the system. Then your father ....";
         fullText[9] = "Neko : I could not do anything...";
         fullText[10] = "Johny : A. .And what can I do!?";
         fullText[11] = "Neko : You have to play this game and take me to the deepest level.\nIf I were there, I can get rid of the virus there!";
@@ -121,6 +121,8 @@ public class Menu_Tutorial : MonoBehaviour
 
     void Update()
     {
+        playAudio.volume = volume;  // volume of sound effect
+
         var Meow1Script = Meow1.GetComponent<MeowUI_Animating>();
         var textBox1Script = textBox1.GetComponent<Textbox>();
         var Meow2Script = Meow2.GetComponent<MeowUI_Animating>();

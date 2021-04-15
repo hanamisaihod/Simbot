@@ -14,8 +14,15 @@ public class Cutscene_Controller : MonoBehaviour
     public GameObject S5;
     public GameObject S6;
 
+    AudioSource Audio;
+    public float volume = 0.5f;
+    public AudioClip typeKeyboard;
+    public AudioClip openDoor;
+    public AudioClip walkSound;
+
     void Start()
     {
+        Audio = gameObject.GetComponent<AudioSource>();
         StartCoroutine(showCutScene());
     }
 
@@ -42,6 +49,7 @@ public class Cutscene_Controller : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         LeanTween.moveLocalY(S1,155,10f);
+        Audio.PlayOneShot(typeKeyboard, volume);
         yield return new WaitForSeconds(11f);
         LeanTween.alpha(S1_5_Rect, 1f, 1f);
         yield return new WaitForSeconds(2f);
@@ -51,13 +59,16 @@ public class Cutscene_Controller : MonoBehaviour
         LeanTween.alpha(S2_Rect, 1f, 1f);
         yield return new WaitForSeconds(2f);
         LeanTween.alpha(S3_Rect, 1f, 1f);
+        Audio.PlayOneShot(openDoor, volume);
         yield return new WaitForSeconds(3f);
         LeanTween.alpha(S4_Rect, 1f, 1f);
         yield return new WaitForSeconds(3f);
         LeanTween.alpha(S5_Rect, 1f, 1f);
-        yield return new WaitForSeconds(3f);
-        LeanTween.alpha(S6_Rect, 1f, 1f);
         yield return new WaitForSeconds(2f);
+        Audio.PlayOneShot(walkSound, volume);
+        yield return new WaitForSeconds(1f);
+        LeanTween.alpha(S6_Rect, 1f, 1f);
+        yield return new WaitForSeconds(3f);
         LeanTween.alpha(S2_Rect, 0f, 0.5f);
         LeanTween.alpha(S3_Rect, 0f, 0.5f);
         LeanTween.alpha(S4_Rect, 0f, 0.5f);

@@ -19920,6 +19920,8 @@ MonoBehaviour:
   falling: 0
   healthRect: {fileID: 0}
   boomController: {fileID: 883552104540240583}
+  hurtSound: {fileID: 8300000, guid: 60cdf7a2adedbea4396e98c905dc2e97, type: 3}
+  volume: 0.3
 --- !u!114 &1265758982770413333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19934,7 +19936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheel_left: {fileID: 5455330976454707605}
   wheel_right: {fileID: 1818005120901948893}
-  soundMove: {fileID: 8300000, guid: 19ac0822bea6fb84ebe0d3cc22595e03, type: 3}
+  volume: 1
 --- !u!54 &6865449795849435125
 Rigidbody:
   m_ObjectHideFlags: 0

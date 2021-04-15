@@ -24800,6 +24800,8 @@ MonoBehaviour:
   falling: 0
   healthRect: {fileID: 0}
   boomController: {fileID: 71618654098467795}
+  hurtSound: {fileID: 8300000, guid: 60cdf7a2adedbea4396e98c905dc2e97, type: 3}
+  volume: 0.3
 --- !u!114 &2698244599021069488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24818,7 +24820,7 @@ MonoBehaviour:
   battery1: {fileID: 3006132720748270996}
   battery2: {fileID: 6021444875192435678}
   battery3: {fileID: 6103835766700093409}
-  soundMove: {fileID: 8300000, guid: 19ac0822bea6fb84ebe0d3cc22595e03, type: 3}
+  volume: 1
 --- !u!54 &6106402775447490078
 Rigidbody:
   m_ObjectHideFlags: 0

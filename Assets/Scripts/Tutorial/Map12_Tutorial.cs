@@ -17,7 +17,8 @@ public class Map12_Tutorial : MonoBehaviour
     private bool textDone;
     private int partDone = 0;
     public AudioClip soundLetter;
-    public float volume = 0.5f;
+    public AudioClip soundAlert;
+    public float volume = 0.5f;     // volume of sound effect
     AudioSource playAudio;
     public float letterDelay = 0.06f;
     private string[] fullText;
@@ -66,12 +67,15 @@ public class Map12_Tutorial : MonoBehaviour
 
     void Update()
     {
+        playAudio.volume = volume;  // volume of sound effect
+
         var Meow1Script = Meow1.GetComponent<MeowUI_Animating>();
         var textBox1Script = textBox1.GetComponent<Textbox>();
         var warnRect = warning.GetComponent<RectTransform>();
 
         if (TutorialTrigger)
         {
+            playAudio.PlayOneShot(soundAlert, volume);
             stage = 0;
             warning.SetActive(true);
             LeanTween.alpha(warnRect, 0, 0.7f).setLoopPingPong();

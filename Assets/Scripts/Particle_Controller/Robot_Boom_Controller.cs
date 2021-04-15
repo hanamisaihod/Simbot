@@ -12,8 +12,10 @@ public class Robot_Boom_Controller : MonoBehaviour
     public bool level1Trigger;
     public bool level2Trigger;
     public bool boomTrigger;
+    AudioSource Audio;
+    public float volume = 0.3f;     // volume of sound effect
 
-	private GameObject levelController;
+    private GameObject levelController;
 
 	void Start()
     {
@@ -22,7 +24,8 @@ public class Robot_Boom_Controller : MonoBehaviour
         smokeBig.Stop();
         lightPoint.GetComponent<Light>().enabled = false;
 		levelController = GameObject.FindGameObjectWithTag("LevelController");
-	}
+        Audio = gameObject.GetComponent<AudioSource>();
+    }
 
     
     //void Update()
@@ -51,7 +54,8 @@ public class Robot_Boom_Controller : MonoBehaviour
 
 	public void UpdateBoomEffect(float currentHealth, float maxHealth)
 	{
-		Debug.Log("Health" + currentHealth + "/" + maxHealth);
+        Audio.volume = volume;      // volume of sound effect
+        Debug.Log("Health" + currentHealth + "/" + maxHealth);
 		if (currentHealth <= maxHealth * 66.0f / 100.0f && currentHealth >= maxHealth * 33.0f / 100.0f)
 		{
             if (!smokeSmall.isPlaying)
@@ -89,7 +93,8 @@ public class Robot_Boom_Controller : MonoBehaviour
                 fragment.Play();
             }
 			lightPoint.GetComponent<Light>().enabled = true;
-			levelController.GetComponent<LevelController>().FailMission();
+            Audio.Play();
+            levelController.GetComponent<LevelController>().FailMission();
 		}
 	}
 }

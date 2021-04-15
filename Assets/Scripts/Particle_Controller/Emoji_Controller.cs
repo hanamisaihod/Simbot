@@ -15,11 +15,6 @@ public class Emoji_Controller : MonoBehaviour
     public bool ConfuseTrigger;
     public bool CryTrigger;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if (EhhTrigger && !Ehh.isPlaying)

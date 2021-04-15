@@ -15,7 +15,7 @@ public class TurtleBot_Tutorial : MonoBehaviour
     private bool startText;
     private bool textDone;
     public AudioClip soundLetter;
-    public float volume = 0.5f;
+    public float volume = 0.5f;     // volume of sound effect
     AudioSource playAudio;
     public float letterDelay = 0.06f;
     private string[] fullText;
@@ -53,7 +53,7 @@ public class TurtleBot_Tutorial : MonoBehaviour
             "It has a distance sensor on its head to detect things in 360 degrees.";
         fullText[2] = "Johny : Subarashiiiiiiiiiiii !!!!!!!!!!!!! (Amazing!!!)";
         fullText[3] = "Johny : So how good is the distance sensor?";
-        fullText[4] = "Neko : It helps the robot to know the distance between itself and the target object.\n" +
+        fullText[4] = "Neko : It helps the robot to know the distance between itself and the target object. " +
             "It lets know when to stop the robot before it collides.";
         fullText[5] = "Johny : I see.";
         fullText[6] = "Neko : If you are ready, hit the next button, and let’s get started!";
@@ -69,6 +69,8 @@ public class TurtleBot_Tutorial : MonoBehaviour
 
     void Update()
     {
+        playAudio.volume = volume;  // volume of sound effect
+
         var Meow1Script = Meow1.GetComponent<MeowUI_Animating>();
         var textBox1Script = textBox1.GetComponent<Textbox>();
 

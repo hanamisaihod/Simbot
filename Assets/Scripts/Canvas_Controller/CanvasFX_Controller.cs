@@ -54,7 +54,7 @@ public class CanvasFX_Controller : MonoBehaviour
     public AudioClip soundWin1;
     public AudioClip soundWin2;
     public AudioClip soundLose;
-    public float volume = 0.5f;
+    public float volume = 0.5f;     // volume of sound effect
     public EndingStarRating callStarRating;
     public GameObject ratingBox;
 
@@ -65,8 +65,6 @@ public class CanvasFX_Controller : MonoBehaviour
         audioFailBack = failBackFX.GetComponent<AudioSource>();
         audioLeft = clearLeftFX.GetComponent<AudioSource>();
         audioRight = clearRightFX.GetComponent<AudioSource>();
-        audioLeft.volume = volume;
-        audioRight.volume = volume;
         whiteFlash.SetActive(true);
         darkTheme.SetActive(true);
         textClear.GetComponent<Image>().enabled = false;
@@ -75,7 +73,6 @@ public class CanvasFX_Controller : MonoBehaviour
         darkTheme.GetComponent<Image>().enabled = false;
         retryButton.GetComponent<Image>().enabled = false;
         doneButton.GetComponent<Image>().enabled = false;
-
         starTable.GetComponent<Image>().enabled = false;
         star1.GetComponent<Image>().enabled = false;
         star2.GetComponent<Image>().enabled = false;
@@ -101,6 +98,8 @@ public class CanvasFX_Controller : MonoBehaviour
 
     void Update()
     {
+        audioLeft.volume = volume;      // volume of sound effect
+        audioRight.volume = volume;     // volume of sound effect
         //Debug.Log("Cleartype = " + clearTrigger);
         if (clearTrigger && !startShow && !FXshowing)
         {

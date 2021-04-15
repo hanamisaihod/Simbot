@@ -43,6 +43,8 @@ TagManager:
   - Drop1
   - Drop2
   - Boss2
+  - ButtonSound
+  - BG_Music
   layers:
   - Default
   - TransparentFX

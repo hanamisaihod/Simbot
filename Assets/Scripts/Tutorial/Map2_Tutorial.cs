@@ -17,7 +17,7 @@ public class Map2_Tutorial : MonoBehaviour
     private bool textDone;
     private int partDone = 0;
     public AudioClip soundLetter;
-    public float volume = 0.5f;
+    public float volume = 0.5f;     // volume of sound effect
     AudioSource playAudio;
     public float letterDelay = 0.06f;
     private string[] fullText;
@@ -46,7 +46,7 @@ public class Map2_Tutorial : MonoBehaviour
         fullText = new string[50];
         fullText[0] = "Johny : Yes! I did it!";
         fullText[1] = "Neko : Good, now let's try this mission";
-        fullText[2] = "Neko : Okay, in this mission, if you want all three stars, you can use only one move block.\n" +
+        fullText[2] = "Neko : Okay, in this mission, if you want all three stars, you can use only one move block. " +
             "I recommend that you try using both the move speed and rotate speed.";
         stage = 0;
         foreach (Transform child in textBox1.transform)
@@ -64,6 +64,8 @@ public class Map2_Tutorial : MonoBehaviour
 
     void Update()
     {
+        playAudio.volume = volume;  // volume of sound effect
+
         var Meow1Script = Meow1.GetComponent<MeowUI_Animating>();
         var textBox1Script = textBox1.GetComponent<Textbox>();
 

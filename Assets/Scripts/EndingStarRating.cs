@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 
+
 public class EndingStarRating : MonoBehaviour
 {
     public GameObject endingCondition1;
@@ -34,6 +35,7 @@ public class EndingStarRating : MonoBehaviour
     }
     public void starRatingShow()
     {
+        Redzone_PS_Controller.startEruption = false;
         SREnvAtEnding = SaveLoadSR.LoadSR<List<StarRatingData>>(LoadMainStage.currentKeyword);
         if (SREnvAtEnding != null)
         {

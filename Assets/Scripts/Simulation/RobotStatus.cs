@@ -12,9 +12,14 @@ public class RobotStatus : MonoBehaviour
 	public GameObject boomController;
     private GameObject levelController;
 
+    AudioSource Audio;
+    public AudioClip hurtSound;
+    public float volume = 0.3f;     // volume of sound effect
+
     void Start()
     {
-		if (GameObject.Find("ARModeSwitcher"))
+        Audio = gameObject.GetComponent<AudioSource>();
+        if (GameObject.Find("ARModeSwitcher"))
 		{
 			foreach (Transform child in GameObject.Find("ARModeSwitcher").GetComponent<ARModeSwitcher>().hpSet.transform)
 			{
@@ -44,7 +49,8 @@ public class RobotStatus : MonoBehaviour
 		Debug.Log("Damge: " + damage);
 		if (damage > 0.25)
 		{
-			playerHealth -= damage;
+            Audio.PlayOneShot(hurtSound, volume);   // volume of sound effect
+            playerHealth -= damage;
 			EndingStarRating.robotHP = playerHealth;
 			healthRect.sizeDelta = new Vector2(healthRect.sizeDelta.x - (damage * 3.5f), healthRect.sizeDelta.y);
 			boomController.GetComponent<Robot_Boom_Controller>().UpdateBoomEffect(playerHealth, maxHealth);
