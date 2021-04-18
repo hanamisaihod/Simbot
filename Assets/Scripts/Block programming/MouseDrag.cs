@@ -100,7 +100,7 @@ public class MouseDrag : MonoBehaviour
 	public void OnMouseDrag()
 	{
 		parentHandlerScript.timer += Time.fixedDeltaTime;
-		if (parentHandlerScript.timer >= 1 && varriableCarrier.GetComponent<CarriedVariables>().mouseDragAvailable)
+		if (parentHandlerScript.timer >= 0.3 && varriableCarrier.GetComponent<CarriedVariables>().mouseDragAvailable)
 		{
 			if (!changed)
 			{
