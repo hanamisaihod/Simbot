@@ -38,7 +38,7 @@ public class BG_music : MonoBehaviour
                 if(!Audio.isPlaying)
                     Audio.Play();
             }
-            if(scene.name == "TestRobotMovementScene")
+            if(scene.name == "TestRobotMovementScene" || scene.name == "ARTest")
             {
                 Audio.clip = Music2;
             }
