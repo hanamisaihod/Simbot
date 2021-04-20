@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BG_music : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class BG_music : MonoBehaviour
     public float volume = 0.5f;     // volume of BG music
     private GameObject[] sameTag;
     private bool NotFirst = false;
+    public AudioClip Music1;
+    public AudioClip Music2;
 
     void Start()
     {
@@ -26,6 +29,7 @@ public class BG_music : MonoBehaviour
 
     private void Update()
     {
+        Scene scene = SceneManager.GetActiveScene();
         Audio.volume = volume;      // volume of BG music
         if (PlayerPrefs.HasKey("Menu_Tutorial"))
         {
@@ -33,6 +37,14 @@ public class BG_music : MonoBehaviour
             {
                 if(!Audio.isPlaying)
                     Audio.Play();
+            }
+            if(scene.name == "TestRobotMovementScene")
+            {
+                Audio.clip = Music2;
+            }
+            else
+            {
+                Audio.clip = Music1;
             }
         }
     }
