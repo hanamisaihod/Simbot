@@ -20964,7 +20964,7 @@ GameObject:
   - component: {fileID: 3403061966536497874}
   - component: {fileID: 5771308507958650373}
   - component: {fileID: 6738480335093198593}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: IceFloor
   m_Icon: {fileID: 0}
@@ -36206,7 +36206,7 @@ GameObject:
   - component: {fileID: 1514876254665242701}
   - component: {fileID: 1724043703814956174}
   - component: {fileID: 415309748773439073}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: IceFloor
   m_Icon: {fileID: 0}
