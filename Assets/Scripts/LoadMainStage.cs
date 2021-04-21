@@ -22,6 +22,7 @@ public class LoadMainStage : MonoBehaviour
     public Sprite ButtonLightDown;
     public bool checkTrigger = false;
     public GameObject currentButtonLightUp;
+    public GameObject MapName;
     public void Start()
     {
         enableFrame.transform.localScale = new Vector3(0,0,0);
@@ -113,7 +114,7 @@ public class LoadMainStage : MonoBehaviour
         currentKeyword = currentKeyword.Replace(".prefab","");
         Debug.Log(currentKeyword);
         starRating.GetComponent<StarRating>().setCondition();
-        
+        MapName.GetComponent<Text>().text = currentKeyword;
 
         LoadConfirm.waitForSelectSlot = true;
         
@@ -131,6 +132,7 @@ public class LoadMainStage : MonoBehaviour
                 }
         }
         mainStageKey = mainStageKey.Replace(".prefab",""); // mainStageKey is the confirmed main stage name
+        
         if (GameObject.FindGameObjectWithTag("VariableCarrier"))
         {
             GameObject.FindGameObjectWithTag("VariableCarrier").GetComponent<CarriedVariables>().currentMapName = mainStageKey;
