@@ -35,6 +35,7 @@ public class BlockSaveAndLoad : MonoBehaviour
                 GameObject.Find("ModeSwitcher").GetComponent<ModeSwitcher>().blockProgrammingObjects.Add(startBlock[0]);
             }
         }
+        ClearStrayBlocks();
     }
 
     public void DeleteAllKeysOfSave(string savename)
@@ -80,6 +81,20 @@ public class BlockSaveAndLoad : MonoBehaviour
         PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da10");
         PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da11");
         PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da12");
+    }
+
+    public void ClearStrayBlocks()
+	{
+        foreach (GameObject block in conBlocks)
+        {
+            if (!block.CompareTag("StartBlock"))
+			{
+                if (block.transform.parent == null)
+				{
+                    Destroy(block);
+				}
+			}
+        }
     }
 
     public void GatherAllBlocks()
