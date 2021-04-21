@@ -863,6 +863,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1922611838}
+        m_MethodName: StartSpawning
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &265258000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1540,7 +1551,7 @@ PrefabInstance:
     - target: {fileID: 1476699128537076841, guid: eefccc58d314b4046a683e8f8e44c050,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1476699128537076855, guid: eefccc58d314b4046a683e8f8e44c050,
         type: 3}
@@ -5522,6 +5533,7 @@ GameObject:
   - component: {fileID: 4404038053795996145}
   - component: {fileID: 4404038053795996147}
   - component: {fileID: 4404038053795996148}
+  - component: {fileID: 4404038053795996149}
   m_Layer: 0
   m_Name: MiniBoss1 (12)
   m_TagString: Untagged
@@ -5643,6 +5655,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4404038053795996149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4404038053795996146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60a8e7dddb5e604ca0b315dbab7bcc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniboss1AudioSource: {fileID: 4404038053795996148}
 --- !u!4 &4741237078696269248
 Transform:
   m_ObjectHideFlags: 0

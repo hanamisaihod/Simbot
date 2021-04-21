@@ -29,6 +29,6 @@ public class BackToOtherScene : MonoBehaviour
         LoadScreen.spawnFromLoadName.Clear();
         LoadScreen.spawnFromLoadVector3.Clear();
         LoadScreen.spawnFromLoadQuaternion.Clear();
-        SceneManager.LoadScene("MenuScene");
+        SceneManager.LoadScene("LoadMap");
     }
 }

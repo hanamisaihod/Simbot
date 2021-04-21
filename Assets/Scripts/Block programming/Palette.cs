@@ -11,9 +11,11 @@ public class Palette : MonoBehaviour
 	public bool isOpen = false;
 	public bool moving = false;
 	public bool isSetting = false;
+	public GameObject ifBlock, whileBlock;
 
 	public void OpenPalette()
 	{
+		DisableIfAndWhile();
 		if (!moving)
 		{
 			moving = true;
@@ -74,5 +76,12 @@ public class Palette : MonoBehaviour
 			isSetting = false;
 		}
 	}
-
+	private void DisableIfAndWhile() //Disable if and while block before encountering their tutorials
+	{
+		if (!PlayerPrefs.HasKey("Enable_IfWhile"))
+		{
+			ifBlock.SetActive(false);
+			whileBlock.SetActive(false);
+		}
+	}
 }
