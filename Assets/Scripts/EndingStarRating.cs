@@ -48,11 +48,13 @@ public class EndingStarRating : MonoBehaviour
                     //Debug.Log(endingCondition1.GetComponent<Text>().text);
                     if(clear == true)
                     {
+                        Debug.Log("Clear");
                         item.mapStar1 = true;
                         endingStar1Appear.SetActive(true);
                     }
                     if(fail == true)
                     {
+                        Debug.Log("Fail");
                         if(item.mapStar1 == true)
                         {
                             item.mapStar1 = true;
@@ -165,5 +167,7 @@ public class EndingStarRating : MonoBehaviour
 
     //SREnvAtEnding.Add(endingSRData);
     SaveLoadSR.SaveSR<List<StarRatingData>>(SREnvAtEnding,LoadMainStage.currentKeyword);
+    clear = false;
+    fail = false;
     }
 }
