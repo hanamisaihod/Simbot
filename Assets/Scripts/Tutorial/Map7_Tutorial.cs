@@ -81,6 +81,7 @@ public class Map7_Tutorial : MonoBehaviour
 
         if (TutorialTrigger)
         {
+            PlayerPrefs.SetInt("Enable_IfWhile", 1);
             stage = 0;
             back.SetActive(true);
             textBox1Script.boxUpTrigger = true;
@@ -192,7 +193,6 @@ public class Map7_Tutorial : MonoBehaviour
                 }
                 delayCor = StartCoroutine(DelayCall());
                 Meow1Script.cancelTrigger = true;
-                PlayerPrefs.SetInt("Map7_Tutorial", 1); // remember that this dialogue already happened
                 startText = false;
             }
             textDone = false;

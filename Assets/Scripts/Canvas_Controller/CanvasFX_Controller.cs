@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CanvasFX_Controller : MonoBehaviour
 {
+    public bool won = false;
     public bool clearTrigger;
     public bool failTrigger;
     private bool startShow;                  // Please check this before trigger both clearTrigger and failTrigger
@@ -117,6 +118,7 @@ public class CanvasFX_Controller : MonoBehaviour
             tableCor = StartCoroutine(tableShow());
             startShow = true;
             FXshowing = true;
+            won = true;
         }
         else
         {
@@ -140,6 +142,7 @@ public class CanvasFX_Controller : MonoBehaviour
             //Debug.Log("fail = " + EndingStarRating.fail);
             startShow = true;
             FXshowing = true;
+            won = true;
         }
         else
             failTrigger = false;

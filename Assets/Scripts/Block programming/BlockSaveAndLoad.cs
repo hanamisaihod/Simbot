@@ -151,7 +151,7 @@ public class BlockSaveAndLoad : MonoBehaviour
     }
 
 
-    public void SaveBlock(GameObject block, string name)
+    private void SaveBlock(GameObject block, string name)
     {
         PlayerPrefs.SetString(name + currentObj.ToString() + "name", block.name);
         PlayerPrefs.SetInt(name + currentObj.ToString() + "bn", block.GetComponent<BuildingHandler>().blockNum);

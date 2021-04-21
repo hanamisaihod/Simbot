@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GoalFX_Controller : MonoBehaviour
 {
+    
     public bool goalTrigger;
     public bool clearTrigger;
     public bool unlock;
