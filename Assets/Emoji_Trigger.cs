@@ -107,7 +107,7 @@ public class Emoji_Trigger : MonoBehaviour
                 {
                     if (FindObjectOfType<RobotMovementTest>().rbd.velocity.magnitude > 0.2f * 0.02f)
                     {
-                        if (lavaCount > 0 || wallCount > 0 || CheckNearbyEdge())
+                        if (lavaCount > 0 || wallCount > 0)
                         {
                             emojiController.EhhTrigger = true;
                             emojiController.CryTrigger = false;
@@ -118,7 +118,7 @@ public class Emoji_Trigger : MonoBehaviour
                 {
                     if (FindObjectOfType<RobotMovementTest>().rbd.velocity.magnitude > 0.2f)
                     {
-                        if (lavaCount > 0 || wallCount > 0 || CheckNearbyEdge())
+                        if (lavaCount > 0 || wallCount > 0)
                         {
                             emojiController.EhhTrigger = true;
                             emojiController.CryTrigger = false;
@@ -145,15 +145,19 @@ public class Emoji_Trigger : MonoBehaviour
         }
 	}
 
-    private bool CheckNearbyEdge() // true if there is an edge nearby
-	{
-        if (!Physics.Raycast(groundCheckers[0].transform.position, -Vector3.up)
-                   || !Physics.Raycast(groundCheckers[1].transform.position, -Vector3.up)
-                   || !Physics.Raycast(groundCheckers[2].transform.position, -Vector3.up)
-                   || !Physics.Raycast(groundCheckers[3].transform.position, -Vector3.up))
-        {
-            return true;
-        }
-        return false;
-	}
+ //   private bool CheckNearbyEdge() // true if there is an edge nearby
+	//{
+ //       Debug.DrawRay(groundCheckers[0].transform.position, -Vector3.up, Color.green);
+ //       Debug.DrawRay(groundCheckers[1].transform.position, -Vector3.up, Color.green);
+ //       Debug.DrawRay(groundCheckers[2].transform.position, -Vector3.up, Color.green);
+ //       Debug.DrawRay(groundCheckers[3].transform.position, -Vector3.up, Color.green);
+ //       if (!Physics.Raycast(groundCheckers[0].transform.position, -Vector3.up)
+ //                  || !Physics.Raycast(groundCheckers[1].transform.position, -Vector3.up)
+ //                  || !Physics.Raycast(groundCheckers[2].transform.position, -Vector3.up)
+ //                  || !Physics.Raycast(groundCheckers[3].transform.position, -Vector3.up))
+ //       {
+ //           return true;
+ //       }
+ //       return false;
+	//}
 }
