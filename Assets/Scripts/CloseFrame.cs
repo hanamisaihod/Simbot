@@ -10,5 +10,6 @@ public class CloseFrame : MonoBehaviour
     {
         LeanTween.scale(ratingFrame,new Vector3(0,0,0),0.5f);
         closeInvis.SetActive(false);
+        
     }
 }

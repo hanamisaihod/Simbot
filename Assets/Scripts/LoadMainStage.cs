@@ -18,6 +18,10 @@ public class LoadMainStage : MonoBehaviour
     public string[] savePrefab;
     public object[] presavePrefab;
     public static List<GameObject> buttonArray = new List<GameObject>();
+    public Sprite ButtonLightUp;
+    public Sprite ButtonLightDown;
+    public bool checkTrigger = false;
+    public GameObject currentButtonLightUp;
     public void Start()
     {
         enableFrame.transform.localScale = new Vector3(0,0,0);
@@ -43,6 +47,7 @@ public class LoadMainStage : MonoBehaviour
     public void ShowLoadMainStage()
     {
         GetSavePrefab();
+        buttonArray.Clear();
         EnviSim.Mode = "Main";
         for (int i = 0; i < savePrefab.Length; i++)
         {
@@ -85,6 +90,14 @@ public class LoadMainStage : MonoBehaviour
     public IEnumerator mainStageClick(int mainIndex)
     {
         //Debug.Log("CLICKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK" + mainIndex);
+        
+        if(checkTrigger == true)
+        {
+            currentButtonLightUp.GetComponent<Image>().sprite = ButtonLightDown;
+        }
+        buttonArray[mainIndex].GetComponent<Image>().sprite = ButtonLightUp;
+        currentButtonLightUp = buttonArray[mainIndex];
+        checkTrigger = true;
         LeanTween.scale(enableFrame,new Vector3(1,1,1),0.5f);
         invisibleFrame.SetActive(true);        
         string currentPreWord = savePrefab[mainIndex].ToString();

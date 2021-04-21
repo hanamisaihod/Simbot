@@ -205,6 +205,7 @@ public class CanvasFX_Controller : MonoBehaviour
         LeanTween.scale(Rect, Rect.localScale / 10.5f, 0.1f);
         yield return new WaitForSeconds(0.1f);
         textClear.GetComponent<Image>().enabled = true;
+        //darkTheme.GetComponent<Image>().enabled = true;
         LeanTween.scale(Rect, Rect.localScale * 6f, 1f).setDelay(0.1f).setEaseInOutBack();
         LeanTween.rotateZ(textClear, 3600, 1f);
 

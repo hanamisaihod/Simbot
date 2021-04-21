@@ -56,6 +56,7 @@ public class Robotcheck : MonoBehaviour
             lineButton1.AddComponent<Button>();
             turtleButton1.GetComponent<Button>().onClick.AddListener(creativeTurtleRobotNum);
             lineButton1.GetComponent<Button>().onClick.AddListener(creativeLineRobotNum);
+            creativeTurtleRobotNum();
         }
     }
     void creativeTurtleRobotNum()

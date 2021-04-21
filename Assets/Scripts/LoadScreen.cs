@@ -16,6 +16,11 @@ public class LoadScreen : MonoBehaviour
     public static int countMaxValue;
     public string saveKeyword;
     public string fileKeyword;
+    public static List<GameObject> buttonCreativeArray = new List<GameObject>();
+    public Sprite ButtonCreativeLightUp;
+    public Sprite ButtonCreativeLightDown;
+    public bool checkCreativeTrigger = false;
+    public GameObject currentButtonCreativeLightUp;
     [SerializeField] public static List<string> allKeyword = new List<string>();
     public void Start()
     {
@@ -37,6 +42,7 @@ public class LoadScreen : MonoBehaviour
     public void ShowLoadScreen()
     {
         GetLoadSave();
+        buttonCreativeArray.Clear();
         EnviSim.Mode = "Creative";
         for (int i = 0; i < saveFiles.Length; i++)
         {
@@ -59,6 +65,7 @@ public class LoadScreen : MonoBehaviour
             buttonObject.transform.SetParent(Container.transform,false);
             buttonObject.transform.localPosition = Vector3.zero;
             buttonObject.transform.localScale = Vector3.one;
+            buttonCreativeArray.Add(buttonObject);
             int buttonIndex = i;
             buttonObject.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(OnButtonClick(buttonIndex)));
         }
@@ -67,6 +74,13 @@ public class LoadScreen : MonoBehaviour
     public IEnumerator OnButtonClick(int index)
 	{
         ChangeScene.subMode = "CreatedScene";
+        if(checkCreativeTrigger == true)
+        {
+            currentButtonCreativeLightUp.GetComponent<Image>().sprite = ButtonCreativeLightDown;
+        }
+        buttonCreativeArray[index].GetComponent<Image>().sprite = ButtonCreativeLightUp;
+        currentButtonCreativeLightUp = buttonCreativeArray[index];
+        checkCreativeTrigger = true;
 		LoadConfirm.waitForSelectSlot = true;
         yield return new WaitUntil(() => LoadConfirm.clickToLoad == true || DeleteSave.clickToDelete == true || ChangeToSimulate.simulate == true);
         string file = saveFiles[index];
