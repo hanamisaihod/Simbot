@@ -459,11 +459,6 @@ public class RobotMovementTest : MonoBehaviour
         {
             return false;
         }
-        float calculatedDistance = 0;
-        if (arModeSwither != null)
-		{
-            calculatedDistance = distance * 0.02f;
-		}
         RaycastHit hit = new RaycastHit();
         Vector3 sensorForward = distanceSensor.transform.forward;
         Quaternion spreadAngle = Quaternion.AngleAxis(degree, new Vector3(0, 1, 0));
@@ -479,50 +474,100 @@ public class RobotMovementTest : MonoBehaviour
         //distanceFromHit = Vector3.Distance(distanceSensor.transform.position, hit.point);
         distanceFromHit = hit.distance;
         Debug.Log("Hit distance: " + distanceFromHit + "Degree: " + degree);
+
         if (distanceFromHit == 0)
         {
             distanceFromHit = Mathf.Infinity;
         }
-        switch (block.GetComponent<BuildingHandler>().compareDegreeChoice)
+        float checkingDistance = 0;
+        float calculatedDistance = 0;
+        if (arModeSwither != null)
         {
-            case 0:
-                if (distanceFromHit == calculatedDistance)
-                {
-                    return true;
-                }
-                break;
-            case 1:
-                if (distanceFromHit != calculatedDistance)
-                {
-                    return true;
-                }
-                break;
-            case 2:
-                if (distanceFromHit < calculatedDistance)
-                {
-                    return true;
-                }
-                break;
-            case 3:
-                if (distanceFromHit <= calculatedDistance)
-                {
-                    return true;
-                }
-                break;
-            case 4:
-                if (distanceFromHit > calculatedDistance)
-                {
-                    return true;
-                }
-                break;
-            case 5:
-                if (distanceFromHit >= calculatedDistance)
-                {
-                    return true;
-                }
-                break;
+            checkingDistance = distance * 0.02f;
+            switch (block.GetComponent<BuildingHandler>().compareDegreeChoice)
+            {
+                case 0:
+                    if (distanceFromHit == calculatedDistance)
+                    {
+                        return true;
+                    }
+                    break;
+                case 1:
+                    if (distanceFromHit != calculatedDistance)
+                    {
+                        return true;
+                    }
+                    break;
+                case 2:
+                    if (distanceFromHit < calculatedDistance)
+                    {
+                        return true;
+                    }
+                    break;
+                case 3:
+                    if (distanceFromHit <= calculatedDistance)
+                    {
+                        return true;
+                    }
+                    break;
+                case 4:
+                    if (distanceFromHit > calculatedDistance)
+                    {
+                        return true;
+                    }
+                    break;
+                case 5:
+                    if (distanceFromHit >= calculatedDistance)
+                    {
+                        return true;
+                    }
+                    break;
+            }
+            return false;
         }
-        return false;
+		else
+		{
+            switch (block.GetComponent<BuildingHandler>().compareDegreeChoice)
+            {
+                case 0:
+                    if (distanceFromHit == distance)
+                    {
+                        return true;
+                    }
+                    break;
+                case 1:
+                    if (distanceFromHit != distance)
+                    {
+                        return true;
+                    }
+                    break;
+                case 2:
+                    if (distanceFromHit < distance)
+                    {
+                        return true;
+                    }
+                    break;
+                case 3:
+                    if (distanceFromHit <= distance)
+                    {
+                        return true;
+                    }
+                    break;
+                case 4:
+                    if (distanceFromHit > distance)
+                    {
+                        return true;
+                    }
+                    break;
+                case 5:
+                    if (distanceFromHit >= distance)
+                    {
+                        return true;
+                    }
+                    break;
+            }
+            return false;
+        }
     }
 
     private bool CheckColorSensor(GameObject block)
