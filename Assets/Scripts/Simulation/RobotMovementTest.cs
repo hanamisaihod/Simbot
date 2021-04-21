@@ -277,8 +277,15 @@ public class RobotMovementTest : MonoBehaviour
         {
             speed = block.GetComponent<BuildingHandler>().speedChoice;
             torque = block.GetComponent<BuildingHandler>().torqueChoice;
-            delay = block.GetComponent<BuildingHandler>().delayChoice;
-
+            //delay = block.GetComponent<BuildingHandler>().delayChoice;
+            if (block.GetComponent<BuildingHandler>().delayChoice == 9999)
+			{
+                delay = Mathf.Infinity;
+			}
+			else
+			{
+                delay = block.GetComponent<BuildingHandler>().delayChoice;
+            }
             if (block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy)
             {
                 nextBlock = block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.gameObject;
