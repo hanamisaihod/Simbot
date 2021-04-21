@@ -479,11 +479,10 @@ public class RobotMovementTest : MonoBehaviour
         {
             distanceFromHit = Mathf.Infinity;
         }
-        float checkingDistance = 0;
         float calculatedDistance = 0;
         if (arModeSwither != null)
         {
-            checkingDistance = distance * 0.02f;
+            calculatedDistance = distance * 0.02f;
             switch (block.GetComponent<BuildingHandler>().compareDegreeChoice)
             {
                 case 0:
