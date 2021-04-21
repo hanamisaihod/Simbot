@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7599679959659500257}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 2.5}
   m_LocalScale: {x: 0.0015, y: 0.0015, z: 5}
   m_Children: []
   m_Father: {fileID: 7015502042941201918}
@@ -4951,7 +4951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7599679960772534054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 2.51}
   m_LocalScale: {x: 0.0015, y: 0.0015, z: 5}
   m_Children: []
   m_Father: {fileID: 7015502042941201918}
@@ -5115,6 +5115,7 @@ MonoBehaviour:
     type: 3}
   stovePrefab: {fileID: 1049934262172938741, guid: 96f33132163fb2842ac039b5b7a4d5ca,
     type: 3}
+  spawnedRobot: {fileID: 0}
 --- !u!65 &3075872978644338497
 BoxCollider:
   m_ObjectHideFlags: 0

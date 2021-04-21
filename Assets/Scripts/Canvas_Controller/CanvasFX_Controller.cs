@@ -58,6 +58,7 @@ public class CanvasFX_Controller : MonoBehaviour
     public float volume = 0.5f;     // volume of sound effect
     public EndingStarRating callStarRating;
     public GameObject ratingBox;
+    public GameObject Invis;
 
 
     void Start()
@@ -172,6 +173,7 @@ public class CanvasFX_Controller : MonoBehaviour
             clearRightFX.SetActive(false);
             failBackFX.SetActive(false);
             clearSceneTrigger = false;
+            Invis.SetActive(false);
             if (usingCor != null)
             {
                 StopCoroutine(usingCor);
@@ -204,6 +206,7 @@ public class CanvasFX_Controller : MonoBehaviour
         clearBackFX.SetActive(false);
         clearLeftFX.SetActive(false);
         clearRightFX.SetActive(false);
+        Invis.SetActive(true);
 
         LeanTween.scale(Rect, Rect.localScale / 10.5f, 0.1f);
         yield return new WaitForSeconds(0.1f);
@@ -247,7 +250,8 @@ public class CanvasFX_Controller : MonoBehaviour
         LeanTween.alpha(darkRect, 0f, 0.1f);
         LeanTween.scale(Rect, Rect.localScale / 10.5f, 0.1f);
         failBackFX.SetActive(false);
-        
+        Invis.SetActive(true);
+
         yield return new WaitForSeconds(0.1f);
 
         textFail.GetComponent<Image>().enabled = true;
