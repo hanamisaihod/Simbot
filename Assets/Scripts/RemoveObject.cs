@@ -17,10 +17,8 @@ public class RemoveObject : MonoBehaviour
         //Debug.Log("RaycastBuilder.hitObject.gameObject.name: "+ RaycastBuilder.hitObject.gameObject.name);
         if(Input.GetMouseButtonDown(0) && RaycastBuilder.hitObject.gameObject.layer == 21 && CurrentState.state == 2)
             {
-                
                 foreach (GameObject item in DetectEnvironment.keepPosition)
                 {
-                    
                     Debug.Log("item.transform.position: "+item.transform.position);
                     Vector3 hitObjectPos = RaycastBuilder.hitObject.position;
                     hitObjectPos.x = (float) Math.Round(hitObjectPos.x,MidpointRounding.AwayFromZero);
