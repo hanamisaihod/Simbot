@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class AwakeNewSceneSpawn : MonoBehaviour
 {
@@ -12,7 +13,6 @@ public class AwakeNewSceneSpawn : MonoBehaviour
     public static int MAX;
     public void Start()
     {
-        
         if(Save.Max > 0)
         {
             Debug.Log("STARTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
@@ -66,10 +66,9 @@ public class AwakeNewSceneSpawn : MonoBehaviour
                     LoadObject.GetComponent<MeshRenderer>().enabled = false;
                     DetectEnvironment.keepPosition.Add(LoadObject);
                 }
-            }
-            
+            }  
         }
-
+    
     //Debug.Log("Count all Object in Keep: "+DetectEnvironment.keepPosition.Count);   
     //once = false;
     }
