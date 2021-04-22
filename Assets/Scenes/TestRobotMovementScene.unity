@@ -874,6 +874,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1922611836}
+        m_MethodName: ActivateRedZone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &265258000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4710,6 +4721,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   redzoneList: []
+  greenDestination: 0
+  yellowDestination: 0
+  redDestination: 0
+  purpleDestination: 0
+  greenProduct: 0
+  yellowProduct: 0
+  redProduct: 0
+  purpleProduct: 0
   arModeSwitcher: {fileID: 0}
   start: {fileID: 0}
   canvasFX: {fileID: 2008325405}

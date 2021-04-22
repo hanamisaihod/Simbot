@@ -6,7 +6,8 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
 	private List<GameObject> productList;
-    public List<GameObject> redzoneList;
+	//public List<GameObject> redzoneList;
+	public List<Redzone_PS_Controller> redzoneList;
 	public int greenDestination, yellowDestination, redDestination, purpleDestination;
 	public int greenProduct, yellowProduct, redProduct, purpleProduct;
 	public ARModeSwitcher arModeSwitcher;
@@ -66,12 +67,20 @@ public class LevelController : MonoBehaviour
 		//}
 		if (GatherProductsAndDestination() > 0)
 		{
-			LockGoal();
+			if (goal != null)
+			{
+				LockGoal();
+			}
 		}
-		redzoneList.AddRange(GameObject.FindGameObjectsWithTag("RedZone"));
-        ActivateRedZone();
+		GatherAndActivateLava();
 	}
 
+	public void GatherAndActivateLava()
+	{
+		//redzoneList.AddRange(GameObject.FindGameObjectsWithTag("RedZone"));
+		redzoneList.AddRange(FindObjectsOfType<Redzone_PS_Controller>());
+		Debug.Log("Redzonelist size: " + redzoneList.Count);
+	}
 	public int GatherProductsAndDestination()
 	{
 		int allDestinationAndProductCount = 0;
@@ -132,7 +141,7 @@ public class LevelController : MonoBehaviour
     IEnumerator WaitRedZoneTime()
     {
         yield return new WaitForSeconds(6.0f);
-        foreach (GameObject redzone in redzoneList)
+        foreach (Redzone_PS_Controller redzone in redzoneList)
         {
             redzone.GetComponent<Redzone_PS_Controller>().redZoneTrigger = true;
         }
@@ -166,9 +175,13 @@ public class LevelController : MonoBehaviour
 		//	//Unlock Goal
 		//	goal.GetComponent<GoalFX_Controller>().StartUnlockGoal();
 		//}
-		if (CheckForUnlockGoalCondition(green, yellow, red, purple))
+
+		if (goal != null)
 		{
-			goal.GetComponent<GoalFX_Controller>().StartUnlockGoal();
+			if (CheckForUnlockGoalCondition(green, yellow, red, purple))
+			{
+				goal.GetComponent<GoalFX_Controller>().StartUnlockGoal();
+			}
 		}
 	}
 
@@ -218,7 +231,10 @@ public class LevelController : MonoBehaviour
 
 	public void FinishMission()
 	{
-		goal.GetComponent<GoalFX_Controller>().StartTrigger();
+		if (goal != null)
+		{
+			goal.GetComponent<GoalFX_Controller>().StartTrigger();
+		}
 		canvasFX.GetComponent<CanvasFX_Controller>().clearTrigger = true;
         stopRobot = true;
 	}
