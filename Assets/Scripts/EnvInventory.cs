@@ -8,7 +8,7 @@ public class EnvInventory : MonoBehaviour
     public EnvironmentData envData;
     public string PosInString;
     public string RosInString;
-    private void Start()
+    private void callSave()
     {
         Debug.Log("CHECK");
         GameEvent.SaveInitiated += Save;

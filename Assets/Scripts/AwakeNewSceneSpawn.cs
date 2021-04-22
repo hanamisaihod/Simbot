@@ -13,6 +13,7 @@ public class AwakeNewSceneSpawn : MonoBehaviour
     public static int MAX;
     public void Start()
     {
+        Debug.Log("Hello");
         DetectEnvironment.keepPosition.Clear();
         AwakeCreative();
     }
@@ -20,8 +21,8 @@ public class AwakeNewSceneSpawn : MonoBehaviour
     {
         if(Save.Max > 0)
         {
-            Debug.Log("STARTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
-            Debug.Log("Max = " + Save.Max);
+            //Debug.Log("STARTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+            //Debug.Log("Max = " + Save.Max);
             LoadScreen.countMaxValue = Save.Max;
         }
         name = new string[LoadScreen.countMaxValue];
@@ -33,7 +34,7 @@ public class AwakeNewSceneSpawn : MonoBehaviour
         {
             int length = 0;
             int i = 0;
-            Debug.Log("spawnFromLoadName count:" + LoadScreen.spawnFromLoadName.Count);
+            //Debug.Log("spawnFromLoadName count:" + LoadScreen.spawnFromLoadName.Count);
             foreach (string itemWord in LoadScreen.spawnFromLoadName)
             {
                 //Debug.Log("LoopCount: "+length);
@@ -57,7 +58,7 @@ public class AwakeNewSceneSpawn : MonoBehaviour
             MAX = length;
             if(Save.allowSpawn == true)
             {
-                Debug.Log("Allow");
+                //Debug.Log("Allow");
                 for (int a = 0; a < length; a++)
                 {
                     LoadObject = Instantiate(Resources.Load(name[a], typeof(GameObject)),vector3[a],rotation[a]) as GameObject;
