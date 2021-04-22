@@ -20548,6 +20548,10 @@ MonoBehaviour:
   Core: {fileID: 6103821822318179314}
   AuraFX: {fileID: 2042179654053994737}
   Taken: 0
+  green: 0
+  yellow: 1
+  red: 0
+  purple: 0
 --- !u!65 &2063230753817989321
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -72583,6 +72587,10 @@ MonoBehaviour:
   AuraFX: {fileID: 1425326900639860766}
   Base: {fileID: 2570660215901309368}
   Received: 0
+  green: 0
+  yellow: 1
+  red: 0
+  purple: 0
 --- !u!65 &6388417076314173115
 BoxCollider:
   m_ObjectHideFlags: 0

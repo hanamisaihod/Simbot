@@ -5664,6 +5664,10 @@ MonoBehaviour:
   Core: {fileID: 1246524011348934129}
   AuraFX: {fileID: 918130426093060394}
   Taken: 0
+  green: 0
+  yellow: 0
+  red: 1
+  purple: 0
 --- !u!65 &4413207880960924882
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22382,6 +22386,10 @@ MonoBehaviour:
   AuraFX: {fileID: 1090068808237574570}
   Base: {fileID: 2371237466839793615}
   Received: 0
+  green: 0
+  yellow: 0
+  red: 0
+  purple: 1
 --- !u!65 &4494230804959580634
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27662,6 +27670,10 @@ MonoBehaviour:
   Core: {fileID: 2537850880110871895}
   AuraFX: {fileID: 3604318902997260082}
   Taken: 0
+  green: 0
+  yellow: 0
+  red: 0
+  purple: 1
 --- !u!65 &6518324983304094690
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -126013,6 +126025,10 @@ MonoBehaviour:
   AuraFX: {fileID: 7038640575095340214}
   Base: {fileID: 8851012574571316154}
   Received: 0
+  green: 0
+  yellow: 0
+  red: 1
+  purple: 0
 --- !u!65 &4449857909729131734
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class GroundChecker : MonoBehaviour
 	{
 		levelController = GameObject.FindGameObjectWithTag("LevelController");
 	}
-	void Update()
+	void FixedUpdate()
     {
 		if (!groundChecker4) // if Turtle bot
 		{
@@ -26,6 +26,8 @@ public class GroundChecker : MonoBehaviour
 				levelController.GetComponent<LevelController>().stopRobot = true;
 				if (!transform.parent.GetComponent<RobotMovementTest>().falling)
 				{
+					transform.parent.GetComponent<RobotMovementTest>().delay = 0;
+					transform.parent.GetComponent<RobotMovementTest>().lockReadingCode = true;
 					transform.parent.GetComponent<RobotMovementTest>().FallAnimation();
 					transform.parent.GetComponent<RobotMovementTest>().falling = true;
 				}
@@ -41,6 +43,8 @@ public class GroundChecker : MonoBehaviour
 				levelController.GetComponent<LevelController>().stopRobot = true;
 				if (!transform.parent.GetComponent<RobotMovementTest>().falling)
 				{
+					transform.parent.GetComponent<RobotMovementTest>().delay = 0;
+					transform.parent.GetComponent<RobotMovementTest>().lockReadingCode = true;
 					transform.parent.GetComponent<RobotMovementTest>().FallAnimation();
 					transform.parent.GetComponent<RobotMovementTest>().falling = true;
 				}
