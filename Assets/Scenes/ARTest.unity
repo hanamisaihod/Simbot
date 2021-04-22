@@ -1798,7 +1798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4966719baa26e4b0e8231a24d9bd491a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FocusMode: -1
+  m_FocusMode: 1
   m_LightEstimationMode: -1
 --- !u!114 &1617695823
 MonoBehaviour:
