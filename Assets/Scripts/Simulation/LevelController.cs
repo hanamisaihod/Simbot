@@ -7,6 +7,8 @@ public class LevelController : MonoBehaviour
 {
 	private List<GameObject> productList;
     public List<GameObject> redzoneList;
+	public int greenDestination, yellowDestination, redDestination, purpleDestination;
+	public int greenProduct, yellowProduct, redProduct, purpleProduct;
 	public ARModeSwitcher arModeSwitcher;
 	private int deliveryLeft;
     public GameObject start;
@@ -41,29 +43,85 @@ public class LevelController : MonoBehaviour
 				start.GetComponent<SpawnFX_Controller>().SpawnRobot(Robotcheck.robotTypeNum, true);
 			}
 		}
-        if (GameObject.Find("Green_Destination"))
+		//      if (GameObject.Find("Green_Destination"))
+		//{
+		//	deliveryLeft++;
+		//}
+		//if (GameObject.Find("Purple_Destination"))
+		//{
+		//	deliveryLeft++;
+		//}
+		//if (GameObject.Find("Red_Destination"))
+		//{
+		//	deliveryLeft++;
+		//}
+		//if (GameObject.Find("Yellow_Destination"))
+		//{
+		//	deliveryLeft++;
+		//}
+		//if (deliveryLeft > 0)
+		//{
+		//	Debug.Log(deliveryLeft);
+		//	LockGoal();
+		//}
+		if (GatherProductsAndDestination() > 0)
 		{
-			deliveryLeft++;
-		}
-		if (GameObject.Find("Purple_Destination"))
-		{
-			deliveryLeft++;
-		}
-		if (GameObject.Find("Red_Destination"))
-		{
-			deliveryLeft++;
-		}
-		if (GameObject.Find("Yellow_Destination"))
-		{
-			deliveryLeft++;
-		}
-		if (deliveryLeft > 0)
-		{
-			Debug.Log(deliveryLeft);
 			LockGoal();
 		}
-        redzoneList.AddRange(GameObject.FindGameObjectsWithTag("RedZone"));
+		redzoneList.AddRange(GameObject.FindGameObjectsWithTag("RedZone"));
         ActivateRedZone();
+	}
+
+	public int GatherProductsAndDestination()
+	{
+		int allDestinationAndProductCount = 0;
+		foreach(DestinationController desc in FindObjectsOfType<DestinationController>())
+		{
+			if (desc.green)
+			{
+				greenDestination++;
+				allDestinationAndProductCount++;
+			}
+			if (desc.yellow)
+			{
+				yellowDestination++;
+				allDestinationAndProductCount++;
+			}
+			if (desc.red)
+			{
+				redDestination++;
+				allDestinationAndProductCount++;
+			}
+			if (desc.purple)
+			{
+				purpleDestination++;
+				allDestinationAndProductCount++;
+			}
+		}
+		foreach (SpawnerController spwn in FindObjectsOfType<SpawnerController>())
+		{
+			if (spwn.green)
+			{
+				greenProduct++;
+				allDestinationAndProductCount++;
+			}
+			if (spwn.yellow)
+			{
+				yellowProduct++;
+				allDestinationAndProductCount++;
+			}
+			if (spwn.red)
+			{
+				redProduct++;
+				allDestinationAndProductCount++;
+			}
+			if (spwn.purple)
+			{
+				purpleProduct++;
+				allDestinationAndProductCount++;
+			}
+		}
+		return allDestinationAndProductCount;
 	}
 
     public void ActivateRedZone()
@@ -99,15 +157,63 @@ public class LevelController : MonoBehaviour
 		}
 	}
 
-	public void UnlockGoal()
+	public void UnlockGoal(bool green, bool yellow, bool red, bool purple)
 	{
-		deliveryLeft--;
-		if (deliveryLeft == 0)
+		//deliveryLeft--;
+		//if (deliveryLeft == 0)
+		//{
+		//	Debug.Log("Unlock");
+		//	//Unlock Goal
+		//	goal.GetComponent<GoalFX_Controller>().StartUnlockGoal();
+		//}
+		if (CheckForUnlockGoalCondition(green, yellow, red, purple))
 		{
-			Debug.Log("Unlock");
-			//Unlock Goal
 			goal.GetComponent<GoalFX_Controller>().StartUnlockGoal();
 		}
+	}
+
+	private bool CheckForUnlockGoalCondition(bool green, bool yellow, bool red, bool purple)
+	{
+		if (greenDestination + yellowDestination + redDestination + purpleDestination != 
+			greenProduct + yellowProduct + redProduct + purpleProduct)
+		{
+			return false;
+		}
+		else if (greenDestination != greenProduct 
+			|| yellowDestination != yellowProduct
+			|| redDestination != redProduct
+			|| purpleDestination != purpleProduct)
+		{
+			return false;
+		}
+		if (green)
+		{
+			greenDestination--;
+			greenProduct--;
+		}
+		if (yellow)
+		{
+			yellowDestination--;
+			yellowProduct--;
+		}
+		if (red)
+		{
+			redDestination--;
+			redProduct--;
+		}
+		if (purple)
+		{
+			purpleDestination--;
+			purpleProduct--;
+		}
+		if (greenDestination == 0 && greenProduct == 0 
+			&& yellowDestination == 0 && yellowProduct == 0
+			&& redDestination == 0 && redProduct == 0
+			&& purpleDestination == 0 && purpleProduct == 0)
+		{
+			return true;
+		}
+		return false;
 	}
 
 	public void FinishMission()

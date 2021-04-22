@@ -9690,6 +9690,10 @@ MonoBehaviour:
   Core: {fileID: 5958708953382632967}
   AuraFX: {fileID: 5958708952017107365}
   Taken: 0
+  green: 0
+  yellow: 0
+  red: 0
+  purple: 1
 --- !u!65 &-8536599618453731283
 BoxCollider:
   m_ObjectHideFlags: 0

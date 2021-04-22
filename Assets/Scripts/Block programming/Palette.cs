@@ -11,7 +11,15 @@ public class Palette : MonoBehaviour
 	public bool isOpen = false;
 	public bool moving = false;
 	public bool isSetting = false;
-	public GameObject ifBlock, whileBlock;
+	public GameObject moveBlock, ifBlock, whileBlock;
+	[SerializeField] private Vector3 moveRect, ifRect, whileRect;
+
+	private void Start()
+	{
+		moveRect = moveBlock.transform.localPosition;
+		ifRect = ifBlock.transform.localPosition;
+		whileRect = whileBlock.transform.localPosition;
+	}
 
 	public void OpenPalette()
 	{
@@ -21,6 +29,9 @@ public class Palette : MonoBehaviour
 			moving = true;
 			if (!isOpen)
 			{
+				moveBlock.transform.localPosition = moveRect;
+				ifBlock.transform.localPosition = ifRect;
+				whileBlock.transform.localPosition = whileRect;
 				LeanTween.moveLocalX(gameObject, gameObject.transform.localPosition.x + tweenDistance, defTweenTime).setEaseOutCubic();
 			}
 			else

@@ -13,6 +13,7 @@ public class SpawnerController : MonoBehaviour
     private Renderer CoreRen;
     public ParticleSystem AuraFX;
 	public bool Taken = false;
+    public bool green, yellow, red, purple = false;
 
     void Start()
     {

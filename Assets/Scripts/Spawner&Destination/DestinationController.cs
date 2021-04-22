@@ -10,6 +10,7 @@ public class DestinationController : MonoBehaviour
     public GameObject Base;
     private Renderer BaseRen; 
     public bool Received = false;
+    public bool green, yellow, red, purple = false;
 
     void Start()
     {
@@ -23,6 +24,6 @@ public class DestinationController : MonoBehaviour
 		AuraFX.Play();
 		BaseRen.sharedMaterial = BaseMat_active;
 		Received = true;
-		GameObject.FindGameObjectWithTag("LevelController").GetComponent<LevelController>().UnlockGoal();
+		GameObject.FindGameObjectWithTag("LevelController").GetComponent<LevelController>().UnlockGoal(green, yellow, red, purple);
 	}
 }

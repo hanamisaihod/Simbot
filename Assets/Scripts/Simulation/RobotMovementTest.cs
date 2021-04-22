@@ -22,6 +22,7 @@ public class RobotMovementTest : MonoBehaviour
     public float wallDamageCounter = 0;
     public bool startedReading = false;
     public bool isHoldingObject = false;
+    public bool lockReadingCode = false;
     public List<Collider> turbineList = new List<Collider>();
     public Rigidbody rbd;
     public GameObject distanceSensor;
@@ -272,60 +273,22 @@ public class RobotMovementTest : MonoBehaviour
 
     private void ReadBlock(GameObject block)
     {
-        currentTimes = 0;
-        if (block.tag == "DoBlock")
-        {
-            speed = block.GetComponent<BuildingHandler>().speedChoice;
-            torque = block.GetComponent<BuildingHandler>().torqueChoice;
-            //delay = block.GetComponent<BuildingHandler>().delayChoice;
-            if (block.GetComponent<BuildingHandler>().delayChoice == 9999)
-			{
-                delay = Mathf.Infinity;
-			}
-			else
-			{
-                delay = block.GetComponent<BuildingHandler>().delayChoice;
-            }
-            if (block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy)
+        if (!lockReadingCode)
+		{
+            currentTimes = 0;
+            if (block.tag == "DoBlock")
             {
-                nextBlock = block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.gameObject;
-            }
-            else
-            {
-                if (repeats.Count > 0)
+                speed = block.GetComponent<BuildingHandler>().speedChoice;
+                torque = block.GetComponent<BuildingHandler>().torqueChoice;
+                //delay = block.GetComponent<BuildingHandler>().delayChoice;
+                if (block.GetComponent<BuildingHandler>().delayChoice == 9999)
                 {
-                    nextBlock = repeats[repeats.Count - 1];
+                    delay = Mathf.Infinity;
                 }
                 else
                 {
-                    nextBlock = null;
+                    delay = block.GetComponent<BuildingHandler>().delayChoice;
                 }
-            }
-        }
-        else if (block.tag == "IfBlock")
-        {
-            degree = block.GetComponent<BuildingHandler>().degreeChoice;
-            distance = block.GetComponent<BuildingHandler>().distanceChoice;
-            if (CheckIf(block))
-            {
-                if (block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().attachedBy)
-                {
-                    nextBlock = (block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.gameObject);
-                }
-                else
-                {
-                    if (repeats.Count > 0)
-                    {
-                        nextBlock = repeats[repeats.Count - 1];
-                    }
-                    else
-                    {
-                        nextBlock = null;
-                    }
-                }
-            }
-            else
-            {
                 if (block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy)
                 {
                     nextBlock = block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.gameObject;
@@ -342,52 +305,94 @@ public class RobotMovementTest : MonoBehaviour
                     }
                 }
             }
-        }
-        else if (block.tag == "RepeatBlock")
-        {
-            degree = block.GetComponent<BuildingHandler>().degreeChoice;
-            distance = block.GetComponent<BuildingHandler>().distanceChoice;
-            if (CheckRepeat(block))
+            else if (block.tag == "IfBlock")
             {
-                if (!repeats.Contains(block))
+                degree = block.GetComponent<BuildingHandler>().degreeChoice;
+                distance = block.GetComponent<BuildingHandler>().distanceChoice;
+                if (CheckIf(block))
                 {
-                    repeats.Add(block);
-                }
-                if (block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().attachedBy)
-                {
-                    nextBlock = (block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.gameObject);
-                }
-                else
-                {
-                    if (repeats.Count > 0)
+                    if (block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().attachedBy)
                     {
-                        nextBlock = repeats[repeats.Count - 1];
+                        nextBlock = (block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.gameObject);
                     }
                     else
                     {
-                        nextBlock = null;
+                        if (repeats.Count > 0)
+                        {
+                            nextBlock = repeats[repeats.Count - 1];
+                        }
+                        else
+                        {
+                            nextBlock = null;
+                        }
                     }
-                }
-            }
-            else
-            {
-                if (block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy)
-                {
-                    nextBlock = block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.gameObject;
                 }
                 else
                 {
-                    if (repeats.Count > 0)
+                    if (block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy)
                     {
-                        nextBlock = repeats[repeats.Count - 1];
+                        nextBlock = block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.gameObject;
                     }
                     else
                     {
-                        nextBlock = null;
+                        if (repeats.Count > 0)
+                        {
+                            nextBlock = repeats[repeats.Count - 1];
+                        }
+                        else
+                        {
+                            nextBlock = null;
+                        }
+                    }
+                }
+            }
+            else if (block.tag == "RepeatBlock")
+            {
+                degree = block.GetComponent<BuildingHandler>().degreeChoice;
+                distance = block.GetComponent<BuildingHandler>().distanceChoice;
+                if (CheckRepeat(block))
+                {
+                    if (!repeats.Contains(block))
+                    {
+                        repeats.Add(block);
+                    }
+                    if (block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().attachedBy)
+                    {
+                        nextBlock = (block.GetComponent<BuildingHandler>().ifConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.gameObject);
+                    }
+                    else
+                    {
+                        if (repeats.Count > 0)
+                        {
+                            nextBlock = repeats[repeats.Count - 1];
+                        }
+                        else
+                        {
+                            nextBlock = null;
+                        }
+                    }
+                }
+                else
+                {
+                    if (block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy)
+                    {
+                        nextBlock = block.GetComponent<BuildingHandler>().doConnector.GetComponent<MouseDrag>().attachedBy.transform.parent.gameObject;
+                    }
+                    else
+                    {
+                        if (repeats.Count > 0)
+                        {
+                            nextBlock = repeats[repeats.Count - 1];
+                        }
+                        else
+                        {
+                            nextBlock = null;
+                        }
                     }
                 }
             }
         }
+        
     }
 
     private bool CheckRepeat(GameObject block)
@@ -587,7 +592,7 @@ public class RobotMovementTest : MonoBehaviour
         int correctCount = 0;
         if (Physics.Raycast(leftColorSensor.transform.position, -leftColorSensor.transform.up, out leftHit, Mathf.Infinity))
         {
-            Debug.LogError("left sensor found tag: " + leftHit.collider.tag);
+            //Debug.LogError("left sensor found tag: " + leftHit.collider.tag);
             if (block.GetComponent<BuildingHandler>().colorLeftChoice == 0) // If left choose black
             {
                 if (block.GetComponent<BuildingHandler>().compareLeftChoice == 0) // If left choose equal
@@ -625,7 +630,7 @@ public class RobotMovementTest : MonoBehaviour
         }
         if (Physics.Raycast(rightColorSensor.transform.position, -rightColorSensor.transform.up, out rightHit, Mathf.Infinity))
         {
-            Debug.LogError("right sensor found tag: " + rightHit.collider.tag);
+            //Debug.LogError("right sensor found tag: " + rightHit.collider.tag);
             if (block.GetComponent<BuildingHandler>().colorRightChoice == 0) // If right choose black
             {
                 if (block.GetComponent<BuildingHandler>().compareRightChoice == 0) // If right choose equal
@@ -661,7 +666,7 @@ public class RobotMovementTest : MonoBehaviour
                 }
             }
         }
-        Debug.LogError("correctCount: " + correctCount);
+        //Debug.LogError("correctCount: " + correctCount);
         if (correctCount == 2)
         {
             return true;

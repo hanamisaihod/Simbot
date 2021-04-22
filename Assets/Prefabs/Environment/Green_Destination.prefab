@@ -280,6 +280,10 @@ MonoBehaviour:
   AuraFX: {fileID: 8564780077714463997}
   Base: {fileID: 2008118206155925045}
   Received: 0
+  green: 1
+  yellow: 0
+  red: 0
+  purple: 0
 --- !u!65 &8025648759774631584
 BoxCollider:
   m_ObjectHideFlags: 0
