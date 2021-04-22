@@ -19,9 +19,10 @@ public class TurtleBot_Movement_Animation : MonoBehaviour
     private float headCurrentDegree;
     private bool moving;
     public float volume = 1f;     // volume of robot sound
-
+    public GameObject levelController;
     void Start()
     {
+        levelController = GameObject.FindGameObjectWithTag("LevelController");
         moveAudio = gameObject.GetComponent<AudioSource>();
     }
   
@@ -32,7 +33,10 @@ public class TurtleBot_Movement_Animation : MonoBehaviour
         speed = gameObject.GetComponent<RobotMovementTest>().speed;
         torque = gameObject.GetComponent<RobotMovementTest>().torque;
         headTargetDegree = gameObject.GetComponent<RobotMovementTest>().degree;
-
+        if (levelController.GetComponent<LevelController>().canvasFX.GetComponent<CanvasFX_Controller>().won)
+		{
+            moveAudio.clip = null;
+		}
         if (delay > 0.01999961)
         {
             wheel_left.transform.Rotate(Vector3.down * Time.fixedDeltaTime * 300 * (speed + 0.00347f * torque), Space.Self);

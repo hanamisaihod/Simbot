@@ -60,7 +60,6 @@ public class CanvasFX_Controller : MonoBehaviour
     public GameObject ratingBox;
     public GameObject Invis;
 
-
     void Start()
     {
         audioClearBack = clearBackFX.GetComponent<AudioSource>();
