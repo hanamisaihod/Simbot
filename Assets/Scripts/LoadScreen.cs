@@ -94,7 +94,7 @@ public class LoadScreen : MonoBehaviour
             }
         fileKeyword = fileKeyword.Replace(".txt", "");
         file = fileKeyword;
-        Debug.Log(file);
+        //Debug.Log(file);
         
         if(LoadConfirm.clickToLoad == true)
         {
@@ -110,7 +110,7 @@ public class LoadScreen : MonoBehaviour
 
             ItemEnv = SaveLoad.Load<List<EnvironmentData>>(file);
             Save.allowSpawn = true;
-            Debug.Log(ItemEnv.Count);
+            //Debug.Log(ItemEnv.Count);
             foreach (EnvironmentData item in ItemEnv)
             {
                 foreach (string wordname in item.name)
