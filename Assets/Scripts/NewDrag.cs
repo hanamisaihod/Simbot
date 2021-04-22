@@ -79,6 +79,21 @@ public class NewDrag : MonoBehaviour
             Debug.Log("CompareValue: " + ComparePosition.SearchForPosition(ObjToMove));
             return false;
         }
+        string objClone = ObjToMove.name.Replace("(Clone)", "");
+        if(objClone == "Box-Spawn-Player-Scale 1" || objClone == "Box-Goal" || objClone == "Box-Floor-Green-Spawner" || objClone == "Box-Floor-Red-Spawner" 
+        || objClone == "Box-Floor-Purple-Spawner"|| objClone == "Box-Floor-Yellow-Spawner" || objClone == "Box-Floor-Green-Switch" || objClone == "Box-Wall-Red-Switch"
+        || objClone == "Box-Wall-Purple-Switch"|| objClone == "Box-Floor-Yellow-Switch")
+        {
+            Debug.Log("WOWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
+            foreach (GameObject item in DetectEnvironment.keepPosition)
+            {
+                string objName = item.name.Replace("(Clone)", "");
+                if(objClone == objName)
+                {
+                    return false;
+                }
+            }
+        }
         return true;
     }
 }
