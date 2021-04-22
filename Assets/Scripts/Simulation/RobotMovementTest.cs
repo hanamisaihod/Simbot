@@ -212,11 +212,11 @@ public class RobotMovementTest : MonoBehaviour
             }
             else if (rotChance < 0.6)
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, turbineList[x].transform.parent.eulerAngles.y, 0), 0.00001f * Time.time);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, turbineList[x].transform.parent.eulerAngles.y, 0), 0.01f * Time.fixedDeltaTime);
             }
             else
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, turbineList[x].transform.parent.eulerAngles.y, 0), 0.00003f * Time.time);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, turbineList[x].transform.parent.eulerAngles.y, 0), 0.03f * Time.fixedDeltaTime);
             }
         }
 		if (isAtWallCount > 0)

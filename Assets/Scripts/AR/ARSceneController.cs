@@ -95,7 +95,8 @@ public class ARSceneController : MonoBehaviour
 
 	public void AdjustParticleSize()
 	{
-		ParticleSystem[] particleObjs = Resources.FindObjectsOfTypeAll(typeof(ParticleSystem)) as ParticleSystem[];
+		//ParticleSystem[] particleObjs = Resources.FindObjectsOfTypeAll(typeof(ParticleSystem)) as ParticleSystem[];
+		ParticleSystem[] particleObjs = FindObjectsOfType<ParticleSystem>();
 		foreach (ParticleSystem obj in particleObjs)
 		{
 			obj.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
