@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class EnviSim : MonoBehaviour
 {
@@ -36,6 +37,10 @@ public class EnviSim : MonoBehaviour
             //North's line
             if (GameObject.Find("ARSceneController"))
                 GameObject.Find("ARSceneController").GetComponent<ARSceneController>().AssignMap(false);
+            Array.Clear(AwakeNewSceneSpawn.name, 0, AwakeNewSceneSpawn.name.Length); 
+            Array.Clear(AwakeNewSceneSpawn.vector3, 0, AwakeNewSceneSpawn.vector3.Length);
+            Array.Clear(AwakeNewSceneSpawn.rotation, 0, AwakeNewSceneSpawn.rotation.Length);
+            Save.allowSpawn = true;
         }
         if (Mode == "Main")
         {
