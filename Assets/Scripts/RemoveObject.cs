@@ -4,10 +4,15 @@ using UnityEngine;
 using System;
 public class RemoveObject : MonoBehaviour
 {
+    public GameObject highlight;
+
     public void removeMode()
     {
         Destroy(DetectEnvironment.attachModel);
-        CurrentState.state = 2;
+        if (CurrentState.state != 2)
+            CurrentState.state = 2;
+        else
+            CurrentState.state = 1;
         Debug.Log("Bug or Not");
         //RemoveCom();
     }
@@ -19,7 +24,7 @@ public class RemoveObject : MonoBehaviour
 		{
             if (Input.GetMouseButtonDown(0) && RaycastBuilder.hitObject.gameObject.layer == 21 && CurrentState.state == 2)
             {
-
+                
                 foreach (GameObject item in DetectEnvironment.keepPosition)
                 {
 
@@ -48,7 +53,13 @@ public class RemoveObject : MonoBehaviour
                 }
                 Debug.Log("List count: " + DetectEnvironment.keepPosition.Count);
             }
+            else
+                highlight.SetActive(false);
         }
-        
+        if(CurrentState.state == 2)
+            highlight.SetActive(true);
+        else
+            highlight.SetActive(false);
+
     }
 }

@@ -7833,7 +7833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volume: 0.5
   Music1: {fileID: 8300000, guid: a386a917970222e4abd4f5076eff4c9b, type: 3}
-  Music2: {fileID: 8300000, guid: 3500a7ff4b7330f4baa609f46a6c5f19, type: 3}
+  Music2: {fileID: 8300000, guid: ef5756419b855e3469b4db6046fcad3c, type: 3}
 --- !u!4 &972105199
 Transform:
   m_ObjectHideFlags: 0

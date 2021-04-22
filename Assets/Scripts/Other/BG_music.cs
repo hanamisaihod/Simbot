@@ -30,7 +30,6 @@ public class BG_music : MonoBehaviour
     private void Update()
     {
         Scene scene = SceneManager.GetActiveScene();
-        Audio.volume = volume;      // volume of BG music
         if (PlayerPrefs.HasKey("Menu_Tutorial"))
         {
             if (PlayerPrefs.GetInt("Menu_Tutorial") == 1)
@@ -41,10 +40,12 @@ public class BG_music : MonoBehaviour
             if(scene.name == "TestRobotMovementScene" || scene.name == "ARTest")
             {
                 Audio.clip = Music2;
+                Audio.volume = 1;
             }
             else
             {
                 Audio.clip = Music1;
+                Audio.volume = volume;
             }
         }
     }
