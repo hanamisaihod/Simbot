@@ -61,6 +61,7 @@ public class ARModeSwitcher : MonoBehaviour
 		{
 			levelController.SetActive(true);
 		}
+		levelController.GetComponent<LevelController>().GatherAndActivateLava();
 		rotateMap.SetActive(false);
 		confirmButton.SetActive(false);
 		hpSet.SetActive(true);
