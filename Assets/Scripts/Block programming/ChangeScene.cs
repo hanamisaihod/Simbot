@@ -17,11 +17,13 @@ public class ChangeScene : MonoBehaviour
 		{
 			Debug.Log("map name: " + str);
 		}
-		bool mapExisted = false; ;
+		bool mapExisted = false;
         inputMap = txt_Input.text;
+        string inputMapLower = inputMap.ToLower();
         foreach (string str in LoadScreen.allKeyword)
         {
-            if (inputMap == str)
+            string strLower = str.ToLower();
+            if (inputMapLower == strLower)
             {
                 ChangeTextToRed();
                 mapExisted = true;

@@ -58,7 +58,7 @@ public class Save : MonoBehaviour
         }
         EnviSim.Mode = "Creative";
         ChangeScene.subMode = "CreatedScene";
-        allowSpawn = false;
+        //allowSpawn = false;
         callCreative.Start();
         Debug.Log("Envi Count = " + DetectEnvironment.keepPosition.Count);
         //SceneManager.LoadScene("MapBuilding");
