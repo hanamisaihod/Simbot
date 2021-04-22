@@ -67,6 +67,7 @@ public class NewDrag : MonoBehaviour
                     DetectEnvironment.StoreSpawnPosition();
                     ConfirmPlace.confirmPlace = false;
                     ObjToMove.transform.position = new Vector3(ObjToMove.transform.position.x, ObjToMove.transform.position.y, ObjToMove.transform.position.z);
+                    GameObject.Find("Save").GetComponent<Save>().OnClickToSave();
                 }
             }
     }

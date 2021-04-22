@@ -31,6 +31,7 @@ GameObject:
   - component: {fileID: 6235129324770528904}
   - component: {fileID: 593364772722913992}
   - component: {fileID: 1106690039552736420}
+  - component: {fileID: -1498400217967287276}
   m_Layer: 20
   m_Name: Box-Goal
   m_TagString: Building
@@ -125,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a722ebc436d374d4fa0d35ce7d745a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: {fileID: -5574941621452251985, guid: 969264201c4163d419b71d29f9260a5c, type: 3}
 --- !u!114 &593364772722913992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +151,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6976c3fb26b7364db3396522933b019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1498400217967287276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2915248878884616564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e6eaee5ca4fe3a46aca40b01112c136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creativeEnv: []
+  spwObj: 
+  callCreative: {fileID: 0}
+  callSave: {fileID: 0}
 --- !u!1001 &4501789308858066280
 PrefabInstance:
   m_ObjectHideFlags: 0

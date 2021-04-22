@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5350422863377069931}
   - component: {fileID: 2769773940770083454}
   - component: {fileID: 8605454456236426757}
+  - component: {fileID: -3181055101955726759}
   m_Layer: 20
   m_Name: Box-Ice-Floor
   m_TagString: Building
@@ -108,6 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a722ebc436d374d4fa0d35ce7d745a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: {fileID: -5574941621452251985, guid: 969264201c4163d419b71d29f9260a5c, type: 3}
 --- !u!114 &8605454456236426757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +122,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97121445633bd8c4eb07983899743c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3181055101955726759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2965626391406015537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e6eaee5ca4fe3a46aca40b01112c136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creativeEnv: []
+  spwObj: 
+  callCreative: {fileID: 0}
+  callSave: {fileID: 0}
 --- !u!1001 &1123309534626358961
 PrefabInstance:
   m_ObjectHideFlags: 0

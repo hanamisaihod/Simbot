@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 4358810347842461586}
   - component: {fileID: 5786326642833603207}
   - component: {fileID: 95042808263732988}
+  - component: {fileID: 8927170266831620216}
   m_Layer: 20
   m_Name: Box-Wall-Purple-Switch
   m_TagString: Building
@@ -124,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a722ebc436d374d4fa0d35ce7d745a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: {fileID: -5574941621452251985, guid: 969264201c4163d419b71d29f9260a5c, type: 3}
 --- !u!114 &95042808263732988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +138,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97121445633bd8c4eb07983899743c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8927170266831620216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6851411718304881864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e6eaee5ca4fe3a46aca40b01112c136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creativeEnv: []
+  spwObj: 
+  callCreative: {fileID: 0}
+  callSave: {fileID: 0}
 --- !u!1001 &9120083024330287502
 PrefabInstance:
   m_ObjectHideFlags: 0

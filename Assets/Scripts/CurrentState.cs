@@ -6,6 +6,7 @@ public class CurrentState : MonoBehaviour
 {
     public static int state;
 
+    public GameObject bin;
     void updateState()
     {
         //Beginning state
@@ -16,6 +17,7 @@ public class CurrentState : MonoBehaviour
         }
         else if(state == 2)
         {
+            //bin.GetComponent<Image>().sprite
             Debug.Log("Remove Mode");
         }
     }

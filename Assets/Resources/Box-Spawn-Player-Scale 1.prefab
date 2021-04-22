@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 4661840316717499701}
   - component: {fileID: 6518829356573567202}
   - component: {fileID: 2661587707122504047}
+  - component: {fileID: -5726157203523945700}
   m_Layer: 20
   m_Name: Box-Spawn-Player-Scale 1
   m_TagString: Building
@@ -138,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a722ebc436d374d4fa0d35ce7d745a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: {fileID: -5574941621452251985, guid: 969264201c4163d419b71d29f9260a5c, type: 3}
 --- !u!114 &6518829356573567202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +164,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08fc6e7ba2449f2428b3285949c07084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5726157203523945700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060160490912007841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e6eaee5ca4fe3a46aca40b01112c136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creativeEnv: []
+  spwObj: 
+  callCreative: {fileID: 0}
+  callSave: {fileID: 0}
 --- !u!1001 &5427187875773937092
 PrefabInstance:
   m_ObjectHideFlags: 0

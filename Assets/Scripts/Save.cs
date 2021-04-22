@@ -11,8 +11,6 @@ public class Save : MonoBehaviour
     public List<EnvironmentData> creativeEnv;
     public string spwObj;
     public static int Max;
-    public AwakeNewSceneSpawn callCreative;
-    public EnvInventory callSave;
     public static bool allowSpawn = true;
     //public ModeSwitcher callMode;
 
@@ -21,7 +19,7 @@ public class Save : MonoBehaviour
         LoadScreen.spawnFromLoadName = new List<string>();
         LoadScreen.spawnFromLoadVector3 = new List<Vector3>();
         LoadScreen.spawnFromLoadQuaternion = new List<Quaternion>();
-        callSave.Save();
+        GameObject.Find("Save").GetComponent<EnvInventory>().Save();
         //creativeEnv.Clear();        
         creativeEnv = SaveLoad.Load<List<EnvironmentData>>(ChangeScene.inputMap);
         foreach (EnvironmentData item in creativeEnv)
@@ -58,8 +56,8 @@ public class Save : MonoBehaviour
         }
         EnviSim.Mode = "Creative";
         ChangeScene.subMode = "CreatedScene";
-        //allowSpawn = false;
-        callCreative.Start();
+        allowSpawn = false;
+        GameObject.Find("Scene").GetComponent<AwakeNewSceneSpawn>().AwakeCreative();
         Debug.Log("Envi Count = " + DetectEnvironment.keepPosition.Count);
         //SceneManager.LoadScene("MapBuilding");
     }

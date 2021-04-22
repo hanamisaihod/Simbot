@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 4993691671801820907}
   - component: {fileID: 2989716806284415998}
   - component: {fileID: 8674243059566987141}
+  - component: {fileID: -4688988261791850011}
   m_Layer: 20
   m_Name: Box-Floor-SL
   m_TagString: Building
@@ -124,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a722ebc436d374d4fa0d35ce7d745a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: {fileID: -5574941621452251985, guid: 969264201c4163d419b71d29f9260a5c, type: 3}
 --- !u!114 &8674243059566987141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +138,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97121445633bd8c4eb07983899743c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4688988261791850011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2748788263662810545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e6eaee5ca4fe3a46aca40b01112c136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creativeEnv: []
+  spwObj: 
+  callCreative: {fileID: 0}
+  callSave: {fileID: 0}
 --- !u!1001 &5117027870661309535
 PrefabInstance:
   m_ObjectHideFlags: 0

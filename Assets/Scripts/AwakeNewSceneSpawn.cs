@@ -14,6 +14,10 @@ public class AwakeNewSceneSpawn : MonoBehaviour
     public void Start()
     {
         DetectEnvironment.keepPosition.Clear();
+        AwakeCreative();
+    }
+    public void AwakeCreative()
+    {
         if(Save.Max > 0)
         {
             Debug.Log("STARTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
