@@ -44879,6 +44879,7 @@ GameObject:
   - component: {fileID: 1544309611}
   - component: {fileID: 1544309610}
   - component: {fileID: 1544309609}
+  - component: {fileID: 1544309613}
   m_Layer: 5
   m_Name: ConfirmPlace
   m_TagString: Untagged
@@ -44982,6 +44983,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1544309613}
+        m_MethodName: OnClickToSave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1544309611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45019,6 +45031,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544309607}
   m_CullTransparentMesh: 0
+--- !u!114 &1544309613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544309607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e6eaee5ca4fe3a46aca40b01112c136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creativeEnv: []
+  spwObj: 
+  callCreative: {fileID: 1088414621}
+  callSave: {fileID: 2007111681}
 --- !u!1 &1547484897
 GameObject:
   m_ObjectHideFlags: 0

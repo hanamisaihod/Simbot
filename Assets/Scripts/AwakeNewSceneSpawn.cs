@@ -13,6 +13,7 @@ public class AwakeNewSceneSpawn : MonoBehaviour
     public static int MAX;
     public void Start()
     {
+        DetectEnvironment.keepPosition.Clear();
         if(Save.Max > 0)
         {
             Debug.Log("STARTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
@@ -52,6 +53,7 @@ public class AwakeNewSceneSpawn : MonoBehaviour
             MAX = length;
             if(Save.allowSpawn == true)
             {
+                Debug.Log("Allow");
                 for (int a = 0; a < length; a++)
                 {
                     LoadObject = Instantiate(Resources.Load(name[a], typeof(GameObject)),vector3[a],rotation[a]) as GameObject;
