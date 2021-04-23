@@ -19884,6 +19884,7 @@ MonoBehaviour:
   wallDamageCounter: 0
   startedReading: 0
   isHoldingObject: 0
+  lockReadingCode: 0
   turbineList: []
   rbd: {fileID: 6865449795849435125}
   distanceSensor: {fileID: 0}
@@ -19964,8 +19965,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8, y: 11.223141, z: 10}
-  m_Center: {x: 0, y: 3.9329844, z: 0}
+  m_Size: {x: 8, y: 18.601852, z: 10}
+  m_Center: {x: 0, y: 7.6223397, z: 0}
 --- !u!95 &163513906441173133
 Animator:
   serializedVersion: 3
