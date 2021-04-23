@@ -1359,15 +1359,10 @@ MonoBehaviour:
   isLock: 0
   parentHandlerScript: {fileID: 0}
   height: 0
-  position: {x: 0, y: 0, z: 0}
-  mousePosition: {x: 0, y: 0}
-  trashCan: {fileID: 0}
-  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 2815997839940605981}
   ifConnectorChild: {fileID: 1435274346181999085}
-  abName: 
-  abNum: 0
   blockNum: -1
+  abNum: 0
   attachedTo: {fileID: 0}
   attachedBy: {fileID: 0}
 --- !u!1 &1163127569328336735
@@ -1818,15 +1813,10 @@ MonoBehaviour:
   isLock: 0
   parentHandlerScript: {fileID: 0}
   height: 0
-  position: {x: 0, y: 0, z: 0}
-  mousePosition: {x: 0, y: 0}
-  trashCan: {fileID: 0}
-  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 2815997839940605981}
   ifConnectorChild: {fileID: 1435274346181999085}
-  abName: 
-  abNum: 0
   blockNum: -1
+  abNum: 0
   attachedTo: {fileID: 0}
   attachedBy: {fileID: 0}
 --- !u!212 &4373305823074741203
@@ -2294,15 +2284,10 @@ MonoBehaviour:
   isLock: 0
   parentHandlerScript: {fileID: 0}
   height: 0
-  position: {x: 0, y: 0, z: 0}
-  mousePosition: {x: 0, y: 0}
-  trashCan: {fileID: 0}
-  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 2815997839940605981}
   ifConnectorChild: {fileID: 1435274346181999085}
-  abName: 
-  abNum: 0
   blockNum: -1
+  abNum: 0
   attachedTo: {fileID: 0}
   attachedBy: {fileID: 0}
 --- !u!1 &1620533890788724026
@@ -2671,6 +2656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHeight: 0
   isBeingHeld: 0
+  conBlocks: []
   bestTarget: {fileID: 0}
   layerLevel: 0
   tempLayer: 0
@@ -3172,15 +3158,10 @@ MonoBehaviour:
   isLock: 0
   parentHandlerScript: {fileID: 0}
   height: 0
-  position: {x: 0, y: 0, z: 0}
-  mousePosition: {x: 0, y: 0}
-  trashCan: {fileID: 0}
-  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 2815997839940605981}
   ifConnectorChild: {fileID: 1435274346181999085}
-  abName: 
-  abNum: 0
   blockNum: -1
+  abNum: 0
   attachedTo: {fileID: 0}
   attachedBy: {fileID: 0}
 --- !u!1 &2590851054212395731
@@ -3799,15 +3780,10 @@ MonoBehaviour:
   isLock: 0
   parentHandlerScript: {fileID: 0}
   height: 0
-  position: {x: 0, y: 0, z: 0}
-  mousePosition: {x: 0, y: 0}
-  trashCan: {fileID: 0}
-  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 2815997839940605981}
   ifConnectorChild: {fileID: 1435274346181999085}
-  abName: 
-  abNum: 0
   blockNum: -1
+  abNum: 0
   attachedTo: {fileID: 0}
   attachedBy: {fileID: 0}
 --- !u!212 &2036732959605486576
@@ -5557,8 +5533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding: {x: 0, y: 0, z: 0, w: 0}
-  m_Softness: {x: 0, y: 0}
 --- !u!1 &4961529287170003037
 GameObject:
   m_ObjectHideFlags: 0
@@ -6017,8 +5991,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding: {x: 0, y: 0, z: 0, w: 0}
-  m_Softness: {x: 0, y: 0}
 --- !u!1 &5285130700664103662
 GameObject:
   m_ObjectHideFlags: 0
@@ -6667,15 +6639,10 @@ MonoBehaviour:
   isLock: 0
   parentHandlerScript: {fileID: 0}
   height: 0
-  position: {x: 0, y: 0, z: 0}
-  mousePosition: {x: 0, y: 0}
-  trashCan: {fileID: 0}
-  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 2815997839940605981}
   ifConnectorChild: {fileID: 1435274346181999085}
-  abName: 
-  abNum: 0
   blockNum: -1
+  abNum: 0
   attachedTo: {fileID: 0}
   attachedBy: {fileID: 0}
 --- !u!1 &6034203076370013797
@@ -7974,8 +7941,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding: {x: 0, y: 0, z: 0, w: 0}
-  m_Softness: {x: 0, y: 0}
 --- !u!1 &7041369479285481066
 GameObject:
   m_ObjectHideFlags: 0
@@ -8158,7 +8123,7 @@ MonoBehaviour:
   m_CaretColor: {r: 1, g: 1, b: 1, a: 0}
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 0
+  m_Text: 
   m_CaretBlinkRate: 0
   m_CaretWidth: 0
   m_ReadOnly: 0
@@ -8489,15 +8454,10 @@ MonoBehaviour:
   isLock: 0
   parentHandlerScript: {fileID: 0}
   height: 0
-  position: {x: 0, y: 0, z: 0}
-  mousePosition: {x: 0, y: 0}
-  trashCan: {fileID: 0}
-  trashCanWorldPosition: {x: 0, y: 0, z: 0}
   doConnectorChild: {fileID: 2815997839940605981}
   ifConnectorChild: {fileID: 1435274346181999085}
-  abName: 
-  abNum: 0
   blockNum: -1
+  abNum: 0
   attachedTo: {fileID: 0}
   attachedBy: {fileID: 0}
 --- !u!1 &7293527941929128933
@@ -8720,7 +8680,7 @@ MonoBehaviour:
   m_CaretColor: {r: 1, g: 1, b: 1, a: 0}
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 0
+  m_Text: 
   m_CaretBlinkRate: 0
   m_CaretWidth: 0
   m_ReadOnly: 0
@@ -9221,7 +9181,7 @@ MonoBehaviour:
   m_CaretColor: {r: 1, g: 1, b: 1, a: 0}
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 0
+  m_Text: 
   m_CaretBlinkRate: 0
   m_CaretWidth: 0
   m_ReadOnly: 0
