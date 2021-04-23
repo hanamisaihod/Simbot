@@ -194,6 +194,7 @@ public class Map7_Tutorial : MonoBehaviour
                 delayCor = StartCoroutine(DelayCall());
                 Meow1Script.cancelTrigger = true;
                 startText = false;
+                PlayerPrefs.SetInt("Map7_Tutorial", 1);
             }
             textDone = false;
             stage++;
