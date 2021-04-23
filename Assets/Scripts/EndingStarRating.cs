@@ -236,7 +236,7 @@ public class EndingStarRating : MonoBehaviour
                         }
                         else if (LoadMainStage.mainStageKey == "Map7")
                         {
-                            if(blockCode <= 3)
+                            if(blockCode <= 4)
                             {
                                 //true
                                 Debug.Log("True");
