@@ -8,6 +8,7 @@ public class Tutorial_Activator : MonoBehaviour
     public string currentMapName = "";
     public bool creativeTutorial = false; // if this is creative tutorial
     public bool thisIsActive = false;
+    public bool thisIsMiniboss1 = false;
     [SerializeField] private GameObject blockSaveManager;
 
     void Start()
@@ -28,6 +29,10 @@ public class Tutorial_Activator : MonoBehaviour
                 }
                 else
                 {
+                    if (thisIsMiniboss1)
+                    {
+                        gameObject.SetActive(false);
+                    }
                     thisIsActive = true;
                 }
             }

@@ -3659,6 +3659,7 @@ MonoBehaviour:
   currentMapName: 
   creativeTutorial: 0
   thisIsActive: 0
+  thisIsMiniboss1: 1
   blockSaveManager: {fileID: 0}
 --- !u!114 &3912404316894831982
 MonoBehaviour:
@@ -3915,6 +3916,7 @@ MonoBehaviour:
   currentMapName: 
   creativeTutorial: 0
   thisIsActive: 0
+  thisIsMiniboss1: 0
   blockSaveManager: {fileID: 0}
 --- !u!4 &4502465054997200473
 Transform:
@@ -5878,6 +5880,7 @@ MonoBehaviour:
   currentMapName: 
   creativeTutorial: 0
   thisIsActive: 0
+  thisIsMiniboss1: 0
   blockSaveManager: {fileID: 0}
 --- !u!1 &9106478003866853279
 GameObject:

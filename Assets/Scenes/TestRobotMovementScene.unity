@@ -1341,6 +1341,7 @@ MonoBehaviour:
   currentMapName: 
   creativeTutorial: 0
   thisIsActive: 0
+  thisIsMiniboss1: 0
   blockSaveManager: {fileID: 0}
 --- !u!1 &337540332 stripped
 GameObject:
@@ -1832,6 +1833,7 @@ MonoBehaviour:
   currentMapName: 
   creativeTutorial: 0
   thisIsActive: 0
+  thisIsMiniboss1: 0
   blockSaveManager: {fileID: 0}
 --- !u!1 &419199608
 GameObject:
@@ -5576,6 +5578,7 @@ MonoBehaviour:
   currentMapName: 
   creativeTutorial: 0
   thisIsActive: 0
+  thisIsMiniboss1: 1
   blockSaveManager: {fileID: 0}
 --- !u!82 &4404038053795996148
 AudioSource:
