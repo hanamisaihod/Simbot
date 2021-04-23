@@ -84,7 +84,7 @@ public class LoadMainStage : MonoBehaviour
         {
             //Debug.Log("Name: " + item.GetComponentInChildren<Text>().text); 
             starRating.GetComponent<StarRating>().setDirectory();
-            //starRating.GetComponent<StarRating>().checkStar();
+            starRating.GetComponent<StarRating>().checkStar();
         }
     }
 
