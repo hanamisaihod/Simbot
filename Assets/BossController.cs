@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
-    public float boss1Delay = 0;
+    public float boss1Delay;
 	public GameObject boss1;
     void Start()
 	{
@@ -20,13 +20,10 @@ public class BossController : MonoBehaviour
 
 	public void StartSpawning()
 	{
-		if (boss1)
+		if (boss1 != null)
 		{
-			if (boss1.activeInHierarchy)
-			{
-				boss1.SetActive(false);
-				StartCoroutine(delayedSpawn(boss1Delay, boss1));
-			}
+			boss1.SetActive(false);
+			StartCoroutine(delayedSpawn(boss1Delay, boss1));
 		}
 	}
 
