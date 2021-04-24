@@ -46,9 +46,9 @@ public class Map9_Tutorial : MonoBehaviour
         infoButton.GetComponent<Button>().onClick.AddListener(ActivateTutorial);
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
-        fullText[0] = "Neko : Now let’s be more careful. We have found a new obstacle. It's the ice floor.";
-        fullText[1] = "Johny : Ice floor?";
-        fullText[2] = "Neko : The slippery ice floor will cause the robots to move abnormally. I suggest you command the robot to move slowly when on ice.";
+        fullText[0] = "Neko: Now let’s be more careful. We have found a new obstacle. It's the ice floor.";
+        fullText[1] = "Johny: Ice floor?";
+        fullText[2] = "Neko: The slippery ice floor will cause the robots to move abnormally. I suggest you command the robot to move slowly when on ice.";
         stage = 0;
         foreach (Transform child in textBox1.transform)
         {

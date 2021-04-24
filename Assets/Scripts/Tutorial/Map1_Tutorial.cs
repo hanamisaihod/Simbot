@@ -30,7 +30,7 @@ public class Map1_Tutorial : MonoBehaviour
     public Sprite[] boyEmo;
     private string curreentLetter = "";
     private int stage = 0;
-    public int maxStage = 22;
+    public int maxStage = 23;
     Coroutine usingCor;
     Coroutine delayCor;
     private int textSum = 0;
@@ -48,6 +48,7 @@ public class Map1_Tutorial : MonoBehaviour
     public GameObject startCode;
     public GameObject tip_moveCode;
     public GameObject tip_set_move;
+    public GameObject tip_degree;
 
 
     void Start()
@@ -64,32 +65,33 @@ public class Map1_Tutorial : MonoBehaviour
         var textBox1Script = textBox1.GetComponent<Textbox>();
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
-        fullText[0] = "Johny : Wow!! Amazing!!";
-        fullText[1] = "Johny : But, how do I play?";
-        fullText[2] = "Neko : In this scene, you will be able to see all the obstacles in the mission before you start programming.";
-        fullText[3] = "Neko : You can change the camera position by using the joystick on the left,\n" +
+        fullText[0] = "Johny: Wow!! Amazing!!";
+        fullText[1] = "Johny: But, how do I play?";
+        fullText[2] = "Neko: In this scene, you will be able to see all the obstacles in the mission before you start programming.";
+        fullText[3] = "Neko: You can change the camera position by using the joystick on the left, " +
             "and you can change the camera angle using the joystick on the right.";
-        fullText[4] = "Neko : The starting point is right here.";
-        fullText[5] = "Neko : The destination is here.";
-        fullText[6] = "Neko : In this mission, you just need to write a program for the robot to walk to the destination.";
-        fullText[7] = "Johny : Doesn't seem too hard.";
-        fullText[8] = "Neko : That’s the spirit! Alright, if you want to start writing the program,\n" +
+        fullText[4] = "Neko: The starting point is right here.";
+        fullText[5] = "Neko: The destination is here.";
+        fullText[6] = "Neko: In this mission, you just need to write a program for the robot to walk to the destination.";
+        fullText[7] = "Johny: Doesn't seem too hard.";
+        fullText[8] = "Neko: That’s the spirit! Alright, if you want to start writing the program, " +
             "you can just press the code button right there.";
         fullText[9] = "";
         fullText[10] = "";
-        fullText[11] = "Neko : Let’s start writing a program.";
-        fullText[12] = "Neko : The start block is the starting point of the program.\n" +
+        fullText[11] = "Neko: Let’s start writing a program.";
+        fullText[12] = "Neko: The start block is the starting point of the program. " +
             "The Robot will begin reading the program from this block.";
-        fullText[13] = "Neko : You can choose other types of blocks from the box on the right-hand side.";
-        fullText[14] = "Neko : The first block we're going to use is the Move block. Hold and drag to start block.";
-        fullText[15] = "Neko : In the Move block, the first box is for the forward movement speed of the robot, in block per second.";
-        fullText[16] = "Neko : Of course, you can also enter a negative value to move backward.";
-        fullText[17] = "Neko : The second one is the rotational speed of the robot, in degree per second.";
-        fullText[18] = "Neko : The last box is the number of seconds the robot follows the instruction for. ";
-        fullText[19] = "Neko : If you want the robot to follow the instructions until there’s a new Move command, you can set the delay to 9999.";
-        fullText[20] = "Neko : From the mission we’ve seen, let's set move speed to 1, rotate speed to 0, and delay to 4.";
-        fullText[21] = "Neko : If you want to go back to see the mission again, press the map button.";
-        fullText[22] = "Neko : If you want to test the program, you can press simulate button.";
+        fullText[13] = "Neko: You can choose other types of blocks from the box on the right-hand side.";
+        fullText[14] = "Neko: The first block we're going to use is the Move block. Hold and drag to start block.";
+        fullText[15] = "Neko: In the Move block, the first box is for the forward movement speed of the robot, in block per second.";
+        fullText[16] = "Neko: Of course, you can also enter a negative value to move backward.";
+        fullText[17] = "Neko: The second one is the rotational speed of the robot, in degree per second.";
+        fullText[18] = "Neko: And of course, you can also enter a negative value to rotate opposite direction.";
+        fullText[19] = "Neko: The last box is the number of seconds the robot follows the instruction for. ";
+        fullText[20] = "Neko: If you want the robot to follow the instructions until there’s a new Move command, you can set the delay to 9999.";
+        fullText[21] = "Neko: From the mission we’ve seen, let's set move speed to 1, rotate speed to 0, and delay to 4.";
+        fullText[22] = "Neko: If you want to go back to see the mission again, press the map button.";
+        fullText[23] = "Neko: If you want to test the program, you can press simulate button.";
 
         stage = 0;
         foreach (Transform child in textBox1.transform)
@@ -195,7 +197,7 @@ public class Map1_Tutorial : MonoBehaviour
                 Boy.GetComponent<Image>().sprite = boyEmo[4];
             else if (stage == 16)
                 Boy.GetComponent<Image>().sprite = boyEmo[0];
-            else if (stage == 21)
+            else if (stage == 22)
                 Boy.GetComponent<Image>().sprite = boyEmo[4];
 
 
@@ -247,27 +249,47 @@ public class Map1_Tutorial : MonoBehaviour
                 tip_moveCode.SetActive(false);
             if(stage == 16)
             {
+                tip_degree.SetActive(false);
                 tip_set_move.SetActive(true);
                 ClickIcon4.SetActive(true);
                 ClickIcon5.SetActive(false);
                 ClickIcon6.SetActive(false);
             }
+            else if(stage == 17)
+            {
+                tip_degree.SetActive(false);
+                tip_set_move.SetActive(true);
+                ClickIcon4.SetActive(false);
+                ClickIcon5.SetActive(false);
+                ClickIcon6.SetActive(false);
+            }
             else if(stage == 18)
             {
+                tip_degree.SetActive(false);
                 tip_set_move.SetActive(true);
                 ClickIcon4.SetActive(false);
                 ClickIcon5.SetActive(true);
                 ClickIcon6.SetActive(false);
             }
-            else if(stage == 19)
+            else if (stage == 19)
             {
+                tip_degree.SetActive(true);
+                tip_set_move.SetActive(false);
+                ClickIcon4.SetActive(false);
+                ClickIcon5.SetActive(false);
+                ClickIcon6.SetActive(false);
+            }
+            else if(stage == 20)
+            {
+                tip_degree.SetActive(false);
                 tip_set_move.SetActive(true);
                 ClickIcon4.SetActive(false);
                 ClickIcon5.SetActive(false);
                 ClickIcon6.SetActive(true);
             }
-            else if (stage == 21)
+            else if (stage == 22)
             {
+                tip_degree.SetActive(false);
                 tip_set_move.SetActive(true);
                 ClickIcon4.SetActive(false);
                 ClickIcon5.SetActive(false);
@@ -275,12 +297,13 @@ public class Map1_Tutorial : MonoBehaviour
             }
             else
             {
+                tip_degree.SetActive(false);
                 tip_set_move.SetActive(false);
                 ClickIcon4.SetActive(false);
                 ClickIcon5.SetActive(false);
                 ClickIcon6.SetActive(false);
             }
-            if (stage == 22)
+            if (stage == 23)
             {
                 ClickIcon3.SetActive(true);
                 map_button.GetComponent<Image>().enabled = true;
@@ -290,11 +313,11 @@ public class Map1_Tutorial : MonoBehaviour
                 ClickIcon3.SetActive(false);
                 map_button.GetComponent<Image>().enabled = false;
             }
-            if(stage == 23)
+            if(stage == 24)
                 simulate_button.GetComponent<Image>().enabled = true;
             else
                 simulate_button.GetComponent<Image>().enabled = false;
-            if(stage == 24)
+            if(stage == 25)
             {
                 textDone = true;
                 partDone = 2;

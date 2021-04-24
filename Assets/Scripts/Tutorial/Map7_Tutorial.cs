@@ -50,15 +50,15 @@ public class Map7_Tutorial : MonoBehaviour
         var textBox1Script = textBox1.GetComponent<Textbox>();
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
-        fullText[0] = "Johny : Whew! How did I make it through all that!";
-        fullText[1] = "Neko : Ha! You really are his son!";
+        fullText[0] = "Johny: Whew! How did I make it through all that!";
+        fullText[1] = "Neko: Ha! You really are his son!";
         fullText[2] = "";
         fullText[3] = "";
-        fullText[4] = "Neko : Now, I will introduce you to new types of blocks. Under the Move block is the If block. It will execute the code inside only if the condition is true.";
-        fullText[5] = "Neko : Conditions will be different depending on the robot used for the mission. For this robot, it will detect the distance in the direction we set.";
-        fullText[6] = "Neko : For example, the front is 0 degrees and the right is 90 degrees.";
-        fullText[7] = "Neko : The last one is the While block that repeats the code inside until the condition is false.";
-        fullText[8] = "Neko : In this mission, try writing a program like this.";
+        fullText[4] = "Neko: Now, I will introduce you to new types of blocks. Under the Move block is the If block. It will execute the code inside only if the condition is true.";
+        fullText[5] = "Neko: Conditions will be different depending on the robot used for the mission. For this robot, it will detect the distance in the direction we set.";
+        fullText[6] = "Neko: For example, the front is 0 degrees and the right is 90 degrees.";
+        fullText[7] = "Neko: The last one is the While block that repeats the code inside until the condition is false.";
+        fullText[8] = "Neko: In this mission, try writing a program like this.";
         foreach (Transform child in textBox1.transform)
         {
             if (child.name == "Text")

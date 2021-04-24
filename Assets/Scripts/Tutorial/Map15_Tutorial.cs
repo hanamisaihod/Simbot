@@ -46,10 +46,10 @@ public class Map15_Tutorial : MonoBehaviour
         infoButton.GetComponent<Button>().onClick.AddListener(ActivateTutorial);
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
-        fullText[0] = "Neko : This is bad. The destination is locked.";
-        fullText[1] = "Johny : What do I do!?";
-        fullText[2] = "Neko : We have to restore the system. Do you see that cube? You have to deliver the cube to the pick-up point of the same color.";
-        fullText[3] = "Johny : Understood!";
+        fullText[0] = "Neko: This is bad. The destination is locked.";
+        fullText[1] = "Johny: What do I do!?";
+        fullText[2] = "Neko: We have to restore the system. Do you see that cube? You have to deliver the cube to the pick-up point of the same color.";
+        fullText[3] = "Johny: Understood!";
         stage = 0;
         foreach (Transform child in textBox1.transform)
         {

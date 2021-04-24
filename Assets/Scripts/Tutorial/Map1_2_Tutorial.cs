@@ -45,8 +45,8 @@ public class Map1_2_Tutorial : MonoBehaviour
         }
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
-        fullText[0] = "Neko : The bar at the bottom is the remaining durability of the robot. If the robot hits a wall or falls off the map, its durability will decrease. And when the durability reaches 0, the mission fails.";
-        fullText[1] = "Johny : Oh my god!!!";
+        fullText[0] = "Neko: The bar at the bottom is the remaining durability of the robot. If the robot hits a wall or falls off the map, its durability will decrease. And when the durability reaches 0, the mission fails.";
+        fullText[1] = "Johny: Oh my god!!!";
         foreach (Transform child in textBox1.transform)
         {
             if (child.name == "Text")

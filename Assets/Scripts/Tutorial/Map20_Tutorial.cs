@@ -50,8 +50,8 @@ public class Map20_Tutorial : MonoBehaviour
         infoButton.GetComponent<Button>().onClick.AddListener(ActivateTutorial);
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
-        fullText[0] = "Neko : What else now?";
-        fullText[1] = "Johny : Arghhhhhhh!";
+        fullText[0] = "Neko: What else now?";
+        fullText[1] = "Johny: Arghhhhhhh!";
         foreach (Transform child in textBox1.transform)
         {
             if (child.name == "Text")

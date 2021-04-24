@@ -51,8 +51,8 @@ public class Creative_Tutorial : MonoBehaviour
         infoButton.GetComponent<Button>().onClick.AddListener(ActivateTutorial);
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
-        fullText[0] = "Neko : For creating missions, You can select a structure or obstacle from the toolbar underneath it.";
-        fullText[1] = "Neko : The building outline will appear in the scene. The icons in the top right corner are used to delete, rotate, and confirm building locations respectively.";
+        fullText[0] = "Neko: For creating missions, You can select a structure or obstacle from the toolbar underneath it.";
+        fullText[1] = "Neko: The building outline will appear in the scene. The icons in the top right corner are used to delete, rotate, and confirm building locations respectively.";
         foreach (Transform child in textBox1.transform)
         {
             if (child.name == "Text")

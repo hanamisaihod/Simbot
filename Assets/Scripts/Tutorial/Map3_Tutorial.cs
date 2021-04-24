@@ -44,8 +44,8 @@ public class Map3_Tutorial : MonoBehaviour
         infoButton.GetComponent<Button>().onClick.AddListener(ActivateTutorial);
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
-        fullText[0] = "Johny : Getting all 3 stars is really difficult...";
-        fullText[1] = "Neko : Hahaha, that was nothing! Now, it’s time to try using more than one move block.";
+        fullText[0] = "Johny: Getting all 3 stars is really difficult...";
+        fullText[1] = "Neko: Hahaha, that was nothing! Now, it’s time to try using more than one move block.";
         stage = 0;
         foreach (Transform child in textBox1.transform)
         {

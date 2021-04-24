@@ -48,12 +48,12 @@ public class Map13_Tutorial : MonoBehaviour
         infoButton.GetComponent<Button>().onClick.AddListener(ActivateTutorial);
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
-        fullText[0] = "Johny : Wait! What's this now!?";
-        fullText[1] = "Neko : That’s right. From now on, certain missions will have black lines for the robot to follow. And there is a new obstacle: the wind turbine. If not careful, the robot will be blown away.";
+        fullText[0] = "Johny: Wait! What's this now!?";
+        fullText[1] = "Neko: That’s right. From now on, certain missions will have black lines for the robot to follow. And there is a new obstacle: the wind turbine. If not careful, the robot will be blown away.";
         fullText[2] = "";
         fullText[3] = "";
-        fullText[4] = "Neko : Now, you can use the other if condition. This will check the color of the sensors found on the left and right underneath the robot.";
-        fullText[5] = "Neko : Try making a program like this.";
+        fullText[4] = "Neko: Now, you can use the other if condition. This will check the color of the sensors found on the left and right underneath the robot.";
+        fullText[5] = "Neko: Try making a program like this.";
         foreach (Transform child in textBox1.transform)
         {
             if (child.name == "Text")

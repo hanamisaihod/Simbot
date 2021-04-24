@@ -46,12 +46,12 @@ public class Map18_Tutorial : MonoBehaviour
         infoButton.GetComponent<Button>().onClick.AddListener(ActivateTutorial);
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
-        fullText[0] = "Neko : We are close to the core…";
-        fullText[1] = "Neko : What is that?...";
-        fullText[2] = "Johny : The ground looks like it’s ready to explode at any time.";
-        fullText[3] = "Neko : Originally, this game did not have such obstacles that could harm the players this badly…";
-        fullText[4] = "Neko : It must be because of the virus. It's good that the color sensor can detect the red warning zone before each eruption.";
-        fullText[5] = "Neko : Be careful.";
+        fullText[0] = "Neko: We are close to the core…";
+        fullText[1] = "Neko: What is that?...";
+        fullText[2] = "Johny: The ground looks like it’s ready to explode at any time.";
+        fullText[3] = "Neko: Originally, this game did not have such obstacles that could harm the players this badly…";
+        fullText[4] = "Neko: It must be because of the virus. It's good that the color sensor can detect the red warning zone before each eruption.";
+        fullText[5] = "Neko: Be careful.";
         stage = 0;
         foreach (Transform child in textBox1.transform)
         {

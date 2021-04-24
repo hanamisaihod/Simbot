@@ -48,11 +48,11 @@ public class Mission_Tutorial : MonoBehaviour
         Meow1Script.showRTrigger = true;
         LeanTween.moveLocalX(Boy, Boy.transform.localPosition.x + 380f, 0.5f).setEaseInOutBack();
         fullText = new string[50];
-        fullText[0] = "Neko : You can select the mission that you want to play in this menu.";
-        fullText[1] = "Neko : If you fail to complete a mission, you won’t be able to play the next one.";
-        fullText[2] = "Johny : What!? I won’t make any progress if I fail!?";
-        fullText[3] = "Neko : Don’t worry. You only need to fulfill at least one requirement of each mission to complete it.";
-        fullText[4] = "Neko : Once you selected a mission, the game will show you the requirements.\nThen, you can press confirm.";
+        fullText[0] = "Neko: You can select the mission that you want to play in this menu.";
+        fullText[1] = "Neko: If you fail to complete a mission, you won’t be able to play the next one.";
+        fullText[2] = "Johny: What!? I won’t make any progress if I fail!?";
+        fullText[3] = "Neko: Don’t worry. You only need to fulfill at least one requirement of each mission to complete it.";
+        fullText[4] = "Neko: Once you selected a mission, the game will show you the requirements. Then, you can press confirm.";
         stage = 0;
         foreach (Transform child in textBox1.transform)
         {

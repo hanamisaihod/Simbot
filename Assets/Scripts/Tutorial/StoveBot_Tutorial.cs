@@ -47,16 +47,16 @@ public class StoveBot_Tutorial : MonoBehaviour
         Meow1Script.showRTrigger = true;
         LeanTween.moveLocalX(Boy, Boy.transform.localPosition.x + 380f, 0.5f).setEaseInOutBack();
         fullText = new string[50];
-        fullText[0] = "Johny : I can’t take this anymore... Why is it so difficult?";
-        fullText[1] = "Neko : After this, the levels will be even more difficult, which are beyond the capabilities of the Turtlebot.";
-        fullText[2] = "Johny : Even more difficult!?";
-        fullText[3] = "Neko : So, I will introduce you to another robot named “StoveBot”.";
-        fullText[4] = "Johny : StoveBot?";
-        fullText[5] = "Neko : The StoveBot has two color sensors underneath it which can provide color feedback to the robot.";
-        fullText[6] = "Neko : The sensors are underneath the body because in practicality,\n" +
+        fullText[0] = "Johny: I can’t take this anymore... Why is it so difficult?";
+        fullText[1] = "Neko: After this, the levels will be even more difficult, which are beyond the capabilities of the Turtlebot.";
+        fullText[2] = "Johny: Even more difficult!?";
+        fullText[3] = "Neko: So, I will introduce you to another robot named “StoveBot”.";
+        fullText[4] = "Johny: StoveBot?";
+        fullText[5] = "Neko: The StoveBot has two color sensors underneath it which can provide color feedback to the robot.";
+        fullText[6] = "Neko: The sensors are underneath the body because in practicality, " +
             "the robot has to walk along the lines on the floor and carry goods to other places precisely.";
-        fullText[7] = "Johny : I see.";
-        fullText[8] = "Neko : If you are ready, hit the next button, and let’s get started!";
+        fullText[7] = "Johny: I see.";
+        fullText[8] = "Neko: If you are ready, hit the next button, and let’s get started!";
 
         stage = 0;
         foreach (Transform child in textBox1.transform)

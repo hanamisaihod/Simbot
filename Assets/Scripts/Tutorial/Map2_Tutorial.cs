@@ -44,9 +44,9 @@ public class Map2_Tutorial : MonoBehaviour
         infoButton.GetComponent<Button>().onClick.AddListener(ActivateTutorial);
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
-        fullText[0] = "Johny : Yes! I did it!";
-        fullText[1] = "Neko : Good, now let's try this mission";
-        fullText[2] = "Neko : Okay, in this mission, if you want all three stars, you can use only one move block. " +
+        fullText[0] = "Johny: Yes! I did it!";
+        fullText[1] = "Neko: Good, now let's try this mission";
+        fullText[2] = "Neko: Okay, in this mission, if you want all three stars, you can use only one move block. " +
             "I recommend that you try using both the move speed and rotate speed.";
         stage = 0;
         foreach (Transform child in textBox1.transform)

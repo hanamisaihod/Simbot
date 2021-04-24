@@ -48,15 +48,15 @@ public class TurtleBot_Tutorial : MonoBehaviour
         Meow1Script.showRTrigger = true;
         LeanTween.moveLocalX(Boy, Boy.transform.localPosition.x + 380f, 0.5f).setEaseInOutBack();
         fullText = new string[50];
-        fullText[0] = "Neko : This is the robot that will help us clear the missions.";
-        fullText[1] = "Neko : This one is the “TurtleBot”. It is inspired by transport robots.\n" +
+        fullText[0] = "Neko: This is the robot that will help us clear the missions.";
+        fullText[1] = "Neko: This one is the “TurtleBot”. It is inspired by transport robots.\n" +
             "It has a distance sensor on its head to detect things in 360 degrees.";
-        fullText[2] = "Johny : Subarashiiiiiiiiiiii !!!!!!!!!!!!! (Amazing!!!)";
-        fullText[3] = "Johny : So how good is the distance sensor?";
-        fullText[4] = "Neko : It helps the robot to know the distance between itself and the target object. " +
+        fullText[2] = "Johny: Subarashiiiiiiiiiiii !!!!!!!!!!!!! (Amazing!!!)";
+        fullText[3] = "Johny: So how good is the distance sensor?";
+        fullText[4] = "Neko: It helps the robot to know the distance between itself and the target object. " +
             "It lets know when to stop the robot before it collides.";
-        fullText[5] = "Johny : I see.";
-        fullText[6] = "Neko : If you are ready, hit the next button, and let’s get started!";
+        fullText[5] = "Johny: I see.";
+        fullText[6] = "Neko: If you are ready, hit the next button, and let’s get started!";
         stage = 0;
         foreach (Transform child in textBox1.transform)
         {

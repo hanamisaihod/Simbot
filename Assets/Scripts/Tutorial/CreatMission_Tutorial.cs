@@ -42,7 +42,7 @@ public class CreatMission_Tutorial : MonoBehaviour
         }
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
-        fullText[0] = "Neko : In this mode, you can create your own missions. Just press the “create new” button, select the robot you want to use for the mission, and get started.";
+        fullText[0] = "Neko: In this mode, you can create your own missions. Just press the “create new” button, select the robot you want to use for the mission, and get started.";
         foreach (Transform child in textBox1.transform)
         {
             if (child.name == "Text")

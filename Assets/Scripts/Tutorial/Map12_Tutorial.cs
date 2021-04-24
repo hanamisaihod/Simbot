@@ -47,10 +47,10 @@ public class Map12_Tutorial : MonoBehaviour
         infoButton.GetComponent<Button>().onClick.AddListener(ActivateTutorial);
         playAudio = GetComponent<AudioSource>();
         fullText = new string[50];
-        fullText[0] = "Johny : What happened!?";
-        fullText[1] = "Neko : This is bad. The virus realized that we were trying to get in. It will come to stop us for sure.";
-        fullText[2] = "Neko : In this mission, we have to complete it as carefully and as quickly as possible.";
-        fullText[3] = "Johny : Let's do it.";
+        fullText[0] = "Johny: What happened!?";
+        fullText[1] = "Neko: This is bad. The virus realized that we were trying to get in. It will come to stop us for sure.";
+        fullText[2] = "Neko: In this mission, we have to complete it as carefully and as quickly as possible.";
+        fullText[3] = "Johny: Let's do it.";
         stage = 0;
         foreach (Transform child in textBox1.transform)
         {
