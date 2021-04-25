@@ -18,13 +18,13 @@ public class BuildingHandler : MonoBehaviour
 	public float timer = 1;
 	public GameObject startConnector, ifConnector, doConnector;
 	public int currentRepeatTimes = 0;
-    public GameObject speedDrop, torqueDrop, delayDrop, ifDrop, degreeDrop, compareDegreeDrop, distanceDrop, compareLeftDrop, compareRightDrop, colorLeftDrop, colorRightDrop, repeatDrop, timesDrop;
+    public GameObject speedDrop, torqueDrop, delayDrop, ifDrop, degreeDrop, compareDegreeDrop, distanceDrop, compareLeftDrop, compareRightDrop, colorLeftDrop, colorRightDrop, repeatDrop, timesDrop, andDrop;
 	public GameObject canvas;
     public Vector3 pos;
 
     //Variables to be saved
     public int blockNum;
-    public int ifChoice, compareDegreeChoice, compareLeftChoice, compareRightChoice, colorLeftChoice, colorRightChoice, repeatChoice, timesChoice;
+    public int ifChoice, compareDegreeChoice, compareLeftChoice, compareRightChoice, colorLeftChoice, colorRightChoice, repeatChoice, timesChoice, andChoice;
     public float speedChoice, torqueChoice, delayChoice, degreeChoice, distanceChoice;
     public int[] dropActives;
 
@@ -39,7 +39,7 @@ public class BuildingHandler : MonoBehaviour
 			}
 		}
 		UpdateHeight();
-        dropActives = new int[13];
+        dropActives = new int[14];
 
 	}
 

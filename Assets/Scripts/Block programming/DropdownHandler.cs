@@ -8,7 +8,7 @@ public class DropdownHandler : MonoBehaviour
 {
     public int prevIf, prevRepeat ,prevTimes;
     public float prevDistance;
-    public GameObject speedDrop, torqueDrop, delayDrop, ifDrop, degreeDrop, compareDegreeDrop, distanceDrop, compareLeftDrop, compareRightDrop, colorLeftDrop, colorRightDrop, repeatDrop, timesDrop;
+    public GameObject speedDrop, torqueDrop, delayDrop, ifDrop, degreeDrop, compareDegreeDrop, distanceDrop, compareLeftDrop, compareRightDrop, colorLeftDrop, colorRightDrop, repeatDrop, timesDrop, andDrop;
     private BuildingHandler parentHandlerScript;
 	public GameObject centerExtendPart, tailExtendPart;
 	public List<GameObject> tempList;
@@ -19,7 +19,7 @@ public class DropdownHandler : MonoBehaviour
 		tempList.Add(speedDrop); tempList.Add(torqueDrop); tempList.Add(delayDrop); tempList.Add(ifDrop);
 		tempList.Add(degreeDrop); tempList.Add(compareDegreeDrop); tempList.Add(distanceDrop); tempList.Add(compareLeftDrop);
         tempList.Add(compareRightDrop); tempList.Add(colorLeftDrop); tempList.Add(colorRightDrop); tempList.Add(repeatDrop);
-        tempList.Add(timesDrop);
+        tempList.Add(timesDrop); tempList.Add(andDrop);
 
         UpdateActiveOptions();
 	}
@@ -254,13 +254,17 @@ public class DropdownHandler : MonoBehaviour
         {
             //parentHandlerScript.ExtendTop(0, centerExtendPart, tailExtendPart);
             degreeDrop.SetActive(true); compareDegreeDrop.SetActive(true); distanceDrop.SetActive(true);
-            compareLeftDrop.SetActive(false); compareRightDrop.SetActive(false); colorLeftDrop.SetActive(false); colorRightDrop.SetActive(false);
+
+            compareLeftDrop.SetActive(false); compareRightDrop.SetActive(false); colorLeftDrop.SetActive(false); 
+            colorRightDrop.SetActive(false); andDrop.SetActive(false);
         }
         else if (prevIf != 1 && val == 1)
         {
             //parentHandlerScript.ExtendTop(1, centerExtendPart, tailExtendPart);
             degreeDrop.SetActive(false); compareDegreeDrop.SetActive(false); distanceDrop.SetActive(false);
-            compareLeftDrop.SetActive(true); compareRightDrop.SetActive(true); colorLeftDrop.SetActive(true); colorRightDrop.SetActive(true);
+
+            compareLeftDrop.SetActive(true); compareRightDrop.SetActive(true); colorLeftDrop.SetActive(true);
+            colorRightDrop.SetActive(true); andDrop.SetActive(true);
         }
         prevIf = val;
         //DisplayBlockOptions();
@@ -286,6 +290,7 @@ public class DropdownHandler : MonoBehaviour
         parentHandlerScript.compareDegreeChoice = val;
         UpdateActiveOptions();
     }
+
     public void HandleDistanceField(string val)
     {
         if (distanceDrop != null)
@@ -338,28 +343,28 @@ public class DropdownHandler : MonoBehaviour
             //parentHandlerScript.ExtendTop(0, centerExtendPart, tailExtendPart);
             timesDrop.SetActive(false);
             degreeDrop.SetActive(false); compareDegreeDrop.SetActive(false); distanceDrop.SetActive(false);
-            compareLeftDrop.SetActive(false); compareRightDrop.SetActive(false); colorLeftDrop.SetActive(false); colorRightDrop.SetActive(false);
+            compareLeftDrop.SetActive(false); compareRightDrop.SetActive(false); colorLeftDrop.SetActive(false); colorRightDrop.SetActive(false); andDrop.SetActive(false);
         }
         else if (prevRepeat != 1 && val == 1) // x times
         {
             //parentHandlerScript.ExtendTop(1, centerExtendPart, tailExtendPart);
             timesDrop.SetActive(true);
             degreeDrop.SetActive(false); compareDegreeDrop.SetActive(false); distanceDrop.SetActive(false);
-            compareLeftDrop.SetActive(false); compareRightDrop.SetActive(false); colorLeftDrop.SetActive(false); colorRightDrop.SetActive(false);
+            compareLeftDrop.SetActive(false); compareRightDrop.SetActive(false); colorLeftDrop.SetActive(false); colorRightDrop.SetActive(false); andDrop.SetActive(false);
         }
         else if (prevRepeat != 2 && val == 2) //distance
         {
             //parentHandlerScript.ExtendTop(1, centerExtendPart, tailExtendPart);
             timesDrop.SetActive(false);
             degreeDrop.SetActive(true); compareDegreeDrop.SetActive(true); distanceDrop.SetActive(true);
-            compareLeftDrop.SetActive(false); compareRightDrop.SetActive(false); colorLeftDrop.SetActive(false); colorRightDrop.SetActive(false);
+            compareLeftDrop.SetActive(false); compareRightDrop.SetActive(false); colorLeftDrop.SetActive(false); colorRightDrop.SetActive(false); andDrop.SetActive(false);
         }
         else if (prevRepeat != 3 && val == 3) // color
         {
             //parentHandlerScript.ExtendTop(1, centerExtendPart, tailExtendPart);
             timesDrop.SetActive(false);
             degreeDrop.SetActive(false); compareDegreeDrop.SetActive(false); distanceDrop.SetActive(false);
-            compareLeftDrop.SetActive(true); compareRightDrop.SetActive(true); colorLeftDrop.SetActive(true); colorRightDrop.SetActive(true);
+            compareLeftDrop.SetActive(true); compareRightDrop.SetActive(true); colorLeftDrop.SetActive(true); colorRightDrop.SetActive(true); andDrop.SetActive(true);
         }
         prevRepeat = val;
         UpdateActiveOptions();
@@ -388,6 +393,13 @@ public class DropdownHandler : MonoBehaviour
             UpdateActiveOptions();
         }
     }
+
+    public void HandleAndDropdown(int val)
+    {
+        parentHandlerScript.andChoice = val;
+        UpdateActiveOptions();
+    }
+
     public void DisplayBlockOptions()
     {
         Debug.Log("Speed:" + parentHandlerScript.speedChoice + "\n" +
@@ -401,7 +413,8 @@ public class DropdownHandler : MonoBehaviour
 				"Right:" + parentHandlerScript.compareRightChoice + "\n" +
 				"ColorLeft:" + parentHandlerScript.colorLeftChoice + "\n" +
 				"ColorRigt:" + parentHandlerScript.colorRightChoice + "\n" +
-				"Repeat:" + parentHandlerScript.repeatChoice + "\n" +
+                "And:" + parentHandlerScript.andChoice + "\n" +
+                "Repeat:" + parentHandlerScript.repeatChoice + "\n" +
 				"Times:" + parentHandlerScript.timesChoice + "\n"); 
 	}
 

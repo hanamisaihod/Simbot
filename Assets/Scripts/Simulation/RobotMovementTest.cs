@@ -588,92 +588,122 @@ public class RobotMovementTest : MonoBehaviour
             return false;
         }
         RaycastHit leftHit;
+        string leftTag = "";
         RaycastHit rightHit;
+        string rightTag = "";
         int correctCount = 0;
         if (Physics.Raycast(leftColorSensor.transform.position, -leftColorSensor.transform.up, out leftHit, Mathf.Infinity))
         {
-            //Debug.LogError("left sensor found tag: " + leftHit.collider.tag);
-            if (block.GetComponent<BuildingHandler>().colorLeftChoice == 0) // If left choose black
+            leftTag = leftHit.collider.tag;
+        }
+		else
+		{
+            leftTag = "Void";
+		}
+        //Debug.LogError("left sensor found tag: " + leftTag);
+        if (block.GetComponent<BuildingHandler>().colorLeftChoice == 0) // If left choose black
+        {
+            if (block.GetComponent<BuildingHandler>().compareLeftChoice == 0) // If left choose equal
             {
-                if (block.GetComponent<BuildingHandler>().compareLeftChoice == 0) // If left choose equal
+                if (leftTag == ("BlackLine"))
                 {
-                    if (leftHit.collider.CompareTag("BlackLine"))
-                    {
-                        correctCount++;
-                    }
-                }
-                else
-                {
-                    if (!leftHit.collider.CompareTag("BlackLine"))
-                    {
-                        correctCount++;
-                    }
+                    correctCount++;
                 }
             }
-            else // If left choose red
+            else
             {
-                if (block.GetComponent<BuildingHandler>().compareLeftChoice == 0) // If left choose equal
+                if (leftTag != ("BlackLine"))
                 {
-                    if (leftHit.collider.CompareTag("RedWarning"))
-                    {
-                        correctCount++;
-                    }
+                    correctCount++;
                 }
-                else
+            }
+        }
+        else // If left choose red
+        {
+            if (block.GetComponent<BuildingHandler>().compareLeftChoice == 0) // If left choose equal
+            {
+                if (leftTag == ("RedWarning"))
                 {
-                    if (!leftHit.collider.CompareTag("RedWarning"))
-                    {
-                        correctCount++;
-                    }
+                    correctCount++;
+                }
+            }
+            else
+            {
+                if (leftTag != ("RedWarning"))
+                {
+                    correctCount++;
                 }
             }
         }
         if (Physics.Raycast(rightColorSensor.transform.position, -rightColorSensor.transform.up, out rightHit, Mathf.Infinity))
         {
-            //Debug.LogError("right sensor found tag: " + rightHit.collider.tag);
-            if (block.GetComponent<BuildingHandler>().colorRightChoice == 0) // If right choose black
+            rightTag = rightHit.collider.tag;
+        }
+		else
+		{
+            rightTag = "Void";
+        }
+        //Debug.LogError("right sensor found tag: " + rightTag);
+        if (block.GetComponent<BuildingHandler>().colorRightChoice == 0) // If right choose black
+        {
+            if (block.GetComponent<BuildingHandler>().compareRightChoice == 0) // If right choose equal
             {
-                if (block.GetComponent<BuildingHandler>().compareRightChoice == 0) // If right choose equal
+                if (rightTag == ("BlackLine"))
                 {
-                    if (rightHit.collider.CompareTag("BlackLine"))
-                    {
-                        correctCount++;
-                    }
-                }
-                else
-                {
-                    if (!rightHit.collider.CompareTag("BlackLine"))
-                    {
-                        correctCount++;
-                    }
+                    correctCount++;
                 }
             }
-            else // If right choose red
+            else
             {
-                if (block.GetComponent<BuildingHandler>().compareRightChoice == 0) // If right choose equal
+                if (rightTag != ("BlackLine"))
                 {
-                    if (rightHit.collider.CompareTag("RedWarning"))
-                    {
-                        correctCount++;
-                    }
+                    correctCount++;
                 }
-                else
+            }
+        }
+        else // If right choose red
+        {
+            if (block.GetComponent<BuildingHandler>().compareRightChoice == 0) // If right choose equal
+            {
+                if (rightTag == ("RedWarning"))
                 {
-                    if (!rightHit.collider.CompareTag("RedWarning"))
-                    {
-                        correctCount++;
-                    }
+                    correctCount++;
+                }
+            }
+            else
+            {
+                if (rightTag != ("RedWarning"))
+                {
+                    correctCount++;
                 }
             }
         }
         //Debug.LogError("correctCount: " + correctCount);
-        if (correctCount == 2)
+        if (block.GetComponent<BuildingHandler>().andChoice == 0) // If use AND
         {
-            return true;
+            if (correctCount == 2)
+            {
+                //Debug.LogError("AND TRUE");
+                return true;
+            }
+            else
+            {
+                //Debug.LogError("AND FALSE");
+                return false;
+            }
         }
-        else
+        else // If use OR
         {
-            return false;
+            if (correctCount >= 1)
+            {
+                //Debug.LogError("OR TRUE");
+                return true;
+            }
+            else
+            {
+                //Debug.LogError("OR FALSE");
+                return false;
+            }
         }
     }
 

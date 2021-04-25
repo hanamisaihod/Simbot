@@ -62,6 +62,7 @@ public class BlockSaveAndLoad : MonoBehaviour
         PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "sch");
         PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "tch");
         PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "dch");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "ach");
         PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "dgch");
         PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "dich");
         PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "pi");
@@ -81,6 +82,7 @@ public class BlockSaveAndLoad : MonoBehaviour
         PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da10");
         PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da11");
         PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da12");
+        PlayerPrefs.DeleteKey(savename + currentObj.ToString() + "da13");
     }
 
     public void ClearStrayBlocks()
@@ -189,6 +191,7 @@ public class BlockSaveAndLoad : MonoBehaviour
             PlayerPrefs.SetFloat(name + currentObj.ToString() + "dch", block.GetComponent<BuildingHandler>().delayChoice);
             PlayerPrefs.SetFloat(name + currentObj.ToString() + "dgch", block.GetComponent<BuildingHandler>().degreeChoice);
             PlayerPrefs.SetFloat(name + currentObj.ToString() + "dich", block.GetComponent<BuildingHandler>().distanceChoice);
+            PlayerPrefs.SetInt(name + currentObj.ToString() + "ach", block.GetComponent<BuildingHandler>().andChoice);
 
             PlayerPrefs.SetInt(name + currentObj.ToString() + "pi", block.GetComponent<BuildingHandler>().canvas.GetComponent<DropdownHandler>().prevIf);
             PlayerPrefs.SetInt(name + currentObj.ToString() + "pr", block.GetComponent<BuildingHandler>().canvas.GetComponent<DropdownHandler>().prevRepeat);
@@ -208,6 +211,7 @@ public class BlockSaveAndLoad : MonoBehaviour
             PlayerPrefs.SetInt(name + currentObj.ToString() + "da10", block.GetComponent<BuildingHandler>().dropActives[10]);
             PlayerPrefs.SetInt(name + currentObj.ToString() + "da11", block.GetComponent<BuildingHandler>().dropActives[11]);
             PlayerPrefs.SetInt(name + currentObj.ToString() + "da12", block.GetComponent<BuildingHandler>().dropActives[12]);
+            PlayerPrefs.SetInt(name + currentObj.ToString() + "da13", block.GetComponent<BuildingHandler>().dropActives[13]);
 
             if (block.CompareTag("DoBlock"))
             {
@@ -414,6 +418,7 @@ public class BlockSaveAndLoad : MonoBehaviour
             tempBlock.GetComponent<BuildingHandler>().delayChoice = PlayerPrefs.GetFloat(name + current.ToString() + "dch");
             tempBlock.GetComponent<BuildingHandler>().degreeChoice = PlayerPrefs.GetFloat(name + current.ToString() + "dgch");
             tempBlock.GetComponent<BuildingHandler>().distanceChoice = PlayerPrefs.GetFloat(name + current.ToString() + "dich");
+            tempBlock.GetComponent<BuildingHandler>().andChoice = PlayerPrefs.GetInt(name + current.ToString() + "ach");
 
             //tempBlock.GetComponent<BuildingHandler>().canvas.GetComponent<DropdownHandler>().prevIf = PlayerPrefs.GetInt(name + current.ToString() + "pi");
             //tempBlock.GetComponent<BuildingHandler>().canvas.GetComponent<DropdownHandler>().prevRepeat = PlayerPrefs.GetInt(name + current.ToString() + "pr");
@@ -433,6 +438,7 @@ public class BlockSaveAndLoad : MonoBehaviour
             tempBlock.GetComponent<BuildingHandler>().dropActives[10] = PlayerPrefs.GetInt(name + current.ToString() + "da10");
             tempBlock.GetComponent<BuildingHandler>().dropActives[11] = PlayerPrefs.GetInt(name + current.ToString() + "da11");
             tempBlock.GetComponent<BuildingHandler>().dropActives[12] = PlayerPrefs.GetInt(name + current.ToString() + "da12");
+            tempBlock.GetComponent<BuildingHandler>().dropActives[13] = PlayerPrefs.GetInt(name + current.ToString() + "da13");
         }
         tempBlock.name = PlayerPrefs.GetString(name + current.ToString() + "name");
         //Don't know what this does exactly?
@@ -655,6 +661,10 @@ public class BlockSaveAndLoad : MonoBehaviour
             {
                 block.GetComponent<BuildingHandler>().colorRightDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().colorRightChoice;
             }
+            if (block.GetComponent<BuildingHandler>().dropActives[13] == 1) //andDrop
+            {
+                block.GetComponent<BuildingHandler>().andDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().andChoice;
+            }
         }
         else if (block.tag == "RepeatBlock")
         {
@@ -692,6 +702,10 @@ public class BlockSaveAndLoad : MonoBehaviour
                 if (block.GetComponent<BuildingHandler>().dropActives[10] == 1) //colorRightDrop
                 {
                     block.GetComponent<BuildingHandler>().colorRightDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().colorRightChoice;
+                }
+                if (block.GetComponent<BuildingHandler>().dropActives[13] == 1) //andDrop
+                {
+                    block.GetComponent<BuildingHandler>().andDrop.GetComponent<TMP_Dropdown>().value = block.GetComponent<BuildingHandler>().andChoice;
                 }
             }
         }

@@ -22,8 +22,11 @@ public class BossController : MonoBehaviour
 	{
 		if (boss1 != null)
 		{
-			boss1.SetActive(false);
-			StartCoroutine(delayedSpawn(boss1Delay, boss1));
+			if (boss1.GetComponent<Tutorial_Activator>().thisIsActive)
+			{
+				boss1.SetActive(false);
+				StartCoroutine(delayedSpawn(boss1Delay, boss1));
+			}
 		}
 	}
 
