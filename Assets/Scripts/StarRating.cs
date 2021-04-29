@@ -21,6 +21,7 @@ public class StarRating : MonoBehaviour
     public string[] mapRating;
     public StarRatingData SRData;
     public List<StarRatingData> SREnv = new List<StarRatingData>();
+    public Sprite close;
     //public static List<StarRatingData> staticSREnv = new List<StarRatingData>();
     public void setCondition()
     {       
@@ -133,6 +134,7 @@ public class StarRating : MonoBehaviour
                         if(item.mapStar1 != true && i != sizeOfList - 1)
                         {
                             LoadMainStage.buttonArray[i+1].GetComponent<UnityEngine.UI.Button>().enabled = false;
+                            LoadMainStage.buttonArray[i+1].GetComponent<Image>().sprite = close;
                         }
                     }
                 }

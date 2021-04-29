@@ -3623,6 +3623,7 @@ MonoBehaviour:
     mapStar2: 0
     mapStar3: 0
   SREnv: []
+  close: {fileID: 21300000, guid: 9266f0e570ab7da418cfbee692581ade, type: 3}
 --- !u!1 &857161201
 GameObject:
   m_ObjectHideFlags: 0
