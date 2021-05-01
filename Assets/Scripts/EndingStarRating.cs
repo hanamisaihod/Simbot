@@ -461,7 +461,7 @@ public class EndingStarRating : MonoBehaviour
                         }
                         else if (LoadMainStage.mainStageKey == "Map16")
                         {
-                            if(blockCode <= 20)
+                            if(blockCode <= 47)
                             {
                                 //true
                                 Debug.Log("True");
@@ -486,7 +486,7 @@ public class EndingStarRating : MonoBehaviour
                         }
                         else if (LoadMainStage.mainStageKey == "Map17")
                         {
-                            if(blockCode <= 20)
+                            if(blockCode <= 48)
                             {
                                 //true
                                 Debug.Log("True");
@@ -511,7 +511,7 @@ public class EndingStarRating : MonoBehaviour
                         }
                         else if (LoadMainStage.mainStageKey == "Map18")
                         {
-                            if(blockCode <= 20)
+                            if(blockCode <= 8)
                             {
                                 //true
                                 Debug.Log("True");
@@ -536,7 +536,7 @@ public class EndingStarRating : MonoBehaviour
                         }
                         else if (LoadMainStage.mainStageKey == "Map19")
                         {
-                            if(blockCode <= 20)
+                            if(blockCode <= 21)
                             {
                                 //true
                                 Debug.Log("True");
@@ -561,7 +561,7 @@ public class EndingStarRating : MonoBehaviour
                         }
                         else if (LoadMainStage.mainStageKey == "Map20")
                         {
-                            if(blockCode <= 20)
+                            if(blockCode <= 40)
                             {
                                 //true
                                 Debug.Log("True");
